@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto2;
+package Principal;
 
 /**
  *
  * @author criss
  */
-public class Proyecto2 {
+public class Principal {
 
     /**
      * @param args the command line arguments
