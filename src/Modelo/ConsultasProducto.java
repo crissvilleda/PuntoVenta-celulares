@@ -54,8 +54,7 @@ public class ConsultasProducto extends Pool {
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
         String sql = "UPDATE producto SET codigo=?, nombre=?, descripcion=?"
-                + "categoria=?, marca=?"
-                + "WHERE idProducto=?";
+                + "categoria=?, marca=? WHERE idProducto=?";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
             ps.setString(1, pro.getCodigo());
