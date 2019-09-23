@@ -54,7 +54,7 @@ public class ConsultasUsuario extends Pool{
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
         String sql = "UPDATE usuario SET nombre=?,apellido=?,email=?,telefono=?,"
-                + "tipo=?,genero=?,nombreUsuario=?,contraseña=? WHERE id=?";
+                + "tipo=?,genero=?,nombreUsuario=?,contraseña=? WHERE idUsuario=?";
         
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
@@ -89,7 +89,7 @@ public class ConsultasUsuario extends Pool{
     public boolean eliminar(Usuario usu){
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
-        String sql = "DELETE FROM usuario WHERE id=?";
+        String sql = "DELETE FROM usuario WHERE idUsuario=?";
         
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
