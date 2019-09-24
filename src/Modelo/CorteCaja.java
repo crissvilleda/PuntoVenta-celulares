@@ -10,7 +10,11 @@ package Modelo;
  * @author criss
  */
 public class CorteCaja {
-
+     private int idCorte;
+    private int idVenta;
+    private double saldoInicial;
+    private double saldoFinal;
+    
     public int getIdCorte() {
         return idCorte;
     }
@@ -42,9 +46,5 @@ public class CorteCaja {
     public void setSaldoFinal(double saldoFinal) {
         this.saldoFinal = saldoFinal;
     }
-    private int idCorte;
-    private int idVenta;
-    private double saldoInicial;
-    private double saldoFinal;
-    
+  
 }

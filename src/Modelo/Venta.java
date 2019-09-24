@@ -14,8 +14,9 @@ public class Venta {
     private String fecha;
     private int idUsuario;
     private int idCliente;
-    private double total;
     private int nArticulo;
+    private double total;
+    
     
     public Venta(){}
    

@@ -11,11 +11,11 @@ package Modelo;
  */
 public class Inventario {
     private int idInventario;
-    private int idProducto;
+    private String fechaLote;
+    private int nArticulo;
     private double precioCompra;
     private double precioVenta;
-    private int nArticulo;
-
+  
     public int getIdInventario() {
         return idInventario;
     }
@@ -24,13 +24,15 @@ public class Inventario {
         this.idInventario = idInventario;
     }
 
-    public int getIdProducto() {
-        return idProducto;
+    public String getFechaLote() {
+        return fechaLote;
     }
 
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
+    public void setFechaLote(String fechaLote) {
+        this.fechaLote = fechaLote;
     }
+
+    
 
     public double getPrecioCompra() {
         return precioCompra;
