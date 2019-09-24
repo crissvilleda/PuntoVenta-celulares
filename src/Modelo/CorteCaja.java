@@ -5,15 +5,27 @@
  */
 package Modelo;
 
+import java.sql.Date;
+
 /**
  *
  * @author criss
  */
 public class CorteCaja {
-     private int idCorte;
-    private int idVenta;
+    private int idCorte;
     private double saldoInicial;
     private double saldoFinal;
+    private Date fechaCorte;
+
+    public Date getFechaCorte() {
+        return fechaCorte;
+    }
+
+    public void setFechaCorte(Date fechaCorte) {
+        this.fechaCorte = fechaCorte;
+    }
+    
+   
     
     public int getIdCorte() {
         return idCorte;
@@ -21,14 +33,6 @@ public class CorteCaja {
 
     public void setIdCorte(int idCorte) {
         this.idCorte = idCorte;
-    }
-
-    public int getIdVenta() {
-        return idVenta;
-    }
-
-    public void setIdVenta(int idVenta) {
-        this.idVenta = idVenta;
     }
 
     public double getSaldoInicial() {

@@ -5,13 +5,15 @@
  */
 package Modelo;
 
+import java.sql.Date;
+
 /**
  *
  * @author criss
  */
 public class Inventario {
     private int idInventario;
-    private String fechaLote;
+    private Date fechaLote;
     private int nArticulo;
     private double precioCompra;
     private double precioVenta;
@@ -24,11 +26,11 @@ public class Inventario {
         this.idInventario = idInventario;
     }
 
-    public String getFechaLote() {
+    public Date getFechaLote() {
         return fechaLote;
     }
 
-    public void setFechaLote(String fechaLote) {
+    public void setFechaLote(Date fechaLote) {
         this.fechaLote = fechaLote;
     }
 

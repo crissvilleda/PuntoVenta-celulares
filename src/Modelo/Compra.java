@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import java.sql.Date;
+
 /**
  *
  * @author criss
@@ -13,11 +15,11 @@ public class Compra {
     private int idCompra;
     private int idUsuario;
     private int idProveedor;
-    private String fechaCompra;
+    private Date fechaCompra;
     private double total;
     
     public Compra(){}
-    public Compra(int ic, int iu,int ip,String fc,double t){
+    public Compra(int ic, int iu,int ip,Date fc,double t){
         this.idCompra =ic;
         this.idUsuario = iu;
         this.idProveedor = ip;
@@ -50,11 +52,11 @@ public class Compra {
     }
 
 
-    public String getFechaCompra() {
+    public Date getFechaCompra() {
         return fechaCompra;
     }
 
-    public void setFechaCompra(String fechaCompra) {
+    public void setFechaCompra(Date fechaCompra) {
         this.fechaCompra = fechaCompra;
     }
 

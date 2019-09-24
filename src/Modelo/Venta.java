@@ -5,13 +5,15 @@
  */
 package Modelo;
 
+import java.sql.Date;
+
 /**
  *
  * @author criss
  */
 public class Venta {
     private int idVenta;
-    private String fecha;
+    private Date fecha;
     private int idUsuario;
     private int idCliente;
     private int nArticulo;
@@ -28,11 +30,11 @@ public class Venta {
         this.idVenta = idVenta;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
