@@ -14,7 +14,6 @@ public class Venta {
     private String fecha;
     private int idUsuario;
     private int idCliente;
-    private int idProducto;
     private double total;
     private int nArticulo;
     
@@ -52,13 +51,6 @@ public class Venta {
         this.idCliente = idCliente;
     }
 
-    public int getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
-    }
 
     public double getTotal() {
         return total;

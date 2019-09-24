@@ -13,16 +13,14 @@ public class Compra {
     private int idCompra;
     private int idUsuario;
     private int idProveedor;
-    private int idProducto;
     private String fechaCompra;
     private double total;
     
     public Compra(){}
-    public Compra(int ic, int iu,int ip,int ipro,String fc,double t){
+    public Compra(int ic, int iu,int ip,String fc,double t){
         this.idCompra =ic;
         this.idUsuario = iu;
         this.idProveedor = ip;
-        this.idProducto = ipro;
         this.fechaCompra = fc;
         this.total = t;
     }
@@ -51,13 +49,6 @@ public class Compra {
         this.idProveedor = idProveedor;
     }
 
-    public int getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
-    }
 
     public String getFechaCompra() {
         return fechaCompra;
