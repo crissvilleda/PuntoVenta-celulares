@@ -28,6 +28,7 @@ public class Producto {
         this.categoria = ca;
         this.marca = m;
         
+        
     }
     
 
