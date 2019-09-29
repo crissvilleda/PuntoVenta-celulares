@@ -34,8 +34,7 @@ public class ControladorLogin implements ActionListener {
             if(consulta.iniciarSesion(modelo)){
                 JOptionPane.showMessageDialog(null,"Ingreso Exitoso");
             }else{
-                JOptionPane.showMessageDialog(null,"Error en nombre de usuario\n"
-                        + "o contreseña");
+                JOptionPane.showMessageDialog(null,"Nombre de usuario o contraseña");
                 
             }
         });
