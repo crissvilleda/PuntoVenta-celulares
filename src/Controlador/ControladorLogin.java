@@ -27,14 +27,20 @@ public class ControladorLogin implements ActionListener {
     public ControladorLogin(Login vista, Usuario modelo){
         this.vista = vista;
         this.modelo = modelo;
-        
+        //lee el evento del boton
         vista.btnIniciarSesion.addActionListener((ActionEvent ae) -> {
+            //obtiene la informacion para poder iniciar session
             modelo.setNombreUsuario(vista.jtxtUsuario.getText());
             modelo.setContraseña(vista.jPassword.toString());
+            //verifica existe el usuario
             if(consulta.iniciarSesion(modelo)){
+                //ingreso exitoso       
                 JOptionPane.showMessageDialog(null,"Ingreso Exitoso");
             }else{
+                //usuario no existe
                 JOptionPane.showMessageDialog(null,"Nombre de usuario o contraseña");
+                vista.jtxtUsuario.setText("");
+                vista.jPassword.setText("");
                 
             }
         });
