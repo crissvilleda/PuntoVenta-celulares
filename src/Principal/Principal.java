@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package Principal;
+import Modelo.ConsultasUsuario;
+import Controlador.ControladorLogin;
+import Modelo.Usuario;
+import Vista.Login;
 
 /**
  *
@@ -15,7 +19,12 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Login vista = new Login();
+        Usuario modelo = new Usuario();
+        ControladorLogin controlador = new ControladorLogin(vista,modelo);
+        
+        
+        controlador.iniciar();
     }
     
 }

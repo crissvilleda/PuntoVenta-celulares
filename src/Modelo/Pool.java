@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author Denis
  */
 public class Pool {
-    private  DataSource dataSource;
+    private DataSource dataSource;
     private final String db = "ventaCelulares";
     private final String url ="jdbc:mysql://localhost:3306/"+db;
     private final String user = "root";
