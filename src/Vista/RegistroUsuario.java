@@ -276,7 +276,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        Usuario form = new Usuario();
+        VUsuario form = new VUsuario();
         form.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel2MouseClicked

@@ -23,7 +23,6 @@ public class Principal {
         Usuario modelo = new Usuario();
         ControladorLogin controlador = new ControladorLogin(vista,modelo);
         
-        
         controlador.iniciar();
     }
     

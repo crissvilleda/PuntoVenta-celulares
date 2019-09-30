@@ -229,15 +229,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordActionPerformed
 
     private void jblbMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jblbMinimizarMouseClicked
-        this.setState(Login.ICONIFIED);
+
     }//GEN-LAST:event_jblbMinimizarMouseClicked
 
     private void jlblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblCerrarMouseClicked
-        int dialog =JOptionPane.YES_NO_OPTION;
-        int result=JOptionPane.showConfirmDialog(null, "Desea cerrar el programa?","Exit",dialog);
-        if (result==0){
-            System.exit(0);
-        }
+
     }//GEN-LAST:event_jlblCerrarMouseClicked
 
     private void jlblInternetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblInternetMouseClicked

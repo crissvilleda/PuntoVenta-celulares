@@ -32,7 +32,7 @@ public class Administrador extends javax.swing.JFrame {
 
         jPanelAdministrador = new javax.swing.JPanel();
         jlblMenu = new javax.swing.JLabel();
-        jblbMinimizar = new javax.swing.JLabel();
+        jlblMinimizar = new javax.swing.JLabel();
         jlblFacturas = new javax.swing.JLabel();
         jlblCorteCaja = new javax.swing.JLabel();
         jlblUsuarios = new javax.swing.JLabel();
@@ -70,13 +70,13 @@ public class Administrador extends javax.swing.JFrame {
         });
         jPanelAdministrador.add(jlblMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jblbMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Expand_Arrow_32px.png"))); // NOI18N
-        jblbMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlblMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Expand_Arrow_32px.png"))); // NOI18N
+        jlblMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jblbMinimizarMouseClicked(evt);
+                jlblMinimizarMouseClicked(evt);
             }
         });
-        jPanelAdministrador.add(jblbMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 10, -1, -1));
+        jPanelAdministrador.add(jlblMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 10, -1, -1));
 
         jlblFacturas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlblFacturas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/facturas.png"))); // NOI18N
@@ -196,42 +196,36 @@ public class Administrador extends javax.swing.JFrame {
         btnProveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/iconoProveedores.png"))); // NOI18N
         btnProveedores.setBorder(null);
         btnProveedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnProveedores.setPreferredSize(new java.awt.Dimension(70, 20));
         jPanelAdministrador.add(btnProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, -1, -1));
 
         btnEntradas.setBackground(new java.awt.Color(255, 255, 255));
         btnEntradas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/iconoEntradas.png"))); // NOI18N
         btnEntradas.setBorder(null);
         btnEntradas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEntradas.setPreferredSize(new java.awt.Dimension(70, 20));
         jPanelAdministrador.add(btnEntradas, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, -1, -1));
 
         btnInventario.setBackground(new java.awt.Color(255, 255, 255));
         btnInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/iconoInventario.png"))); // NOI18N
         btnInventario.setBorder(null);
         btnInventario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnInventario.setPreferredSize(new java.awt.Dimension(70, 20));
         jPanelAdministrador.add(btnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 230, -1, -1));
 
         btnReportes.setBackground(new java.awt.Color(255, 255, 255));
         btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/iconoReportes.png"))); // NOI18N
         btnReportes.setBorder(null);
         btnReportes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnReportes.setPreferredSize(new java.awt.Dimension(70, 20));
         jPanelAdministrador.add(btnReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, -1, -1));
 
         btnFacturas.setBackground(new java.awt.Color(255, 255, 255));
         btnFacturas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/iconoFacturas.png"))); // NOI18N
         btnFacturas.setBorder(null);
         btnFacturas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnFacturas.setPreferredSize(new java.awt.Dimension(70, 20));
         jPanelAdministrador.add(btnFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, -1, -1));
 
         btnCorteCaja.setBackground(new java.awt.Color(255, 255, 255));
         btnCorteCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/iconoCorteCaja.png"))); // NOI18N
         btnCorteCaja.setBorder(null);
         btnCorteCaja.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCorteCaja.setPreferredSize(new java.awt.Dimension(70, 20));
         jPanelAdministrador.add(btnCorteCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, -1, -1));
 
         btnCerrarSesion.setBackground(new java.awt.Color(255, 255, 255));
@@ -276,7 +270,6 @@ public class Administrador extends javax.swing.JFrame {
         btnConfiguracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Configuracion.png"))); // NOI18N
         btnConfiguracion.setBorder(null);
         btnConfiguracion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnConfiguracion.setPreferredSize(new java.awt.Dimension(70, 20));
         jPanelAdministrador.add(btnConfiguracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 410, -1, -1));
 
         getContentPane().add(jPanelAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 500));
@@ -284,25 +277,23 @@ public class Administrador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jblbMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jblbMinimizarMouseClicked
+    private void jlblMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblMinimizarMouseClicked
           this.setState(Login.ICONIFIED);
         // TODO add your handling code here:
-    }//GEN-LAST:event_jblbMinimizarMouseClicked
+    }//GEN-LAST:event_jlblMinimizarMouseClicked
 
     private void jlblMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblMenuMouseClicked
-
         AnimationClass cerrar= new AnimationClass();
-        cerrar.jButtonXRight(-40, 10, 10, 5, btnCerrarSesion);
-        
-         AnimationClass calculadora= new AnimationClass();
-        calculadora.jLabelXRight(-40, 10, 10, 5, jlblCalculadora);
-        //<------
-        AnimationClass cerrarr= new AnimationClass();
-        cerrarr.jButtonXLeft(10, -40, 10, 5, btnCerrarSesion);
-        
-        AnimationClass calculadoraa= new AnimationClass();
-        calculadoraa.jLabelXLeft(10, -40, 10, 5, jlblCalculadora);
-        // TODO add your handling code here:
+            cerrar.jButtonXRight(-40, 10, 10, 5, btnCerrarSesion);
+
+             AnimationClass calculadora= new AnimationClass();
+            calculadora.jLabelXRight(-40, 10, 10, 5, jlblCalculadora);
+            //<------
+            AnimationClass cerrarr= new AnimationClass();
+            cerrarr.jButtonXLeft(10, -40, 10, 5, btnCerrarSesion);
+
+            AnimationClass calculadoraa= new AnimationClass();
+            calculadoraa.jLabelXLeft(10, -40, 10, 5, jlblCalculadora);
     }//GEN-LAST:event_jlblMenuMouseClicked
 
     private void jlblCalculadoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblCalculadoraMouseClicked
@@ -382,15 +373,11 @@ public class Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jlblCorteCajaMouseExited
 
     private void jlblUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblUsuariosMouseClicked
-        Usuario form = new Usuario();
-        form.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_jlblUsuariosMouseClicked
 
     private void jlblProveedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblProveedoresMouseClicked
-        Proveedor form = new Proveedor();
-        form.setVisible(true);
-        this.dispose();
+      
     }//GEN-LAST:event_jlblProveedoresMouseClicked
 
     private void jlblConfiguracionMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblConfiguracionMouseMoved
@@ -402,15 +389,11 @@ public class Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jlblConfiguracionMouseExited
 
     private void jlblConfiguracionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblConfiguracionMouseClicked
-        Configuracion form = new Configuracion();
-        form.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_jlblConfiguracionMouseClicked
 
     private void jlblInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblInventarioMouseClicked
-       Inventario form= new Inventario();
-       form.setVisible(true);
-       this.dispose();
+
     }//GEN-LAST:event_jlblInventarioMouseClicked
 
     /**
@@ -459,7 +442,6 @@ public class Administrador extends javax.swing.JFrame {
     public javax.swing.JButton btnReportes;
     public javax.swing.JButton btnUsuarios;
     public javax.swing.JPanel jPanelAdministrador;
-    public javax.swing.JLabel jblbMinimizar;
     public javax.swing.JLabel jlblAdministrador;
     public javax.swing.JLabel jlblCalculadora;
     public javax.swing.JLabel jlblConfiguracion;
@@ -468,6 +450,7 @@ public class Administrador extends javax.swing.JFrame {
     public javax.swing.JLabel jlblFacturas;
     public javax.swing.JLabel jlblInventario;
     public javax.swing.JLabel jlblMenu;
+    public javax.swing.JLabel jlblMinimizar;
     public javax.swing.JLabel jlblProveedores;
     public javax.swing.JLabel jlblReportes;
     public javax.swing.JLabel jlblUsuarios;

@@ -180,7 +180,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void jlblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblCerrarMouseClicked
-        Inventario form = new Inventario();
+        VInventario form = new VInventario();
         form.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jlblCerrarMouseClicked

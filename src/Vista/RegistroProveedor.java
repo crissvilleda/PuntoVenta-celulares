@@ -222,7 +222,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void jlblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblCerrarMouseClicked
-        Proveedor form = new Proveedor();
+        VProveedor form = new VProveedor();
         form.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jlblCerrarMouseClicked

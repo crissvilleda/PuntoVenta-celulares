@@ -127,7 +127,7 @@ public class ConsultasUsuario extends Pool{
                 usu.setApellido(rs.getString("apellido"));
                 usu.setEmail(rs.getString("email"));
                 usu.setTelefono(rs.getString("telefono"));
-                usu.setTipo(rs.getString("email"));
+                usu.setTipo(rs.getString("tipo"));
                 usu.setGenero(rs.getString("genero").charAt(0));
                 usu.setNombreUsuario(rs.getString("nombreUsuario"));
                 usu.setContraseña(rs.getString("contreaseña"));
@@ -156,23 +156,25 @@ public class ConsultasUsuario extends Pool{
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
         ResultSet rs = null;
-        String sql ="SELECT * FROM usuario WHERE nombreUsuario=? AND contraseña=?";
+        String sql ="SELECT * FROM usuario WHERE nombreUsuario=? AND contraseña=? "
+                + "AND estado=1";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
             ps.setString(1,usu.getNombreUsuario());
             ps.setString(2, usu.getContraseña());
             rs =ps.executeQuery();
-            if(rs.next()){
+            while(rs.next()){
                 usu.setIdUsuario(rs.getInt("idUsuario"));
                 usu.setNombre(rs.getString("nombre"));
                 usu.setApellido(rs.getString("apellido"));
                 usu.setEmail(rs.getString("email"));
                 usu.setTelefono(rs.getString("telefono"));
-                usu.setTipo(rs.getString("email"));
+                usu.setTipo(rs.getString("tipo"));
                 usu.setGenero(rs.getString("genero").charAt(0));
                 usu.setNombreUsuario(rs.getString("nombreUsuario"));
-                usu.setContraseña(rs.getString("contreaseña"));
+                usu.setContraseña(rs.getString("contraseña"));
                 return true;
+               
              
             } 
             return false;
