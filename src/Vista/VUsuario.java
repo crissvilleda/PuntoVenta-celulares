@@ -103,11 +103,11 @@ public class VUsuario extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nombre", "Apellido", "E-maill", "Teléfono", "Genero", "Usuario", "Tipo", "Contraseña"
+                "Id", "Nombre", "Apellido", "E-maill", "Teléfono", "Tipo", "Genero", "Usuario"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -122,8 +122,8 @@ public class VUsuario extends javax.swing.JFrame {
             jtableUsuario.getColumnModel().getColumn(0).setMaxWidth(30);
             jtableUsuario.getColumnModel().getColumn(4).setMinWidth(75);
             jtableUsuario.getColumnModel().getColumn(4).setMaxWidth(80);
-            jtableUsuario.getColumnModel().getColumn(5).setMinWidth(50);
-            jtableUsuario.getColumnModel().getColumn(5).setMaxWidth(60);
+            jtableUsuario.getColumnModel().getColumn(6).setMinWidth(50);
+            jtableUsuario.getColumnModel().getColumn(6).setMaxWidth(60);
         }
 
         jPanelUsuario.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 900, 230));

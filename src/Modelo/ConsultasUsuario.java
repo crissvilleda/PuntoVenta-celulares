@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -182,6 +184,43 @@ public class ConsultasUsuario extends Pool{
         }catch (SQLException e){
             System.err.print(e);
             return false;
+        }finally{
+            if(cn!=null){
+                try{
+                    cn.close();
+                }catch(SQLException e){
+                    System.err.print(e);
+                }
+                
+            }
+        }
+        
+    }
+    
+    public void listaUsuarios(JTable tabla){
+        DefaultTableModel model = (DefaultTableModel)tabla.getModel();
+        String registros [] = new String [8];
+        PreparedStatement ps = null;
+        Connection cn = (Connection)getConnection();
+        ResultSet rs = null;
+        String sql ="SELECT * FROM usuario WHERE estado=1";
+        try{
+            ps = (PreparedStatement)cn.prepareStatement(sql);
+            rs =ps.executeQuery();
+            while(rs.next()){
+                registros [0]=rs.getString("idUsuario");
+                registros [1]=rs.getString("nombre");
+                registros [2]=rs.getString("apellido");
+                registros [3]=rs.getString("email");
+                registros [4]=rs.getString("telefono");
+                registros [5]=rs.getString("tipo");
+                registros [6]=rs.getString("genero");
+                registros [7]=rs.getString("nombreUsuario");
+                model.addRow(registros);
+            } 
+            tabla.setModel(model);
+        }catch (SQLException e){
+            System.err.print(e);
         }finally{
             if(cn!=null){
                 try{
