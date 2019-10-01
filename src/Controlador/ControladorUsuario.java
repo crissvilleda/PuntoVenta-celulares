@@ -17,14 +17,16 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JOptionPane;
+import javax.swing.event.DocumentEvent;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.event.DocumentListener;
 
 /**
  *
  * @author criss
  */
 public class ControladorUsuario implements ActionListener, MouseListener, 
-        WindowListener {
+        WindowListener,DocumentListener  {
     private VUsuario vista;
     private Usuario  modelo;
     private Administrador vistaAdmin = new Administrador();
@@ -34,6 +36,7 @@ public class ControladorUsuario implements ActionListener, MouseListener,
     public ControladorUsuario(VUsuario vista,Usuario modelo){
         this.vista = vista;
         this.modelo = modelo;
+        vista.jtxtBuscar.getDocument().addDocumentListener(this);
         vista.jtableUsuario.addMouseListener(this);
         vista.btnNuevo.addActionListener(this);
         vista.jlblInicio.addMouseListener(this);
@@ -77,7 +80,8 @@ public class ControladorUsuario implements ActionListener, MouseListener,
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
     }
-
+    
+  
     @Override
     public void mouseClicked(MouseEvent me) {
         if(me.getSource()==vista.jlblInicio){
@@ -98,6 +102,27 @@ public class ControladorUsuario implements ActionListener, MouseListener,
         vista.jlblNombreUsuario.setText(modelo.getNombreUsuario());
         vista.btnEliminar.setEnabled(false);
         vista.btnModificar.setEnabled(false);
+    }
+    
+    @Override
+    public void insertUpdate(DocumentEvent de) {
+        if(de.getDocument()==vista.jtxtBuscar.getDocument()){
+            consulta.consultar(vista.jtableUsuario, vista.jtxtBuscar.getText());
+        }
+    }
+
+    @Override
+    public void removeUpdate(DocumentEvent de) {
+        if(de.getDocument()==vista.jtxtBuscar.getDocument()){
+            consulta.consultar(vista.jtableUsuario, vista.jtxtBuscar.getText());
+        }
+    }
+
+    @Override
+    public void changedUpdate(DocumentEvent de) {
+        if(de.getDocument()==vista.jtxtBuscar.getDocument()){
+            consulta.consultar(vista.jtableUsuario, vista.jtxtBuscar.getText());
+        }
     }
 
     @Override
@@ -139,5 +164,7 @@ public class ControladorUsuario implements ActionListener, MouseListener,
     @Override
     public void windowDeactivated(WindowEvent we) {
     }
+
+    
     
 }

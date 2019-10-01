@@ -114,32 +114,39 @@ public class ConsultasUsuario extends Pool{
         }
     }
     
-    public boolean consultar(Usuario usu){
+    public void consultar(JTable tabla,String texto){
+        DefaultTableModel model = (DefaultTableModel)tabla.getModel();
+        //Limpiar tabla
+        int a = model.getRowCount()-1;
+        for(int i=a;i>=0;i--){
+            model.removeRow(model.getRowCount()-1);
+            
+        }
         PreparedStatement ps = null;
+        String registros [] = new String [8];
         Connection cn = (Connection)getConnection();
         ResultSet rs = null;
-        String sql ="SELECT * FROM usuario WHERE idUsuario=?";
+        String sql ="SELECT * FROM usuario WHERE nombre LIKE ? OR apellido LIKE ?";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
-            ps.setInt(1, usu.getIdUsuario());
+            ps.setString(1,"%"+texto+"%");
+            ps.setString(2,"%"+texto+"%");
             rs =ps.executeQuery();
-            if(rs.next()){
-                usu.setIdUsuario(rs.getInt("idUsuario"));
-                usu.setNombre(rs.getString("nombre"));
-                usu.setApellido(rs.getString("apellido"));
-                usu.setEmail(rs.getString("email"));
-                usu.setTelefono(rs.getString("telefono"));
-                usu.setTipo(rs.getString("tipo"));
-                usu.setGenero(rs.getString("genero").charAt(0));
-                usu.setNombreUsuario(rs.getString("nombreUsuario"));
-                usu.setContraseña(rs.getString("contreaseña"));
-             
+            while(rs.next()){
+                registros [0]=rs.getString("idUsuario");
+                registros [1]=rs.getString("nombre");
+                registros [2]=rs.getString("apellido");
+                registros [3]=rs.getString("email");
+                registros [4]=rs.getString("telefono");
+                registros [5]=rs.getString("tipo");
+                registros [6]=rs.getString("genero");
+                registros [7]=rs.getString("nombreUsuario");
+                model.addRow(registros);
             } 
-            return true;
+            tabla.setModel(model);
             
         }catch (SQLException e){
             System.err.print(e);
-            return false;
         }finally{
             if(cn!=null){
                 try{
