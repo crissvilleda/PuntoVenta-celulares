@@ -23,9 +23,11 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
     private Usuario modelo;
     private VUsuario vistaUsuario = new VUsuario();
     
+    //inicializa en controlador
     public ControladorAdministrador(Administrador vista, Usuario modelo){
         this.vista = vista;
         this.modelo = modelo;
+        //lee el evento al hacer clic de cada icono del menu principal
         vista.jlblConfiguracion.addMouseListener(this);
         vista.jlblCorteCaja.addMouseListener(this);
         vista.jlblCorteCaja.addMouseListener(this);
@@ -41,6 +43,7 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
     }
     @Override
     public void actionPerformed(ActionEvent ae) {
+        //evento para el boton cerrar
         if(ae.getSource()==vista.btnCerrarSesion){
             int dialog =JOptionPane.YES_NO_OPTION;
             int result=JOptionPane.showConfirmDialog(null, "Desea cerrar el programa?","Exit",dialog);
@@ -52,7 +55,9 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
     
     @Override
     public void mouseClicked(MouseEvent me) {
+        //filtra el evento deacuedo al objeto que lo produzca
         if(me.getSource()==vista.jlblUsuarios){
+            //carga el controlador de la vista usuario y activa la vista
             ControladorUsuario controlador = new ControladorUsuario(vistaUsuario,modelo);
             controlador.iniciar();
             vista.dispose();

@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -90,13 +92,13 @@ public class ConsultasProveedor extends Pool {
     public boolean eliminar(Proveedor pro){
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
-        String sql = "DELETE FROM proveedor WHERE idProveedor=?";
+        String sql = "UPDATE usuario SET estado=0 WHERE idProveedor=?";
         
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
-            ps.setInt(1, pro.getIdProveedor());
+            ps.setInt(1,pro.getIdProveedor());
             ps.execute();
-            return true;            
+            return true;          
             
         }catch(SQLException e){
             System.err.print(e);
@@ -116,31 +118,38 @@ public class ConsultasProveedor extends Pool {
     
     
     
-    public boolean consultar(Proveedor pro){
+    public void consultar(JTable tabla,String texto){
+        DefaultTableModel model = (DefaultTableModel)tabla.getModel();
+        //Limpiar tabla
+        int a = model.getRowCount()-1;
+        for(int i=a;i>=0;i--){
+            model.removeRow(model.getRowCount()-1);
+            
+        }
         PreparedStatement ps = null;
+        String registros [] = new String [8];
         Connection cn = (Connection)getConnection();
         ResultSet rs = null;
-        String sql ="SELECT * FROM proveedor WHERE idProveedor=?";
+        String sql ="SELECT * FROM proveedor WHERE nombre LIKE ?  AND estado=1";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
-            ps.setInt(1, pro.getIdProveedor());
+            ps.setString(1,"%"+texto+"%");
             rs =ps.executeQuery();
-            if(rs.next()){
-                pro.setIdProveedor(rs.getInt("idProveedor"));
-                pro.setNombre(rs.getString("nombre"));
-                pro.setEmail(rs.getString("email"));
-                pro.setTelefono(rs.getString("telefono"));
-                pro.setPais(rs.getString("pais"));
-                pro.setCiudad(rs.getString("ciudad"));
-                pro.setDireccion(rs.getString("direccion"));
-                pro.setRepresentante(rs.getString("representante"));
+            while(rs.next()){
+                registros [0]=rs.getString("idProveedor");
+                registros [1]=rs.getString("nombre");
+                registros [2]=rs.getString("email");
+                registros [3]=rs.getString("telefono");
+                registros [4]=rs.getString("pais");
+                registros [5]=rs.getString("ciudad");
+                registros [6]=rs.getString("direccion");
+                registros [7]=rs.getString("representante");
+                model.addRow(registros);
              
-            } 
-            return true;
+            }tabla.setModel(model);
             
         }catch (SQLException e){
             System.err.print(e);
-            return false;
         }finally{
             if(cn!=null){
                 try{
@@ -153,5 +162,48 @@ public class ConsultasProveedor extends Pool {
         }
         
     }
+    
+    public void listaProveedores(JTable tabla){
+        DefaultTableModel model = (DefaultTableModel)tabla.getModel();
+        PreparedStatement ps = null;
+        String registros [] = new String [8];
+        Connection cn = (Connection)getConnection();
+        ResultSet rs = null;
+        String sql ="SELECT * FROM proveedor WHERE estado=1";
+        try{
+            ps = (PreparedStatement)cn.prepareStatement(sql);
+            rs =ps.executeQuery();
+            while(rs.next()){
+                registros [0]=rs.getString("idProveedor");
+                registros [1]=rs.getString("nombre");
+                registros [2]=rs.getString("email");
+                registros [3]=rs.getString("telefono");
+                registros [4]=rs.getString("pais");
+                registros [5]=rs.getString("ciudad");
+                registros [6]=rs.getString("direccion");
+                registros [7]=rs.getString("representante");
+                model.addRow(registros);
+             
+            }
+            tabla.setModel(model);
+            
+        }catch (SQLException e){
+            System.err.print(e);
+        }finally{
+            if(cn!=null){
+                try{
+                    cn.close();
+                }catch(SQLException e){
+                    System.err.print(e);
+                }
+                
+            }
+        }
+        
+    }
+    
+    
+    
+    
     
 }

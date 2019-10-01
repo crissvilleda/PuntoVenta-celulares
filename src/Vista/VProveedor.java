@@ -30,10 +30,10 @@ public class VProveedor extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jlblInicio = new javax.swing.JLabel();
         jlblMinimizar = new javax.swing.JLabel();
         jlblProveedores = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jlblUsuario = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtableProveedor = new javax.swing.JTable();
@@ -61,15 +61,15 @@ public class VProveedor extends javax.swing.JFrame {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 2, 96, 96));
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Inicio.png"))); // NOI18N
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlblInicio.setBackground(new java.awt.Color(255, 255, 255));
+        jlblInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Inicio.png"))); // NOI18N
+        jlblInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jlblInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                jlblInicioMouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 10, 30, 30));
+        jPanel1.add(jlblInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 10, 30, 30));
 
         jlblMinimizar.setBackground(new java.awt.Color(255, 255, 255));
         jlblMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Expand_Arrow_32px.png"))); // NOI18N
@@ -87,10 +87,10 @@ public class VProveedor extends javax.swing.JFrame {
         jlblProveedores.setText("Proveedores");
         jPanel1.add(jlblProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(105, 105, 105));
-        jLabel6.setText("Nombre del Usuario");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 65, 340, -1));
+        jlblUsuario.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        jlblUsuario.setForeground(new java.awt.Color(105, 105, 105));
+        jlblUsuario.setText("Nombre del Usuario");
+        jPanel1.add(jlblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 65, 340, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -196,11 +196,11 @@ public class VProveedor extends javax.swing.JFrame {
          this.setState(Login.ICONIFIED);
     }//GEN-LAST:event_jlblMinimizarMouseClicked
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void jlblInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblInicioMouseClicked
         Administrador form = new Administrador();
         form.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_jlblInicioMouseClicked
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         RegistroProveedor form = new RegistroProveedor();
@@ -256,17 +256,17 @@ public class VProveedor extends javax.swing.JFrame {
     public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnNuevo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    public javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    public javax.swing.JLabel jlblInicio;
     public javax.swing.JLabel jlblMinimizar;
     public javax.swing.JLabel jlblProveedores;
+    public javax.swing.JLabel jlblUsuario;
     public javax.swing.JTable jtableProveedor;
-    private javax.swing.JTextField jtxtBuscar;
+    public javax.swing.JTextField jtxtBuscar;
     // End of variables declaration//GEN-END:variables
 }

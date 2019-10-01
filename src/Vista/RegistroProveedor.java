@@ -275,7 +275,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel jlblCerrar;
+    public javax.swing.JLabel jlblCerrar;
     public javax.swing.JTextField jtxtCiudad;
     public javax.swing.JTextField jtxtDireccion;
     public javax.swing.JTextField jtxtEmail;
