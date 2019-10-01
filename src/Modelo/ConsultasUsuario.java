@@ -126,7 +126,7 @@ public class ConsultasUsuario extends Pool{
         String registros [] = new String [8];
         Connection cn = (Connection)getConnection();
         ResultSet rs = null;
-        String sql ="SELECT * FROM usuario WHERE nombre LIKE ? OR apellido LIKE ?";
+        String sql ="SELECT * FROM usuario WHERE (nombre LIKE ? OR apellido LIKE ?) AND estado=1";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
             ps.setString(1,"%"+texto+"%");
