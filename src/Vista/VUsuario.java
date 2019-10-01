@@ -201,9 +201,7 @@ public class VUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jlblInicioMouseClicked
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        RegistroUsuario form = new RegistroUsuario();
-        form.setVisible(true);
-        this.dispose();
+  
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     /**

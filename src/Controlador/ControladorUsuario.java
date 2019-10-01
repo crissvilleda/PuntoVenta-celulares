@@ -8,6 +8,7 @@ package Controlador;
 import Modelo.ConsultasUsuario;
 import Modelo.Usuario;
 import Vista.Administrador;
+import Vista.RegistroUsuario;
 import Vista.VUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,12 +28,17 @@ public class ControladorUsuario implements ActionListener, MouseListener,
     private VUsuario vista;
     private Usuario  modelo;
     private Administrador vistaAdmin = new Administrador();
-    private vista
+    private RegistroUsuario vistaRegistro = new RegistroUsuario();
     private ConsultasUsuario consulta = new ConsultasUsuario();
+    
     public ControladorUsuario(VUsuario vista,Usuario modelo){
         this.vista = vista;
         this.modelo = modelo;
-        this.vista.btnNuevo.addActionListener(this);
+        vista.jtableUsuario.addMouseListener(this);
+        vista.btnNuevo.addActionListener(this);
+        vista.jlblInicio.addMouseListener(this);
+        vista.btnEliminar.addActionListener(this);
+        vista.addWindowListener(this);
     
     
     }
@@ -38,17 +46,36 @@ public class ControladorUsuario implements ActionListener, MouseListener,
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource()==vista.btnNuevo){
+            ControladorRegistroUsuario controlador = 
+                    new ControladorRegistroUsuario(vistaRegistro,modelo);
+            controlador.iniciar();
+            vista.dispose();
+        }else if(ae.getSource()==vista.btnEliminar){
+            //metodo elimiar usuarios
+            Usuario usu = new Usuario();
+            int row = vista.jtableUsuario.getSelectedRow();
+            usu.setIdUsuario(Integer.parseInt((String) 
+                    vista.jtableUsuario.getModel().getValueAt(row,0)));
+            int result=JOptionPane.showConfirmDialog(null, "Desea eliminar este Usuario?","Exit",JOptionPane.YES_NO_OPTION);
+            if (result==0){
+                if(consulta.eliminar(usu)){
+                ((DefaultTableModel)vista.jtableUsuario.getModel()).removeRow(row);
+                JOptionPane.showMessageDialog(null,"Usuario Eliminado");
+                vista.btnEliminar.setEnabled(false);
+                vista.btnModificar.setEnabled(false);
+                
+                }else{
+                    JOptionPane.showMessageDialog(null,"Error");
+                }
+         
             
-            
+            } 
         }
     }
     
     public void iniciar(){
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
-        
-        vista.jlblInicio.addMouseListener(this);
-        vista.addWindowListener(this);
     }
 
     @Override
@@ -59,11 +86,18 @@ public class ControladorUsuario implements ActionListener, MouseListener,
             controlador.iniciar();
             vista.dispose();
             
+        }else if(me.getSource()==vista.jtableUsuario){
+            vista.btnEliminar.setEnabled(true);
+            vista.btnModificar.setEnabled(true);
+            
         }
     }
     @Override
     public void windowOpened(WindowEvent we) {
         consulta.listaUsuarios(vista.jtableUsuario);
+        vista.jlblNombreUsuario.setText(modelo.getNombreUsuario());
+        vista.btnEliminar.setEnabled(false);
+        vista.btnModificar.setEnabled(false);
     }
 
     @Override
