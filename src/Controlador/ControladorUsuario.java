@@ -93,6 +93,11 @@ public class ControladorUsuario implements ActionListener, MouseListener,
         }else if(me.getSource()==vista.jtableUsuario){
             vista.btnEliminar.setEnabled(true);
             vista.btnModificar.setEnabled(true);
+            if(me.getClickCount()==2){
+                vista.jtableUsuario.clearSelection();
+                vista.btnModificar.setEnabled(false);
+                vista.btnEliminar.setEnabled(false);
+            }
             
         }
     }
