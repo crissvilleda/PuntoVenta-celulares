@@ -138,11 +138,11 @@ public class ConsultasProveedor extends Pool {
             while(rs.next()){
                 registros [0]=rs.getString("idProveedor");
                 registros [1]=rs.getString("nombre");
-                registros [2]=rs.getString("email");
-                registros [3]=rs.getString("telefono");
-                registros [4]=rs.getString("pais");
+                registros [2]=rs.getString("direccion");
+                registros [3]=rs.getString("email");
+                registros [4]=rs.getString("telefono");
                 registros [5]=rs.getString("ciudad");
-                registros [6]=rs.getString("direccion");
+                registros [6]=rs.getString("pais");
                 registros [7]=rs.getString("representante");
                 model.addRow(registros);
              
@@ -176,11 +176,11 @@ public class ConsultasProveedor extends Pool {
             while(rs.next()){
                 registros [0]=rs.getString("idProveedor");
                 registros [1]=rs.getString("nombre");
-                registros [2]=rs.getString("email");
-                registros [3]=rs.getString("telefono");
-                registros [4]=rs.getString("pais");
+                registros [2]=rs.getString("direccion");
+                registros [3]=rs.getString("email");
+                registros [4]=rs.getString("telefono");
                 registros [5]=rs.getString("ciudad");
-                registros [6]=rs.getString("direccion");
+                registros [6]=rs.getString("pais");
                 registros [7]=rs.getString("representante");
                 model.addRow(registros);
              
