@@ -103,7 +103,7 @@ public class ControladorProveedor implements ActionListener, MouseListener,
             }else if(me.getClickCount()==2){
                 vista.jtableProveedor.clearSelection();
                 vista.btnEliminar.setEnabled(false);
-                vista.btnModificar.setEnabled(true);
+                vista.btnModificar.setEnabled(false);
                 
             }
             
