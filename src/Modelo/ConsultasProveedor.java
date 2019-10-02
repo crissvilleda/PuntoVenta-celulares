@@ -28,11 +28,11 @@ public class ConsultasProveedor extends Pool {
         try{
              ps = (PreparedStatement) cn.prepareStatement(sql);
              ps.setString(1, pro.getNombre());
-             ps.setString(2, pro.getDireccion());
-             ps.setString(3, pro.getEmail());
-             ps.setString(4, pro.getTelefono());
+             ps.setString(2, pro.getEmail());
+             ps.setString(3, pro.getTelefono());
+             ps.setString(4, pro.getPais());
              ps.setString(5, pro.getCiudad());
-             ps.setString(6, pro.getPais());
+             ps.setString(6, pro.getDireccion());
              ps.setString(7, pro.getRepresentante());
              ps.execute();
              return true;
