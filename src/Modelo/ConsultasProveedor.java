@@ -92,7 +92,7 @@ public class ConsultasProveedor extends Pool {
     public boolean eliminar(Proveedor pro){
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
-        String sql = "UPDATE usuario SET estado=0 WHERE idProveedor=?";
+        String sql = "UPDATE proveedor SET estado=0 WHERE idProveedor=?";
         
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
