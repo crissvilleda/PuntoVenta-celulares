@@ -7,6 +7,7 @@ package Controlador;
 import AppPackage.AnimationClass;
 import Modelo.Usuario;
 import Vista.Administrador;
+import Vista.VProveedor;
 import Vista.VUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +23,7 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
     private Administrador vista;
     private Usuario modelo;
     private VUsuario vistaUsuario = new VUsuario();
+    private VProveedor vistaProveedor = new VProveedor();
     
     //inicializa en controlador
     public ControladorAdministrador(Administrador vista, Usuario modelo){
@@ -63,6 +65,9 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
             vista.dispose();
             
         }else if(me.getSource()==vista.jlblProveedores){
+            ControladorProveedor controlador = new ControladorProveedor(vistaProveedor,modelo);
+            controlador.iniciar();
+            vista.dispose();
             
         }else if(me.getSource()==vista.jlblEntradas){
         

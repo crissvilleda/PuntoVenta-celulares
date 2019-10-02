@@ -9,6 +9,7 @@ import Modelo.ConsultasProveedor;
 import Modelo.Proveedor;
 import Modelo.Usuario;
 import Vista.Administrador;
+import Vista.RegistroProveedor;
 import Vista.VProveedor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,6 +30,7 @@ public class ControladorProveedor implements ActionListener, MouseListener,
         WindowListener,DocumentListener{
     private VProveedor vista ;
     private Usuario modelo;
+    private RegistroProveedor vistaRegistro = new RegistroProveedor();
     private ConsultasProveedor consulta = new ConsultasProveedor();
     private Administrador vistaAdmin = new Administrador();
 
@@ -57,6 +59,11 @@ public class ControladorProveedor implements ActionListener, MouseListener,
     public void actionPerformed(ActionEvent ae) {
         
         if(ae.getSource()==vista.btnNuevo){
+            ControladorRegistrarProveedor controlador = 
+                    new ControladorRegistrarProveedor(vistaRegistro,modelo);
+            controlador.iniciar();
+            vista.dispose();
+            
             
         }else if(ae.getSource()==vista.btnEliminar){
             //metodo elimiar usuarios
@@ -64,7 +71,7 @@ public class ControladorProveedor implements ActionListener, MouseListener,
             int row = vista.jtableProveedor.getSelectedRow();
             pro.setIdProveedor(Integer.parseInt((String) 
                     vista.jtableProveedor.getModel().getValueAt(row,0)));
-            int result=JOptionPane.showConfirmDialog(null, "Desea eliminar proveedor Usuario?","Exit",JOptionPane.YES_NO_OPTION);
+            int result=JOptionPane.showConfirmDialog(null, "Desea eliminar proveedor?","Exit",JOptionPane.YES_NO_OPTION);
             if (result==0){
                 if(consulta.eliminar(pro)){
                 ((DefaultTableModel)vista.jtableProveedor.getModel()).removeRow(row);

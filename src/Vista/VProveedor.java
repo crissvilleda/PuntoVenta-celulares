@@ -197,15 +197,11 @@ public class VProveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jlblMinimizarMouseClicked
 
     private void jlblInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblInicioMouseClicked
-        Administrador form = new Administrador();
-        form.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_jlblInicioMouseClicked
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        RegistroProveedor form = new RegistroProveedor();
-        form.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     /**

@@ -39,7 +39,7 @@ public class ControladorRegistrarProveedor implements ActionListener, KeyListene
         vista.jlblCerrar.addMouseListener(this);
         vista.jtxtRepresentante.addKeyListener(this);
         vista.addWindowListener(this);
-        
+        vista.btnRegistrar.addActionListener(this);
         
     }
     public void registrar(){
@@ -83,7 +83,7 @@ public class ControladorRegistrarProveedor implements ActionListener, KeyListene
     @Override
     public void mouseClicked(MouseEvent me) {
         if(me.getSource()==vista.jlblCerrar){
-            ControladorProveedor controlador = new ControladorProveedor( vistaProveedor ,modelo);
+            ControladorProveedor controlador = new ControladorProveedor(vistaProveedor ,modelo);
             controlador.iniciar();
             vista.dispose();         
         }
@@ -93,7 +93,6 @@ public class ControladorRegistrarProveedor implements ActionListener, KeyListene
     public void keyPressed(KeyEvent ke) {
         if(ke.getSource()==vista.jtxtRepresentante){
             if(ke.getKeyCode()==KeyEvent.VK_ENTER){
-                registrar();
                 
             }
             
