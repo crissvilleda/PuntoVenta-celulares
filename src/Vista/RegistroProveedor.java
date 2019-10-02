@@ -46,9 +46,12 @@ public class RegistroProveedor extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jtxtTelefono = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(400, 500));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -60,7 +63,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel1.setText("Registro Proveedor");
+        jLabel1.setText("Registrar/Modificar Proveedor");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
         jlblCerrar.setBackground(new java.awt.Color(255, 255, 255));
@@ -85,7 +88,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
                 jtxtNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(jtxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 250, 20));
+        jPanel1.add(jtxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 250, 20));
 
         jtxtDireccion.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtDireccion.setForeground(new java.awt.Color(153, 153, 153));
@@ -95,7 +98,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
                 jtxtDireccionActionPerformed(evt);
             }
         });
-        jPanel1.add(jtxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 250, 20));
+        jPanel1.add(jtxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 250, 20));
 
         btnRegistrar.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaRegistrarb.png"))); // NOI18N
@@ -110,7 +113,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 75, 25));
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 75, 25));
 
         jtxtEmail.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtEmail.setForeground(new java.awt.Color(153, 153, 153));
@@ -120,7 +123,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
                 jtxtEmailActionPerformed(evt);
             }
         });
-        jPanel1.add(jtxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 250, 20));
+        jPanel1.add(jtxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 250, 20));
 
         jtxtCiudad.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtCiudad.setForeground(new java.awt.Color(153, 153, 153));
@@ -130,7 +133,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
                 jtxtCiudadActionPerformed(evt);
             }
         });
-        jPanel1.add(jtxtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 250, 20));
+        jPanel1.add(jtxtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 250, 20));
 
         jtxtPais.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtPais.setForeground(new java.awt.Color(153, 153, 153));
@@ -140,7 +143,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
                 jtxtPaisActionPerformed(evt);
             }
         });
-        jPanel1.add(jtxtPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 250, 20));
+        jPanel1.add(jtxtPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 250, 20));
 
         jtxtRepresentante.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtRepresentante.setForeground(new java.awt.Color(153, 153, 153));
@@ -150,45 +153,61 @@ public class RegistroProveedor extends javax.swing.JFrame {
                 jtxtRepresentanteActionPerformed(evt);
             }
         });
-        jPanel1.add(jtxtRepresentante, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 250, 20));
+        jPanel1.add(jtxtRepresentante, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 250, 20));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(225, 99, 71));
         jLabel4.setText("Nombre:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(225, 99, 71));
         jLabel6.setText("Representante");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, -1));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(225, 99, 71));
         jLabel7.setText("Pais:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, -1, -1));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(225, 99, 71));
         jLabel8.setText("Ciudad:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(225, 99, 71));
         jLabel9.setText("E-mail:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(225, 99, 71));
         jLabel10.setText("Dirección:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 420));
+        jtxtTelefono.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jtxtTelefono.setForeground(new java.awt.Color(153, 153, 153));
+        jtxtTelefono.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jtxtTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtTelefonoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jtxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 250, 20));
+
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(225, 99, 71));
+        jLabel11.setText("Telefono:");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -224,6 +243,10 @@ public class RegistroProveedor extends javax.swing.JFrame {
     private void jlblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblCerrarMouseClicked
       
     }//GEN-LAST:event_jlblCerrarMouseClicked
+
+    private void jtxtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtTelefonoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,6 +288,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
     public javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
@@ -273,12 +297,13 @@ public class RegistroProveedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    public javax.swing.JLabel jlblCerrar;
+    private javax.swing.JLabel jlblCerrar;
     public javax.swing.JTextField jtxtCiudad;
     public javax.swing.JTextField jtxtDireccion;
     public javax.swing.JTextField jtxtEmail;
     public javax.swing.JTextField jtxtNombre;
     public javax.swing.JTextField jtxtPais;
     public javax.swing.JTextField jtxtRepresentante;
+    public javax.swing.JTextField jtxtTelefono;
     // End of variables declaration//GEN-END:variables
 }

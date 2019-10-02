@@ -92,7 +92,7 @@ public class VUsuario extends javax.swing.JFrame {
         jlblNombreUsuario.setText("Nombre del Usuario");
         jPanel1.add(jlblNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 65, 340, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jPanelUsuario.setBackground(new java.awt.Color(255, 255, 255));
         jPanelUsuario.setPreferredSize(new java.awt.Dimension(1000, 400));
