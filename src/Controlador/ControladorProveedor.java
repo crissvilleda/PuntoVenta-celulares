@@ -43,11 +43,9 @@ public class ControladorProveedor implements ActionListener, MouseListener,
         vista.btnModificar.addActionListener(this);
         vista.btnNuevo.addActionListener(this);
         vista.jlblInicio.addMouseListener(this);
+        vista.jtableProveedor.addMouseListener(this);
         vista.jtxtBuscar.getDocument().addDocumentListener(this);
         vista.addWindowListener(this);
-
-
-
     }
     public void iniciar(){
         vista.setLocationRelativeTo(null);
@@ -97,6 +95,18 @@ public class ControladorProveedor implements ActionListener, MouseListener,
                     new ControladorAdministrador(vistaAdmin,modelo);
             controlador.iniciar();
             vista.dispose();
+        }else if(me.getSource()==vista.jtableProveedor){
+            if(me.getClickCount()==1){
+                vista.btnEliminar.setEnabled(true);
+                vista.btnModificar.setEnabled(true);
+                
+            }else if(me.getClickCount()==2){
+                vista.jtableProveedor.clearSelection();
+                vista.btnEliminar.setEnabled(false);
+                vista.btnModificar.setEnabled(true);
+                
+            }
+            
         }
         
     }
