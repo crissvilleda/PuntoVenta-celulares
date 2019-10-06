@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
  * @author criss
  */
 public class ConsultasProveedor extends Pool {
+    
     public boolean registrar(Proveedor pro){
         
         PreparedStatement ps = null;
@@ -57,9 +58,9 @@ public class ConsultasProveedor extends Pool {
     public boolean modificar(Proveedor pro){
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
-        String sql = "UPDATE proveedor SET nombre=?, email=?,telefono=?"
-                + "pais=?, ciudad=?, direccion=?, representate=?"
-                + "WHERE idProveedor=?";
+        String sql = "UPDATE proveedor SET nombre=?, email=?,telefono=?,"
+                + "pais=?, ciudad=?, direccion=?, representante=?"
+                + " WHERE idProveedor=?";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
             ps.setString(1, pro.getNombre());

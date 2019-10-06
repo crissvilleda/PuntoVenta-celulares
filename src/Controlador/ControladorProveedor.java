@@ -84,6 +84,23 @@ public class ControladorProveedor implements ActionListener, MouseListener,
             
             }
             
+        }else if(ae.getSource()==vista.btnModificar){
+            Proveedor pro = new Proveedor();
+            int row = vista.jtableProveedor.getSelectedRow();
+            pro.setIdProveedor(Integer.parseInt((String) 
+                    vista.jtableProveedor.getModel().getValueAt(row,0)));
+            pro.setNombre((String)vista.jtableProveedor.getModel().getValueAt(row, 1));
+            pro.setDireccion((String)vista.jtableProveedor.getModel().getValueAt(row, 2));
+            pro.setEmail((String)vista.jtableProveedor.getModel().getValueAt(row, 3));
+            pro.setTelefono((String)vista.jtableProveedor.getModel().getValueAt(row, 4));
+            pro.setCiudad((String)vista.jtableProveedor.getModel().getValueAt(row, 5));
+            pro.setPais((String)vista.jtableProveedor.getModel().getValueAt(row, 6));
+            pro.setRepresentante((String)vista.jtableProveedor.getModel().getValueAt(row, 7));
+            ControladorRegistrarProveedor controlador = 
+                    new ControladorRegistrarProveedor(vistaRegistro,pro,modelo);
+            controlador.iniciar();
+            vista.dispose();
+            
         }
         
     }
