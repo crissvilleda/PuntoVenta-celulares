@@ -103,15 +103,22 @@ public class VUsuario extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nombre", "Apellido", "E-maill", "Teléfono", "Tipo", "Genero", "Usuario"
+                "Id", "Nombre", "Apellido", "E-maill", "Teléfono", "Tipo", "Genero", "Usuario", "Contraseña"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jtableUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -124,6 +131,9 @@ public class VUsuario extends javax.swing.JFrame {
             jtableUsuario.getColumnModel().getColumn(4).setMaxWidth(80);
             jtableUsuario.getColumnModel().getColumn(6).setMinWidth(50);
             jtableUsuario.getColumnModel().getColumn(6).setMaxWidth(60);
+            jtableUsuario.getColumnModel().getColumn(8).setMinWidth(0);
+            jtableUsuario.getColumnModel().getColumn(8).setPreferredWidth(0);
+            jtableUsuario.getColumnModel().getColumn(8).setMaxWidth(0);
         }
 
         jPanelUsuario.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 900, 230));

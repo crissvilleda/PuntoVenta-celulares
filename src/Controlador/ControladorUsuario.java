@@ -40,6 +40,7 @@ public class ControladorUsuario implements ActionListener, MouseListener,
         vista.jtableUsuario.addMouseListener(this);
         vista.btnNuevo.addActionListener(this);
         vista.jlblInicio.addMouseListener(this);
+        vista.btnModificar.addActionListener(this);
         vista.btnEliminar.addActionListener(this);
         vista.addWindowListener(this);
     
@@ -49,8 +50,8 @@ public class ControladorUsuario implements ActionListener, MouseListener,
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource()==vista.btnNuevo){
-            ControladorRegistroUsuario controlador = 
-                    new ControladorRegistroUsuario(vistaRegistro,modelo);
+            ControladorRegistrarUsuario controlador = 
+                    new ControladorRegistrarUsuario(vistaRegistro,modelo);
             controlador.iniciar();
             vista.dispose();
         }else if(ae.getSource()==vista.btnEliminar){
@@ -73,6 +74,28 @@ public class ControladorUsuario implements ActionListener, MouseListener,
          
             
             } 
+        }else if(ae.getSource()==vista.btnModificar){
+            int row = vista.jtableUsuario.getSelectedRow();
+            Usuario usu = new Usuario();
+            usu.setIdUsuario(Integer.parseInt((String)
+                    vista.jtableUsuario.getModel().getValueAt(row,0)));
+            usu.setNombre((String)vista.jtableUsuario.getModel().getValueAt(row, 1));
+            usu.setApellido((String)vista.jtableUsuario.getModel().getValueAt(row,2));
+            usu.setEmail((String)vista.jtableUsuario.getModel().getValueAt(row,3));
+            usu.setTelefono((String)vista.jtableUsuario.getModel().getValueAt(row, 4));
+            usu.setTipo((String)vista.jtableUsuario.getModel().getValueAt(row, 5));
+            usu.setGenero(vista.jtableUsuario.getModel().getValueAt(row, 6).toString().charAt(0));
+            usu.setNombreUsuario((String)vista.jtableUsuario.getModel().getValueAt(row, 7));
+            usu.setContraseña((String)vista.jtableUsuario.getModel().getValueAt(row, 8));
+            ControladorRegistrarUsuario controlador = 
+                    new ControladorRegistrarUsuario(vistaRegistro,usu,modelo);
+            controlador.iniciar();
+            vista.dispose();
+            
+            
+            
+            
+            
         }
     }
     

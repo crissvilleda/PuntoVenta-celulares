@@ -29,7 +29,7 @@ import javax.swing.event.DocumentListener;
  * @author criss
  */
 public class ControladorRegistrarProveedor implements ActionListener, KeyListener,
-        MouseListener, WindowListener, DocumentListener {
+        MouseListener, DocumentListener {
     private Proveedor proveedor;
     private RegistroProveedor vista;
     private Usuario modelo;
@@ -45,9 +45,9 @@ public class ControladorRegistrarProveedor implements ActionListener, KeyListene
         vista.jtxtEmail.addKeyListener(this);
         vista.jtxtCiudad.addKeyListener(this);
         vista.jtxtPais.addKeyListener(this);
-        vista.addWindowListener(this);
-        
         vista.btnRegistrar.addActionListener(this);
+        
+        
         vista.jtxtNombre.getDocument().addDocumentListener(this);
         vista.jtxtDireccion.getDocument().addDocumentListener(this);
         vista.jtxtEmail.getDocument().addDocumentListener(this);
@@ -55,6 +55,9 @@ public class ControladorRegistrarProveedor implements ActionListener, KeyListene
         vista.jtxtPais.getDocument().addDocumentListener(this);
         vista.jtxtCiudad.getDocument().addDocumentListener(this);
         vista.jtxtRepresentante.getDocument().addDocumentListener(this);
+        
+        vista.btnRegistrar.setEnabled(false);
+        vista.jtxtNombre.requestFocus();
         
     }
     public ControladorRegistrarProveedor(RegistroProveedor vista,Proveedor pro, Usuario modelo){
@@ -67,10 +70,10 @@ public class ControladorRegistrarProveedor implements ActionListener, KeyListene
         vista.jtxtEmail.addKeyListener(this);
         vista.jtxtCiudad.addKeyListener(this);
         vista.jtxtPais.addKeyListener(this);
-        vista.addWindowListener(this);
         vista.btnRegistrar.addActionListener((ActionEvent)->{
             Modificar(); 
         });
+        
         
         vista.jtxtNombre.getDocument().addDocumentListener(this);
         vista.jtxtDireccion.getDocument().addDocumentListener(this);
@@ -79,13 +82,16 @@ public class ControladorRegistrarProveedor implements ActionListener, KeyListene
         vista.jtxtPais.getDocument().addDocumentListener(this);
         vista.jtxtCiudad.getDocument().addDocumentListener(this);
         vista.jtxtRepresentante.getDocument().addDocumentListener(this);
+        
         vista.jtxtNombre.setText(proveedor.getNombre());
-        vista.jtxtDireccion.setText(pro.getDireccion());
-        vista.jtxtEmail.setText(pro.getEmail());
+        vista.jtxtDireccion.setText(proveedor.getDireccion());
+        vista.jtxtEmail.setText(proveedor.getEmail());
         vista.jtxtCiudad.setText(proveedor.getCiudad());
-        vista.jtxtTelefono.setText(pro.getTelefono());
-        vista.jtxtPais.setText(pro.getPais());
-        vista.jtxtRepresentante.setText(pro.getRepresentante());
+        vista.jtxtTelefono.setText(proveedor.getTelefono());
+        vista.jtxtPais.setText(proveedor.getPais());
+        vista.jtxtRepresentante.setText(proveedor.getRepresentante());
+        
+        vista.btnRegistrar.setEnabled(false);
         
     }
     
@@ -122,13 +128,8 @@ public class ControladorRegistrarProveedor implements ActionListener, KeyListene
         proveedor.setRepresentante(vista.jtxtRepresentante.getText());
         if(consulta.modificar(proveedor)){
             JOptionPane.showMessageDialog(null,"Modificacion Exitosa");
-            vista.jtxtNombre.setText("");
-            vista.jtxtEmail.setText("");
-            vista.jtxtDireccion.setText("");
-            vista.jtxtTelefono.setText("");
-            vista.jtxtCiudad.setText("");
-            vista.jtxtPais.setText("");
-            vista.jtxtRepresentante.setText("");
+            vista.btnRegistrar.setEnabled(false);
+
         }else{
             JOptionPane.showMessageDialog(null,"Error al Guardar" );
             
@@ -199,10 +200,7 @@ public class ControladorRegistrarProveedor implements ActionListener, KeyListene
             }   
         }
     }
-    @Override
-    public void windowOpened(WindowEvent we) {
-        vista.btnRegistrar.setEnabled(false);
-    }
+   
 
     @Override
     public void insertUpdate(DocumentEvent de) {
@@ -236,32 +234,6 @@ public class ControladorRegistrarProveedor implements ActionListener, KeyListene
     @Override
     public void mouseExited(MouseEvent me) {
     }
-
-
-    @Override
-    public void windowClosing(WindowEvent we) {
-    }
-
-    @Override
-    public void windowClosed(WindowEvent we) {
-    }
-
-    @Override
-    public void windowIconified(WindowEvent we) {
-    }
-
-    @Override
-    public void windowDeiconified(WindowEvent we) {
-    }
-
-    @Override
-    public void windowActivated(WindowEvent we) {
-    }
-
-    @Override
-    public void windowDeactivated(WindowEvent we) {
-    }
-
     @Override
     public void keyTyped(KeyEvent ke) {
     }

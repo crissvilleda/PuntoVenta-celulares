@@ -206,7 +206,7 @@ public class ConsultasUsuario extends Pool{
     
     public void listaUsuarios(JTable tabla){
         DefaultTableModel model = (DefaultTableModel)tabla.getModel();
-        String registros [] = new String [8];
+        String registros [] = new String [9];
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
         ResultSet rs = null;
@@ -223,6 +223,7 @@ public class ConsultasUsuario extends Pool{
                 registros [5]=rs.getString("tipo");
                 registros [6]=rs.getString("genero");
                 registros [7]=rs.getString("nombreUsuario");
+                registros [8]=rs.getString("contraseña");
                 model.addRow(registros);
             } 
             tabla.setModel(model);
