@@ -214,7 +214,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
         jlblMensaje.setText("*Todos los campos son obligatorios");
         jPanel1.add(jlblMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 480));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
