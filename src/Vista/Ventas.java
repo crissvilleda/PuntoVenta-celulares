@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import AppPackage.AnimationClass;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -76,6 +77,9 @@ public class Ventas extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jtxtCiudad = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
+        jlblMenu = new javax.swing.JLabel();
+        btnCerrarSesion = new javax.swing.JButton();
+        jlblCalculadora = new javax.swing.JLabel();
         jpanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtableVentas = new javax.swing.JTable();
@@ -125,10 +129,10 @@ public class Ventas extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(238, 112, 85));
         jLabel5.setText("Ventas");
-        jpanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, -1, -1));
+        jpanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/iconoVentas.png"))); // NOI18N
-        jpanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 2, -1, -1));
+        jpanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, -1, -1));
 
         jlblDatosCliente.setBackground(new java.awt.Color(255, 255, 255));
         jlblDatosCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -264,6 +268,30 @@ public class Ventas extends javax.swing.JFrame {
         });
         jpanel1.add(jtxtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 180, 120, 20));
         jpanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 950, -1));
+
+        jlblMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Menu_32px_1.png"))); // NOI18N
+        jlblMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlblMenuMouseClicked(evt);
+            }
+        });
+        jpanel1.add(jlblMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        btnCerrarSesion.setBackground(new java.awt.Color(255, 255, 255));
+        btnCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cerrarSesion.png"))); // NOI18N
+        btnCerrarSesion.setBorder(null);
+        btnCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrarSesion.setPreferredSize(new java.awt.Dimension(29, 29));
+        jpanel1.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 60, 30, -1));
+
+        jlblCalculadora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Calculator_32px.png"))); // NOI18N
+        jlblCalculadora.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlblCalculadoraMouseClicked(evt);
+            }
+        });
+        jpanel1.add(jlblCalculadora, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 100, -1, -1));
 
         getContentPane().add(jpanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 225));
 
@@ -610,6 +638,30 @@ public class Ventas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgregarCarritoActionPerformed
 
+    private void jlblMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblMenuMouseClicked
+        AnimationClass cerrar= new AnimationClass();
+        cerrar.jButtonXRight(-40, 10, 10, 5, btnCerrarSesion);
+
+        AnimationClass calculadora= new AnimationClass();
+        calculadora.jLabelXRight(-40, 10, 10, 5, jlblCalculadora);
+        //<------
+        AnimationClass cerrarr= new AnimationClass();
+        cerrarr.jButtonXLeft(10, -40, 10, 5, btnCerrarSesion);
+
+        AnimationClass calculadoraa= new AnimationClass();
+        calculadoraa.jLabelXLeft(10, -40, 10, 5, jlblCalculadora);
+    }//GEN-LAST:event_jlblMenuMouseClicked
+
+    private void jlblCalculadoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblCalculadoraMouseClicked
+        try{
+            Runtime rt=Runtime.getRuntime();
+            Process p= rt.exec("calc");
+            p.waitFor();
+        }catch(Exception e){
+
+        }
+    }//GEN-LAST:event_jlblCalculadoraMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -649,6 +701,7 @@ public class Ventas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAgregarCarrito;
     public javax.swing.JButton btnBuscarProducto;
+    public javax.swing.JButton btnCerrarSesion;
     public javax.swing.JButton btnEliminarCarrito;
     public javax.swing.JButton btnRealizar;
     private javax.swing.JLabel jLabel1;
@@ -660,6 +713,7 @@ public class Ventas extends javax.swing.JFrame {
     public javax.swing.JLabel jlblApellido;
     public javax.swing.JLabel jlblArtsVendidos;
     public javax.swing.JLabel jlblAtendio;
+    public javax.swing.JLabel jlblCalculadora;
     public javax.swing.JLabel jlblCambio;
     public javax.swing.JLabel jlblCambioVenta;
     public javax.swing.JLabel jlblCantArts;
@@ -677,6 +731,7 @@ public class Ventas extends javax.swing.JFrame {
     public javax.swing.JLabel jlblIdVenta;
     public javax.swing.JLabel jlblImporte;
     public javax.swing.JLabel jlblIngreseCodigo;
+    public javax.swing.JLabel jlblMenu;
     public javax.swing.JLabel jlblMinimizar;
     public javax.swing.JLabel jlblNit;
     public javax.swing.JLabel jlblNoVenta;
