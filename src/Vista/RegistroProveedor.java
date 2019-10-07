@@ -48,8 +48,10 @@ public class RegistroProveedor extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jtxtTelefono = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        jlblMensaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(400, 500));
         setResizable(false);
@@ -113,7 +115,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 75, 25));
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 435, 75, 25));
 
         jtxtEmail.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtEmail.setForeground(new java.awt.Color(153, 153, 153));
@@ -207,7 +209,12 @@ public class RegistroProveedor extends javax.swing.JFrame {
         jLabel11.setText("Telefono:");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 440));
+        jlblMensaje.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        jlblMensaje.setForeground(new java.awt.Color(103, 103, 103));
+        jlblMensaje.setText("*Todos los campos son obligatorios");
+        jPanel1.add(jlblMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -298,6 +305,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JLabel jlblCerrar;
+    private javax.swing.JLabel jlblMensaje;
     public javax.swing.JTextField jtxtCiudad;
     public javax.swing.JTextField jtxtDireccion;
     public javax.swing.JTextField jtxtEmail;
