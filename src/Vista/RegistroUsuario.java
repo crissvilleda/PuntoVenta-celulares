@@ -53,6 +53,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jContraseña = new javax.swing.JPasswordField();
         jContraseña1 = new javax.swing.JPasswordField();
+        jlblMensaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -67,7 +68,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel1.setText("Registro Usuario");
+        jLabel1.setText("Registrar/Modificar Usuario");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
         jlblInicio.setBackground(new java.awt.Color(255, 255, 255));
@@ -117,7 +118,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 75, 25));
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, 75, 25));
 
         jtxtEmail.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtEmail.setForeground(new java.awt.Color(153, 153, 153));
@@ -163,7 +164,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
         cbxTipo.setForeground(new java.awt.Color(105, 105, 105));
         cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Empleado", "Admin" }));
         cbxTipo.setBorder(null);
-        jPanel1.add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 426, 110, -1));
+        jPanel1.add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 430, 120, -1));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -175,7 +176,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(225, 99, 71));
         jLabel5.setText("Tipo:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 426, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, -1, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -221,7 +222,12 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jPanel1.add(jContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 250, 20));
         jPanel1.add(jContraseña1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 250, 20));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 500));
+        jlblMensaje.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        jlblMensaje.setForeground(new java.awt.Color(103, 103, 103));
+        jlblMensaje.setText("*Todos los campos son obligatorios");
+        jPanel1.add(jlblMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -312,6 +318,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JLabel jlblInicio;
+    private javax.swing.JLabel jlblMensaje;
     public javax.swing.JTextField jtxtApellido;
     public javax.swing.JTextField jtxtEmail;
     public javax.swing.JTextField jtxtNombre;
