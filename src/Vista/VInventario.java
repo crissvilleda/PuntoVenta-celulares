@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import com.placeholder.PlaceHolder;
+
 /**
  *
  * @author Orlando
@@ -17,8 +19,12 @@ public class VInventario extends javax.swing.JFrame {
     public VInventario() {
         initComponents();
         this.setLocationRelativeTo(null);
+        holders();
     }
-
+    public void holders(){
+      PlaceHolder holder;  
+      holder=new PlaceHolder(jtxtBuscar,"Buscar por Codigo");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -147,7 +153,6 @@ public class VInventario extends javax.swing.JFrame {
 
         jtxtBuscar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtBuscar.setForeground(new java.awt.Color(153, 153, 153));
-        jtxtBuscar.setText("Buscar por Codigo");
         jtxtBuscar.setBorder(null);
         jtxtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

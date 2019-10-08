@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import com.placeholder.PlaceHolder;
+
 /**
  *
  * @author Orlando
@@ -17,6 +19,11 @@ public class VProveedor extends javax.swing.JFrame {
     public VProveedor() {
         initComponents();
         this.setLocationRelativeTo(null);
+        holders();
+    }
+    public void holders(){
+      PlaceHolder holder;  
+      holder=new PlaceHolder(jtxtBuscar,"Buscar por Nombre");
     }
 
     /**
