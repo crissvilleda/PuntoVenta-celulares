@@ -39,13 +39,17 @@ public class ControladorProveedor implements ActionListener, MouseListener,
     public ControladorProveedor(VProveedor vista,Usuario modelo){
         this.vista= vista;
         this.modelo = modelo;
+        
         vista.btnEliminar.addActionListener(this);
         vista.btnModificar.addActionListener(this);
+       
         vista.btnNuevo.addActionListener(this);
         vista.jlblInicio.addMouseListener(this);
         vista.jtableProveedor.addMouseListener(this);
+        
         vista.jtxtBuscar.getDocument().addDocumentListener(this);
         vista.addWindowListener(this);
+        vista.jtxtBuscar.requestFocus();
     }
     public void iniciar(){
         vista.setLocationRelativeTo(null);

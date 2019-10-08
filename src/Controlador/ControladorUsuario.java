@@ -36,13 +36,17 @@ public class ControladorUsuario implements ActionListener, MouseListener,
     public ControladorUsuario(VUsuario vista,Usuario modelo){
         this.vista = vista;
         this.modelo = modelo;
-        vista.jtxtBuscar.getDocument().addDocumentListener(this);
-        vista.jtableUsuario.addMouseListener(this);
+        
         vista.btnNuevo.addActionListener(this);
         vista.jlblInicio.addMouseListener(this);
         vista.btnModificar.addActionListener(this);
         vista.btnEliminar.addActionListener(this);
+        
+        vista.jtableUsuario.addMouseListener(this);
+        vista.jtxtBuscar.getDocument().addDocumentListener(this);
+        
         vista.addWindowListener(this);
+        vista.jtxtBuscar.requestFocus();
     
     
     }

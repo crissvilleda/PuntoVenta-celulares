@@ -43,6 +43,7 @@ public class ControladorRegistrarProveedor implements ActionListener, KeyListene
         vista.jtxtNombre.addKeyListener(this);
         vista.jtxtDireccion.addKeyListener(this);
         vista.jtxtEmail.addKeyListener(this);
+        vista.jtxtTelefono.addKeyListener(this);
         vista.jtxtCiudad.addKeyListener(this);
         vista.jtxtPais.addKeyListener(this);
         vista.btnRegistrar.addActionListener(this);
@@ -65,8 +66,10 @@ public class ControladorRegistrarProveedor implements ActionListener, KeyListene
         this.modelo = modelo;
         this.proveedor = pro;
         vista.jlblCerrar.addMouseListener(this);
+        
         vista.jtxtNombre.addKeyListener(this);
         vista.jtxtDireccion.addKeyListener(this);
+        vista.jtxtTelefono.addKeyListener(this);
         vista.jtxtEmail.addKeyListener(this);
         vista.jtxtCiudad.addKeyListener(this);
         vista.jtxtPais.addKeyListener(this);
@@ -185,10 +188,17 @@ public class ControladorRegistrarProveedor implements ActionListener, KeyListene
             
         }else if(ke.getSource()==vista.jtxtEmail){
             if(ke.getKeyCode()==KeyEvent.VK_ENTER){
-                vista.jtxtCiudad.requestFocus();
+                vista.jtxtTelefono.requestFocus();
             }
             
-        }else if(ke.getSource()==vista.jtxtCiudad){
+        }else if(ke.getSource()==vista.jtxtTelefono){
+            if(ke.getKeyCode()==KeyEvent.VK_ENTER){
+                vista.jtxtCiudad.requestFocus();
+                
+            }
+            
+        }
+        else if(ke.getSource()==vista.jtxtCiudad){
             if(ke.getKeyCode()==KeyEvent.VK_ENTER){
                 vista.jtxtPais.requestFocus();
                 

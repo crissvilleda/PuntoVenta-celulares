@@ -38,6 +38,14 @@ public class ControladorRegistrarUsuario implements ActionListener, KeyListener,
         vista.jlblInicio.addMouseListener(this);
         vista.btnRegistrar.addActionListener(this);
         
+        vista.jtxtNombre.addKeyListener(this);
+        vista.jtxtApellido.addKeyListener(this);
+        vista.jtxtEmail.addKeyListener(this);
+        vista.jtxtTelefono.addKeyListener(this);
+        vista.jtxtUsuario.addKeyListener(this);
+        vista.txtGenero.addKeyListener(this);
+        vista.jContraseña1.addKeyListener(this);
+        
         vista.jtxtNombre.getDocument().addDocumentListener(this);
         vista.jtxtApellido.getDocument().addDocumentListener(this);
         vista.jtxtEmail.getDocument().addDocumentListener(this);
@@ -61,6 +69,14 @@ public class ControladorRegistrarUsuario implements ActionListener, KeyListener,
         vista.btnRegistrar.addActionListener((ActionEvent)->{
         modificar();
         });
+        
+        vista.jtxtNombre.addKeyListener(this);
+        vista.jtxtApellido.addKeyListener(this);
+        vista.jtxtEmail.addKeyListener(this);
+        vista.jtxtTelefono.addKeyListener(this);
+        vista.jtxtUsuario.addKeyListener(this);
+        vista.txtGenero.addKeyListener(this);
+        vista.jContraseña1.addKeyListener(this);
         
         vista.jtxtNombre.getDocument().addDocumentListener(this);
         vista.jtxtApellido.getDocument().addDocumentListener(this);
@@ -120,6 +136,15 @@ public class ControladorRegistrarUsuario implements ActionListener, KeyListener,
         usu.setTipo(vista.cbxTipo.getItemAt(vista.cbxTipo.getSelectedIndex()));
         if(consulta.registrar(usu)){
             JOptionPane.showMessageDialog(null,"Registro Exitoso");
+            vista.jtxtNombre.setText("");
+            vista.jtxtApellido.setText("");
+            vista.jtxtEmail.setText("");
+            vista.jtxtTelefono.setText("");
+            vista.txtGenero.setText("");
+            vista.jtxtUsuario.setText("");
+            vista.jContraseña.setText("");
+            vista.jContraseña1.setText("");
+            
         }else{
             JOptionPane.showMessageDialog(null,"Error al Guardar" );
             
@@ -183,10 +208,40 @@ public class ControladorRegistrarUsuario implements ActionListener, KeyListener,
     
     @Override
     public void keyPressed(KeyEvent ke) {
-        if(ke.getSource()==vista.jContraseña){
+        if(ke.getSource()==vista.jtxtNombre){
             if(ke.getKeyCode()==KeyEvent.VK_ENTER){
-                registrar();
+                vista.jtxtApellido.requestFocus();
+                
             }
+                
+        }else if(ke.getSource()==vista.jtxtApellido){
+            if(ke.getKeyCode()==KeyEvent.VK_ENTER){
+                vista.jtxtEmail.requestFocus();
+            }
+            
+        }else if(ke.getSource()==vista.jtxtEmail){
+            if(ke.getKeyCode()==KeyEvent.VK_ENTER){
+                vista.jtxtTelefono.requestFocus();
+            }
+            
+        }else if(ke.getSource()==vista.jtxtTelefono){
+            if(ke.getKeyCode()==KeyEvent.VK_ENTER){
+                vista.txtGenero.requestFocus();
+                
+            }
+            
+        }else if(ke.getSource()==vista.txtGenero){
+            if(ke.getKeyCode()==KeyEvent.VK_ENTER){
+                vista.jtxtUsuario.requestFocus();
+            }   
+        }else if(ke.getSource()==vista.jtxtUsuario){
+            if(ke.getKeyCode()==KeyEvent.VK_ENTER){
+                vista.jContraseña1.requestFocus();
+            }   
+        }else if(ke.getSource()==vista.jContraseña1){
+            if(ke.getKeyCode()==KeyEvent.VK_ENTER){
+                vista.jContraseña.requestFocus();
+            }   
         }
     }
     @Override
