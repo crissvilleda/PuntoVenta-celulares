@@ -5,8 +5,6 @@
  */
 package Vista;
 
-import com.placeholder.PlaceHolder;
-
 /**
  *
  * @author Orlando
@@ -19,10 +17,6 @@ public class EntradaNuevo extends javax.swing.JFrame {
     public EntradaNuevo() {
         initComponents();
         this.setLocationRelativeTo(null);
-    }
-    public void holders(){
-      PlaceHolder holder;  
-      holder=new PlaceHolder(jtxtCodigo,"Ingrese Codigo");
     }
 
     /**
@@ -122,6 +116,7 @@ public class EntradaNuevo extends javax.swing.JFrame {
 
         jtxtCodigo.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtCodigo.setForeground(new java.awt.Color(153, 153, 153));
+        jtxtCodigo.setText("Ingrese codigo");
         jtxtCodigo.setBorder(null);
         jtxtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,7 +312,7 @@ public class EntradaNuevo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnNuevoProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProductoActionPerformed
-       RegistrarProducto form= new RegistrarProducto();
+       RegistroProducto form= new RegistroProducto();
        form.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_btnNuevoProductoActionPerformed
@@ -353,6 +348,14 @@ public class EntradaNuevo extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(EntradaNuevo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
