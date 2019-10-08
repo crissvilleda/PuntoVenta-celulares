@@ -23,7 +23,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
     }
     public void holders(){
       PlaceHolder holder;  
-      holder=new PlaceHolder(jtxtCodigo,"Buscar por Nombre");
+      holder=new PlaceHolder(jtxtCodigo,"Ingrese Codigo");
     }
 
     /**
