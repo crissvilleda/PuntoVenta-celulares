@@ -92,7 +92,7 @@ public class ListaProducto extends javax.swing.JFrame {
 
         jtxtBuscar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtBuscar.setForeground(new java.awt.Color(153, 153, 153));
-        jtxtBuscar.setText("Buscar por Nombre o Descripcion");
+        jtxtBuscar.setToolTipText("");
         jtxtBuscar.setBorder(null);
         jtxtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
