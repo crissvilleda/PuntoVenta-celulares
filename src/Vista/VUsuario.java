@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import com.placeholder.PlaceHolder;
+
 /**
  *
  * @author Orlando
@@ -17,8 +19,13 @@ public class VUsuario extends javax.swing.JFrame {
     public VUsuario() {
         initComponents();
         this.setLocationRelativeTo(null);
+        holders();
     }
-
+    
+        public void holders(){
+            PlaceHolder holder;  
+            holder=new PlaceHolder(jtxtBuscar,"Buscar por nombre o Apellido");
+          }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

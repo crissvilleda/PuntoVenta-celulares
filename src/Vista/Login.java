@@ -5,6 +5,7 @@
  */
 package Vista;
 import AppPackage.AnimationClass;
+import com.placeholder.PlaceHolder;
 import java.awt.Desktop;
 import java.net.URI;
 import javax.swing.JOptionPane;
@@ -22,6 +23,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
+        holders();
     }
     public Image getIconImage(){
         Image retValue=Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Image/icono.png"));
@@ -34,9 +36,10 @@ public class Login extends javax.swing.JFrame {
         }catch(Exception e){
             JOptionPane.showConfirmDialog(this, e);
         }
-        
-        
-        
+    }
+    public void holders(){
+      PlaceHolder holder;  
+      holder=new PlaceHolder(jtxtUsuario,"Ingrese el Usuario");
     }
 
     /**

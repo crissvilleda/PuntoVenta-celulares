@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import com.placeholder.PlaceHolder;
+
 /**
  *
  * @author Orlando
@@ -17,6 +19,11 @@ public class Inventario extends javax.swing.JFrame {
     public Inventario() {
         initComponents();
         this.setLocationRelativeTo(null);
+        holders();
+    }
+    public void holders(){
+      PlaceHolder holder;  
+      holder=new PlaceHolder(jtxtBuscar,"Buscar por Codigo");
     }
 
     /**
@@ -147,7 +154,6 @@ public class Inventario extends javax.swing.JFrame {
 
         jtxtBuscar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtBuscar.setForeground(new java.awt.Color(153, 153, 153));
-        jtxtBuscar.setText("Buscar por Codigo");
         jtxtBuscar.setBorder(null);
         jtxtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

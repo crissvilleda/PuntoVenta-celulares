@@ -107,7 +107,7 @@ public class ControladorUsuario implements ActionListener, MouseListener,
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
     }
-    
+
   
     @Override
     public void mouseClicked(MouseEvent me) {

@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import com.placeholder.PlaceHolder;
+
 /**
  *
  * @author Orlando
@@ -17,6 +19,10 @@ public class EntradaNuevo extends javax.swing.JFrame {
     public EntradaNuevo() {
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+    public void holders(){
+      PlaceHolder holder;  
+      holder=new PlaceHolder(jtxtCodigo,"Ingrese Codigo");
     }
 
     /**
@@ -116,7 +122,6 @@ public class EntradaNuevo extends javax.swing.JFrame {
 
         jtxtCodigo.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtCodigo.setForeground(new java.awt.Color(153, 153, 153));
-        jtxtCodigo.setText("Ingrese codigo");
         jtxtCodigo.setBorder(null);
         jtxtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
