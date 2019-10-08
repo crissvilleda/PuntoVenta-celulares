@@ -202,9 +202,7 @@ public class Entrada extends javax.swing.JFrame {
     }//GEN-LAST:event_jlblMinimizarMouseClicked
 
     private void jlblInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblInicioMouseClicked
-        Administrador form = new Administrador();
-        form.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_jlblInicioMouseClicked
 
     private void jtxtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtBuscarActionPerformed
@@ -212,9 +210,7 @@ public class Entrada extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxtBuscarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        EntradaNuevo form = new EntradaNuevo();
-        form.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     /**

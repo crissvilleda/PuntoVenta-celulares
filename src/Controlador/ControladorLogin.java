@@ -94,9 +94,9 @@ public class ControladorLogin implements ActionListener, KeyListener, MouseListe
                 JOptionPane.showMessageDialog(null,"Ingreso Exitoso");
                 if(modelo.getTipo().equals("Admin")){
                     
-                    ControladorAdministrador controlador = 
+                    ControladorAdministrador controladorA = 
                             new ControladorAdministrador(vistaAdmin,modelo);
-                    controlador.iniciar();
+                    controladorA.iniciar();
                     vista.dispose();
                 }
                 

@@ -21,15 +21,15 @@ public class ConsultasProducto extends Pool {
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
         String sql = "INSERT INTO producto(codigo, nombre, descripcion,"
-                + "categoria, marca) values(?,?,?,?,?)";
+                + "idCategoria, idMarca) values(?,?,?,?,?)";
         
         try{
              ps = (PreparedStatement) cn.prepareStatement(sql);
              ps.setString(1, pro.getCodigo());
              ps.setString(2, pro.getNombre());
              ps.setString(3, pro.getDescripcion());
-             ps.setString(4, pro.getCategoria());
-             ps.setString(5, pro.getMarca());
+             ps.setInt(4, pro.getIdCategoria());
+             ps.setInt(5, pro.getIdMarca());
              ps.execute();
              return true;
              
@@ -54,14 +54,14 @@ public class ConsultasProducto extends Pool {
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
         String sql = "UPDATE producto SET codigo=?, nombre=?, descripcion=?"
-                + "categoria=?, marca=? WHERE idProducto=?";
+                + "idCategoria=?, idMarca=? WHERE idProducto=?";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
             ps.setString(1, pro.getCodigo());
             ps.setString(2, pro.getNombre());
             ps.setString(3, pro.getDescripcion());
-            ps.setString(4, pro.getCategoria());
-            ps.setString(5, pro.getMarca());
+            ps.setInt(4, pro.getIdCategoria());
+            ps.setInt(5, pro.getIdMarca());
             ps.setInt(6, pro.getIdProducto());
             ps.execute();
             return true;            
@@ -125,8 +125,8 @@ public class ConsultasProducto extends Pool {
                 pro.setCodigo(rs.getString("codigo"));
                 pro.setNombre(rs.getString("nombre"));
                 pro.setDescripcion(rs.getString("descripcion"));
-                pro.setCategoria(rs.getString("categoria"));
-                pro.setMarca(rs.getString("marca"));
+                pro.setIdCategoria(rs.getInt("idCategoria"));
+                pro.setIdMarca(rs.getInt("idMarca"));
 
              
             } 

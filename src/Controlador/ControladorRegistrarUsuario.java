@@ -200,8 +200,8 @@ public class ControladorRegistrarUsuario implements ActionListener, KeyListener,
     @Override
     public void mouseClicked(MouseEvent me) {
         if(me.getSource()==vista.jlblInicio){
-            ControladorUsuario controlador = new ControladorUsuario( vistaUsuario ,modelo);
-            controlador.iniciar();
+            ControladorUsuario controladorU = new ControladorUsuario( vistaUsuario ,modelo);
+            controladorU.iniciar();
             vista.dispose();         
         }
     }

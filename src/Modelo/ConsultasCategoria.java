@@ -17,7 +17,28 @@ import javax.swing.JComboBox;
  * @author criss
  */
 public class ConsultasCategoria  extends Pool{
-    public void listaMarcas(JComboBox cb){
+    public boolean getIdCategoria(Categoria cat){
+        PreparedStatement ps = null;
+        Connection cn = (Connection)getConnection();
+        ResultSet rs = null;
+        String sql = "SELECT idCategoria FROM categoria WHERE nombre=?";
+        try{
+            ps = (PreparedStatement)cn.prepareStatement(sql);
+            ps.setString(1, cat.getNombre());
+            rs = ps.executeQuery();
+            while(rs.next()){
+                cat.setIdCategoria(rs.getInt("idCategoria"));
+                return true;
+            }
+            return false;
+            
+        }catch (SQLException e){
+            System.err.print(e);
+            return false;
+        }
+        
+    }
+    public void listaCategorias(JComboBox cb){
         DefaultComboBoxModel model = (DefaultComboBoxModel)cb.getModel();
         String registro;
         PreparedStatement ps = null;

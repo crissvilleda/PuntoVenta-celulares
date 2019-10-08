@@ -167,8 +167,8 @@ public class ControladorRegistrarProveedor implements ActionListener, KeyListene
     @Override
     public void mouseClicked(MouseEvent me) {
         if(me.getSource()==vista.jlblCerrar){
-            ControladorProveedor controlador = new ControladorProveedor(vistaProveedor ,modelo);
-            controlador.iniciar();
+            ControladorProveedor controladorP = new ControladorProveedor(vistaProveedor ,modelo);
+            controladorP.iniciar();
             vista.dispose();         
         }
         

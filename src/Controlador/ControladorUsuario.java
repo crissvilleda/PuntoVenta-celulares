@@ -46,7 +46,7 @@ public class ControladorUsuario implements ActionListener, MouseListener,
         vista.jtxtBuscar.getDocument().addDocumentListener(this);
         
         vista.addWindowListener(this);
-        vista.jtxtBuscar.requestFocus();
+        
     
     
     }
@@ -54,9 +54,9 @@ public class ControladorUsuario implements ActionListener, MouseListener,
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource()==vista.btnNuevo){
-            ControladorRegistrarUsuario controlador = 
+            ControladorRegistrarUsuario controladorR = 
                     new ControladorRegistrarUsuario(vistaRegistro,modelo);
-            controlador.iniciar();
+            controladorR.iniciar();
             vista.dispose();
         }else if(ae.getSource()==vista.btnEliminar){
             //metodo elimiar usuarios
@@ -91,9 +91,9 @@ public class ControladorUsuario implements ActionListener, MouseListener,
             usu.setGenero(vista.jtableUsuario.getModel().getValueAt(row, 6).toString().charAt(0));
             usu.setNombreUsuario((String)vista.jtableUsuario.getModel().getValueAt(row, 7));
             usu.setContraseña((String)vista.jtableUsuario.getModel().getValueAt(row, 8));
-            ControladorRegistrarUsuario controlador = 
+            ControladorRegistrarUsuario controladorRU = 
                     new ControladorRegistrarUsuario(vistaRegistro,usu,modelo);
-            controlador.iniciar();
+            controladorRU.iniciar();
             vista.dispose();
             
             
@@ -112,9 +112,9 @@ public class ControladorUsuario implements ActionListener, MouseListener,
     @Override
     public void mouseClicked(MouseEvent me) {
         if(me.getSource()==vista.jlblInicio){
-            ControladorAdministrador controlador = 
+            ControladorAdministrador controladorA = 
                     new ControladorAdministrador(vistaAdmin,modelo);
-            controlador.iniciar();
+            controladorA.iniciar();
             vista.dispose();
             
         }else if(me.getSource()==vista.jtableUsuario){

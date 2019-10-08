@@ -17,6 +17,27 @@ import javax.swing.DefaultComboBoxModel;
  * @author criss
  */
 public class ConsultasMarca extends Pool {
+    public boolean getIdMarca(Marca marca){
+        PreparedStatement ps = null;
+        Connection cn = (Connection)getConnection();
+        ResultSet rs = null;
+        String sql = "SELECT idMarca FROM marca WHERE nombre=?";
+        try{
+            ps = (PreparedStatement)cn.prepareStatement(sql);
+            ps.setString(1, marca.getNombre());
+            rs = ps.executeQuery();
+            while(rs.next()){
+                marca.setIdMarca(rs.getInt("idMarca"));
+                return true;
+            }
+            return false;
+            
+        }catch (SQLException e){
+            System.err.print(e);
+            return false;
+        }
+        
+    }
     
     public void listaMarcas(JComboBox cb){
         DefaultComboBoxModel model = (DefaultComboBoxModel)cb.getModel();
