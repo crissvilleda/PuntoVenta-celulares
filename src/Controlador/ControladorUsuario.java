@@ -46,7 +46,7 @@ public class ControladorUsuario implements ActionListener, MouseListener,
         vista.jtxtBuscar.getDocument().addDocumentListener(this);
         
         vista.addWindowListener(this);
-        vista.jtxtBuscar.requestFocus();
+        
     
     
     }

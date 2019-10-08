@@ -49,7 +49,7 @@ public class ControladorProveedor implements ActionListener, MouseListener,
         
         vista.jtxtBuscar.getDocument().addDocumentListener(this);
         vista.addWindowListener(this);
-        vista.jtxtBuscar.requestFocus();
+       
     }
     public void iniciar(){
         vista.setLocationRelativeTo(null);
