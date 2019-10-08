@@ -9,12 +9,12 @@ package Vista;
  *
  * @author Orlando
  */
-public class EntradaNuevo extends javax.swing.JFrame {
+public class RegistroEntrada extends javax.swing.JFrame {
 
     /**
      * Creates new form Usuario
      */
-    public EntradaNuevo() {
+    public RegistroEntrada() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -42,7 +42,7 @@ public class EntradaNuevo extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
         jlblProveedor = new javax.swing.JLabel();
         jcmbProveedor = new javax.swing.JComboBox<>();
-        jlblRecibido1 = new javax.swing.JLabel();
+        jlblListaInventario = new javax.swing.JLabel();
         jlblRecibido2 = new javax.swing.JLabel();
         jlblNoEntrada = new javax.swing.JLabel();
         jtxtNoEntrada = new javax.swing.JTextField();
@@ -116,7 +116,6 @@ public class EntradaNuevo extends javax.swing.JFrame {
 
         jtxtCodigo.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtCodigo.setForeground(new java.awt.Color(153, 153, 153));
-        jtxtCodigo.setText("Ingrese codigo");
         jtxtCodigo.setBorder(null);
         jtxtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,11 +157,11 @@ public class EntradaNuevo extends javax.swing.JFrame {
         jcmbProveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proveedor" }));
         jPanel2EntradaNuevo.add(jcmbProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 130, -1));
 
-        jlblRecibido1.setBackground(new java.awt.Color(255, 255, 255));
-        jlblRecibido1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jlblRecibido1.setForeground(new java.awt.Color(105, 105, 105));
-        jlblRecibido1.setText("Lista de Inventario");
-        jPanel2EntradaNuevo.add(jlblRecibido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 46, 130, -1));
+        jlblListaInventario.setBackground(new java.awt.Color(255, 255, 255));
+        jlblListaInventario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jlblListaInventario.setForeground(new java.awt.Color(105, 105, 105));
+        jlblListaInventario.setText("Lista de Inventario");
+        jPanel2EntradaNuevo.add(jlblListaInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 46, 130, -1));
 
         jlblRecibido2.setBackground(new java.awt.Color(255, 255, 255));
         jlblRecibido2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -306,15 +305,11 @@ public class EntradaNuevo extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxtFechaActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-       Entrada form= new Entrada();
-       form.setVisible(true);
-       this.dispose();
+   
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnNuevoProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProductoActionPerformed
-       RegistrarProducto form= new RegistrarProducto();
-       form.setVisible(true);
-       this.dispose();
+   
     }//GEN-LAST:event_btnNuevoProductoActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -340,14 +335,22 @@ public class EntradaNuevo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EntradaNuevo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroEntrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EntradaNuevo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroEntrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EntradaNuevo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroEntrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EntradaNuevo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroEntrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -360,7 +363,7 @@ public class EntradaNuevo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EntradaNuevo().setVisible(true);
+                new RegistroEntrada().setVisible(true);
             }
         });
     }
@@ -382,12 +385,12 @@ public class EntradaNuevo extends javax.swing.JFrame {
     public javax.swing.JLabel jlblEntrada;
     public javax.swing.JLabel jlblEntradaIcono;
     public javax.swing.JLabel jlblFecha;
+    public javax.swing.JLabel jlblListaInventario;
     public javax.swing.JLabel jlblMinimizar;
     public javax.swing.JLabel jlblNoEntrada;
     public javax.swing.JLabel jlblNombreUsuario;
     public javax.swing.JLabel jlblProveedor;
     public javax.swing.JLabel jlblRecibido;
-    public javax.swing.JLabel jlblRecibido1;
     public javax.swing.JLabel jlblRecibido2;
     public javax.swing.JLabel jlblTotal;
     public javax.swing.JTable jtableNuevaEntrada;

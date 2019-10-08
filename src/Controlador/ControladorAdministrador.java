@@ -7,6 +7,7 @@ package Controlador;
 import AppPackage.AnimationClass;
 import Modelo.Usuario;
 import Vista.Administrador;
+import Vista.Entrada;
 import Vista.VProveedor;
 import Vista.VUsuario;
 import java.awt.event.ActionEvent;
@@ -24,7 +25,7 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
     private Usuario modelo;
     private VUsuario vistaUsuario = new VUsuario();
     private VProveedor vistaProveedor = new VProveedor();
-    
+    private Entrada vistaEntrada = new Entrada();
     //inicializa en controlador
     public ControladorAdministrador(Administrador vista, Usuario modelo){
         this.vista = vista;
@@ -60,16 +61,22 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
         //filtra el evento deacuedo al objeto que lo produzca
         if(me.getSource()==vista.jlblUsuarios){
             //carga el controlador de la vista usuario y activa la vista
-            ControladorUsuario controlador = new ControladorUsuario(vistaUsuario,modelo);
-            controlador.iniciar();
+            ControladorUsuario controladorU = 
+                    new ControladorUsuario(vistaUsuario,modelo);
+            controladorU.iniciar();
             vista.dispose();
             
         }else if(me.getSource()==vista.jlblProveedores){
-            ControladorProveedor controlador = new ControladorProveedor(vistaProveedor,modelo);
-            controlador.iniciar();
+            ControladorProveedor controladorP = 
+                    new ControladorProveedor(vistaProveedor,modelo);
+            controladorP.iniciar();
             vista.dispose();
             
         }else if(me.getSource()==vista.jlblEntradas){
+            ControladorEntrada controladorE = 
+                    new ControladorEntrada(vistaEntrada, modelo);
+            controladorE.iniciar();
+            vista.dispose();
         
         }else if(me.getSource()==vista.jlblInventario){
         

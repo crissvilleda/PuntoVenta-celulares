@@ -58,7 +58,7 @@ public class RegistroProducto extends javax.swing.JFrame {
 
         jlblRegistrarProducto.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
         jlblRegistrarProducto.setForeground(new java.awt.Color(102, 102, 102));
-        jlblRegistrarProducto.setText("Registro Producto");
+        jlblRegistrarProducto.setText("Registrar/Modificar Producto");
         jPanelRegistrarUsuario.add(jlblRegistrarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
         jlblCerrar.setBackground(new java.awt.Color(255, 255, 255));
@@ -150,11 +150,9 @@ public class RegistroProducto extends javax.swing.JFrame {
         jlblCodigo.setText("Codigo:");
         jPanelRegistrarUsuario.add(jlblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
 
-        jcmbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
         jcmbCategoria.setBorder(null);
         jPanelRegistrarUsuario.add(jcmbCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 130, -1));
 
-        jcmbMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
         jcmbMarca.setBorder(null);
         jPanelRegistrarUsuario.add(jcmbMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 130, -1));
 
@@ -180,9 +178,7 @@ public class RegistroProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void jlblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblCerrarMouseClicked
-        VInventario form = new VInventario();
-        form.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_jlblCerrarMouseClicked
 
     /**

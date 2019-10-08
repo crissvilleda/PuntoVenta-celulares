@@ -158,7 +158,6 @@ public class Entrada extends javax.swing.JFrame {
 
         jtxtBuscar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtBuscar.setForeground(new java.awt.Color(153, 153, 153));
-        jtxtBuscar.setText("Buscar por Responsable o fecha");
         jtxtBuscar.setBorder(null);
         jtxtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,9 +195,7 @@ public class Entrada extends javax.swing.JFrame {
     }//GEN-LAST:event_jlblMinimizarMouseClicked
 
     private void jlblInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblInicioMouseClicked
-        Administrador form = new Administrador();
-        form.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_jlblInicioMouseClicked
 
     private void jtxtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtBuscarActionPerformed
@@ -206,9 +203,7 @@ public class Entrada extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxtBuscarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        EntradaNuevo form = new EntradaNuevo();
-        form.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     /**

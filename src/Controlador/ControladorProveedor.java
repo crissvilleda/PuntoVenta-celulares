@@ -61,9 +61,9 @@ public class ControladorProveedor implements ActionListener, MouseListener,
     public void actionPerformed(ActionEvent ae) {
         
         if(ae.getSource()==vista.btnNuevo){
-            ControladorRegistrarProveedor controlador = 
+            ControladorRegistrarProveedor controladorRP = 
                     new ControladorRegistrarProveedor(vistaRegistro,modelo);
-            controlador.iniciar();
+            controladorRP.iniciar();
             vista.dispose();
             
             
@@ -100,9 +100,9 @@ public class ControladorProveedor implements ActionListener, MouseListener,
             pro.setCiudad((String)vista.jtableProveedor.getModel().getValueAt(row, 5));
             pro.setPais((String)vista.jtableProveedor.getModel().getValueAt(row, 6));
             pro.setRepresentante((String)vista.jtableProveedor.getModel().getValueAt(row, 7));
-            ControladorRegistrarProveedor controlador = 
+            ControladorRegistrarProveedor controladorRP = 
                     new ControladorRegistrarProveedor(vistaRegistro,pro,modelo);
-            controlador.iniciar();
+            controladorRP.iniciar();
             vista.dispose();
             
         }
@@ -112,9 +112,9 @@ public class ControladorProveedor implements ActionListener, MouseListener,
     @Override
     public void mouseClicked(MouseEvent me) {
         if(me.getSource()==vista.jlblInicio){
-            ControladorAdministrador controlador = 
+            ControladorAdministrador controladorA = 
                     new ControladorAdministrador(vistaAdmin,modelo);
-            controlador.iniciar();
+            controladorA.iniciar();
             vista.dispose();
         }else if(me.getSource()==vista.jtableProveedor){
             vista.btnEliminar.setEnabled(true);

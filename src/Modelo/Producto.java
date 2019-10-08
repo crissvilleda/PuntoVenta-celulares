@@ -14,23 +14,22 @@ public class Producto {
     private String codigo;
     private String nombre;
     private String descripcion;
-    private String categoria;
-    private String marca;
+    private int idCategoria;
+    private int idMarca;
     
     
     public Producto(){}
-    public Producto(int ip, String c, String n, String d, String ca, 
-            String m){
+    public Producto(int ip, String c, String n, String d, int ca, 
+            int m){
         this.idProducto = ip;
         this.codigo = c;
         this.nombre = n;
         this.descripcion = d;
-        this.categoria = ca;
-        this.marca = m;
+        this.idCategoria = ca;
+        this.idMarca = m;
         
         
     }
-    
 
     public int getIdProducto() {
         return idProducto;
@@ -64,20 +63,23 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public int getIdCategoria() {
+        return idCategoria;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
-    public String getMarca() {
-        return marca;
+    public int getIdMarca() {
+        return idMarca;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setIdMarca(int idMarca) {
+        this.idMarca = idMarca;
     }
+    
+
+    
     
 }
