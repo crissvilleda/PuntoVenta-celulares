@@ -87,6 +87,8 @@ public class RegistroEntrada extends javax.swing.JFrame {
         jlblFechaSistema = new javax.swing.JLabel();
         jlblHora = new javax.swing.JLabel();
         jlblHoraSistema = new javax.swing.JLabel();
+        jtxtNoEntrada = new javax.swing.JTextField();
+        jlblNoEntrada = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -288,7 +290,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
         jlblFecha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jlblFecha1.setForeground(new java.awt.Color(225, 99, 71));
         jlblFecha1.setText("Fecha:");
-        jPanel2EntradaNuevo.add(jlblFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, -1, -1));
+        jPanel2EntradaNuevo.add(jlblFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 10, -1, -1));
 
         jlblFechaSistema.setForeground(new java.awt.Color(103, 103, 103));
         jlblFechaSistema.setText("Fecha Sistema");
@@ -298,11 +300,28 @@ public class RegistroEntrada extends javax.swing.JFrame {
         jlblHora.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jlblHora.setForeground(new java.awt.Color(225, 99, 71));
         jlblHora.setText("Hora:");
-        jPanel2EntradaNuevo.add(jlblHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, -1, -1));
+        jPanel2EntradaNuevo.add(jlblHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 30, -1, -1));
 
         jlblHoraSistema.setForeground(new java.awt.Color(103, 103, 103));
         jlblHoraSistema.setText("Hora Sistema");
-        jPanel2EntradaNuevo.add(jlblHoraSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 40, 130, 20));
+        jPanel2EntradaNuevo.add(jlblHoraSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 30, 130, 20));
+
+        jtxtNoEntrada.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jtxtNoEntrada.setForeground(new java.awt.Color(153, 153, 153));
+        jtxtNoEntrada.setText("id Compra");
+        jtxtNoEntrada.setBorder(null);
+        jtxtNoEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtNoEntradaActionPerformed(evt);
+            }
+        });
+        jPanel2EntradaNuevo.add(jtxtNoEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 50, 130, 20));
+
+        jlblNoEntrada.setBackground(new java.awt.Color(255, 255, 255));
+        jlblNoEntrada.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jlblNoEntrada.setForeground(new java.awt.Color(225, 99, 71));
+        jlblNoEntrada.setText("No:");
+        jPanel2EntradaNuevo.add(jlblNoEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 50, -1, -1));
 
         getContentPane().add(jPanel2EntradaNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
 
@@ -330,6 +349,10 @@ public class RegistroEntrada extends javax.swing.JFrame {
        form.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void jtxtNoEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtNoEntradaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtNoEntradaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -403,6 +426,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
     public javax.swing.JLabel jlblHoraSistema;
     public javax.swing.JLabel jlblListaInventario;
     public javax.swing.JLabel jlblMinimizar;
+    public javax.swing.JLabel jlblNoEntrada;
     public javax.swing.JLabel jlblNombreUsuario;
     public javax.swing.JLabel jlblProveedor;
     public javax.swing.JLabel jlblRecibido;
@@ -410,5 +434,6 @@ public class RegistroEntrada extends javax.swing.JFrame {
     public javax.swing.JLabel jlblTotal;
     public javax.swing.JTable jtableNuevaEntrada;
     public javax.swing.JTextField jtxtCodigo;
+    public javax.swing.JTextField jtxtNoEntrada;
     // End of variables declaration//GEN-END:variables
 }
