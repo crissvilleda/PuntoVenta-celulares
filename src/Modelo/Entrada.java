@@ -27,13 +27,12 @@ public class Entrada {
         this.total = t;
     }
 
-    public int getIdCompra() {
-        
+    public int getIdEntrada() {
         return idEntrada;
     }
 
-    public void setIdCompra(int idCompra) {
-        this.idEntrada = idCompra;
+    public void setIdEntrada(int idEntrada) {
+        this.idEntrada = idEntrada;
     }
 
     public int getIdUsuario() {
@@ -52,7 +51,6 @@ public class Entrada {
         this.idProveedor = idProveedor;
     }
 
-
     public Date getFechaCompra() {
         return fechaCompra;
     }
@@ -68,6 +66,7 @@ public class Entrada {
     public void setTotal(double total) {
         this.total = total;
     }
-    
+
+   
     
 }

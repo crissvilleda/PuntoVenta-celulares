@@ -7,7 +7,7 @@ package Controlador;
 import AppPackage.AnimationClass;
 import Modelo.Usuario;
 import Vista.Administrador;
-import Vista.Entrada;
+import Vista.VEntrada;
 import Vista.VProveedor;
 import Vista.VUsuario;
 import java.awt.event.ActionEvent;
@@ -25,7 +25,7 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
     private Usuario modelo;
     private VUsuario vistaUsuario = new VUsuario();
     private VProveedor vistaProveedor = new VProveedor();
-    private Entrada vistaEntrada = new Entrada();
+    private VEntrada vistaEntrada = new VEntrada();
     //inicializa en controlador
     public ControladorAdministrador(Administrador vista, Usuario modelo){
         this.vista = vista;

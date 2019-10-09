@@ -7,7 +7,7 @@ package Controlador;
 
 import Modelo.Usuario;
 import Vista.Administrador;
-import Vista.Entrada;
+import Vista.VEntrada;
 import Vista.RegistroEntrada;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,11 +23,11 @@ import javax.swing.event.DocumentListener;
 public class ControladorEntrada implements ActionListener, MouseListener,
         DocumentListener{
     private Usuario modelo;
-    private Entrada vista;
+    private VEntrada vista;
     private RegistroEntrada vistaNuevo = new RegistroEntrada();
     private Administrador vistaAdmin = new Administrador();
     
-    public ControladorEntrada(Entrada entrada, Usuario modelo){
+    public ControladorEntrada(VEntrada entrada, Usuario modelo){
         this.vista = entrada;
         this.modelo = modelo;
         

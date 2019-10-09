@@ -5,10 +5,12 @@
  */
 package Controlador;
 
+import Modelo.ConsultasEntrada;
 import Modelo.ConsultasProducto;
+import Modelo.Entrada;
 import Modelo.Producto;
 import Modelo.Usuario;
-import Vista.Entrada;
+import Vista.VEntrada;
 import Vista.RegistroEntrada;
 import Vista.RegistroProducto;
 import java.awt.event.ActionEvent;
@@ -31,8 +33,9 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
         TableModelListener{
     private RegistroEntrada vista;
     private Usuario modelo;
-    private Entrada vistaEntrada = new Entrada();
+    private VEntrada vistaEntrada = new VEntrada();
     private RegistroProducto vistaRegistro = new RegistroProducto();
+    private ConsultasEntrada consultaE = new ConsultasEntrada();
     //registra si el jtable esta activo
     boolean active = false;
     
@@ -47,6 +50,7 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
         vista.btnAtras.addActionListener(this);
         vista.btnAgregar.addActionListener(this);
         vista.jtableNuevaEntrada.getModel().addTableModelListener(this);
+        siguienteId(vista.jlblNoEntrada);
         
     }
     public void agregarProducto(){
@@ -75,6 +79,12 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
             JOptionPane.showMessageDialog(null,"Este producto no esta registrado");
         }
         
+    }
+    public void siguienteId(JLabel id){
+        Entrada entrada = new Entrada();
+        if(consultaE.siguenteIdEntrada(entrada)){
+            id.setText(String.valueOf(entrada.getIdEntrada()));
+        }        
     }
     
     public void calcularTotal(JLabel total){
