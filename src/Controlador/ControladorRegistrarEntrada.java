@@ -50,7 +50,7 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
         vista.btnAtras.addActionListener(this);
         vista.btnAgregar.addActionListener(this);
         vista.jtableNuevaEntrada.getModel().addTableModelListener(this);
-        siguienteId(vista.jlblNoEntrada);
+        siguienteId(vista.jlblNo);
         
     }
     public void agregarProducto(){
