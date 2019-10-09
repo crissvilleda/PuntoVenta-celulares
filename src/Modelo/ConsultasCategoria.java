@@ -17,6 +17,60 @@ import javax.swing.JComboBox;
  * @author criss
  */
 public class ConsultasCategoria  extends Pool{
+    
+    public boolean registrar(Categoria cat){
+        
+        PreparedStatement ps = null;
+        Connection cn = (Connection)getConnection();
+        String sql = "INSERT INTO categoria(nombre)"
+                + "values(?)";
+        
+        try{
+             ps = (PreparedStatement) cn.prepareStatement(sql);
+             ps.setString(1, cat.getNombre());
+             ps.execute();
+             return true;
+             
+        }catch(SQLException e){
+            System.err.print(e);
+            return false;
+            
+        }finally{
+            if(cn!=null){
+                try{
+                    cn.close();
+                }catch(SQLException e){
+                    System.err.print(e);
+                }
+            }
+        }
+      
+    }
+    public boolean modificar(Categoria cat){
+        PreparedStatement ps = null;
+        Connection cn = (Connection)getConnection();
+        String sql = "UPDATE categoria SET nombre=?"
+                + " WHERE idCategoria=?";
+        try{
+            ps = (PreparedStatement)cn.prepareStatement(sql);
+            ps.setString(1, cat.getNombre());
+            ps.execute();
+            return true;            
+            
+        }catch(SQLException e){
+            System.err.print(e);
+            return false;
+        }finally{
+            if(cn!=null){
+                try{
+                    cn.close();
+                }catch (SQLException e){
+                    System.err.print(e);
+                }
+            }
+        }
+    }
+        
     public boolean getIdCategoria(Categoria cat){
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
