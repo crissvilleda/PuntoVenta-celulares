@@ -12,6 +12,7 @@ import Modelo.Usuario;
 import Vista.Configuracion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -22,7 +23,7 @@ import javax.swing.event.DocumentListener;
  *
  * @author Orlando
  */
-public class ControladorCategoria implements ActionListener,MouseListener,KeyListener,DocumentListener{
+public class ControladorCategoria implements ActionListener,MouseListener,KeyListener{
     private Categoria categoria;
     private Configuracion vista;
     private Usuario modelo;
@@ -32,13 +33,13 @@ public class ControladorCategoria implements ActionListener,MouseListener,KeyLis
     public ControladorCategoria(Configuracion vista, Usuario modelo){
         this.vista = vista;
         this.modelo = modelo;
+        
         vista.jlblInicio.addMouseListener(this);
         vista.jtxtCategoria.addKeyListener(this);
         vista.btnGuardar.addActionListener(this);
         vista.btnNuevo.addActionListener(this);
         
         
-        vista.jtxtCategoria.getDocument().addDocumentListener(this);
         
         vista.btnGuardar.setEnabled(false);
         vista.jtxtCategoria.requestFocus();
@@ -54,9 +55,6 @@ public class ControladorCategoria implements ActionListener,MouseListener,KeyLis
         vista.btnGuardar.addActionListener((ActionEvent)->{
             Modificar(); 
         });
-        
-        
-        vista.jtxtCategoria.getDocument().addDocumentListener(this);
         
         vista.jtxtCategoria.setText(cat.getNombre());
         
@@ -114,72 +112,11 @@ public class ControladorCategoria implements ActionListener,MouseListener,KeyLis
             
         }
     }
-/*
+
     @Override
     public void mouseClicked(MouseEvent me) {
-        if(me.getSource()==vista.jlblInicio){
-            ControladorProveedor controladorP = new ControladorProveedor(vistaProveedor ,modelo);
-            controladorP.iniciar();
-            vista.dispose();         
-        }
-        
-    }
-    @Override
-    public void keyPressed(KeyEvent ke) {
-        if(ke.getSource()==vista.jtxtNombre){
-            if(ke.getKeyCode()==KeyEvent.VK_ENTER){
-                vista.jtxtDireccion.requestFocus();
-                
-            }
-                
-        }else if(ke.getSource()==vista.jtxtDireccion){
-            if(ke.getKeyCode()==KeyEvent.VK_ENTER){
-                vista.jtxtEmail.requestFocus();
-            }
-            
-        }else if(ke.getSource()==vista.jtxtEmail){
-            if(ke.getKeyCode()==KeyEvent.VK_ENTER){
-                vista.jtxtTelefono.requestFocus();
-            }
-            
-        }else if(ke.getSource()==vista.jtxtTelefono){
-            if(ke.getKeyCode()==KeyEvent.VK_ENTER){
-                vista.jtxtCiudad.requestFocus();
-                
-            }
-            
-        }
-        else if(ke.getSource()==vista.jtxtCiudad){
-            if(ke.getKeyCode()==KeyEvent.VK_ENTER){
-                vista.jtxtPais.requestFocus();
-                
-            }
-            
-        }else if(ke.getSource()==vista.jtxtPais){
-            if(ke.getKeyCode()==KeyEvent.VK_ENTER){
-                vista.jtxtRepresentante.requestFocus();
-            }   
-        }
-    }
-   
-
-    @Override
-    public void insertUpdate(DocumentEvent de) {
-        verificarLabels();
-        
     }
 
-    @Override
-    public void removeUpdate(DocumentEvent de) {
-        verificarLabels();
-        
-    }
-
-    @Override
-    public void changedUpdate(DocumentEvent de) {
-        verificarLabels();
-        
-    }
     @Override
     public void mousePressed(MouseEvent me) {
     }
@@ -195,16 +132,19 @@ public class ControladorCategoria implements ActionListener,MouseListener,KeyLis
     @Override
     public void mouseExited(MouseEvent me) {
     }
+
     @Override
     public void keyTyped(KeyEvent ke) {
     }
 
-    
+    @Override
+    public void keyPressed(KeyEvent ke) {
+    }
 
     @Override
     public void keyReleased(KeyEvent ke) {
     }
-*/
+
     
     
 }

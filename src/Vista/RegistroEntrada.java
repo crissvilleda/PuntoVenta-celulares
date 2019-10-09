@@ -253,7 +253,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, true, true, true, false
@@ -271,8 +271,11 @@ public class RegistroEntrada extends javax.swing.JFrame {
         jtableNuevaEntrada.setPreferredSize(new java.awt.Dimension(300, 200));
         jScrollPane1.setViewportView(jtableNuevaEntrada);
         if (jtableNuevaEntrada.getColumnModel().getColumnCount() > 0) {
-            jtableNuevaEntrada.getColumnModel().getColumn(0).setMinWidth(30);
-            jtableNuevaEntrada.getColumnModel().getColumn(0).setMaxWidth(40);
+            jtableNuevaEntrada.getColumnModel().getColumn(0).setResizable(false);
+            jtableNuevaEntrada.getColumnModel().getColumn(4).setResizable(false);
+            jtableNuevaEntrada.getColumnModel().getColumn(5).setResizable(false);
+            jtableNuevaEntrada.getColumnModel().getColumn(6).setResizable(false);
+            jtableNuevaEntrada.getColumnModel().getColumn(9).setResizable(false);
         }
 
         jPanel2EntradaNuevo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 125, 900, 230));

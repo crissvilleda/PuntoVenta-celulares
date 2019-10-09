@@ -115,10 +115,10 @@ public class ConsultasProducto extends Pool {
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
         ResultSet rs = null;
-        String sql ="SELECT * FROM producto WHERE idProducto=?";
+        String sql ="SELECT * FROM producto WHERE codigo=?";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
-            ps.setInt(1, pro.getIdProducto());
+            ps.setString(1, pro.getCodigo());
             rs =ps.executeQuery();
             if(rs.next()){
                 pro.setIdProducto(rs.getInt("idProducto"));
@@ -127,10 +127,9 @@ public class ConsultasProducto extends Pool {
                 pro.setDescripcion(rs.getString("descripcion"));
                 pro.setIdCategoria(rs.getInt("idCategoria"));
                 pro.setIdMarca(rs.getInt("idMarca"));
-
-             
+                return true;
             } 
-            return true;
+            return false;
             
         }catch (SQLException e){
             System.err.print(e);
