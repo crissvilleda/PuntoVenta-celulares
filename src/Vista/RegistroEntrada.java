@@ -6,6 +6,12 @@
 package Vista;
 
 import com.placeholder.PlaceHolder;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.Timer;
 
 /**
  *
@@ -19,11 +25,29 @@ public class RegistroEntrada extends javax.swing.JFrame {
     public RegistroEntrada() {
         initComponents();
         this.setLocationRelativeTo(null);
+        //Fecha del Sistema
+        Date sistFecha = new Date();
+        SimpleDateFormat formato=new SimpleDateFormat("dd-MMM-YYYY");
+        jlblFechaSistema.setText(formato.format(sistFecha));
+        
+        //Hora del Sistema;
+        Timer tiempo = new Timer(100,new RegistroEntrada.jlblHora());
+        tiempo.start();
         holders();
     }
     public void holders(){
       PlaceHolder holder;  
       holder=new PlaceHolder(jtxtCodigo,"Ingrese Codigo");
+    }
+    class jlblHora implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            Date sistHora = new Date();
+            String pmAm="hh:mm:ss a";
+            SimpleDateFormat format = new SimpleDateFormat(pmAm);
+            Calendar hoy=Calendar.getInstance();
+            jlblHoraSistema.setText(String.format(format.format(sistHora),hoy));
+            
+        }
     }
 
     /**
@@ -51,10 +75,6 @@ public class RegistroEntrada extends javax.swing.JFrame {
         jcmbProveedor = new javax.swing.JComboBox<>();
         jlblListaInventario = new javax.swing.JLabel();
         jlblRecibido2 = new javax.swing.JLabel();
-        jlblNoEntrada = new javax.swing.JLabel();
-        jtxtNoEntrada = new javax.swing.JTextField();
-        jlblFecha = new javax.swing.JLabel();
-        jtxtFecha = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
         btnComprar = new javax.swing.JButton();
         btnNuevoProducto = new javax.swing.JButton();
@@ -63,6 +83,10 @@ public class RegistroEntrada extends javax.swing.JFrame {
         jlblTotal = new javax.swing.JLabel();
         jlblRecibido = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jlblFecha1 = new javax.swing.JLabel();
+        jlblFechaSistema = new javax.swing.JLabel();
+        jlblHora = new javax.swing.JLabel();
+        jlblHoraSistema = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -176,39 +200,6 @@ public class RegistroEntrada extends javax.swing.JFrame {
         jlblRecibido2.setText("Recibido por:");
         jPanel2EntradaNuevo.add(jlblRecibido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
 
-        jlblNoEntrada.setBackground(new java.awt.Color(255, 255, 255));
-        jlblNoEntrada.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jlblNoEntrada.setForeground(new java.awt.Color(225, 99, 71));
-        jlblNoEntrada.setText("No:");
-        jPanel2EntradaNuevo.add(jlblNoEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 50, -1, -1));
-
-        jtxtNoEntrada.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jtxtNoEntrada.setForeground(new java.awt.Color(153, 153, 153));
-        jtxtNoEntrada.setText("id Compra");
-        jtxtNoEntrada.setBorder(null);
-        jtxtNoEntrada.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtNoEntradaActionPerformed(evt);
-            }
-        });
-        jPanel2EntradaNuevo.add(jtxtNoEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 50, 100, 20));
-
-        jlblFecha.setBackground(new java.awt.Color(255, 255, 255));
-        jlblFecha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jlblFecha.setForeground(new java.awt.Color(225, 99, 71));
-        jlblFecha.setText("Fecha:");
-        jPanel2EntradaNuevo.add(jlblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 20, -1, -1));
-
-        jtxtFecha.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jtxtFecha.setForeground(new java.awt.Color(153, 153, 153));
-        jtxtFecha.setBorder(null);
-        jtxtFecha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtFechaActionPerformed(evt);
-            }
-        });
-        jPanel2EntradaNuevo.add(jtxtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 20, 100, 20));
-
         btnAgregar.setBackground(new java.awt.Color(255, 255, 255));
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaAgregarb.png"))); // NOI18N
         btnAgregar.setBorder(null);
@@ -293,6 +284,26 @@ public class RegistroEntrada extends javax.swing.JFrame {
         jLabel1.setText("Q.");
         jPanel2EntradaNuevo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(862, 360, -1, 25));
 
+        jlblFecha1.setBackground(new java.awt.Color(255, 255, 255));
+        jlblFecha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jlblFecha1.setForeground(new java.awt.Color(225, 99, 71));
+        jlblFecha1.setText("Fecha:");
+        jPanel2EntradaNuevo.add(jlblFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, -1, -1));
+
+        jlblFechaSistema.setForeground(new java.awt.Color(103, 103, 103));
+        jlblFechaSistema.setText("Fecha Sistema");
+        jPanel2EntradaNuevo.add(jlblFechaSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, 130, 20));
+
+        jlblHora.setBackground(new java.awt.Color(255, 255, 255));
+        jlblHora.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jlblHora.setForeground(new java.awt.Color(225, 99, 71));
+        jlblHora.setText("Hora:");
+        jPanel2EntradaNuevo.add(jlblHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, -1, -1));
+
+        jlblHoraSistema.setForeground(new java.awt.Color(103, 103, 103));
+        jlblHoraSistema.setText("Hora Sistema");
+        jPanel2EntradaNuevo.add(jlblHoraSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 40, 130, 20));
+
         getContentPane().add(jPanel2EntradaNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
 
         pack();
@@ -305,14 +316,6 @@ public class RegistroEntrada extends javax.swing.JFrame {
     private void jtxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtCodigoActionPerformed
-
-    private void jtxtNoEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtNoEntradaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtNoEntradaActionPerformed
-
-    private void jtxtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtFechaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtFechaActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
    
@@ -394,10 +397,12 @@ public class RegistroEntrada extends javax.swing.JFrame {
     public javax.swing.JLabel jlblBuscarIcono;
     public javax.swing.JLabel jlblEntrada;
     public javax.swing.JLabel jlblEntradaIcono;
-    public javax.swing.JLabel jlblFecha;
+    public javax.swing.JLabel jlblFecha1;
+    public javax.swing.JLabel jlblFechaSistema;
+    public javax.swing.JLabel jlblHora;
+    public javax.swing.JLabel jlblHoraSistema;
     public javax.swing.JLabel jlblListaInventario;
     public javax.swing.JLabel jlblMinimizar;
-    public javax.swing.JLabel jlblNoEntrada;
     public javax.swing.JLabel jlblNombreUsuario;
     public javax.swing.JLabel jlblProveedor;
     public javax.swing.JLabel jlblRecibido;
@@ -405,7 +410,5 @@ public class RegistroEntrada extends javax.swing.JFrame {
     public javax.swing.JLabel jlblTotal;
     public javax.swing.JTable jtableNuevaEntrada;
     public javax.swing.JTextField jtxtCodigo;
-    public javax.swing.JTextField jtxtFecha;
-    public javax.swing.JTextField jtxtNoEntrada;
     // End of variables declaration//GEN-END:variables
 }
