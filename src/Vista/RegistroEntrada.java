@@ -45,7 +45,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
             String pmAm="hh:mm:ss a";
             SimpleDateFormat format = new SimpleDateFormat(pmAm);
             Calendar hoy=Calendar.getInstance();
-            jlblNoEntrada.setText(String.format(format.format(sistHora),hoy));
+            jlblHoraSistema.setText(String.format(format.format(sistHora),hoy));
             
         }
     }
@@ -88,7 +88,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
         jlblHora = new javax.swing.JLabel();
         jlblNoEntrada = new javax.swing.JLabel();
         jlblNo = new javax.swing.JLabel();
-        jlblHoraSistema1 = new javax.swing.JLabel();
+        jlblHoraSistema = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -312,9 +312,9 @@ public class RegistroEntrada extends javax.swing.JFrame {
         jlblNo.setText("No:");
         jPanel2EntradaNuevo.add(jlblNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 52, -1, -1));
 
-        jlblHoraSistema1.setForeground(new java.awt.Color(103, 103, 103));
-        jlblHoraSistema1.setText("Hora Sistema");
-        jPanel2EntradaNuevo.add(jlblHoraSistema1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 30, 130, 20));
+        jlblHoraSistema.setForeground(new java.awt.Color(103, 103, 103));
+        jlblHoraSistema.setText("Hora Sistema");
+        jPanel2EntradaNuevo.add(jlblHoraSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 30, 130, 20));
 
         getContentPane().add(jPanel2EntradaNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
 
@@ -412,7 +412,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
     public javax.swing.JLabel jlblFecha1;
     public javax.swing.JLabel jlblFechaSistema;
     public javax.swing.JLabel jlblHora;
-    public javax.swing.JLabel jlblHoraSistema1;
+    public javax.swing.JLabel jlblHoraSistema;
     public javax.swing.JLabel jlblListaInventario;
     public javax.swing.JLabel jlblMinimizar;
     public javax.swing.JLabel jlblNo;
