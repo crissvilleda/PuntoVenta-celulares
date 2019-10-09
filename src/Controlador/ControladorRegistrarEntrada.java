@@ -126,7 +126,6 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
             ControladorRegistroProducto controladorRP = 
                     new ControladorRegistroProducto(vistaRegistro,modelo);
             controladorRP.iniciar();
-            vista.dispose();
             
         }else if(ae.getSource()==vista.btnAtras){
             ControladorEntrada controladorE = new ControladorEntrada(vistaEntrada,modelo);

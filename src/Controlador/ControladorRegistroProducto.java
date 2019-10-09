@@ -88,14 +88,14 @@ public class ControladorRegistroProducto implements ActionListener, MouseListene
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        if(me.getSource()==vista.jlblCerrar){
-            ControladorRegistrarEntrada controladorRE = 
-                    new ControladorRegistrarEntrada(vistaEntrada,modelo);
-            controladorRE.iniciar();
+        //if(me.getSource()==vista.jlblCerrar){
+            //ControladorRegistrarEntrada controladorRE = 
+                //    new ControladorRegistrarEntrada(vistaEntrada,modelo);
+            //controladorRE.iniciar();
             vista.dispose();
             
             
-        }
+        //}
     }
 
     @Override
