@@ -12,7 +12,7 @@ import java.sql.Date;
  * @author criss
  */
 public class Entrada {
-    private int idCompra;
+    private int idEntrada;
     private int idUsuario;
     private int idProveedor;
     private Date fechaCompra;
@@ -20,7 +20,7 @@ public class Entrada {
     
     public Entrada(){}
     public Entrada(int ic, int iu,int ip,Date fc,double t){
-        this.idCompra =ic;
+        this.idEntrada =ic;
         this.idUsuario = iu;
         this.idProveedor = ip;
         this.fechaCompra = fc;
@@ -29,11 +29,11 @@ public class Entrada {
 
     public int getIdCompra() {
         
-        return idCompra;
+        return idEntrada;
     }
 
     public void setIdCompra(int idCompra) {
-        this.idCompra = idCompra;
+        this.idEntrada = idCompra;
     }
 
     public int getIdUsuario() {
