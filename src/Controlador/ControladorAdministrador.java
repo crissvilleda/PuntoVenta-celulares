@@ -7,6 +7,7 @@ package Controlador;
 import AppPackage.AnimationClass;
 import Modelo.Usuario;
 import Vista.Administrador;
+import Vista.Configuracion;
 import Vista.VEntrada;
 import Vista.VProveedor;
 import Vista.VUsuario;
@@ -23,9 +24,11 @@ import javax.swing.JOptionPane;
 public class ControladorAdministrador implements ActionListener, MouseListener {
     private Administrador vista;
     private Usuario modelo;
+    
     private VUsuario vistaUsuario = new VUsuario();
     private VProveedor vistaProveedor = new VProveedor();
     private VEntrada vistaEntrada = new VEntrada();
+    private Configuracion vistaConfig = new Configuracion();
     //inicializa en controlador
     public ControladorAdministrador(Administrador vista, Usuario modelo){
         this.vista = vista;
@@ -87,6 +90,10 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
         }else if(me.getSource()==vista.jlblCorteCaja){
         
         }else if(me.getSource()==vista.jlblConfiguracion){
+            ControladorConfiguracion controladorC =
+                    new ControladorConfiguracion(vistaConfig,modelo);
+            controladorC.iniciar();
+            vista.dispose();
         
         }
         

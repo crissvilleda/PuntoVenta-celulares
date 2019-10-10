@@ -5,8 +5,6 @@
  */
 package Vista;
 
-import com.placeholder.PlaceHolder;
-
 /**
  *
  * @author Orlando
@@ -19,11 +17,6 @@ public class VInventario extends javax.swing.JFrame {
     public VInventario() {
         initComponents();
         this.setLocationRelativeTo(null);
-        holders();
-    }
-    public void holders(){
-      PlaceHolder holder;  
-      holder=new PlaceHolder(jtxtBuscar,"Buscar por Codigo");
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,6 +42,7 @@ public class VInventario extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -180,6 +174,12 @@ public class VInventario extends javax.swing.JFrame {
         btnBuscar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaBuscar.png"))); // NOI18N
         jPanel2.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 75, 25));
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel3.setText("Buscar por Codigo o Nombre o Descripcion");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 54, 220, -1));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
 
         pack();
@@ -242,6 +242,7 @@ public class VInventario extends javax.swing.JFrame {
     public javax.swing.JButton btnImprimirListado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     public javax.swing.JLabel jLabel6;

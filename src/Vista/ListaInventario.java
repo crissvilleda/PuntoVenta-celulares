@@ -5,8 +5,6 @@
  */
 package Vista;
 
-import com.placeholder.PlaceHolder;
-
 /**
  *
  * @author Orlando
@@ -19,11 +17,6 @@ public class ListaInventario extends javax.swing.JFrame {
     public ListaInventario() {
         initComponents();
         this.setLocationRelativeTo(null);
-        //holders();
-    }
-    public void holders(){
-      PlaceHolder holder;  
-      holder=new PlaceHolder(jtxtBuscar,"Buscar por Nombre");
     }
 
     /**
@@ -47,6 +40,7 @@ public class ListaInventario extends javax.swing.JFrame {
         jspListaInventario = new javax.swing.JSeparator();
         jlblCerrar = new javax.swing.JLabel();
         btnSeleccionar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -151,6 +145,12 @@ public class ListaInventario extends javax.swing.JFrame {
         btnSeleccionar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaSeleccionar.png"))); // NOI18N
         jPanelListaInventario.add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(725, 362, 85, 25));
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel3.setText("Buscar por Codigo o Nombre o Descripcion");
+        jPanelListaInventario.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 65, 220, -1));
+
         getContentPane().add(jPanelListaInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, -1));
 
         pack();
@@ -205,6 +205,7 @@ public class ListaInventario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnSeleccionar;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanelListaInventario;
     private javax.swing.JScrollPane jScrollPane1;
