@@ -26,7 +26,7 @@ import javax.swing.event.DocumentListener;
  * @author criss
  */
 public class ControladorUsuario implements ActionListener, MouseListener, 
-        WindowListener,DocumentListener  {
+        WindowListener, DocumentListener  {
     private VUsuario vista;
     private Usuario  modelo;
     private Administrador vistaAdmin = new Administrador();
