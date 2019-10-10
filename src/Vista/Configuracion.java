@@ -30,7 +30,7 @@ public class Configuracion extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jlblInicio = new javax.swing.JLabel();
+        jlblAtras = new javax.swing.JLabel();
         jlblMinimizar = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -109,15 +109,15 @@ public class Configuracion extends javax.swing.JFrame {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 2, 96, 96));
 
-        jlblInicio.setBackground(new java.awt.Color(255, 255, 255));
-        jlblInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Inicio.png"))); // NOI18N
-        jlblInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jlblInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlblAtras.setBackground(new java.awt.Color(255, 255, 255));
+        jlblAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Inicio.png"))); // NOI18N
+        jlblAtras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jlblAtras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jlblInicioMouseClicked(evt);
+                jlblAtrasMouseClicked(evt);
             }
         });
-        jPanel2.add(jlblInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 10, 30, 30));
+        jPanel2.add(jlblAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 10, 30, 30));
 
         jlblMinimizar.setBackground(new java.awt.Color(255, 255, 255));
         jlblMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Expand_Arrow_32px.png"))); // NOI18N
@@ -252,17 +252,14 @@ public class Configuracion extends javax.swing.JFrame {
 
         jtableCategoria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Id", "Categoria"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false
@@ -473,17 +470,14 @@ public class Configuracion extends javax.swing.JFrame {
 
         jtableMarca.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Id", "Marca"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false
@@ -592,11 +586,9 @@ public class Configuracion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jlblInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblInicioMouseClicked
-        Administrador form = new Administrador();
-        form.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jlblInicioMouseClicked
+    private void jlblAtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblAtrasMouseClicked
+       
+    }//GEN-LAST:event_jlblAtrasMouseClicked
 
     private void jlblMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblMinimizarMouseClicked
         this.setState(Login.ICONIFIED);
@@ -710,7 +702,7 @@ public class Configuracion extends javax.swing.JFrame {
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable6;
     public javax.swing.JButton jbtnEliminar;
-    public javax.swing.JLabel jlblInicio;
+    public javax.swing.JLabel jlblAtras;
     public javax.swing.JLabel jlblMinimizar;
     public javax.swing.JTable jtableCategoria;
     public javax.swing.JTable jtableMarca;
