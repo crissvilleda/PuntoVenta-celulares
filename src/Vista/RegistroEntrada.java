@@ -27,7 +27,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         //Fecha del Sistema
         Date sistFecha = new Date();
-        SimpleDateFormat formato=new SimpleDateFormat("dd-MMM-YYYY");
+        SimpleDateFormat formato=new SimpleDateFormat("YYYY-MM-dd");
         jlblFechaSistema.setText(formato.format(sistFecha));
         
         //Hora del Sistema;
@@ -283,7 +283,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Q.");
-        jPanel2EntradaNuevo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(862, 360, -1, 25));
+        jPanel2EntradaNuevo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 360, -1, 25));
 
         jlblFecha1.setBackground(new java.awt.Color(255, 255, 255));
         jlblFecha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
