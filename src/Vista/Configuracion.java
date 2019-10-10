@@ -30,7 +30,7 @@ public class Configuracion extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jlblAtras = new javax.swing.JLabel();
+        jlblInicio = new javax.swing.JLabel();
         jlblMinimizar = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -43,7 +43,6 @@ public class Configuracion extends javax.swing.JFrame {
         jtxtCategoria = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
         btnNuevo = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
@@ -54,7 +53,7 @@ public class Configuracion extends javax.swing.JFrame {
         btnModificarC = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtableCategoria = new javax.swing.JTable();
-        jbtnEliminar = new javax.swing.JButton();
+        btnEliminarC = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
@@ -73,7 +72,6 @@ public class Configuracion extends javax.swing.JFrame {
         jtxtMarca = new javax.swing.JTextField();
         btnGuardarM = new javax.swing.JButton();
         btnNuevoM = new javax.swing.JButton();
-        btnModificarM = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
@@ -109,15 +107,15 @@ public class Configuracion extends javax.swing.JFrame {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 2, 96, 96));
 
-        jlblAtras.setBackground(new java.awt.Color(255, 255, 255));
-        jlblAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Inicio.png"))); // NOI18N
-        jlblAtras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jlblAtras.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlblInicio.setBackground(new java.awt.Color(255, 255, 255));
+        jlblInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Inicio.png"))); // NOI18N
+        jlblInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jlblInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jlblAtrasMouseClicked(evt);
+                jlblInicioMouseClicked(evt);
             }
         });
-        jPanel2.add(jlblAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 10, 30, 30));
+        jPanel2.add(jlblInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 10, 30, 30));
 
         jlblMinimizar.setBackground(new java.awt.Color(255, 255, 255));
         jlblMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Expand_Arrow_32px.png"))); // NOI18N
@@ -199,16 +197,6 @@ public class Configuracion extends javax.swing.JFrame {
         });
         jPanel1.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, -1));
 
-        btnModificar.setBackground(new java.awt.Color(255, 255, 255));
-        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaModificarb.png"))); // NOI18N
-        btnModificar.setBorder(null);
-        btnModificar.setBorderPainted(false);
-        btnModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnModificar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaModificar.png"))); // NOI18N
-        btnModificar.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaModificar.png"))); // NOI18N
-        btnModificar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaModificar.png"))); // NOI18N
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -273,7 +261,6 @@ public class Configuracion extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jtableCategoria.setPreferredSize(new java.awt.Dimension(100, 50));
         jScrollPane2.setViewportView(jtableCategoria);
         if (jtableCategoria.getColumnModel().getColumnCount() > 0) {
             jtableCategoria.getColumnModel().getColumn(0).setMinWidth(50);
@@ -282,15 +269,15 @@ public class Configuracion extends javax.swing.JFrame {
 
         jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 400, 110));
 
-        jbtnEliminar.setBackground(new java.awt.Color(255, 255, 255));
-        jbtnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaEliminarb.png"))); // NOI18N
-        jbtnEliminar.setBorder(null);
-        jbtnEliminar.setBorderPainted(false);
-        jbtnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtnEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaEliminar.png"))); // NOI18N
-        jbtnEliminar.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaEliminar.png"))); // NOI18N
-        jbtnEliminar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaEliminar.png"))); // NOI18N
-        jPanel3.add(jbtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, -1, -1));
+        btnEliminarC.setBackground(new java.awt.Color(255, 255, 255));
+        btnEliminarC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaEliminarb.png"))); // NOI18N
+        btnEliminarC.setBorder(null);
+        btnEliminarC.setBorderPainted(false);
+        btnEliminarC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminarC.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaEliminar.png"))); // NOI18N
+        btnEliminarC.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaEliminar.png"))); // NOI18N
+        btnEliminarC.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaEliminar.png"))); // NOI18N
+        jPanel3.add(btnEliminarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -416,16 +403,6 @@ public class Configuracion extends javax.swing.JFrame {
         btnNuevoM.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaNuevo.png"))); // NOI18N
         btnNuevoM.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaNuevo.png"))); // NOI18N
         jPanel4.add(btnNuevoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, -1));
-
-        btnModificarM.setBackground(new java.awt.Color(255, 255, 255));
-        btnModificarM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaModificarb.png"))); // NOI18N
-        btnModificarM.setBorder(null);
-        btnModificarM.setBorderPainted(false);
-        btnModificarM.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnModificarM.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaModificar.png"))); // NOI18N
-        btnModificarM.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaModificar.png"))); // NOI18N
-        btnModificarM.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaModificar.png"))); // NOI18N
-        jPanel4.add(btnModificarM, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -586,9 +563,9 @@ public class Configuracion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jlblAtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblAtrasMouseClicked
+    private void jlblInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblInicioMouseClicked
        
-    }//GEN-LAST:event_jlblAtrasMouseClicked
+    }//GEN-LAST:event_jlblInicioMouseClicked
 
     private void jlblMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblMinimizarMouseClicked
         this.setState(Login.ICONIFIED);
@@ -642,13 +619,12 @@ public class Configuracion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnEliminarC;
     public javax.swing.JButton btnEliminarLM;
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnGuardarM;
-    public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnModificarC;
     public javax.swing.JButton btnModificarLM;
-    public javax.swing.JButton btnModificarM;
     public javax.swing.JButton btnNuevo;
     public javax.swing.JButton btnNuevoM;
     public javax.swing.JButton jButton10;
@@ -701,8 +677,7 @@ public class Configuracion extends javax.swing.JFrame {
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable6;
-    public javax.swing.JButton jbtnEliminar;
-    public javax.swing.JLabel jlblAtras;
+    public javax.swing.JLabel jlblInicio;
     public javax.swing.JLabel jlblMinimizar;
     public javax.swing.JTable jtableCategoria;
     public javax.swing.JTable jtableMarca;
