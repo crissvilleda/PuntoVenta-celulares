@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -147,7 +149,49 @@ public class ConsultasProducto extends Pool {
         
     }
     
-    
+    public void buscar(JTable tabla,String texto){
+        DefaultTableModel model = (DefaultTableModel)tabla.getModel();
+        //Limpiar tabla
+        int a = model.getRowCount()-1;
+        for(int i=a;i>=0;i--){
+            model.removeRow(model.getRowCount()-1);
+            
+        }
+        PreparedStatement ps = null;
+        String registros [] = new String [6];
+        Connection cn = (Connection)getConnection();
+        ResultSet rs = null;
+        String sql ="SELECT * FROM producto WHERE nombre LIKE ? or descripcion LIKE ?";
+        try{
+            ps = (PreparedStatement)cn.prepareStatement(sql);
+            ps.setString(1,"%"+texto+"%");
+            ps.setString(2,"%"+texto+"%");
+            rs =ps.executeQuery();
+            while(rs.next()){
+                registros [0]=rs.getString("idProducto");
+                registros [1]=rs.getString("codigo");
+                registros [2]=rs.getString("nombre");
+                registros [3]=rs.getString("descripcion");
+                registros [4]=rs.getString("idCategoria");
+                registros [5]=rs.getString("idMarca");
+                model.addRow(registros);
+            } 
+            tabla.setModel(model);
+            
+        }catch (SQLException e){
+            System.err.print(e);
+        }finally{
+            if(cn!=null){
+                try{
+                    cn.close();
+                }catch(SQLException e){
+                    System.err.print(e);
+                }
+                
+            }
+        }
+        
+    }
     
     
     

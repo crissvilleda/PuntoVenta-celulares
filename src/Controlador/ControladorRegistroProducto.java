@@ -32,9 +32,8 @@ public class ControladorRegistroProducto implements ActionListener, MouseListene
     ConsultasCategoria consultaCategoria = new ConsultasCategoria();
     ConsultasProducto consultaProducto = new ConsultasProducto();
     
-    public ControladorRegistroProducto(RegistroProducto registro,Usuario usu){
+    public ControladorRegistroProducto(RegistroProducto registro){
         this.vista= registro;
-        this.modelo= usu;
         
         vista.btnRegistrar.addActionListener(this);
         vista.jlblCerrar.addMouseListener(this);

@@ -19,7 +19,7 @@ public class ListaInventario extends javax.swing.JFrame {
     public ListaInventario() {
         initComponents();
         this.setLocationRelativeTo(null);
-        holders();
+        //holders();
     }
     public void holders(){
       PlaceHolder holder;  
@@ -161,9 +161,7 @@ public class ListaInventario extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxtBuscarActionPerformed
 
     private void jlblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblCerrarMouseClicked
-        RegistroEntrada form = new RegistroEntrada();
-        form.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_jlblCerrarMouseClicked
 
     /**

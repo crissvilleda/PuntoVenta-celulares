@@ -7,9 +7,11 @@ package Controlador;
 
 import Modelo.ConsultasEntrada;
 import Modelo.ConsultasProducto;
+import Modelo.ConsultasProveedor;
 import Modelo.Entrada;
 import Modelo.Producto;
 import Modelo.Usuario;
+import Vista.ListaInventario;
 import Vista.VEntrada;
 import Vista.RegistroEntrada;
 import Vista.RegistroProducto;
@@ -35,8 +37,16 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
     private Usuario modelo;
     private VEntrada vistaEntrada = new VEntrada();
     private RegistroProducto vistaRegistro = new RegistroProducto();
+    private ListaInventario vistaLista = new ListaInventario();
     private ConsultasEntrada consultaE = new ConsultasEntrada();
+    private ConsultasProveedor consultaP = new ConsultasProveedor();
+    private ControladorRegistroProducto controladorRP = 
+                    new ControladorRegistroProducto(vistaRegistro);
+    private ControladorListaInventario controladorInv = 
+            new ControladorListaInventario(vistaLista);
+    
     //registra si el jtable esta activo
+    
     boolean active = false;
     
     public ControladorRegistrarEntrada(RegistroEntrada vista, Usuario modelo){
@@ -49,8 +59,12 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
         vista.btnNuevoProducto.addActionListener(this);
         vista.btnAtras.addActionListener(this);
         vista.btnAgregar.addActionListener(this);
+        vista.btnBuscar.addActionListener(this);
         vista.jtableNuevaEntrada.getModel().addTableModelListener(this);
+        
         siguienteId(vista.jlblNoEntrada);
+        //carga lista de proveedores
+        consultaP.listaProveedores(vista.jcmbProveedor);
         
     }
     public void agregarProducto(){
@@ -58,20 +72,31 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
         DefaultTableModel model = (DefaultTableModel)vista.jtableNuevaEntrada.getModel();
         ConsultasProducto consultaP = new ConsultasProducto();
         String registro [] = new String [10];
-        
+        boolean existe = false;
         producto.setCodigo(vista.jtxtCodigo.getText());
         if(consultaP.consultar(producto)){
-            registro[0]=String.valueOf(producto.getIdProducto());
-            registro[1]=producto.getCodigo();
-            registro[2]=producto.getNombre();
-            registro[3]=producto.getDescripcion();
-            registro[4]=String.valueOf(producto.getIdCategoria());
-            registro[5]=String.valueOf(producto.getIdMarca());
-            registro[6]="1";
-            registro[7]="0";
-            registro[8]="0";
-            registro[9]="0";
-            model.addRow(registro);
+            for(int i = 0; i<model.getRowCount();i++){
+                if(model.getValueAt(i, 1).toString().equals(producto.getCodigo())){
+                    String valor = String.valueOf(Integer.valueOf((String)model.getValueAt(i, 6))+1);
+                    model.setValueAt(valor, i, 6);
+                    existe=true;
+                }
+            }
+            if(!existe){
+                registro[0]=String.valueOf(producto.getIdProducto());
+                registro[1]=producto.getCodigo();
+                registro[2]=producto.getNombre();
+                registro[3]=producto.getDescripcion();
+                registro[4]=String.valueOf(producto.getIdCategoria());
+                registro[5]=String.valueOf(producto.getIdMarca());
+                registro[6]="1";
+                registro[7]="0";
+                registro[8]="0";
+                registro[9]="0";
+                model.addRow(registro);
+                
+            }
+            
             vista.jtableNuevaEntrada.setModel(model);
             vista.jtxtCodigo.setText("");
             vista.jtxtCodigo.requestFocus();
@@ -119,12 +144,10 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
         vista.setVisible(true);
     
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource()==vista.btnNuevoProducto){
-            ControladorRegistroProducto controladorRP = 
-                    new ControladorRegistroProducto(vistaRegistro,modelo);
             controladorRP.iniciar();
             
         }else if(ae.getSource()==vista.btnAtras){
@@ -134,6 +157,10 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
             
         }else if(ae.getSource()==vista.btnAgregar){
             agregarProducto();
+        }else if(ae.getSource()==vista.btnBuscar){
+            controladorInv.insertarTabla(vista.jtableNuevaEntrada);
+            controladorInv.iniciar();
+            
         }
     }
     
@@ -152,6 +179,11 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
     }
     @Override
     public void keyPressed(KeyEvent ke) {
+        if(ke.getSource()==vista.jtxtCodigo){
+            if(ke.getKeyCode()==KeyEvent.VK_ENTER){
+                agregarProducto();
+            }
+        }
         
     }
 

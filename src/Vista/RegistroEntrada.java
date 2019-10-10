@@ -187,7 +187,6 @@ public class RegistroEntrada extends javax.swing.JFrame {
         jlblProveedor.setText("Proveedor:");
         jPanel2EntradaNuevo.add(jlblProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
-        jcmbProveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proveedor" }));
         jPanel2EntradaNuevo.add(jcmbProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 130, -1));
 
         jlblListaInventario.setBackground(new java.awt.Color(255, 255, 255));
@@ -338,9 +337,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNuevoProductoActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-       ListaInventario form= new ListaInventario();
-       form.setVisible(true);
-       this.dispose();
+       
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**

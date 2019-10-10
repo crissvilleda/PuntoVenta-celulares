@@ -67,7 +67,7 @@ public class ControladorRegistrarUsuario implements ActionListener, KeyListener,
         
         vista.jlblInicio.addMouseListener(this);
         vista.btnRegistrar.addActionListener((ActionEvent)->{
-        modificar();
+            modificar();
         });
         
         vista.jtxtNombre.addKeyListener(this);
