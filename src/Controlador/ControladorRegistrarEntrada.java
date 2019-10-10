@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.Date;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -160,6 +161,13 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
         }else if(ae.getSource()==vista.btnBuscar){
             controladorInv.insertarTabla(vista.jtableNuevaEntrada);
             controladorInv.iniciar();
+            
+        }else if(ae.getSource()==vista.btnComprar){
+            Entrada entrada = new Entrada();
+            entrada.setIdUsuario(modelo.getIdUsuario());
+            entrada.setFechaCompra(Date.valueOf(vista.jlblFechaSistema.getText()));
+            
+            
             
         }
     }
