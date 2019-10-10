@@ -62,7 +62,7 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
         vista.btnAgregar.addActionListener(this);
         vista.btnBuscar.addActionListener(this);
         vista.jtableNuevaEntrada.getModel().addTableModelListener(this);
-        
+        vista.btnComprar.addActionListener(this);
         siguienteId(vista.jlblNoEntrada);
         //carga lista de proveedores
         consultaP.listaProveedores(vista.jcmbProveedor);
@@ -167,7 +167,7 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
             entrada.setIdUsuario(modelo.getIdUsuario());
             entrada.setFechaCompra(Date.valueOf(vista.jlblFechaSistema.getText()));
             
-            
+            System.out.print(vista.jlblFechaSistema.getText());
             
         }
     }
