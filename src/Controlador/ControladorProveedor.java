@@ -134,7 +134,7 @@ public class ControladorProveedor implements ActionListener, MouseListener,
     @Override
     public void windowOpened(WindowEvent we) {
         vista.jlblUsuario.setText(modelo.getNombreUsuario());
-        consulta.listaProveedores(vista.jtableProveedor);
+        consulta.tablaProveedores(vista.jtableProveedor);
         vista.btnEliminar.setEnabled(false);
         vista.btnModificar.setEnabled(false);
     }
