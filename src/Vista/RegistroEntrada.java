@@ -274,7 +274,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
 
         jlblTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlblTotal.setForeground(new java.awt.Color(102, 102, 102));
-        jlblTotal.setText("     Total");
+        jlblTotal.setText("000.00");
         jPanel2EntradaNuevo.add(jlblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(873, 360, 75, 25));
 
         jlblRecibido.setText("Nombre Usuario");

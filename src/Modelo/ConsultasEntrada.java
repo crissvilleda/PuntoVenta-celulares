@@ -39,13 +39,13 @@ public class ConsultasEntrada extends Pool {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection cn = (Connection)getConnection();
-        String sql = "INSERT INTO entrada( idUsuario, idProveedor,"
+        String sql = "INSERT INTO entrada(idUsuario, idProveedor,"
                 + "fechaCompra, total) values(?,?,?,?)";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
             ps.setInt(1, entrada.getIdUsuario());
             ps.setInt(2, entrada.getIdProveedor());
-            ps.setDate(3,entrada.getFechaCompra());
+            ps.setTimestamp(3,entrada.getFechaCompra());
             ps.setDouble(4, entrada.getTotal());
             ps.execute();
             return true;

@@ -234,7 +234,35 @@ public class ConsultasProveedor extends Pool {
             }
         }
         
-        
+    }
+    
+    
+    public boolean getId(Proveedor pro){ 
+        PreparedStatement ps = null;
+        Connection cn = (Connection)getConnection();
+        ResultSet rs = null;
+        String sql ="SELECT * FROM proveedor WHERE nombre=?";
+        try{
+            ps = (PreparedStatement)cn.prepareStatement(sql);
+            rs =ps.executeQuery();
+            while(rs.next()){
+                pro.setIdProveedor(rs.getInt("idProveedor"));
+                return true;
+            }
+            return false;
+        }catch (SQLException e){
+            System.err.print(e);
+            return false;
+        }finally{
+            if(cn!=null){
+                try{
+                    cn.close();
+                }catch(SQLException e){
+                    System.err.print(e);
+                }
+                
+            }
+        }
         
         
     }

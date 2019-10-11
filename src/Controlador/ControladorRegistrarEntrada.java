@@ -5,11 +5,16 @@
  */
 package Controlador;
 
+import Modelo.ConsultasDetalleEntrada;
 import Modelo.ConsultasEntrada;
+import Modelo.ConsultasInventario;
 import Modelo.ConsultasProducto;
 import Modelo.ConsultasProveedor;
+import Modelo.DetalleEntrada;
 import Modelo.Entrada;
+import Modelo.Inventario;
 import Modelo.Producto;
+import Modelo.Proveedor;
 import Modelo.Usuario;
 import Vista.ListaInventario;
 import Vista.VEntrada;
@@ -19,6 +24,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.Timestamp;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -162,12 +168,62 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
             controladorInv.iniciar();
             
         }else if(ae.getSource()==vista.btnComprar){
+            
+            //***********Datos de venta **************
             Entrada entrada = new Entrada();
+            Proveedor proveedor = new Proveedor();
+            //obtenemos el id del proveedor, deacuedo al seleccionado en el jcombox
+            proveedor.setNombre(vista.jcmbProveedor.getModel().getSelectedItem().toString());
+            if(consultaP.getId(proveedor)){
+                //agregamos el id del proveedor a nuestra clase entrada
+                entrada.setIdProveedor(proveedor.getIdProveedor());
+            }
+            //agregamos informacion necesaria a la clase entrada
+            entrada.setIdEntrada(Integer.parseInt(vista.jlblNoEntrada.getText()));
             entrada.setIdUsuario(modelo.getIdUsuario());
-            entrada.setFechaCompra(java.sql.Date.valueOf(vista.jlblFechaSistema.getText()));
+            //registro el momento de la compra(fecha y hora)
+            long now = System.currentTimeMillis();
+            Timestamp sqlTimestamp = new Timestamp(now);
+            entrada.setFechaCompra(sqlTimestamp);
             entrada.setTotal(Double.parseDouble(vista.jlblTotal.getText()));
             
+            //***********Datos detalle venta *********
             
+            DetalleEntrada detalleEntrada = new DetalleEntrada();
+            ConsultasDetalleEntrada consultasDetEntrada = new ConsultasDetalleEntrada();
+            //Obtenemos el modelo de la tabla para recorrerla y guardar los datos de cada una
+            DefaultTableModel model = (DefaultTableModel)vista.jtableNuevaEntrada.getModel();
+            for(int i=0; i<model.getRowCount(); i++){
+                detalleEntrada.setIdCompra(entrada.getIdEntrada());
+                detalleEntrada.setIdProducto(Integer.parseInt((String)model.getValueAt(i, 0)));
+                detalleEntrada.setnActiculo(Integer.parseInt((String)model.getValueAt(i, 6)));
+                detalleEntrada.setPrecioCompra(Double.parseDouble((String)model.getValueAt(i, 7)));
+                detalleEntrada.setSubtotal(Double.parseDouble((String)model.getValueAt(i, 9)));
+                //consultasDetEntrada.registrar(detalleEntrada);
+           
+            }
+            
+            //***********Datos Inventario*************
+            Inventario inventario = new Inventario();
+            ConsultasInventario consultasInv = new ConsultasInventario();
+            //recorremos la tabla y guardamos el dato de cada prodcuto
+            for(int i=0;i<model.getRowCount();i++){
+                inventario.setIdProducto(Integer.parseInt((String)model.getValueAt(i, 0)));
+                inventario.setFechaLote(sqlTimestamp);
+                inventario.setnArticulo(Integer.parseInt((String)model.getValueAt(i, 6)));
+                inventario.setPrecioCompra(Double.parseDouble((String)model.getValueAt(i, 7)));
+                inventario.setPrecioVenta(Double.parseDouble((String)model.getValueAt(i, 8)));
+                //consultasInv.registrar(inventario);
+            }
+            JOptionPane.showMessageDialog(null,"Registro de Entrada Exitoso");
+            //limpio tabla
+            
+            for(int i=0; i<model.getRowCount();i++){
+                model.removeRow(i);
+            }
+            siguienteId(vista.jlblNoEntrada);
+            
+           
         }
     }
     
