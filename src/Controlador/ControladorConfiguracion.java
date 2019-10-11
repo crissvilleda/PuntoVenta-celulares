@@ -43,7 +43,9 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
         vista.btnGuardar.addActionListener(this);
         vista.btnEliminarC.addActionListener(this);
         vista.btnNuevo.addActionListener(this);
-        consultasC.tablaCategorias(vista.jtableCategoria);
+        //consultasC.tablaCategorias(vista.jtableCategoria);
+        consultasC.limpiarTabla(vista.jtableCategoria);
+        
         vista.addWindowListener(this);
     }
 
@@ -67,6 +69,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
             
             JOptionPane.showMessageDialog(null,"Registro Exitoso");
             vista.jtxtCategoria.setText("");
+            consultasC.limpiarTabla(vista.jtableCategoria);
         }
         else{
             JOptionPane.showMessageDialog(null,"Error al guardar");
