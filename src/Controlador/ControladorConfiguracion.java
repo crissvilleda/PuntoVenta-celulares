@@ -47,6 +47,12 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
         //consultasC.tablaCategorias(vista.jtableCategoria);
         consultasC.limpiarTabla(vista.jtableCategoria);
         vista.jtableCategoria.addMouseListener(this);
+        vista.jPanel1.addMouseListener(this);
+        vista.jPanel2.addMouseListener(this);
+        vista.jPanel3.addMouseListener(this);
+        vista.jPanel4.addMouseListener(this);
+        vista.jPanel6.addMouseListener(this);
+        
         
         vista.addWindowListener(this);
     }
@@ -109,13 +115,31 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
             vista.btnModificarC.setEnabled(true);
             vista.btnEliminarC.setEnabled(true);  
             if (e.getClickCount()==2){
-                vista.jtableCategoria.clearSelection();
-                vista.btnModificarC.setEnabled(false);
-                vista.btnEliminarC.setEnabled(false);
+                desactivarBotones();
             }
-        } 
+        }
+        else if(e.getSource()==vista.jPanel1){
+            desactivarBotones();
+        }
+        else if(e.getSource()==vista.jPanel2){
+            desactivarBotones();
+        }
+        else if(e.getSource()==vista.jPanel3){
+            desactivarBotones();
+        }
+        else if(e.getSource()==vista.jPanel4){
+            desactivarBotones();
+        }
+        else if(e.getSource()==vista.jPanel6){
+            desactivarBotones();
+        }
+        
     }
- 
+    public void desactivarBotones(){
+        vista.jtableCategoria.clearSelection();
+        vista.btnEliminarC.setEnabled(false);
+        vista.btnModificarC.setEnabled(false);
+    }
     
      @Override
     public void windowOpened(WindowEvent e) {
