@@ -9,7 +9,7 @@ package Modelo;
  *
  * @author criss
  */
-public class detalleCompra {
+public class DetalleEntrada {
     private int idCompra;
     private int idProducto;
     private double precioCompra;

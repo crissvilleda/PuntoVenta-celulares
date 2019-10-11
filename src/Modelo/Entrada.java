@@ -5,7 +5,7 @@
  */
 package Modelo;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  *
@@ -15,11 +15,11 @@ public class Entrada {
     private int idEntrada;
     private int idUsuario;
     private int idProveedor;
-    private Date fechaCompra;
+    private Timestamp fechaCompra;
     private double total;
     
     public Entrada(){}
-    public Entrada(int ic, int iu,int ip,Date fc,double t){
+    public Entrada(int ic, int iu,int ip,Timestamp fc,double t){
         this.idEntrada =ic;
         this.idUsuario = iu;
         this.idProveedor = ip;
@@ -51,11 +51,11 @@ public class Entrada {
         this.idProveedor = idProveedor;
     }
 
-    public Date getFechaCompra() {
+    public Timestamp getFechaCompra() {
         return fechaCompra;
     }
 
-    public void setFechaCompra(Date fechaCompra) {
+    public void setFechaCompra(Timestamp fechaCompra) {
         this.fechaCompra = fechaCompra;
     }
 

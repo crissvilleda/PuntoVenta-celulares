@@ -5,7 +5,7 @@
  */
 package Modelo;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  *
@@ -13,7 +13,8 @@ import java.sql.Date;
  */
 public class Inventario {
     private int idInventario;
-    private Date fechaLote;
+    private int idProducto;
+    private Timestamp fechaLote;
     private int nArticulo;
     private double precioCompra;
     private double precioVenta;
@@ -26,11 +27,11 @@ public class Inventario {
         this.idInventario = idInventario;
     }
 
-    public Date getFechaLote() {
+    public Timestamp getFechaLote() {
         return fechaLote;
     }
 
-    public void setFechaLote(Date fechaLote) {
+    public void setFechaLote(Timestamp fechaLote) {
         this.fechaLote = fechaLote;
     }
 
@@ -46,6 +47,14 @@ public class Inventario {
 
     public double getPrecioVenta() {
         return precioVenta;
+    }
+
+    public int getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
 
     public void setPrecioVenta(double precioVenta) {
