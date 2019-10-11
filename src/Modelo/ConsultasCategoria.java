@@ -26,7 +26,6 @@ public class ConsultasCategoria  extends Pool{
         Connection cn = (Connection)getConnection();
         String sql = "INSERT INTO categoria(nombre)"
                 + "values(?)";
-        
         try{
              ps = (PreparedStatement) cn.prepareStatement(sql);
              ps.setString(1, cat.getNombre());
@@ -95,7 +94,7 @@ public class ConsultasCategoria  extends Pool{
         
     }
     
-    public void tablaCategorias(JTable tabla){
+    /*public void tablaCategorias(JTable tabla){
         DefaultTableModel model = (DefaultTableModel)tabla.getModel();
         String registros [] = new String [2];
         PreparedStatement ps = null;
@@ -123,10 +122,48 @@ public class ConsultasCategoria  extends Pool{
                 
             }
         }
-        
-        
+    }*/
+    public void limpiarTabla(JTable tabla){
+        DefaultTableModel model=(DefaultTableModel)tabla.getModel();
+        //Limpiar tabla
+        int a=model.getRowCount()-1;
+        for (int i=a; i>=0;i--){
+            model.removeRow(model.getRowCount()-1);
+        }
+        PreparedStatement ps=null;
+        String registros[]= new String[2];
+        Connection cn=(Connection)getConnection();
+        ResultSet rs=null;
+        String sql=("SELECT *FROM categoria");
+        try{
+            ps=(PreparedStatement)cn.prepareStatement(sql);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                registros[0]=rs.getString("idCategoria");
+                registros[1]=rs.getString("nombre");
+                model.addRow(registros);
+            }
+           tabla.setModel(model);
+        }
+        catch(SQLException e){
+            System.err.print(e);
+        }
+        finally{
+            if (cn!=null){
+                try{
+                    cn.close();
+                }
+                catch(SQLException e){
+                    System.err.print(e);
+                }
+            }
+        }
         
     }
+        
+        
+        
+    
     public void listaCategorias(JComboBox cb){
         DefaultComboBoxModel model = (DefaultComboBoxModel)cb.getModel();
         String registro;
