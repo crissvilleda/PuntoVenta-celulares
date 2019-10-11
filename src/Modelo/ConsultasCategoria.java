@@ -24,8 +24,8 @@ public class ConsultasCategoria  extends Pool{
         
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
-        String sql = "INSERT INTO categoria(nombre)"
-                + "values(?)";
+        String sql = "INSERT INTO categoria(nombre,estado)"
+                + "values(?,1)";
         try{
              ps = (PreparedStatement) cn.prepareStatement(sql);
              ps.setString(1, cat.getNombre());
@@ -66,6 +66,31 @@ public class ConsultasCategoria  extends Pool{
                 try{
                     cn.close();
                 }catch (SQLException e){
+                    System.err.print(e);
+                }
+            }
+        }
+    }
+    
+    public boolean eliminar(Categoria cat){
+        PreparedStatement ps=null;
+        Connection cn=(Connection)getConnection();
+        String sql="UPDATE categoria SET estado=0 WHERE idCategoria=?";
+        try{
+            ps=(PreparedStatement)cn.prepareStatement(sql);
+            ps.setInt(1,cat.getIdCategoria());
+            ps.execute();
+            return true;
+        }
+        catch(SQLException e){
+            System.err.print(e);
+            return false;
+        }finally{
+            if (cn!=null){
+                try{
+                    cn.close();
+                }
+                catch(SQLException e){
                     System.err.print(e);
                 }
             }
@@ -134,7 +159,7 @@ public class ConsultasCategoria  extends Pool{
         String registros[]= new String[2];
         Connection cn=(Connection)getConnection();
         ResultSet rs=null;
-        String sql=("SELECT *FROM categoria");
+        String sql=("SELECT *FROM categoria WHERE estado=1");
         try{
             ps=(PreparedStatement)cn.prepareStatement(sql);
             rs=ps.executeQuery();
