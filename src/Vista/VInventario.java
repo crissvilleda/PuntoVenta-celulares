@@ -29,10 +29,10 @@ public class VInventario extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jlblInicio = new javax.swing.JLabel();
         jlblMinimizar = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jlblUsuario = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtableInventario = new javax.swing.JTable();
@@ -59,15 +59,15 @@ public class VInventario extends javax.swing.JFrame {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 5, 100, 90));
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Inicio.png"))); // NOI18N
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlblInicio.setBackground(new java.awt.Color(255, 255, 255));
+        jlblInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Inicio.png"))); // NOI18N
+        jlblInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jlblInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                jlblInicioMouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 10, 30, 30));
+        jPanel1.add(jlblInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 10, 30, 30));
 
         jlblMinimizar.setBackground(new java.awt.Color(255, 255, 255));
         jlblMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Expand_Arrow_32px.png"))); // NOI18N
@@ -85,10 +85,10 @@ public class VInventario extends javax.swing.JFrame {
         jLabel5.setText("Inventario");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(105, 105, 105));
-        jLabel6.setText("Nombre del Usuario");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 65, 340, -1));
+        jlblUsuario.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        jlblUsuario.setForeground(new java.awt.Color(105, 105, 105));
+        jlblUsuario.setText("Nombre del Usuario");
+        jPanel1.add(jlblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 65, 340, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -101,14 +101,14 @@ public class VInventario extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Codigo", "Nombre", "Descripcion", "Categoria", "Marca", "Cantidad", "PrecioCompra", "PrecioVenta"
+                "Id", "Fecha Lote", "Codigo", "Nombre", "Descripcion", "Categoria", "Marca", "Cantidad", "PrecioCompra", "PrecioVenta"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, true
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -123,14 +123,11 @@ public class VInventario extends javax.swing.JFrame {
         jtableInventario.setPreferredSize(new java.awt.Dimension(300, 200));
         jScrollPane1.setViewportView(jtableInventario);
         if (jtableInventario.getColumnModel().getColumnCount() > 0) {
-            jtableInventario.getColumnModel().getColumn(0).setMinWidth(20);
-            jtableInventario.getColumnModel().getColumn(0).setMaxWidth(30);
-            jtableInventario.getColumnModel().getColumn(1).setMinWidth(85);
-            jtableInventario.getColumnModel().getColumn(1).setMaxWidth(90);
-            jtableInventario.getColumnModel().getColumn(5).setMinWidth(75);
-            jtableInventario.getColumnModel().getColumn(5).setMaxWidth(80);
-            jtableInventario.getColumnModel().getColumn(6).setMinWidth(50);
-            jtableInventario.getColumnModel().getColumn(6).setMaxWidth(60);
+            jtableInventario.getColumnModel().getColumn(0).setPreferredWidth(10);
+            jtableInventario.getColumnModel().getColumn(2).setMinWidth(85);
+            jtableInventario.getColumnModel().getColumn(2).setMaxWidth(90);
+            jtableInventario.getColumnModel().getColumn(7).setMinWidth(50);
+            jtableInventario.getColumnModel().getColumn(7).setMaxWidth(60);
         }
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 900, 230));
@@ -189,11 +186,9 @@ public class VInventario extends javax.swing.JFrame {
          this.setState(Login.ICONIFIED);
     }//GEN-LAST:event_jlblMinimizarMouseClicked
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        Administrador form = new Administrador();
-        form.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jLabel2MouseClicked
+    private void jlblInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblInicioMouseClicked
+      
+    }//GEN-LAST:event_jlblInicioMouseClicked
 
     private void jtxtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtBuscarActionPerformed
         // TODO add your handling code here:
@@ -241,17 +236,17 @@ public class VInventario extends javax.swing.JFrame {
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnImprimirListado;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    public javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    public javax.swing.JLabel jlblInicio;
     public javax.swing.JLabel jlblMinimizar;
+    public javax.swing.JLabel jlblUsuario;
     public javax.swing.JTable jtableInventario;
     public javax.swing.JTextField jtxtBuscar;
     // End of variables declaration//GEN-END:variables

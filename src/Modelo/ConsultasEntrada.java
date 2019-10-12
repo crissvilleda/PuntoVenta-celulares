@@ -98,4 +98,52 @@ public class ConsultasEntrada extends Pool {
         }
     }
     
+    public void consultar(JTable tabla,String texto){
+        DefaultTableModel model = (DefaultTableModel)tabla.getModel();
+        //Limpiar tabla
+        int a = model.getRowCount()-1;
+        for(int i=a;i>=0;i--){
+            model.removeRow(model.getRowCount()-1);
+            
+        }
+        PreparedStatement ps = null;
+        String registros [] = new String [5];
+        Connection cn = (Connection)getConnection();
+        ResultSet rs = null;
+        String sql ="SELECT entrada.idEntrada, usuario.nombreUsuario,proveedor.nombre, "
+                + "entrada.fechaCompra, entrada.total FROM entrada INNER JOIN "
+                + "usuario ON entrada.idUsuario=usuario.idUsuario INNER JOIN "
+                + "proveedor ON entrada.idProveedor=proveedor.idProveedor ORDER BY "
+                + "entrada.fechaCompra DESC ";
+        try{
+            ps = (PreparedStatement)cn.prepareStatement(sql);
+            ps.setString(1,"%"+texto+"%");
+            rs =ps.executeQuery();
+            while(rs.next()){
+                registros [0]=rs.getString("idEntrada");
+                registros [1]=rs.getString("nombreUsuario");
+                registros [2]=rs.getString("nombre");
+                registros [3]=rs.getString("fechaCompra");
+                registros [4]=rs.getString("total");
+                model.addRow(registros);
+             
+            }tabla.setModel(model);
+            
+        }catch (SQLException e){
+            System.err.print(e);
+        }finally{
+            if(cn!=null){
+                try{
+                    cn.close();
+                }catch(SQLException e){
+                    System.err.print(e);
+                }
+                
+            }
+        }
+        
+    }
+    
+    
+    
 }

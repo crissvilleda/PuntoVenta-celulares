@@ -9,6 +9,7 @@ import Modelo.Usuario;
 import Vista.Administrador;
 import Vista.Configuracion;
 import Vista.VEntrada;
+import Vista.VInventario;
 import Vista.VProveedor;
 import Vista.VUsuario;
 import java.awt.event.ActionEvent;
@@ -29,6 +30,7 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
     private VProveedor vistaProveedor = new VProveedor();
     private VEntrada vistaEntrada = new VEntrada();
     private Configuracion vistaConfig = new Configuracion();
+    private VInventario vistaInv = new VInventario();
     //inicializa en controlador
     public ControladorAdministrador(Administrador vista, Usuario modelo){
         this.vista = vista;
@@ -82,6 +84,10 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
             vista.dispose();
         
         }else if(me.getSource()==vista.jlblInventario){
+            ControladorInventario controladorInv =
+                    new ControladorInventario(vistaInv,modelo);
+            controladorInv.iniciar();
+            vista.dispose();
         
         }else if(me.getSource()==vista.jlblReportes){
         
