@@ -244,6 +244,7 @@ public class ConsultasProveedor extends Pool {
         String sql ="SELECT * FROM proveedor WHERE nombre=?";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
+            ps.setString(1, pro.getNombre());
             rs =ps.executeQuery();
             while(rs.next()){
                 pro.setIdProveedor(rs.getInt("idProveedor"));

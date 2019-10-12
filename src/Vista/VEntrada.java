@@ -103,14 +103,14 @@ public class VEntrada extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Recibido por", "Proveedor", "Fecha", "Cantidad", "PrecioCompra", "Imprimir"
+                "Id", "Recibido por", "Proveedor", "Fecha", "Total Compra", "Imprimir"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -125,20 +125,10 @@ public class VEntrada extends javax.swing.JFrame {
         jtableEntrada.setPreferredSize(new java.awt.Dimension(300, 200));
         jScrollPane1.setViewportView(jtableEntrada);
         if (jtableEntrada.getColumnModel().getColumnCount() > 0) {
-            jtableEntrada.getColumnModel().getColumn(0).setMinWidth(30);
-            jtableEntrada.getColumnModel().getColumn(0).setMaxWidth(40);
-            jtableEntrada.getColumnModel().getColumn(1).setMinWidth(170);
-            jtableEntrada.getColumnModel().getColumn(1).setMaxWidth(180);
             jtableEntrada.getColumnModel().getColumn(2).setMinWidth(160);
             jtableEntrada.getColumnModel().getColumn(2).setMaxWidth(170);
-            jtableEntrada.getColumnModel().getColumn(3).setMinWidth(50);
-            jtableEntrada.getColumnModel().getColumn(3).setMaxWidth(60);
-            jtableEntrada.getColumnModel().getColumn(4).setMinWidth(50);
-            jtableEntrada.getColumnModel().getColumn(4).setMaxWidth(60);
-            jtableEntrada.getColumnModel().getColumn(5).setMinWidth(90);
-            jtableEntrada.getColumnModel().getColumn(5).setMaxWidth(100);
-            jtableEntrada.getColumnModel().getColumn(6).setMinWidth(50);
-            jtableEntrada.getColumnModel().getColumn(6).setMaxWidth(60);
+            jtableEntrada.getColumnModel().getColumn(5).setMinWidth(50);
+            jtableEntrada.getColumnModel().getColumn(5).setMaxWidth(60);
         }
 
         jPanel2Entrada.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 670, 230));

@@ -18,8 +18,8 @@ public class ConsultasInventario extends Pool{
     public boolean registrar(Inventario inventario){
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
-        String sql = "INSERT INTO inventario(idProducto,fechaLote,nActiculo, "
-                + "precioCompra,precioVenta) "
+        String sql = "INSERT INTO inventario(idProducto,fechaLote,nArticulos, "
+                + "precioCompra, precioVenta) "
                 + "values(?,?,?,?,?)";
         
         try{

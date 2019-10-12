@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Modelo.ConsultasEntrada;
 import Modelo.Usuario;
 import Vista.Administrador;
 import Vista.VEntrada;
@@ -26,7 +27,7 @@ public class ControladorEntrada implements ActionListener, MouseListener,
     private VEntrada vista;
     private RegistroEntrada vistaNuevo = new RegistroEntrada();
     private Administrador vistaAdmin = new Administrador();
-    
+    private ConsultasEntrada consultaE = new ConsultasEntrada();
     public ControladorEntrada(VEntrada entrada, Usuario modelo){
         this.vista = entrada;
         this.modelo = modelo;
@@ -36,10 +37,9 @@ public class ControladorEntrada implements ActionListener, MouseListener,
         vista.jtableEntrada.addMouseListener(this);
         vista.jtxtBuscar.getDocument().addDocumentListener(this);
         vista.jtxtBuscar.requestFocus();
-        
-        
-        
-        
+        vista.jlblNombreUsuario.setText(modelo.getNombreUsuario());
+        consultaE.tablaEntrada(vista.jtableEntrada);
+                
     }
     public void iniciar(){
         vista.setLocationRelativeTo(null);
