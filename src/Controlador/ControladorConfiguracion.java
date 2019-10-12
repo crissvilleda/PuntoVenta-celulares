@@ -21,6 +21,7 @@ import java.awt.event.WindowListener;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -45,6 +46,13 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
         vista.btnNuevo.addActionListener(this);
         //consultasC.tablaCategorias(vista.jtableCategoria);
         consultasC.limpiarTabla(vista.jtableCategoria);
+        vista.jtableCategoria.addMouseListener(this);
+        vista.jPanel1.addMouseListener(this);
+        vista.jPanel2.addMouseListener(this);
+        vista.jPanel3.addMouseListener(this);
+        vista.jPanel4.addMouseListener(this);
+        vista.jPanel6.addMouseListener(this);
+        
         
         vista.addWindowListener(this);
     }
@@ -53,13 +61,28 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnGuardar){
             registrar();
-        }else if (e.getSource()==vista.btnEliminarC){
-            
         }
         else if(e.getSource()==vista.btnNuevo){
             vista.jtxtCategoria.setText("");
-            vista.jtxtCategoria.requestFocus();
-            
+            vista.jtxtCategoria.requestFocus();  
+        }
+
+        else if(e.getSource()==vista.btnEliminarC){
+            Categoria cate= new Categoria();
+            int row=vista.jtableCategoria.getSelectedRow();
+            cate.setIdCategoria(Integer.parseInt((String)vista.jtableCategoria.getModel().getValueAt(row, 0) ));
+            int result=JOptionPane.showConfirmDialog(null,"Desea eliminar la categoria? ","Exit",JOptionPane.YES_NO_OPTION);
+            if(result==0){
+                if(consultasC.eliminar(cate)){
+                    ((DefaultTableModel)vista.jtableCategoria.getModel()).removeRow(row);
+                    JOptionPane.showMessageDialog(null, "Categoria Eliminado");
+                    vista.btnEliminarC.setEnabled(false);
+                    vista.btnModificarC.setEnabled(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"Error");
+                }
+                
+            }
         }
     }
     public void registrar(){
@@ -75,9 +98,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
             JOptionPane.showMessageDialog(null,"Error al guardar");
         }
     }
-    public void eliminar(){
-        
-    }
+    
     public void iniciar(){
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
@@ -90,7 +111,36 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
            controladorA.iniciar();
            vista.dispose();
         }
+        else if (e.getSource()==vista.jtableCategoria){
+            vista.btnModificarC.setEnabled(true);
+            vista.btnEliminarC.setEnabled(true);  
+            if (e.getClickCount()==2){
+                desactivarBotones();
+            }
+        }
+        else if(e.getSource()==vista.jPanel1){
+            desactivarBotones();
+        }
+        else if(e.getSource()==vista.jPanel2){
+            desactivarBotones();
+        }
+        else if(e.getSource()==vista.jPanel3){
+            desactivarBotones();
+        }
+        else if(e.getSource()==vista.jPanel4){
+            desactivarBotones();
+        }
+        else if(e.getSource()==vista.jPanel6){
+            desactivarBotones();
+        }
+        
     }
+    public void desactivarBotones(){
+        vista.jtableCategoria.clearSelection();
+        vista.btnEliminarC.setEnabled(false);
+        vista.btnModificarC.setEnabled(false);
+    }
+    
      @Override
     public void windowOpened(WindowEvent e) {
         vista.btnGuardar.setEnabled(false);
@@ -118,7 +168,15 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
     
     
     
+    
+    
+    
+    
+       @Override
+    public void mouseExited(MouseEvent e) {
 
+    }
+    
     @Override
     public void mousePressed(MouseEvent e) {
         
@@ -133,11 +191,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
     public void mouseEntered(MouseEvent e) {
         
     }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-       
-    }
+    
 
     @Override
     public void insertUpdate(DocumentEvent e) {
