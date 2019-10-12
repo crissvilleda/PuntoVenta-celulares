@@ -126,6 +126,20 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
                 
             }
         }
+        else if(e.getSource()==vista.btnEliminarLM){
+            Marca mar=new Marca();
+            int row=vista.jtableMarca.getSelectedRow();
+            mar.setIdMarca(Integer.parseInt((String)vista.jtableMarca.getModel().getValueAt(row, 0)));
+            int resul=JOptionPane.showConfirmDialog(null,"Desea eliminar la marca?","Exit",JOptionPane.YES_NO_OPTION);
+            if(resul==0){
+                    if(consultasM.eliminar(mar));
+                       ((DefaultTableModel)vista.jtableMarca.getModel()).removeRow(row);
+                       JOptionPane.showMessageDialog(null, "Marca Eliminado");
+                       desactivarBotones();
+                     }else{
+                            JOptionPane.showMessageDialog(null, "Error");
+                          }
+        }
         else if(e.getSource()==vista.btnModificarC){
             
             int row=vista.jtableCategoria.getSelectedRow();
@@ -135,6 +149,15 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
             desactivarBotones();
             verificarLabels();
             modificando = true;
+        }
+        else if(e.getSource()==vista.btnModificarLM){
+            int row=vista.jtableMarca.getSelectedRow();
+            marcaModificar.setIdMarca(Integer.parseInt((String)vista.jtableMarca.getModel().getValueAt(row, 0)));
+            marcaModificar.setNombre((String)vista.jtableMarca.getModel().getValueAt(row, 1));
+            vista.jtxtMarca.setText(marcaModificar.getNombre());
+            desactivarBotones();
+            verificarLabels();
+            modificandoM=true;
         }
     }
     
@@ -185,7 +208,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
         if(consultasM.modificar(marcaModificar)){
             JOptionPane.showMessageDialog(null, "Marca Modificado Exitosamente");
             vista.jtxtMarca.setText("");
-            consultasM.tablaMarca(vista.jtableCategoria);
+            consultasM.tablaMarca(vista.jtableMarca);
         }else{
             JOptionPane.showMessageDialog(null, "Error al modificar");
         }
