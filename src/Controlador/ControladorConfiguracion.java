@@ -33,7 +33,8 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
     private Usuario modelo;
     private Administrador vistaAdmin = new Administrador();
     ConsultasCategoria consultasC = new ConsultasCategoria();
-    
+    //variable que detecta modificacines
+    boolean modificando = false;
     public ControladorConfiguracion(Configuracion vista, Usuario modelo){
         this.vista=vista;
         this.modelo= modelo;
@@ -61,7 +62,12 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnGuardar){
-            registrar();
+            if(modificando){
+                //aqui el codigo de modificar
+            }else{
+                registrar();
+            }
+            
         }
         else if(e.getSource()==vista.btnNuevo){
             vista.jtxtCategoria.setText("");
@@ -90,6 +96,8 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
             int row=vista.jtableCategoria.getSelectedRow();
             cat.setIdCategoria(Integer.parseInt((String)vista.jtableCategoria.getModel().getValueAt(row, 0)));
             cat.setNombre((String)vista.jtableCategoria.getModel().getValueAt(row, 1));
+            vista.jtxtCategoria.setText(cat.getNombre());
+            modificando = true;
         }
     }
     public void registrar(){

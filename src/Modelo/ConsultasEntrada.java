@@ -118,6 +118,8 @@ public class ConsultasEntrada extends Pool {
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
             ps.setString(1,"%"+texto+"%");
+            ps.setString(1,"%"+texto+"%");
+            ps.setString(1,"%"+texto+"%");
             rs =ps.executeQuery();
             while(rs.next()){
                 registros [0]=rs.getString("idEntrada");
