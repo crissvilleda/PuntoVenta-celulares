@@ -140,6 +140,8 @@ public class ControladorUsuario implements ActionListener, MouseListener,
     public void insertUpdate(DocumentEvent de) {
         if(de.getDocument()==vista.jtxtBuscar.getDocument()){
             consulta.consultar(vista.jtableUsuario, vista.jtxtBuscar.getText());
+            vista.btnModificar.setEnabled(false);
+            vista.btnEliminar.setEnabled(false);
         }
     }
 
@@ -147,6 +149,8 @@ public class ControladorUsuario implements ActionListener, MouseListener,
     public void removeUpdate(DocumentEvent de) {
         if(de.getDocument()==vista.jtxtBuscar.getDocument()){
             consulta.consultar(vista.jtableUsuario, vista.jtxtBuscar.getText());
+            vista.btnModificar.setEnabled(false);
+            vista.btnEliminar.setEnabled(false);
         }
     }
 
@@ -154,6 +158,8 @@ public class ControladorUsuario implements ActionListener, MouseListener,
     public void changedUpdate(DocumentEvent de) {
         if(de.getDocument()==vista.jtxtBuscar.getDocument()){
             consulta.consultar(vista.jtableUsuario, vista.jtxtBuscar.getText());
+            vista.btnModificar.setEnabled(false);
+            vista.btnEliminar.setEnabled(false);
         }
     }
 

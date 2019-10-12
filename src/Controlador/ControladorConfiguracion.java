@@ -35,6 +35,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
     ConsultasCategoria consultasC = new ConsultasCategoria();
     //variable que detecta modificacines
     boolean modificando = false;
+    Categoria categoriaModificar = new Categoria();
     public ControladorConfiguracion(Configuracion vista, Usuario modelo){
         this.vista=vista;
         this.modelo= modelo;
@@ -64,6 +65,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
         if(e.getSource()==vista.btnGuardar){
             if(modificando==true){
                 modificar();
+                modificando = false;
             }else{
                 registrar();
             }
@@ -92,11 +94,11 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
             }
         }
         else if(e.getSource()==vista.btnModificarC){
-            Categoria cat= new Categoria();
+            
             int row=vista.jtableCategoria.getSelectedRow();
-            cat.setIdCategoria(Integer.parseInt((String)vista.jtableCategoria.getModel().getValueAt(row, 0)));
-            cat.setNombre((String)vista.jtableCategoria.getModel().getValueAt(row, 1));
-            vista.jtxtCategoria.setText(cat.getNombre());
+            categoriaModificar.setIdCategoria(Integer.parseInt((String)vista.jtableCategoria.getModel().getValueAt(row, 0)));
+            categoriaModificar.setNombre((String)vista.jtableCategoria.getModel().getValueAt(row, 1));
+            vista.jtxtCategoria.setText(categoriaModificar.getNombre());
             modificando = true;
         }
     }
@@ -114,9 +116,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
         }
     }
     public void modificar(){
-        Categoria cat=new Categoria();
-        cat.setNombre(vista.jtxtCategoria.getText());
-        if (consultasC.modificar(cat)){
+        if (consultasC.modificar(categoriaModificar)){
             JOptionPane.showMessageDialog(null, "Modificacion Exito");
             vista.jtxtCategoria.setText("");
             consultasC.limpiarTabla(vista.jtableCategoria);

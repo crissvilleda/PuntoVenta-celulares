@@ -143,6 +143,8 @@ public class ControladorProveedor implements ActionListener, MouseListener,
     public void insertUpdate(DocumentEvent de) {
         if(de.getDocument()==vista.jtxtBuscar.getDocument()){
             consulta.consultar(vista.jtableProveedor, vista.jtxtBuscar.getText());
+            vista.btnModificar.setEnabled(false);
+            vista.btnEliminar.setEnabled(false);
         }
     }
     
@@ -151,6 +153,8 @@ public class ControladorProveedor implements ActionListener, MouseListener,
     public void removeUpdate(DocumentEvent de) {
         if(de.getDocument()==vista.jtxtBuscar.getDocument()){
             consulta.consultar(vista.jtableProveedor, vista.jtxtBuscar.getText());
+            vista.btnModificar.setEnabled(false);
+            vista.btnEliminar.setEnabled(false);
         }
     }
 
@@ -158,6 +162,8 @@ public class ControladorProveedor implements ActionListener, MouseListener,
     public void changedUpdate(DocumentEvent de) {
         if(de.getDocument()==vista.jtxtBuscar.getDocument()){
             consulta.consultar(vista.jtableProveedor, vista.jtxtBuscar.getText());
+            vista.btnModificar.setEnabled(false);
+            vista.btnEliminar.setEnabled(false);
         }
     }
     
