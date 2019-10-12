@@ -51,10 +51,11 @@ public class ConsultasCategoria  extends Pool{
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
         String sql = "UPDATE categoria SET nombre=?"
-                + " WHERE idCategoria=?";
+                + " WHERE idCategoria=? AND estado=1";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
             ps.setString(1, cat.getNombre());
+            ps.setInt(2, cat.getIdCategoria());
             ps.execute();
             return true;            
             

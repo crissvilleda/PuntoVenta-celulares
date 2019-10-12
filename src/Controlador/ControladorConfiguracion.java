@@ -116,6 +116,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
         }
     }
     public void modificar(){
+        categoriaModificar.setNombre(vista.jtxtCategoria.getText());
         if (consultasC.modificar(categoriaModificar)){
             JOptionPane.showMessageDialog(null, "Modificacion Exito");
             vista.jtxtCategoria.setText("");
