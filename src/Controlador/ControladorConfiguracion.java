@@ -41,6 +41,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
     boolean modificandoM=false;
     
     Categoria categoriaModificar = new Categoria();
+    Marca marcaModificar=new Marca();
     public ControladorConfiguracion(Configuracion vista, Usuario modelo){
         this.vista=vista;
         this.modelo= modelo;
@@ -169,17 +170,25 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
     public void modificar(){
         categoriaModificar.setNombre(vista.jtxtCategoria.getText());
         if (consultasC.modificar(categoriaModificar)){
-            JOptionPane.showMessageDialog(null, "Modificacion Exitoso");
+            JOptionPane.showMessageDialog(null, "Categoria Modificado Exitosamente");
             vista.jtxtCategoria.setText("");
             consultasC.limpiarTabla(vista.jtableCategoria);
         }
         else{
-            JOptionPane.showMessageDialog(null, "Error al guardar");
+            JOptionPane.showMessageDialog(null, "Error al modificar");
         }
     }
     
     //Modificar Marca
     public void modificarM(){
+        marcaModificar.setNombre(vista.jtxtMarca.getText());
+        if(consultasM.modificar(marcaModificar)){
+            JOptionPane.showMessageDialog(null, "Marca Modificado Exitosamente");
+            vista.jtxtMarca.setText("");
+            consultasM.tablaMarca(vista.jtableCategoria);
+        }else{
+            JOptionPane.showMessageDialog(null, "Error al modificar");
+        }
         
     }
     public void iniciar(){
