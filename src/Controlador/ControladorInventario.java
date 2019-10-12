@@ -28,7 +28,7 @@ public class ControladorInventario implements MouseListener, DocumentListener {
         this.vista = v;
         this.modelo = m;
         vista.jlblInicio.addMouseListener(this);
-        
+        vista.jtxtBuscar.getDocument().addDocumentListener(this);
         consultaInv.tablaInventario(vista.jtableInventario);
         vista.jlblUsuario.setText(modelo.getNombreUsuario());
        
@@ -52,14 +52,23 @@ public class ControladorInventario implements MouseListener, DocumentListener {
     }
     @Override
     public void insertUpdate(DocumentEvent de) {
+        if(de.getDocument()==vista.jtxtBuscar.getDocument()){
+            consultaInv.consultar(vista.jtableInventario, vista.jtxtBuscar.getText());
+        }
     }
 
     @Override
     public void removeUpdate(DocumentEvent de) {
+        if(de.getDocument()==vista.jtxtBuscar.getDocument()){
+            consultaInv.consultar(vista.jtableInventario, vista.jtxtBuscar.getText());
+        }
     }
 
     @Override
     public void changedUpdate(DocumentEvent de) {
+        if(de.getDocument()==vista.jtxtBuscar.getDocument()){
+            consultaInv.consultar(vista.jtableInventario, vista.jtxtBuscar.getText());
+        }
     }
     @Override
     public void mousePressed(MouseEvent me) {
