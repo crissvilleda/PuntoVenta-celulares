@@ -7,6 +7,8 @@ package Controlador;
 
 import Modelo.Categoria;
 import Modelo.ConsultasCategoria;
+import Modelo.ConsultasMarca;
+import Modelo.Marca;
 import Modelo.Usuario;
 import Vista.Administrador;
 import Vista.Configuracion;
@@ -33,23 +35,36 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
     private Usuario modelo;
     private Administrador vistaAdmin = new Administrador();
     ConsultasCategoria consultasC = new ConsultasCategoria();
+    ConsultasMarca consultasM=new ConsultasMarca();
     //variable que detecta modificacines
     boolean modificando = false;
+    boolean modificandoM=false;
+    
     Categoria categoriaModificar = new Categoria();
     public ControladorConfiguracion(Configuracion vista, Usuario modelo){
         this.vista=vista;
         this.modelo= modelo;
         //
         vista.jtxtCategoria.getDocument().addDocumentListener(this);
+        vista.jtxtMarca.getDocument().addDocumentListener(this);
         vista.jtxtCategoria.addKeyListener(this);
+        vista.jtxtMarca.addKeyListener(this);
         vista.jlblInicio.addMouseListener(this);
+        
         vista.btnGuardar.addActionListener(this);
+        vista.btnGuardarM.addActionListener(this);
         vista.btnEliminarC.addActionListener(this);
+        vista.btnEliminarLM.addActionListener(this);
         vista.btnNuevo.addActionListener(this);
+        vista.btnNuevoM.addActionListener(this);
         vista.btnModificarC.addActionListener(this);
+        vista.btnModificarLM.addActionListener(this);
         //consultasC.tablaCategorias(vista.jtableCategoria);
         consultasC.limpiarTabla(vista.jtableCategoria);
+        consultasM.tablaMarca(vista.jtableMarca);
         vista.jtableCategoria.addMouseListener(this);
+        vista.jtableMarca.addMouseListener(this);
+        
         vista.jPanel1.addMouseListener(this);
         vista.jPanel2.addMouseListener(this);
         vista.jPanel3.addMouseListener(this);
@@ -69,11 +84,29 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
             }else{
                 registrar();
             }
-            
+            vista.btnGuardar.setEnabled(false);
+        }
+        if(e.getSource()==vista.btnGuardarM){
+            if(modificandoM==true){
+                modificarM();
+                modificandoM=false;
+            }
+            else{
+                registrarM();
+            }
+            vista.btnGuardarM.setEnabled(false);
         }
         else if(e.getSource()==vista.btnNuevo){
+            desactivarBotones();
             vista.jtxtCategoria.setText("");
+            vista.jtxtMarca.setText("");
             vista.jtxtCategoria.requestFocus();  
+        }
+        else if(e.getSource()==vista.btnNuevoM){
+            desactivarBotones();
+            vista.jtxtMarca.setText("");
+            vista.jtxtCategoria.setText("");
+            vista.jtxtMarca.requestFocus();
         }
 
         else if(e.getSource()==vista.btnEliminarC){
@@ -85,8 +118,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
                 if(consultasC.eliminar(cate)){
                     ((DefaultTableModel)vista.jtableCategoria.getModel()).removeRow(row);
                     JOptionPane.showMessageDialog(null, "Categoria Eliminado");
-                    vista.btnEliminarC.setEnabled(false);
-                    vista.btnModificarC.setEnabled(false);
+                    desactivarBotones();
                 }else{
                     JOptionPane.showMessageDialog(null,"Error");
                 }
@@ -99,14 +131,17 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
             categoriaModificar.setIdCategoria(Integer.parseInt((String)vista.jtableCategoria.getModel().getValueAt(row, 0)));
             categoriaModificar.setNombre((String)vista.jtableCategoria.getModel().getValueAt(row, 1));
             vista.jtxtCategoria.setText(categoriaModificar.getNombre());
+            desactivarBotones();
+            verificarLabels();
             modificando = true;
         }
     }
+    
+    //Registrar Categoria
     public void registrar(){
         Categoria cat= new Categoria();
         cat.setNombre(vista.jtxtCategoria.getText());
         if(consultasC.registrar(cat)){
-            
             JOptionPane.showMessageDialog(null,"Registro Exitoso");
             vista.jtxtCategoria.setText("");
             consultasC.limpiarTabla(vista.jtableCategoria);
@@ -115,10 +150,26 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
             JOptionPane.showMessageDialog(null,"Error al guardar");
         }
     }
+    
+    //Registrar Marca
+    public void registrarM(){
+        Marca marc=new Marca();
+        marc.setNombre(vista.jtxtMarca.getText());
+        if (consultasM.registrar(marc)){
+            JOptionPane.showMessageDialog(null, "Registro Exitoso");
+            vista.jtxtMarca.setText("");
+            consultasM.tablaMarca(vista.jtableMarca);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Error al guardar");
+        }
+    }
+    
+    //Modificar Categoria
     public void modificar(){
         categoriaModificar.setNombre(vista.jtxtCategoria.getText());
         if (consultasC.modificar(categoriaModificar)){
-            JOptionPane.showMessageDialog(null, "Modificacion Exito");
+            JOptionPane.showMessageDialog(null, "Modificacion Exitoso");
             vista.jtxtCategoria.setText("");
             consultasC.limpiarTabla(vista.jtableCategoria);
         }
@@ -127,6 +178,10 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
         }
     }
     
+    //Modificar Marca
+    public void modificarM(){
+        
+    }
     public void iniciar(){
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
@@ -143,6 +198,13 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
             vista.btnModificarC.setEnabled(true);
             vista.btnEliminarC.setEnabled(true);  
             if (e.getClickCount()==2){
+                desactivarBotones();
+            }
+        }
+        else if(e.getSource()==vista.jtableMarca){
+            vista.btnModificarLM.setEnabled(true);
+            vista.btnEliminarLM.setEnabled(true);
+            if(e.getClickCount()==2){
                 desactivarBotones();
             }
         }
@@ -165,8 +227,13 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
     }
     public void desactivarBotones(){
         vista.jtableCategoria.clearSelection();
+        //vista.btnGuardar.setEnabled(false);
+        //vista.btnGuardarM.setEnabled(false);
         vista.btnEliminarC.setEnabled(false);
         vista.btnModificarC.setEnabled(false);
+        vista.jtableMarca.clearSelection();
+        vista.btnEliminarLM.setEnabled(false);
+        vista.btnModificarLM.setEnabled(false);
     }
     
      @Override
@@ -185,10 +252,31 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
              vista.btnGuardar.setEnabled(true);
             }
         else{
+            desactivarBotones();
             vista.btnGuardar.setEnabled(false);
+        }
+        if(vista.jtxtMarca.getText().length()>=2){
+            vista.btnGuardarM.setEnabled(true);
+        }else{
+            desactivarBotones();
+            vista.btnGuardarM.setEnabled(false);
         }
     }
     
+       @Override
+    public void insertUpdate(DocumentEvent e) {
+        verificarLabels();
+    }
+
+    @Override
+    public void removeUpdate(DocumentEvent e) {
+        verificarLabels();
+    }
+
+    @Override
+    public void changedUpdate(DocumentEvent e) {
+        verificarLabels();
+    }
     
     
     
@@ -220,22 +308,6 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
         
     }
     
-
-    @Override
-    public void insertUpdate(DocumentEvent e) {
-        verificarLabels();
-    }
-
-    @Override
-    public void removeUpdate(DocumentEvent e) {
-        verificarLabels();
-    }
-
-    @Override
-    public void changedUpdate(DocumentEvent e) {
-        verificarLabels();
-    }
-
     @Override
     public void keyTyped(KeyEvent e) {
     }

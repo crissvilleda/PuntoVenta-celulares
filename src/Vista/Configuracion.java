@@ -468,7 +468,6 @@ public class Configuracion extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jtableMarca.setPreferredSize(new java.awt.Dimension(100, 50));
         jScrollPane5.setViewportView(jtableMarca);
         if (jtableMarca.getColumnModel().getColumnCount() > 0) {
             jtableMarca.getColumnModel().getColumn(0).setMinWidth(50);
