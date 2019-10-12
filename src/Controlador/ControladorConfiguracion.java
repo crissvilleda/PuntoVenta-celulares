@@ -44,6 +44,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
         vista.btnGuardar.addActionListener(this);
         vista.btnEliminarC.addActionListener(this);
         vista.btnNuevo.addActionListener(this);
+        vista.btnModificarC.addActionListener(this);
         //consultasC.tablaCategorias(vista.jtableCategoria);
         consultasC.limpiarTabla(vista.jtableCategoria);
         vista.jtableCategoria.addMouseListener(this);
@@ -83,6 +84,12 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
                 }
                 
             }
+        }
+        else if(e.getSource()==vista.btnModificarC){
+            Categoria cat= new Categoria();
+            int row=vista.jtableCategoria.getSelectedRow();
+            cat.setIdCategoria(Integer.parseInt((String)vista.jtableCategoria.getModel().getValueAt(row, 0)));
+            cat.setNombre((String)vista.jtableCategoria.getModel().getValueAt(row, 1));
         }
     }
     public void registrar(){
