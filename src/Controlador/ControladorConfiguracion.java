@@ -62,8 +62,8 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnGuardar){
-            if(modificando){
-                //aqui el codigo de modificar
+            if(modificando==true){
+                modificar();
             }else{
                 registrar();
             }
@@ -111,6 +111,18 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
         }
         else{
             JOptionPane.showMessageDialog(null,"Error al guardar");
+        }
+    }
+    public void modificar(){
+        Categoria cat=new Categoria();
+        cat.setNombre(vista.jtxtCategoria.getText());
+        if (consultasC.modificar(cat)){
+            JOptionPane.showMessageDialog(null, "Modificacion Exito");
+            vista.jtxtCategoria.setText("");
+            consultasC.limpiarTabla(vista.jtableCategoria);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Error al guardar");
         }
     }
     
