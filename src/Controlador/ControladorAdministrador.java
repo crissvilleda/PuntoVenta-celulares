@@ -47,6 +47,10 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
         vista.jlblUsuarios.addMouseListener(this);
         vista.jlblMinimizar.addMouseListener(this);
         vista.btnCerrarSesion.addActionListener(this);
+        vista.jlblFacturas.setEnabled(false);
+        vista.jlblCorteCaja.setEnabled(false);
+        vista.jlblReportes.setEnabled(false);
+        
     
     }
     @Override

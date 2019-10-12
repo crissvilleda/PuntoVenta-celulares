@@ -72,14 +72,23 @@ public class ControladorEntrada implements ActionListener, MouseListener,
     
     @Override
     public void insertUpdate(DocumentEvent de) {
+        if(de.getDocument()==vista.jtxtBuscar.getDocument()){
+            consultaE.consultar(vista.jtableEntrada, vista.jtxtBuscar.getText());
+        }
     }
 
     @Override
     public void removeUpdate(DocumentEvent de) {
+        if(de.getDocument()==vista.jtxtBuscar.getDocument()){
+            consultaE.consultar(vista.jtableEntrada, vista.jtxtBuscar.getText());
+        }
     }
 
     @Override
     public void changedUpdate(DocumentEvent de) {
+        if(de.getDocument()==vista.jtxtBuscar.getDocument()){
+            consultaE.consultar(vista.jtableEntrada, vista.jtxtBuscar.getText());
+        }
     }
 
     @Override

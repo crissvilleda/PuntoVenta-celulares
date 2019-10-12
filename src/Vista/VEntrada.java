@@ -103,7 +103,7 @@ public class VEntrada extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Recibido por", "Proveedor", "Fecha", "Total Compra", "Imprimir"
+                "Id", "Fecha", "Recibido por", "Proveedor", "Total Compra", "Imprimir"
             }
         ) {
             Class[] types = new Class [] {
@@ -125,13 +125,14 @@ public class VEntrada extends javax.swing.JFrame {
         jtableEntrada.setPreferredSize(new java.awt.Dimension(300, 200));
         jScrollPane1.setViewportView(jtableEntrada);
         if (jtableEntrada.getColumnModel().getColumnCount() > 0) {
-            jtableEntrada.getColumnModel().getColumn(2).setMinWidth(160);
-            jtableEntrada.getColumnModel().getColumn(2).setMaxWidth(170);
+            jtableEntrada.getColumnModel().getColumn(0).setPreferredWidth(10);
+            jtableEntrada.getColumnModel().getColumn(3).setMinWidth(160);
+            jtableEntrada.getColumnModel().getColumn(3).setMaxWidth(170);
             jtableEntrada.getColumnModel().getColumn(5).setMinWidth(50);
             jtableEntrada.getColumnModel().getColumn(5).setMaxWidth(60);
         }
 
-        jPanel2Entrada.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 670, 230));
+        jPanel2Entrada.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 760, 230));
 
         btnNuevo.setBackground(new java.awt.Color(255, 255, 255));
         btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaNuevob.png"))); // NOI18N

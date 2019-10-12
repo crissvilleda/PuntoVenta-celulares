@@ -75,9 +75,9 @@ public class ConsultasEntrada extends Pool {
             rs =ps.executeQuery();
             while(rs.next()){
                 registros [0]=rs.getString("idEntrada");
-                registros [1]=rs.getString("nombreUsuario");
-                registros [2]=rs.getString("nombre");
-                registros [3]=rs.getString("fechaCompra");
+                registros [1]=rs.getString("fechaCompra");
+                registros [2]=rs.getString("nombreUsuario");
+                registros [3]=rs.getString("nombre");
                 registros [4]=rs.getString("total");
                 model.addRow(registros);
              
@@ -113,19 +113,21 @@ public class ConsultasEntrada extends Pool {
         String sql ="SELECT entrada.idEntrada, usuario.nombreUsuario,proveedor.nombre, "
                 + "entrada.fechaCompra, entrada.total FROM entrada INNER JOIN "
                 + "usuario ON entrada.idUsuario=usuario.idUsuario INNER JOIN "
-                + "proveedor ON entrada.idProveedor=proveedor.idProveedor ORDER BY "
+                + "proveedor ON entrada.idProveedor=proveedor.idProveedor WHERE "
+                + "DATE_FORMAT(entrada.fechaCompra, '%Y-%m-%d') LIKE ? OR "
+                + "usuario.nombreUsuario LIKE ? OR proveedor.nombre LIKE ? ORDER BY "
                 + "entrada.fechaCompra DESC ";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
             ps.setString(1,"%"+texto+"%");
-            ps.setString(1,"%"+texto+"%");
-            ps.setString(1,"%"+texto+"%");
+            ps.setString(2,"%"+texto+"%");
+            ps.setString(3,"%"+texto+"%");
             rs =ps.executeQuery();
             while(rs.next()){
                 registros [0]=rs.getString("idEntrada");
-                registros [1]=rs.getString("nombreUsuario");
-                registros [2]=rs.getString("nombre");
-                registros [3]=rs.getString("fechaCompra");
+                registros [1]=rs.getString("fechaCompra");
+                registros [2]=rs.getString("nombreUsuario");
+                registros [3]=rs.getString("nombre");
                 registros [4]=rs.getString("total");
                 model.addRow(registros);
              
