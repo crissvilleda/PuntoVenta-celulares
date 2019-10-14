@@ -41,6 +41,14 @@ public class ListaInventario extends javax.swing.JFrame {
         jlblCerrar = new javax.swing.JLabel();
         btnSeleccionar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jtxtCantidad = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jtxtPC = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jtxtPV = new javax.swing.JTextField();
+        jlblMensaje = new javax.swing.JLabel();
+        jlblMensaje1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -123,7 +131,7 @@ public class ListaInventario extends javax.swing.JFrame {
         jlblListaInventario.setForeground(new java.awt.Color(102, 102, 102));
         jlblListaInventario.setText("Lista de Inventario");
         jPanelListaInventario.add(jlblListaInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 17, -1, -1));
-        jPanelListaInventario.add(jspListaInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 860, -1));
+        jPanelListaInventario.add(jspListaInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1000, -1));
 
         jlblCerrar.setBackground(new java.awt.Color(255, 255, 255));
         jlblCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Multiply_32px.png"))); // NOI18N
@@ -133,7 +141,7 @@ public class ListaInventario extends javax.swing.JFrame {
                 jlblCerrarMouseClicked(evt);
             }
         });
-        jPanelListaInventario.add(jlblCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, -1, -1));
+        jPanelListaInventario.add(jlblCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(955, 10, -1, -1));
 
         btnSeleccionar.setBackground(new java.awt.Color(255, 255, 255));
         btnSeleccionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaSeleccionarb.png"))); // NOI18N
@@ -143,7 +151,7 @@ public class ListaInventario extends javax.swing.JFrame {
         btnSeleccionar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaSeleccionar.png"))); // NOI18N
         btnSeleccionar.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaSeleccionar.png"))); // NOI18N
         btnSeleccionar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaSeleccionar.png"))); // NOI18N
-        jPanelListaInventario.add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(725, 362, 85, 25));
+        jPanelListaInventario.add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 360, 85, 25));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
@@ -151,7 +159,65 @@ public class ListaInventario extends javax.swing.JFrame {
         jLabel3.setText("Buscar por Codigo o Nombre o Descripcion");
         jPanelListaInventario.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 65, 220, -1));
 
-        getContentPane().add(jPanelListaInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, -1));
+        jtxtCantidad.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jtxtCantidad.setForeground(new java.awt.Color(153, 153, 153));
+        jtxtCantidad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jtxtCantidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtCantidadActionPerformed(evt);
+            }
+        });
+        jPanelListaInventario.add(jtxtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 150, 100, 20));
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(225, 99, 71));
+        jLabel5.setText("Cantidad:");
+        jPanelListaInventario.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 130, -1, -1));
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(225, 99, 71));
+        jLabel6.setText("Precio de Compra:");
+        jPanelListaInventario.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 190, -1, -1));
+
+        jtxtPC.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jtxtPC.setForeground(new java.awt.Color(153, 153, 153));
+        jtxtPC.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jtxtPC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtPCActionPerformed(evt);
+            }
+        });
+        jPanelListaInventario.add(jtxtPC, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 210, 100, 20));
+
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(225, 99, 71));
+        jLabel7.setText("Precio de Venta:");
+        jPanelListaInventario.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 250, -1, -1));
+
+        jtxtPV.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jtxtPV.setForeground(new java.awt.Color(153, 153, 153));
+        jtxtPV.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jtxtPV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtPVActionPerformed(evt);
+            }
+        });
+        jPanelListaInventario.add(jtxtPV, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 270, 100, 20));
+
+        jlblMensaje.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        jlblMensaje.setForeground(new java.awt.Color(103, 103, 103));
+        jlblMensaje.setText("obligatorios");
+        jPanelListaInventario.add(jlblMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 330, -1, -1));
+
+        jlblMensaje1.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        jlblMensaje1.setForeground(new java.awt.Color(103, 103, 103));
+        jlblMensaje1.setText("*Todos los campos son");
+        jPanelListaInventario.add(jlblMensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 310, -1, -1));
+
+        getContentPane().add(jPanelListaInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -163,6 +229,18 @@ public class ListaInventario extends javax.swing.JFrame {
     private void jlblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblCerrarMouseClicked
         
     }//GEN-LAST:event_jlblCerrarMouseClicked
+
+    private void jtxtCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtCantidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtCantidadActionPerformed
+
+    private void jtxtPCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtPCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtPCActionPerformed
+
+    private void jtxtPVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtPVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtPVActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,14 +285,22 @@ public class ListaInventario extends javax.swing.JFrame {
     public javax.swing.JButton btnSeleccionar;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanelListaInventario;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JLabel jlblCerrar;
     private javax.swing.JLabel jlblListaInventario;
     private javax.swing.JLabel jlblListaInventarioIcono;
+    private javax.swing.JLabel jlblMensaje;
+    private javax.swing.JLabel jlblMensaje1;
     public javax.swing.JSeparator jspListaInventario;
     public javax.swing.JTable jtableListaInventario;
     public javax.swing.JTextField jtxtBuscar;
+    public javax.swing.JTextField jtxtCantidad;
+    public javax.swing.JTextField jtxtPC;
+    public javax.swing.JTextField jtxtPV;
     // End of variables declaration//GEN-END:variables
 }
