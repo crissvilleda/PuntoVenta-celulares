@@ -132,13 +132,14 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
             mar.setIdMarca(Integer.parseInt((String)vista.jtableMarca.getModel().getValueAt(row, 0)));
             int resul=JOptionPane.showConfirmDialog(null,"Desea eliminar la marca?","Exit",JOptionPane.YES_NO_OPTION);
             if(resul==0){
-                    if(consultasM.eliminar(mar));
+                    if(consultasM.eliminar(mar)){
                        ((DefaultTableModel)vista.jtableMarca.getModel()).removeRow(row);
                        JOptionPane.showMessageDialog(null, "Marca Eliminado");
                        desactivarBotones();
                      }else{
                             JOptionPane.showMessageDialog(null, "Error");
                           }
+            }
         }
         else if(e.getSource()==vista.btnModificarC){
             
