@@ -16,6 +16,7 @@ import Modelo.Inventario;
 import Modelo.Producto;
 import Modelo.Proveedor;
 import Modelo.Usuario;
+import Vista.CantPrecioEnt;
 import Vista.ListaInventario;
 import Vista.VEntrada;
 import Vista.RegistroEntrada;
@@ -25,6 +26,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.sql.Timestamp;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -43,13 +45,12 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
     private Usuario modelo;
     private VEntrada vistaEntrada = new VEntrada();
     private RegistroProducto vistaRegistro = new RegistroProducto();
-    private ListaInventario vistaLista = new ListaInventario();
     private ConsultasEntrada consultaE = new ConsultasEntrada();
     private ConsultasProveedor consultaP = new ConsultasProveedor();
     private ControladorRegistroProducto controladorRP = 
                     new ControladorRegistroProducto(vistaRegistro);
-    private ControladorListaInventario controladorInv = 
-            new ControladorListaInventario(vistaLista);
+    
+   
     
     //registra si el jtable esta activo
     
@@ -78,8 +79,10 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
         DefaultTableModel model = (DefaultTableModel)vista.jtableNuevaEntrada.getModel();
         ConsultasProducto consultaP = new ConsultasProducto();
         String registro [] = new String [10];
+        
         boolean existe = false;
         producto.setCodigo(vista.jtxtCodigo.getText());
+        
         if(consultaP.consultar(producto)){
             for(int i = 0; i<model.getRowCount();i++){
                 if(model.getValueAt(i, 1).toString().equals(producto.getCodigo())){
@@ -89,17 +92,16 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
                 }
             }
             if(!existe){
-                registro[0]=String.valueOf(producto.getIdProducto());
-                registro[1]=producto.getCodigo();
-                registro[2]=producto.getNombre();
-                registro[3]=producto.getDescripcion();
-                registro[4]=String.valueOf(producto.getIdCategoria());
-                registro[5]=String.valueOf(producto.getIdMarca());
-                registro[6]="1";
-                registro[7]="0";
-                registro[8]="0";
-                registro[9]="0";
-                model.addRow(registro);
+                try{
+                    CantPrecioEnt panel = new CantPrecioEnt();
+                    ControladorCantPrecioEnt control = new ControladorCantPrecioEnt(panel);
+                    control.inciar();
+                    control.insertarProducto(vista.jtableNuevaEntrada, producto);
+                    
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null,"Error al agregar producto");
+                }
+                
                 
             }
             
@@ -117,6 +119,7 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
             id.setText(String.valueOf(entrada.getIdEntrada()));
         }        
     }
+    
     
     public void calcularTotal(JLabel total){
         TableModel model = (TableModel)vista.jtableNuevaEntrada.getModel();
@@ -164,6 +167,9 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
         }else if(ae.getSource()==vista.btnAgregar){
             agregarProducto();
         }else if(ae.getSource()==vista.btnBuscar){
+            ListaInventario vistaLista = new ListaInventario();
+            ControladorListaInventario controladorInv = 
+                new ControladorListaInventario(vistaLista);
             controladorInv.insertarTabla(vista.jtableNuevaEntrada);
             controladorInv.iniciar();
             
@@ -246,8 +252,20 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
             vista.jtableNuevaEntrada.setModel(calcularSubTotal(model));
             calcularTotal(vista.jlblTotal);
             active = false;
+        }else if(!active &&tme.getType()==TableModelEvent.INSERT){
+            active=true;
+            TableModel model = vista.jtableNuevaEntrada.getModel();
+            vista.jtableNuevaEntrada.setModel(calcularSubTotal(model));
+            calcularTotal(vista.jlblTotal);
+            active = false;
+            
+        }else if(!active &&tme.getType()==TableModelEvent.DELETE){
+            active=true;
+            TableModel model = vista.jtableNuevaEntrada.getModel();
+            vista.jtableNuevaEntrada.setModel(calcularSubTotal(model));
+            calcularTotal(vista.jlblTotal);
+            active = false;
         }
-        
         
         
     }

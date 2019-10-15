@@ -6,12 +6,14 @@
 package Controlador;
 
 import Modelo.ConsultasProducto;
-import Modelo.Usuario;
 import Vista.ListaInventario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -21,7 +23,8 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author criss
  */
-public class ControladorListaInventario implements MouseListener,ActionListener, DocumentListener {
+public class ControladorListaInventario implements KeyListener, MouseListener,
+        ActionListener, DocumentListener {
     private ListaInventario vista;
     private JTable tabla;
     private ConsultasProducto consultasP = new ConsultasProducto();
@@ -33,6 +36,14 @@ public class ControladorListaInventario implements MouseListener,ActionListener,
         vista.jlblCerrar.addMouseListener(this);
         vista.jtableListaInventario.addMouseListener(this);
         vista.btnSeleccionar.addActionListener(this);
+        vista.jtxtCantidad.getDocument().addDocumentListener(this);
+        vista.jtxtPC.getDocument().addDocumentListener(this);
+        vista.jtxtPV.getDocument().addDocumentListener(this);
+        vista.jtxtCantidad.addKeyListener(this);
+        vista.jtxtPC.addKeyListener(this);
+        vista.jtxtPV.addKeyListener(this);
+        vista.btnSeleccionar.setEnabled(false);
+        
     }
     public void insertarTabla(JTable tabla){
         this.tabla=tabla;
@@ -42,12 +53,20 @@ public class ControladorListaInventario implements MouseListener,ActionListener,
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
     }
-
-    @Override
-    public void actionPerformed(ActionEvent ae) {
+     public void verificadorJtxt(){
+        if(vista.jtxtCantidad.getText().length()>0 && vista.jtxtPC.getText().length()>0
+                && vista.jtxtPV.getText().length()>0){
+            vista.btnSeleccionar.setEnabled(true);
+            
+        }else{
+            vista.btnSeleccionar.setEnabled(false);
         
-        if(ae.getSource()==vista.btnSeleccionar){
-            //obtiene modelo de la tabla Lista Inventario de la vista listaInvetario
+        }
+        
+    }
+    
+    public void agregarProducto(){
+         //obtiene modelo de la tabla Lista Inventario de la vista listaInvetario
             DefaultTableModel modelLista = 
                     (DefaultTableModel)vista.jtableListaInventario.getModel();
             //obtiene modelo de la tabla NuevaEntrada de la vista RegistroEntrada
@@ -57,35 +76,67 @@ public class ControladorListaInventario implements MouseListener,ActionListener,
             boolean existe = false;
             //verifica si el producto selecionado en la tabla listaInventario
             //ya esta en la tabla NuevaEntrada de la vista RegistroEndrada
-            for(int i = 0; i<model.getRowCount();i++){
-                if(model.getValueAt(i, 1).toString().equals(modelLista.getValueAt(row, 1))){
-                    //si existe solo aumenta la cantidad del producto 
-                    String valor = String.valueOf(Integer.valueOf((String)model.getValueAt(i, 6))+1);
-                    model.setValueAt(valor, i, 6);
-                    existe=true;
+            try{
+                for(int i = 0; i<model.getRowCount();i++){
+                    if(model.getValueAt(i, 1).toString().equals(modelLista.getValueAt(row, 1))){
+
+                        //si existe solo aumenta la cantidad del producto 
+                        String valor = String.valueOf(Integer.valueOf((String)model.getValueAt(i, 6))+
+                                Integer.parseInt(vista.jtxtCantidad.getText()));
+                        model.setValueAt(valor, i, 6);
+                        model.setValueAt(vista.jtxtPC.getText(), i, 7);
+                        model.setValueAt(vista.jtxtPV.getText(),i,8);
+                        model.setValueAt(String.valueOf(Integer.parseInt(vista.jtxtCantidad.getText())
+                            *Double.parseDouble(vista.jtxtPC.getText())), i, 9);
+                        existe=true;
+
+                    }
                 }
-            }
-            if(!existe){
-                //si no existe agrega un nuevo registro en la tabla NuevaEntrada
-                String registro [] = new String [10];
-                registro[0] = (String)modelLista.getValueAt(row,0);
-                registro[1] = (String)modelLista.getValueAt(row,1);
-                registro[2] = (String)modelLista.getValueAt(row,2);
-                registro[3] = (String)modelLista.getValueAt(row,3);
-                registro[4] = (String)modelLista.getValueAt(row,4);
-                registro[5] = (String)modelLista.getValueAt(row,5);
-                registro[6] = "1";
-                registro[7] = "0";
-                registro[8] = "0";
-                registro[9] = "0";
-                model.addRow(registro);
+                if(!existe){
+                    //si no existe agrega un nuevo registro en la tabla NuevaEntrada
+                    String registro [] = new String [10];
+                    registro[0] = (String)modelLista.getValueAt(row,0);
+                    registro[1] = (String)modelLista.getValueAt(row,1);
+                    registro[2] = (String)modelLista.getValueAt(row,2);
+                    registro[3] = (String)modelLista.getValueAt(row,3);
+                    registro[4] = (String)modelLista.getValueAt(row,4);
+                    registro[5] = (String)modelLista.getValueAt(row,5);
+                    registro[6] = vista.jtxtCantidad.getText();
+                    registro[7] = vista.jtxtPC.getText();
+                    registro[8] = String.valueOf(Double.parseDouble(vista.jtxtPV.getText()));
+                    registro[9] = String.valueOf(Integer.parseInt(vista.jtxtCantidad.getText())
+                        *Double.parseDouble(vista.jtxtPC.getText()));
+                    model.addRow(registro);
+                }
+            }catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(null,"Error - Ingrese solo datos numericos");
+
+                            }
+        
+        this.tabla.setModel(model);
+        vista.dispose();
+        
+    }   
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        
+        if(ae.getSource()==vista.btnSeleccionar){
+            if(vista.jtableListaInventario.getSelectedRow()>0){
+                agregarProducto();
                 
+            }else{
+                JOptionPane.showMessageDialog(null, "Seleccione un producto");
             }
-            
+               
+                
         }
+            
+        
     }
     @Override
     public void insertUpdate(DocumentEvent de) {
+         verificadorJtxt();
         if(de.getDocument()==vista.jtxtBuscar.getDocument()){
             consultasP.buscar(vista.jtableListaInventario, vista.jtxtBuscar.getText()); 
         }
@@ -93,6 +144,7 @@ public class ControladorListaInventario implements MouseListener,ActionListener,
 
     @Override
     public void removeUpdate(DocumentEvent de) {
+         verificadorJtxt();
         if(de.getDocument()==vista.jtxtBuscar.getDocument()){
             consultasP.buscar(vista.jtableListaInventario, vista.jtxtBuscar.getText()); 
         }
@@ -101,6 +153,7 @@ public class ControladorListaInventario implements MouseListener,ActionListener,
 
     @Override
     public void changedUpdate(DocumentEvent de) {
+         verificadorJtxt();
         if(de.getDocument()==vista.jtxtBuscar.getDocument()){
             consultasP.buscar(vista.jtableListaInventario, vista.jtxtBuscar.getText()); 
         }
@@ -112,6 +165,44 @@ public class ControladorListaInventario implements MouseListener,ActionListener,
         if(me.getSource()==vista.jlblCerrar){
             vista.dispose();
         }
+        
+    }
+
+    
+    @Override
+    public void keyPressed(KeyEvent ke) {
+        if(ke.getSource()==vista.jtxtCantidad){
+            if(ke.getKeyCode()==KeyEvent.VK_ENTER){
+                vista.jtxtPC.requestFocus();
+                
+            }
+            
+        }else if(ke.getSource()==vista.jtxtPC){
+            if(ke.getKeyCode()==KeyEvent.VK_ENTER){
+                vista.jtxtPV.requestFocus();
+                
+            }
+            
+        }else if (ke.getSource()==vista.jtxtPV){
+            if(ke.getKeyCode()==KeyEvent.VK_ENTER){
+                
+                if(vista.jtableListaInventario.getSelectedRow()>0){
+                    agregarProducto();
+
+                }else{
+                JOptionPane.showMessageDialog(null, "Selecione un producto");
+            }
+               
+            }
+            
+        }
+    }
+    @Override
+    public void keyTyped(KeyEvent ke) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent ke) {
     }
 
     @Override
@@ -130,7 +221,4 @@ public class ControladorListaInventario implements MouseListener,ActionListener,
     public void mouseExited(MouseEvent me) {
     }
 
-    
-    
-    
 }

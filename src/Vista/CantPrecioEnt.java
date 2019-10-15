@@ -7,14 +7,14 @@ package Vista;
 
 /**
  *
- * @author Orlando
+ * @author criss
  */
-public class CantidadPrecioNE extends javax.swing.JPanel {
+public class CantPrecioEnt extends javax.swing.JFrame {
 
     /**
-     * Creates new form CantidadPrecioNE
+     * Creates new form CantPrecioEnt
      */
-    public CantidadPrecioNE() {
+    public CantPrecioEnt() {
         initComponents();
     }
 
@@ -27,6 +27,7 @@ public class CantidadPrecioNE extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jtxtCantidad = new javax.swing.JTextField();
         jtxtPC = new javax.swing.JTextField();
         jtxtPV = new javax.swing.JTextField();
@@ -38,8 +39,8 @@ public class CantidadPrecioNE extends javax.swing.JPanel {
         btnSeleccionar = new javax.swing.JButton();
         jlblCerrar2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jtxtCantidad.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtCantidad.setForeground(new java.awt.Color(153, 153, 153));
@@ -49,7 +50,7 @@ public class CantidadPrecioNE extends javax.swing.JPanel {
                 jtxtCantidadActionPerformed(evt);
             }
         });
-        add(jtxtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 100, 20));
+        jPanel1.add(jtxtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 100, 20));
 
         jtxtPC.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtPC.setForeground(new java.awt.Color(153, 153, 153));
@@ -59,7 +60,7 @@ public class CantidadPrecioNE extends javax.swing.JPanel {
                 jtxtPCActionPerformed(evt);
             }
         });
-        add(jtxtPC, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 100, 20));
+        jPanel1.add(jtxtPC, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 100, 20));
 
         jtxtPV.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtPV.setForeground(new java.awt.Color(153, 153, 153));
@@ -69,35 +70,35 @@ public class CantidadPrecioNE extends javax.swing.JPanel {
                 jtxtPVActionPerformed(evt);
             }
         });
-        add(jtxtPV, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 100, 20));
+        jPanel1.add(jtxtPV, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 100, 20));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(225, 99, 71));
         jLabel7.setText("Precio de Venta:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(225, 99, 71));
         jLabel6.setText("Precio de Compra:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(225, 99, 71));
         jLabel5.setText("Cantidad:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
 
         jlblMensaje1.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jlblMensaje1.setForeground(new java.awt.Color(103, 103, 103));
         jlblMensaje1.setText("*Todos los campos son");
-        add(jlblMensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
+        jPanel1.add(jlblMensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
         jlblMensaje.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jlblMensaje.setForeground(new java.awt.Color(103, 103, 103));
         jlblMensaje.setText("obligatorios");
-        add(jlblMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, -1));
+        jPanel1.add(jlblMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, -1));
 
         btnSeleccionar.setBackground(new java.awt.Color(255, 255, 255));
         btnSeleccionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaAgregarb.png"))); // NOI18N
@@ -107,7 +108,7 @@ public class CantidadPrecioNE extends javax.swing.JPanel {
         btnSeleccionar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaAgregar.png"))); // NOI18N
         btnSeleccionar.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaAgregar.png"))); // NOI18N
         btnSeleccionar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaAgregar.png"))); // NOI18N
-        add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 85, 25));
+        jPanel1.add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 85, 25));
 
         jlblCerrar2.setBackground(new java.awt.Color(255, 255, 255));
         jlblCerrar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Multiply_32px.png"))); // NOI18N
@@ -117,7 +118,21 @@ public class CantidadPrecioNE extends javax.swing.JPanel {
                 jlblCerrar2MouseClicked(evt);
             }
         });
-        add(jlblCerrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, -1));
+        jPanel1.add(jlblCerrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtxtCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtCantidadActionPerformed
@@ -136,14 +151,47 @@ public class CantidadPrecioNE extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jlblCerrar2MouseClicked
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(CantPrecioEnt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(CantPrecioEnt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(CantPrecioEnt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(CantPrecioEnt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new CantPrecioEnt().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnSeleccionar;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    public javax.swing.JLabel jlblCerrar;
-    public javax.swing.JLabel jlblCerrar1;
+    private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel jlblCerrar2;
     private javax.swing.JLabel jlblMensaje;
     private javax.swing.JLabel jlblMensaje1;
