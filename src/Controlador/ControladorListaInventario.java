@@ -13,6 +13,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
@@ -52,15 +53,23 @@ public class ControladorListaInventario implements KeyListener, MouseListener,
     public void iniciar(){
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
+    
+
     }
      public void verificadorJtxt(){
-        if(vista.jtxtCantidad.getText().length()>0 && vista.jtxtPC.getText().length()>0
-                && vista.jtxtPV.getText().length()>0){
+        try{
+             if(vista.jtxtCantidad.getText().length()>0 && vista.jtxtPC.getText().length()>0
+                && vista.jtxtPV.getText().length()>0&&Integer.parseInt(vista.jtxtCantidad.getText())>0
+                && Double.parseDouble(vista.jtxtPC.getText())< Double.parseDouble(vista.jtxtPV.getText())){
             vista.btnSeleccionar.setEnabled(true);
             
-        }else{
-            vista.btnSeleccionar.setEnabled(false);
-        
+            }else{
+                vista.btnSeleccionar.setEnabled(false);
+
+            }
+        }catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(null,"Error - Ingrese solo datos numericos");
+
         }
         
     }
@@ -122,7 +131,7 @@ public class ControladorListaInventario implements KeyListener, MouseListener,
     public void actionPerformed(ActionEvent ae) {
         
         if(ae.getSource()==vista.btnSeleccionar){
-            if(vista.jtableListaInventario.getSelectedRow()>0){
+            if(vista.jtableListaInventario.getSelectedRow()>=0){
                 agregarProducto();
                 
             }else{
@@ -185,13 +194,9 @@ public class ControladorListaInventario implements KeyListener, MouseListener,
             
         }else if (ke.getSource()==vista.jtxtPV){
             if(ke.getKeyCode()==KeyEvent.VK_ENTER){
+                vista.getRootPane().setDefaultButton(vista.btnSeleccionar);
+                vista.btnSeleccionar.requestFocus();
                 
-                if(vista.jtableListaInventario.getSelectedRow()>0){
-                    agregarProducto();
-
-                }else{
-                JOptionPane.showMessageDialog(null, "Selecione un producto");
-            }
                
             }
             

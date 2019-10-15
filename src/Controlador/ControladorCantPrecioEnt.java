@@ -55,6 +55,8 @@ public class ControladorCantPrecioEnt implements ActionListener,MouseListener,
     }
     
     public void inciar(){
+        vista.setLocationRelativeTo(null);
+        vista.setAlwaysOnTop(true);
         vista.setVisible(true);
     }
     public void agregarProducto(){
@@ -133,7 +135,8 @@ public class ControladorCantPrecioEnt implements ActionListener,MouseListener,
             
         }else if (ke.getSource()==vista.jtxtPV){
             if(ke.getKeyCode()==KeyEvent.VK_ENTER){
-                agregarProducto();
+                vista.getRootPane().setDefaultButton(vista.btnSeleccionar);
+                vista.btnSeleccionar.requestFocus();
                
             }
             
