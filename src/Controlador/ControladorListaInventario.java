@@ -13,6 +13,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -25,7 +27,7 @@ import javax.swing.table.DefaultTableModel;
  * @author criss
  */
 public class ControladorListaInventario implements KeyListener, MouseListener,
-        ActionListener, DocumentListener {
+        ActionListener, DocumentListener, WindowListener {
     private ListaInventario vista;
     private JTable tabla;
     private ConsultasProducto consultasP = new ConsultasProducto();
@@ -44,6 +46,7 @@ public class ControladorListaInventario implements KeyListener, MouseListener,
         vista.jtxtPC.addKeyListener(this);
         vista.jtxtPV.addKeyListener(this);
         vista.btnSeleccionar.setEnabled(false);
+        vista.addWindowListener(this);
         
     }
     public void insertarTabla(JTable tabla){
@@ -202,6 +205,16 @@ public class ControladorListaInventario implements KeyListener, MouseListener,
             
         }
     }
+    
+        @Override
+    public void windowOpened(WindowEvent e) {
+        consultasP.llenarTabla(vista.jtableListaInventario);
+    }
+    
+    
+    
+    
+    
     @Override
     public void keyTyped(KeyEvent ke) {
     }
@@ -224,6 +237,30 @@ public class ControladorListaInventario implements KeyListener, MouseListener,
 
     @Override
     public void mouseExited(MouseEvent me) {
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
     }
 
 }

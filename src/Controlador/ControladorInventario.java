@@ -11,6 +11,8 @@ import Vista.Administrador;
 import Vista.VInventario;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
@@ -18,7 +20,7 @@ import javax.swing.event.DocumentListener;
  *
  * @author criss
  */
-public class ControladorInventario implements MouseListener, DocumentListener {
+public class ControladorInventario implements MouseListener, DocumentListener{
     private VInventario vista ;
     private Usuario modelo;
     private ConsultasInventario consultaInv = new ConsultasInventario();
@@ -70,6 +72,8 @@ public class ControladorInventario implements MouseListener, DocumentListener {
             consultaInv.consultar(vista.jtableInventario, vista.jtxtBuscar.getText());
         }
     }
+    
+    
     @Override
     public void mousePressed(MouseEvent me) {
     }
@@ -85,5 +89,7 @@ public class ControladorInventario implements MouseListener, DocumentListener {
     @Override
     public void mouseExited(MouseEvent me) {
     }
+
+   
     
 }
