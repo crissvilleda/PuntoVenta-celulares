@@ -16,6 +16,7 @@ public class CantPrecioEnt extends javax.swing.JFrame {
      */
     public CantPrecioEnt() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
 
     /**
@@ -39,7 +40,11 @@ public class CantPrecioEnt extends javax.swing.JFrame {
         btnSeleccionar = new javax.swing.JButton();
         jlblCerrar2 = new javax.swing.JLabel();
 
+        setUndecorated(true);
+        setResizable(false);
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(103, 103, 103)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jtxtCantidad.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
