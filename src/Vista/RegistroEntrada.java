@@ -89,6 +89,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
         jlblNoEntrada = new javax.swing.JLabel();
         jlblNo = new javax.swing.JLabel();
         jlblHoraSistema = new javax.swing.JLabel();
+        btnElimdeCarr = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -315,6 +316,16 @@ public class RegistroEntrada extends javax.swing.JFrame {
         jlblHoraSistema.setText("Hora Sistema");
         jPanel2EntradaNuevo.add(jlblHoraSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 30, 130, 20));
 
+        btnElimdeCarr.setBackground(new java.awt.Color(255, 255, 255));
+        btnElimdeCarr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaEliminarb.png"))); // NOI18N
+        btnElimdeCarr.setBorder(null);
+        btnElimdeCarr.setBorderPainted(false);
+        btnElimdeCarr.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnElimdeCarr.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaEliminar.png"))); // NOI18N
+        btnElimdeCarr.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaEliminar.png"))); // NOI18N
+        btnElimdeCarr.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaEliminar.png"))); // NOI18N
+        jPanel2EntradaNuevo.add(btnElimdeCarr, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, -1, -1));
+
         getContentPane().add(jPanel2EntradaNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
 
         pack();
@@ -395,6 +406,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
     public javax.swing.JButton btnAtras;
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnComprar;
+    public javax.swing.JButton btnElimdeCarr;
     public javax.swing.JButton btnNuevoProducto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1EntradaNuevo;
