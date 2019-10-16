@@ -321,7 +321,9 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Generar"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Image/CajaGenerarb.png"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -330,13 +332,13 @@
               <Color id="Hand Cursor"/>
             </Property>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Image/CajaNuevo.png"/>
+              <Image iconType="3" name="/Image/CajaGenerar.png"/>
             </Property>
             <Property name="rolloverSelectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Image/CajaNuevo.png"/>
+              <Image iconType="3" name="/Image/CajaGenerar.png"/>
             </Property>
             <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Image/CajaNuevo.png"/>
+              <Image iconType="3" name="/Image/CajaGenerar.png"/>
             </Property>
           </Properties>
           <Events>
@@ -466,19 +468,21 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Guardar Corte"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Image/CajaGuardarCorteb.png"/>
+            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Image/CajaBuscar.png"/>
+              <Image iconType="3" name="/Image/CajaGuardarCorte.png"/>
             </Property>
             <Property name="rolloverSelectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Image/CajaBuscar.png"/>
+              <Image iconType="3" name="/Image/CajaGuardarCorte.png"/>
             </Property>
             <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Image/CajaBuscar.png"/>
+              <Image iconType="3" name="/Image/CajaGuardarCorte.png"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -486,7 +490,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="620" y="140" width="140" height="25"/>
+              <AbsoluteConstraints x="610" y="130" width="140" height="25"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -527,7 +531,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="520" y="50" width="-1" height="-1"/>
+              <AbsoluteConstraints x="550" y="60" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -553,7 +557,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="510" y="70" width="120" height="-1"/>
+              <AbsoluteConstraints x="540" y="80" width="120" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -575,7 +579,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="680" y="50" width="-1" height="-1"/>
+              <AbsoluteConstraints x="710" y="60" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -601,7 +605,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="670" y="70" width="120" height="-1"/>
+              <AbsoluteConstraints x="700" y="80" width="120" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

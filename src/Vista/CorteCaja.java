@@ -179,13 +179,13 @@ public class CorteCaja extends javax.swing.JFrame {
         jPanel1CortCaj.add(jlblFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, -1, -1));
 
         btnGenerar.setBackground(new java.awt.Color(255, 255, 255));
-        btnGenerar.setText("Generar");
+        btnGenerar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaGenerarb.png"))); // NOI18N
         btnGenerar.setBorder(null);
         btnGenerar.setBorderPainted(false);
         btnGenerar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnGenerar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaNuevo.png"))); // NOI18N
-        btnGenerar.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaNuevo.png"))); // NOI18N
-        btnGenerar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaNuevo.png"))); // NOI18N
+        btnGenerar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaGenerar.png"))); // NOI18N
+        btnGenerar.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaGenerar.png"))); // NOI18N
+        btnGenerar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaGenerar.png"))); // NOI18N
         btnGenerar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerarActionPerformed(evt);
@@ -228,13 +228,13 @@ public class CorteCaja extends javax.swing.JFrame {
         jPanel2CortCaj.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         btnGuarCort.setBackground(new java.awt.Color(255, 255, 255));
-        btnGuarCort.setText("Guardar Corte");
+        btnGuarCort.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaGuardarCorteb.png"))); // NOI18N
         btnGuarCort.setBorderPainted(false);
         btnGuarCort.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnGuarCort.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaBuscar.png"))); // NOI18N
-        btnGuarCort.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaBuscar.png"))); // NOI18N
-        btnGuarCort.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaBuscar.png"))); // NOI18N
-        jPanel2CortCaj.add(btnGuarCort, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 140, 140, 25));
+        btnGuarCort.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaGuardarCorte.png"))); // NOI18N
+        btnGuarCort.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaGuardarCorte.png"))); // NOI18N
+        btnGuarCort.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaGuardarCorte.png"))); // NOI18N
+        jPanel2CortCaj.add(btnGuarCort, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, 140, 25));
 
         jlblEfecCaja.setBackground(new java.awt.Color(255, 255, 255));
         jlblEfecCaja.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -246,7 +246,7 @@ public class CorteCaja extends javax.swing.JFrame {
         jlblNombre3.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jlblNombre3.setForeground(new java.awt.Color(225, 99, 71));
         jlblNombre3.setText("Efectivo Inicial");
-        jPanel2CortCaj.add(jlblNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, -1, -1));
+        jPanel2CortCaj.add(jlblNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, -1, -1));
 
         jtxtEI.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtEI.setForeground(new java.awt.Color(103, 103, 103));
@@ -256,13 +256,13 @@ public class CorteCaja extends javax.swing.JFrame {
                 jtxtEIActionPerformed(evt);
             }
         });
-        jPanel2CortCaj.add(jtxtEI, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 120, -1));
+        jPanel2CortCaj.add(jtxtEI, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 120, -1));
 
         jlblNombre4.setBackground(new java.awt.Color(255, 255, 255));
         jlblNombre4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jlblNombre4.setForeground(new java.awt.Color(225, 99, 71));
         jlblNombre4.setText("Total de Ventas");
-        jPanel2CortCaj.add(jlblNombre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, -1, -1));
+        jPanel2CortCaj.add(jlblNombre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, -1, -1));
 
         jtxtTV.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtTV.setForeground(new java.awt.Color(103, 103, 103));
@@ -272,7 +272,7 @@ public class CorteCaja extends javax.swing.JFrame {
                 jtxtTVActionPerformed(evt);
             }
         });
-        jPanel2CortCaj.add(jtxtTV, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, 120, -1));
+        jPanel2CortCaj.add(jtxtTV, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 120, -1));
 
         jlblB100.setBackground(new java.awt.Color(255, 255, 255));
         jlblB100.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
