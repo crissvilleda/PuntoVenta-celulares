@@ -179,6 +179,7 @@ public class CorteCaja extends javax.swing.JFrame {
         jPanel1CortCaj.add(jlblFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, -1, -1));
 
         btnGenerar.setBackground(new java.awt.Color(255, 255, 255));
+        btnGenerar.setForeground(new java.awt.Color(255, 255, 255));
         btnGenerar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaGenerarb.png"))); // NOI18N
         btnGenerar.setBorder(null);
         btnGenerar.setBorderPainted(false);
@@ -191,7 +192,7 @@ public class CorteCaja extends javax.swing.JFrame {
                 btnGenerarActionPerformed(evt);
             }
         });
-        jPanel1CortCaj.add(btnGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 130, 60, 30));
+        jPanel1CortCaj.add(btnGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 135, 75, 25));
 
         jlblDMAFI.setBackground(new java.awt.Color(255, 255, 255));
         jlblDMAFI.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
@@ -228,13 +229,14 @@ public class CorteCaja extends javax.swing.JFrame {
         jPanel2CortCaj.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         btnGuarCort.setBackground(new java.awt.Color(255, 255, 255));
+        btnGuarCort.setForeground(new java.awt.Color(255, 255, 255));
         btnGuarCort.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaGuardarCorteb.png"))); // NOI18N
         btnGuarCort.setBorderPainted(false);
         btnGuarCort.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGuarCort.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaGuardarCorte.png"))); // NOI18N
         btnGuarCort.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaGuardarCorte.png"))); // NOI18N
         btnGuarCort.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CajaGuardarCorte.png"))); // NOI18N
-        jPanel2CortCaj.add(btnGuarCort, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, 140, 25));
+        jPanel2CortCaj.add(btnGuarCort, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, 90, 25));
 
         jlblEfecCaja.setBackground(new java.awt.Color(255, 255, 255));
         jlblEfecCaja.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
