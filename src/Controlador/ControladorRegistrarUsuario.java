@@ -82,22 +82,7 @@ public class ControladorRegistrarUsuario implements ActionListener, KeyListener,
         vista.jtxtApellido.getDocument().addDocumentListener(this);
         vista.jtxtEmail.getDocument().addDocumentListener(this);
         vista.jtxtTelefono.getDocument().addDocumentListener(this);
-        vista.jtxtUsuario.getDocument().addDocumentListener(new DocumentListener(){
-            @Override
-            public void insertUpdate(DocumentEvent de) {
-                verificadorUsuario();
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent de) {
-                verificadorUsuario();
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent de) {
-                verificadorUsuario();
-            }
-        });
+        vista.jtxtUsuario.getDocument().addDocumentListener(this);
         vista.txtGenero.getDocument().addDocumentListener(this);
         vista.jContraseña1.getDocument().addDocumentListener(this);
         vista.jContraseña.getDocument().addDocumentListener(this);
@@ -183,7 +168,7 @@ public class ControladorRegistrarUsuario implements ActionListener, KeyListener,
        }
     }
     public void verificadorUsuario(){
-       if(!consulta.verificarNombreUsuario(vista.jtxtNombre.getText())){
+       if(!consulta.verificarNombreUsuario(vista.jtxtUsuario.getText())){
            vista.btnRegistrar.setEnabled(true);
        }else{
            vista.btnRegistrar.setEnabled(false);
@@ -247,17 +232,26 @@ public class ControladorRegistrarUsuario implements ActionListener, KeyListener,
     @Override
     public void insertUpdate(DocumentEvent de) {
         verificadorContraseña();
+        if(de.getDocument()==vista.jtxtUsuario.getDocument()){
+            verificadorUsuario();
+        }
         
     }
 
     @Override
     public void removeUpdate(DocumentEvent de) {
         verificadorContraseña();
+        if(de.getDocument()==vista.jtxtUsuario.getDocument()){
+            verificadorUsuario();
+        }
     }
 
     @Override
     public void changedUpdate(DocumentEvent de) {
         verificadorContraseña();
+        if(de.getDocument()==vista.jtxtUsuario.getDocument()){
+            verificadorUsuario();
+        }
     }
     
     

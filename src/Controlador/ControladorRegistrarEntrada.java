@@ -73,11 +73,11 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
         vista.btnComprar.addActionListener(this);
         vista.btnElimdeCarr.addActionListener(this);
         vista.btnElimdeCarr.setEnabled(false);
+        vista.btnComprar.setEnabled(false);
         vista.jtableNuevaEntrada.addMouseListener(this);
         siguienteId(vista.jlblNoEntrada);
         //carga lista de proveedores
         consultaP.listaProveedores(vista.jcmbProveedor);
-        
     }
     public void agregarProducto(){
         Producto  producto = new Producto();
@@ -173,13 +173,14 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
             agregarProducto();
         }else if(ae.getSource()==vista.btnElimdeCarr){
             DefaultTableModel model = (DefaultTableModel)vista.jtableNuevaEntrada.getModel();
-            int result=JOptionPane.showConfirmDialog(null, "Desea cerrar el programa?","Exit",
-                    JOptionPane.YES_NO_OPTION);
+            int result=JOptionPane.showConfirmDialog(null, "Desea quitar este producto de "
+                    + "la lista","Alerta",JOptionPane.YES_NO_OPTION);
             if (result==0){
                 model.removeRow(vista.jtableNuevaEntrada.getSelectedRow());
                 vista.jtableNuevaEntrada.setModel(model);
             }
-            vista.setEnabled(false);
+            vista.jtableNuevaEntrada.clearSelection();
+            vista.btnElimdeCarr.setEnabled(false);
 
         }else if(ae.getSource()==vista.btnBuscar){
             ListaInventario vistaLista = new ListaInventario();
@@ -267,19 +268,36 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
             vista.jtableNuevaEntrada.setModel(calcularSubTotal(model));
             calcularTotal(vista.jlblTotal);
             active = false;
+            if(Double.parseDouble(vista.jlblTotal.getText())>0){
+                vista.btnComprar.setEnabled(true);
+                
+            }else{
+                vista.btnComprar.setEnabled(false);
+            }
         }else if(!active &&tme.getType()==TableModelEvent.INSERT){
             active=true;
             TableModel model = vista.jtableNuevaEntrada.getModel();
             vista.jtableNuevaEntrada.setModel(calcularSubTotal(model));
             calcularTotal(vista.jlblTotal);
             active = false;
-            
+            if(Double.parseDouble(vista.jlblTotal.getText())>0){
+                vista.btnComprar.setEnabled(true);
+                
+            }else{
+                vista.btnComprar.setEnabled(false);
+            }
         }else if(!active &&tme.getType()==TableModelEvent.DELETE){
             active=true;
             TableModel model = vista.jtableNuevaEntrada.getModel();
             vista.jtableNuevaEntrada.setModel(calcularSubTotal(model));
             calcularTotal(vista.jlblTotal);
             active = false;
+            if(Double.parseDouble(vista.jlblTotal.getText())>0){
+                vista.btnComprar.setEnabled(true);
+                
+            }else{
+                vista.btnComprar.setEnabled(false);
+            }
         }
         
         
