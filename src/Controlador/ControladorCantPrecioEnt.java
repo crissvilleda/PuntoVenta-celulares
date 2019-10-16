@@ -45,7 +45,8 @@ public class ControladorCantPrecioEnt implements ActionListener,MouseListener,
     public void VerificadorJtxt(){
         if(vista.jtxtCantidad.getText().length()>0 && vista.jtxtPC.getText().length()>0
                 && vista.jtxtPV.getText().length()>0&&Integer.parseInt(vista.jtxtCantidad.getText())>0
-                && Double.parseDouble(vista.jtxtPC.getText())< Double.parseDouble(vista.jtxtPV.getText())){
+                && Double.parseDouble(vista.jtxtPC.getText())< Double.parseDouble(vista.jtxtPV.getText())
+                && Double.parseDouble(vista.jtxtPC.getText())>0 && Double.parseDouble(vista.jtxtPV.getText())>0){
             vista.btnSeleccionar.setEnabled(true);
             
         }else{
