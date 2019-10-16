@@ -79,6 +79,7 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
         //carga lista de proveedores
         vista.jcmbProveedor.addItem("");
         consultaP.listaProveedores(vista.jcmbProveedor);
+        vista.jtxtCodigo.requestFocus();
     }
     public void agregarProducto(){
         Producto  producto = new Producto();
