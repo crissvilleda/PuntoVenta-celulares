@@ -33,7 +33,7 @@ public class Configuracion extends javax.swing.JFrame {
         jlblInicio = new javax.swing.JLabel();
         jlblMinimizar = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jlblUsuario = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
@@ -133,10 +133,10 @@ public class Configuracion extends javax.swing.JFrame {
         jLabel5.setText("Configuración");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(105, 105, 105));
-        jLabel6.setText("Nombre del Usuario");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 340, -1));
+        jlblUsuario.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        jlblUsuario.setForeground(new java.awt.Color(105, 105, 105));
+        jlblUsuario.setText("Nombre del Usuario");
+        jPanel2.add(jlblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 340, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -643,7 +643,6 @@ public class Configuracion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    public javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -678,6 +677,7 @@ public class Configuracion extends javax.swing.JFrame {
     private javax.swing.JTable jTable6;
     public javax.swing.JLabel jlblInicio;
     public javax.swing.JLabel jlblMinimizar;
+    public javax.swing.JLabel jlblUsuario;
     public javax.swing.JTable jtableCategoria;
     public javax.swing.JTable jtableMarca;
     public javax.swing.JTextField jtxtCategoria;

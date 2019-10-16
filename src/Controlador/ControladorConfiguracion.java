@@ -65,7 +65,7 @@ public class ControladorConfiguracion implements ActionListener, MouseListener ,
         consultasM.tablaMarca(vista.jtableMarca);
         vista.jtableCategoria.addMouseListener(this);
         vista.jtableMarca.addMouseListener(this);
-        
+        vista.jlblUsuario.setText(modelo.getNombreUsuario());
         vista.jPanel1.addMouseListener(this);
         vista.jPanel2.addMouseListener(this);
         vista.jPanel3.addMouseListener(this);
