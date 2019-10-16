@@ -266,6 +266,7 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
                 JOptionPane.showMessageDialog(null,"Selecione un proveedor para continuar");
             }else{
                 realizarCompra();
+                vista.jcmbProveedor.setSelectedIndex(0);
             }
             
         }
