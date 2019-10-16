@@ -25,6 +25,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.Timestamp;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -40,7 +42,7 @@ import javax.swing.table.TableModel;
  * @author criss
  */
 public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
-        TableModelListener{
+        TableModelListener,MouseListener{
     private RegistroEntrada vista;
     private Usuario modelo;
     private VEntrada vistaEntrada = new VEntrada();
@@ -69,6 +71,9 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
         vista.btnBuscar.addActionListener(this);
         vista.jtableNuevaEntrada.getModel().addTableModelListener(this);
         vista.btnComprar.addActionListener(this);
+        vista.btnElimdeCarr.addActionListener(this);
+        vista.btnElimdeCarr.setEnabled(false);
+        vista.jtableNuevaEntrada.addMouseListener(this);
         siguienteId(vista.jlblNoEntrada);
         //carga lista de proveedores
         consultaP.listaProveedores(vista.jcmbProveedor);
@@ -166,6 +171,16 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
             
         }else if(ae.getSource()==vista.btnAgregar){
             agregarProducto();
+        }else if(ae.getSource()==vista.btnElimdeCarr){
+            DefaultTableModel model = (DefaultTableModel)vista.jtableNuevaEntrada.getModel();
+            int result=JOptionPane.showConfirmDialog(null, "Desea cerrar el programa?","Exit",
+                    JOptionPane.YES_NO_OPTION);
+            if (result==0){
+                model.removeRow(vista.jtableNuevaEntrada.getSelectedRow());
+                vista.jtableNuevaEntrada.setModel(model);
+            }
+            vista.setEnabled(false);
+
         }else if(ae.getSource()==vista.btnBuscar){
             ListaInventario vistaLista = new ListaInventario();
             ControladorListaInventario controladorInv = 
@@ -278,6 +293,15 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
         }
         
     }
+    @Override
+    public void mouseClicked(MouseEvent me) {
+        if(me.getSource()==vista.jtableNuevaEntrada){
+            if(me.getClickCount()==1){
+                vista.btnElimdeCarr.setEnabled(true);
+            }
+        
+    }
+    }
 
     @Override
     public void keyTyped(KeyEvent ke) {
@@ -285,6 +309,24 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
 
     @Override
     public void keyReleased(KeyEvent ke) {
+    }
+
+    
+
+    @Override
+    public void mousePressed(MouseEvent me) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent me) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent me) {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent me) {
     }
 
     
