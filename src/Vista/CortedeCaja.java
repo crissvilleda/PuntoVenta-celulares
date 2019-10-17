@@ -284,6 +284,7 @@ public class CortedeCaja extends javax.swing.JFrame {
 
         jtxtB100.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtB100.setForeground(new java.awt.Color(103, 103, 103));
+        jtxtB100.setText("0");
         jtxtB100.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jtxtB100.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,6 +301,7 @@ public class CortedeCaja extends javax.swing.JFrame {
 
         jtxtB50.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtB50.setForeground(new java.awt.Color(103, 103, 103));
+        jtxtB50.setText("0");
         jtxtB50.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jtxtB50.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -316,6 +318,7 @@ public class CortedeCaja extends javax.swing.JFrame {
 
         jtxtB20.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtB20.setForeground(new java.awt.Color(103, 103, 103));
+        jtxtB20.setText("0");
         jtxtB20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jtxtB20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -455,7 +458,7 @@ public class CortedeCaja extends javax.swing.JFrame {
         jlblTotal.setBackground(new java.awt.Color(255, 255, 255));
         jlblTotal.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jlblTotal.setForeground(new java.awt.Color(103, 103, 103));
-        jlblTotal.setText("Total");
+        jlblTotal.setText("000.0");
         jPanel2CortCaj.add(jlblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 285, 100, -1));
 
         jlblM005.setBackground(new java.awt.Color(255, 255, 255));

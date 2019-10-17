@@ -14,6 +14,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import javax.swing.JLabel;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
@@ -34,6 +35,8 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     vista.btnGenerar.addActionListener(this);
     
     vista.jtxtFF.getDocument().addDocumentListener(this);
+    vista.jtxtB100.getDocument().addDocumentListener(this);
+    vista.jtxtB50.getDocument().addDocumentListener(this);
     
     vista.jlblInicio.addMouseListener(this);
     
@@ -102,6 +105,11 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
             vista.btnGenerar.setEnabled(false);
         }
     }
+    //Calcular Efectivo Total en caja
+    public void calcTotCaj(JLabel total){
+        Double valor;
+        valor=((Double.parseDouble(vista.jtxtB100.getText()))*100)+((Double.parseDouble(vista.jtxtB50.getText()))*50);
+    }
     
     @Override
     public void windowOpened(WindowEvent e) {
@@ -114,8 +122,12 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
         if(e.getDocument()==vista.jtxtFF.getDocument()){
             verificarJtxtpG();
         }
-        else{
-            verificarJtxtpG();
+   
+        else if(e.getDocument()==vista.jtxtB100.getDocument()){
+            calcTotCaj(vista.jlblTotal);
+        }
+        else if(e.getDocument()==vista.jtxtB50.getDocument()){
+            calcTotCaj(vista.jlblTotal);
         }
     }
 
@@ -124,8 +136,11 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
         if(e.getDocument()==vista.jtxtFF.getDocument()){
             verificarJtxtpG();
         }
-        else{
-            verificarJtxtpG();
+         else if(e.getDocument()==vista.jtxtB100.getDocument()){
+            calcTotCaj(vista.jlblTotal);
+        }
+        else if(e.getDocument()==vista.jtxtB50.getDocument()){
+            calcTotCaj(vista.jlblTotal);
         }
     }
 
@@ -134,8 +149,11 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
         if(e.getDocument()==vista.jtxtFF.getDocument()){
             verificarJtxtpG();
         }
-        else{
-            verificarJtxtpG();
+         else if(e.getDocument()==vista.jtxtB100.getDocument()){
+            calcTotCaj(vista.jlblTotal);
+        }
+        else if(e.getDocument()==vista.jtxtB50.getDocument()){
+            calcTotCaj(vista.jlblTotal);
         }
     }
     
