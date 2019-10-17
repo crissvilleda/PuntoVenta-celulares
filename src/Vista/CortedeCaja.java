@@ -634,7 +634,7 @@ public class CortedeCaja extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JComboBox<String> jcmbUsuarios;
+    public javax.swing.JComboBox<String> jcmbUsuarios;
     public javax.swing.JLabel jlblB1;
     public javax.swing.JLabel jlblB10;
     public javax.swing.JLabel jlblB100;
