@@ -9,12 +9,12 @@ package Vista;
  *
  * @author Orlando
  */
-public class CorteCaja extends javax.swing.JFrame {
+public class CortedeCaja extends javax.swing.JFrame {
 
     /**
      * Creates new form Usuario
      */
-    public CorteCaja() {
+    public CortedeCaja() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -51,9 +51,9 @@ public class CorteCaja extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         btnGuarCort = new javax.swing.JButton();
         jlblEfecCaja = new javax.swing.JLabel();
-        jlblNombre3 = new javax.swing.JLabel();
+        jlblEI = new javax.swing.JLabel();
         jtxtEI = new javax.swing.JTextField();
-        jlblNombre4 = new javax.swing.JLabel();
+        jlblTV = new javax.swing.JLabel();
         jtxtTV = new javax.swing.JTextField();
         jlblB100 = new javax.swing.JLabel();
         jtxtB100 = new javax.swing.JTextField();
@@ -150,7 +150,7 @@ public class CorteCaja extends javax.swing.JFrame {
         jlblFI.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jlblFI.setForeground(new java.awt.Color(225, 99, 71));
         jlblFI.setText("Fecha Inicial");
-        jPanel1CortCaj.add(jlblFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, -1, -1));
+        jPanel1CortCaj.add(jlblFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 120, -1, -1));
 
         jtxtFI.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtFI.setForeground(new java.awt.Color(103, 103, 103));
@@ -160,7 +160,7 @@ public class CorteCaja extends javax.swing.JFrame {
                 jtxtFIActionPerformed(evt);
             }
         });
-        jPanel1CortCaj.add(jtxtFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 120, 20));
+        jPanel1CortCaj.add(jtxtFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 140, 85, 20));
 
         jtxtFF.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtFF.setForeground(new java.awt.Color(103, 103, 103));
@@ -170,13 +170,13 @@ public class CorteCaja extends javax.swing.JFrame {
                 jtxtFFActionPerformed(evt);
             }
         });
-        jPanel1CortCaj.add(jtxtFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 120, 20));
+        jPanel1CortCaj.add(jtxtFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 140, 85, 20));
 
         jlblFF.setBackground(new java.awt.Color(255, 255, 255));
         jlblFF.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jlblFF.setForeground(new java.awt.Color(225, 99, 71));
         jlblFF.setText("Fecha Final");
-        jPanel1CortCaj.add(jlblFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, -1, -1));
+        jPanel1CortCaj.add(jlblFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 120, -1, -1));
 
         btnGenerar.setBackground(new java.awt.Color(255, 255, 255));
         btnGenerar.setForeground(new java.awt.Color(255, 255, 255));
@@ -244,11 +244,11 @@ public class CorteCaja extends javax.swing.JFrame {
         jlblEfecCaja.setText("Efectivo en Caja");
         jPanel2CortCaj.add(jlblEfecCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 130, 20));
 
-        jlblNombre3.setBackground(new java.awt.Color(255, 255, 255));
-        jlblNombre3.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jlblNombre3.setForeground(new java.awt.Color(225, 99, 71));
-        jlblNombre3.setText("Efectivo Inicial");
-        jPanel2CortCaj.add(jlblNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, -1, -1));
+        jlblEI.setBackground(new java.awt.Color(255, 255, 255));
+        jlblEI.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jlblEI.setForeground(new java.awt.Color(225, 99, 71));
+        jlblEI.setText("Efectivo Inicial");
+        jPanel2CortCaj.add(jlblEI, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, -1, -1));
 
         jtxtEI.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtEI.setForeground(new java.awt.Color(103, 103, 103));
@@ -260,11 +260,11 @@ public class CorteCaja extends javax.swing.JFrame {
         });
         jPanel2CortCaj.add(jtxtEI, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 120, -1));
 
-        jlblNombre4.setBackground(new java.awt.Color(255, 255, 255));
-        jlblNombre4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jlblNombre4.setForeground(new java.awt.Color(225, 99, 71));
-        jlblNombre4.setText("Total de Ventas");
-        jPanel2CortCaj.add(jlblNombre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, -1, -1));
+        jlblTV.setBackground(new java.awt.Color(255, 255, 255));
+        jlblTV.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jlblTV.setForeground(new java.awt.Color(225, 99, 71));
+        jlblTV.setText("Total de Ventas");
+        jPanel2CortCaj.add(jlblTV, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, -1, -1));
 
         jtxtTV.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtTV.setForeground(new java.awt.Color(103, 103, 103));
@@ -571,14 +571,30 @@ public class CorteCaja extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CorteCaja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CortedeCaja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CorteCaja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CortedeCaja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CorteCaja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CortedeCaja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CorteCaja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CortedeCaja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -599,7 +615,7 @@ public class CorteCaja extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CorteCaja().setVisible(true);
+                new CortedeCaja().setVisible(true);
             }
         });
     }
@@ -622,6 +638,7 @@ public class CorteCaja extends javax.swing.JFrame {
     public javax.swing.JLabel jlblCortCajIcono;
     private javax.swing.JLabel jlblDMAFF;
     private javax.swing.JLabel jlblDMAFI;
+    public javax.swing.JLabel jlblEI;
     private javax.swing.JLabel jlblEfecCaja;
     public javax.swing.JLabel jlblFF;
     public javax.swing.JLabel jlblFI;
@@ -633,10 +650,9 @@ public class CorteCaja extends javax.swing.JFrame {
     public javax.swing.JLabel jlblM1;
     public javax.swing.JLabel jlblMinimizar;
     public javax.swing.JLabel jlblNU;
-    public javax.swing.JLabel jlblNombre3;
-    public javax.swing.JLabel jlblNombre4;
     public javax.swing.JLabel jlblNombreUsuario;
     public javax.swing.JLabel jlblQ;
+    public javax.swing.JLabel jlblTV;
     public javax.swing.JLabel jlblTotCaj;
     public javax.swing.JLabel jlblTotal;
     public javax.swing.JTextField jtxtB1;
