@@ -175,10 +175,10 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
             vista.dispose();
         }
         else if(e.getSource()==vista.jtxtB100){
-            vista.jtxtB100.setText(null);
+            vista.jtxtB100.setText("");
         }
-        else if(e.getSource()==vista.jtxtB100){
-            vista.jtxtB50.setText(null);
+        else if(e.getSource()==vista.jtxtB50){
+            vista.jtxtB50.setText("");
         }
     }
 

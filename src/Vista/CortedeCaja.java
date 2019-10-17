@@ -45,6 +45,7 @@ public class CortedeCaja extends javax.swing.JFrame {
         btnGenerar = new javax.swing.JButton();
         jlblDMAFI = new javax.swing.JLabel();
         jlblDMAFF = new javax.swing.JLabel();
+        jcmbUsuarios = new javax.swing.JComboBox<>();
         jPanel2CortCaj = new javax.swing.JPanel();
         jtxtBuscar = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -144,7 +145,7 @@ public class CortedeCaja extends javax.swing.JFrame {
                 jtxtNUActionPerformed(evt);
             }
         });
-        jPanel1CortCaj.add(jtxtNU, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 120, 20));
+        jPanel1CortCaj.add(jtxtNU, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 140, 120, 20));
 
         jlblFI.setBackground(new java.awt.Color(255, 255, 255));
         jlblFI.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
@@ -205,6 +206,8 @@ public class CortedeCaja extends javax.swing.JFrame {
         jlblDMAFF.setForeground(new java.awt.Color(153, 153, 153));
         jlblDMAFF.setText("DD/MM/AAAA");
         jPanel1CortCaj.add(jlblDMAFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 157, 70, -1));
+
+        jPanel1CortCaj.add(jcmbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 100, -1));
 
         getContentPane().add(jPanel1CortCaj, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 180));
 
@@ -631,6 +634,7 @@ public class CortedeCaja extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JComboBox<String> jcmbUsuarios;
     public javax.swing.JLabel jlblB1;
     public javax.swing.JLabel jlblB10;
     public javax.swing.JLabel jlblB100;
