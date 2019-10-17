@@ -304,14 +304,14 @@ public class Ventas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Descripcion", "Cantidad", "PrecioUnitario", "PrecioTotal"
+                "Id", "Codigo", "Nombre", "Descripcion", "Cantidad", "PrecioUnitario", "PrecioTotal"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true
+                false, false, false, false, false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -326,12 +326,18 @@ public class Ventas extends javax.swing.JFrame {
         jtableVentas.setPreferredSize(new java.awt.Dimension(300, 270));
         jScrollPane1.setViewportView(jtableVentas);
         if (jtableVentas.getColumnModel().getColumnCount() > 0) {
-            jtableVentas.getColumnModel().getColumn(2).setMinWidth(70);
-            jtableVentas.getColumnModel().getColumn(2).setMaxWidth(80);
-            jtableVentas.getColumnModel().getColumn(3).setMinWidth(80);
-            jtableVentas.getColumnModel().getColumn(3).setMaxWidth(90);
-            jtableVentas.getColumnModel().getColumn(4).setMinWidth(80);
-            jtableVentas.getColumnModel().getColumn(4).setMaxWidth(90);
+            jtableVentas.getColumnModel().getColumn(0).setMinWidth(0);
+            jtableVentas.getColumnModel().getColumn(0).setPreferredWidth(0);
+            jtableVentas.getColumnModel().getColumn(0).setMaxWidth(0);
+            jtableVentas.getColumnModel().getColumn(1).setMinWidth(0);
+            jtableVentas.getColumnModel().getColumn(1).setPreferredWidth(0);
+            jtableVentas.getColumnModel().getColumn(1).setMaxWidth(0);
+            jtableVentas.getColumnModel().getColumn(4).setMinWidth(70);
+            jtableVentas.getColumnModel().getColumn(4).setMaxWidth(80);
+            jtableVentas.getColumnModel().getColumn(5).setMinWidth(80);
+            jtableVentas.getColumnModel().getColumn(5).setMaxWidth(90);
+            jtableVentas.getColumnModel().getColumn(6).setMinWidth(80);
+            jtableVentas.getColumnModel().getColumn(6).setMaxWidth(90);
         }
 
         jpanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 850, 300));
@@ -619,8 +625,7 @@ public class Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRealizarActionPerformed
 
     private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
-        ListaProducto form = new ListaProducto();
-        form.setVisible(true);
+     
 
 
         // TODO add your handling code here:
@@ -712,20 +717,20 @@ public class Ventas extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JLabel jlblApellido;
     public javax.swing.JLabel jlblArtsVendidos;
-    public javax.swing.JLabel jlblAtendio;
+    private javax.swing.JLabel jlblAtendio;
     public javax.swing.JLabel jlblCalculadora;
-    public javax.swing.JLabel jlblCambio;
+    private javax.swing.JLabel jlblCambio;
     public javax.swing.JLabel jlblCambioVenta;
-    public javax.swing.JLabel jlblCantArts;
+    private javax.swing.JLabel jlblCantArts;
     public javax.swing.JLabel jlblCantidad;
     public javax.swing.JLabel jlblDatosCliente;
-    public javax.swing.JLabel jlblDetalleVenta;
+    private javax.swing.JLabel jlblDetalleVenta;
     public javax.swing.JLabel jlblDireccion;
     public javax.swing.JLabel jlblDpi;
     public javax.swing.JLabel jlblEmail;
-    public javax.swing.JLabel jlblFecha;
+    private javax.swing.JLabel jlblFecha;
     public javax.swing.JLabel jlblFechaSistema;
-    public javax.swing.JLabel jlblHora;
+    private javax.swing.JLabel jlblHora;
     public javax.swing.JLabel jlblHoraSistema;
     public javax.swing.JLabel jlblIconoTotal;
     public javax.swing.JLabel jlblIdVenta;
@@ -734,13 +739,13 @@ public class Ventas extends javax.swing.JFrame {
     public javax.swing.JLabel jlblMenu;
     public javax.swing.JLabel jlblMinimizar;
     public javax.swing.JLabel jlblNit;
-    public javax.swing.JLabel jlblNoVenta;
+    private javax.swing.JLabel jlblNoVenta;
     public javax.swing.JLabel jlblNombre;
     public javax.swing.JLabel jlblNombreUsuario;
     public javax.swing.JLabel jlblQ;
     public javax.swing.JLabel jlblTelefoo;
     public javax.swing.JLabel jlblTotal;
-    public javax.swing.JLabel jlblTotalVenta;
+    private javax.swing.JLabel jlblTotalVenta;
     public javax.swing.JPanel jpanel1;
     protected javax.swing.JPanel jpanel2;
     public javax.swing.JPanel jpanel3;

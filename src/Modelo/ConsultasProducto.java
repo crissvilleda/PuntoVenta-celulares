@@ -245,6 +245,35 @@ public class ConsultasProducto extends Pool {
         
     }
     
+public boolean verificarExistencia(String[] regPro){
+    PreparedStatement ps = null;
+    Connection cn = (Connection)getConnection();
+    ResultSet rs = null;
+    String sql = "SELECT producto.idProducto, producto.nombre, producto.descripcion, "
+            + "inventario.nArticulos,inventario.precioVenta, inventario.fechaLote"
+            + " FROM producto INNER JOIN inventario ON producto.idProducto=inventario.idProducto "
+            + "WHERE producto.codigo=? ORDER BY inventario.fechaLote DESC ";
+    try{
+        ps = (PreparedStatement)cn.prepareStatement(sql);
+        ps.setString(1, regPro[1]);
+        rs = ps.executeQuery();
+        while(rs.next()){
+            if(Integer.parseInt(rs.getString("inventario.nArticulos")) >= Integer.parseInt(regPro[4])){
+                regPro[0]=rs.getString("producto.idProducto");
+                regPro[2]=rs.getString("producto.nombre");
+                regPro[3]=rs.getString("producto.descripcion");
+                regPro[5]=rs.getString("inventario.precioVenta");
+                regPro[6]=String.valueOf(Integer.parseInt(regPro[4])*Integer.parseInt(regPro[5]));
+                return true;
+            }else{
+                return false;
+            }
+        }
+        return false;
+    }catch(Exception e){
+        return false;
+    }
     
+}    
     
 }
