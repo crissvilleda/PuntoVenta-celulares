@@ -27,7 +27,7 @@ public class ControladorCantPrecioEnt implements ActionListener,MouseListener,
         KeyListener, DocumentListener {
     private CantPrecioEnt vista;
     private JTable tabla;
-    private Producto producto;
+    private String [] regProducto;
     
     public ControladorCantPrecioEnt(CantPrecioEnt vista) {
         this.vista = vista;
@@ -65,12 +65,12 @@ public class ControladorCantPrecioEnt implements ActionListener,MouseListener,
         String registro [] = new String [10];
             DefaultTableModel model =(DefaultTableModel)this.tabla.getModel();
             try{
-                registro[0]=String.valueOf(producto.getIdProducto());
-                registro[1]=producto.getCodigo();
-                registro[2]=producto.getNombre();
-                registro[3]=producto.getDescripcion();
-                registro[4]=String.valueOf(producto.getIdCategoria());
-                registro[5]=String.valueOf(producto.getIdMarca());
+                registro[0]=regProducto[0];
+                registro[1]=regProducto[1];
+                registro[2]=regProducto[2];
+                registro[3]=regProducto[3];
+                registro[4]=regProducto[4];
+                registro[5]=regProducto[5];
                 registro[6]=this.vista.jtxtCantidad.getText();
                 registro[7]=this.vista.jtxtPC.getText();
                 registro[8]=String.valueOf(Double.parseDouble(this.vista.jtxtPV.getText()));
@@ -92,9 +92,9 @@ public class ControladorCantPrecioEnt implements ActionListener,MouseListener,
             
         } 
     }
-    public void insertarProducto(JTable tabla,Producto pro){
+    public void insertarProducto(JTable tabla,String[] registros){
         this.tabla=tabla;
-        this.producto=pro;
+        this.regProducto=registros;
         
     }
 

@@ -242,14 +242,14 @@ public class RegistroEntrada extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Codigo", "Nombre", "Descripcion", "Categoria", "Marca", "Cantidad", "PrecioCompra", "PrecioVenta", "      Subtotal"
+                "Id", "Codigo", "Nombre", "Descripcion", "Categoria", "Marca", "Cantidad", "P Compra", "P Venta", "Subtotal"
             }
         ) {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true, true, true, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -264,11 +264,13 @@ public class RegistroEntrada extends javax.swing.JFrame {
         jtableNuevaEntrada.setPreferredSize(new java.awt.Dimension(300, 200));
         jScrollPane1.setViewportView(jtableNuevaEntrada);
         if (jtableNuevaEntrada.getColumnModel().getColumnCount() > 0) {
-            jtableNuevaEntrada.getColumnModel().getColumn(0).setResizable(false);
-            jtableNuevaEntrada.getColumnModel().getColumn(4).setResizable(false);
-            jtableNuevaEntrada.getColumnModel().getColumn(5).setResizable(false);
-            jtableNuevaEntrada.getColumnModel().getColumn(6).setResizable(false);
-            jtableNuevaEntrada.getColumnModel().getColumn(9).setResizable(false);
+            jtableNuevaEntrada.getColumnModel().getColumn(0).setMinWidth(0);
+            jtableNuevaEntrada.getColumnModel().getColumn(0).setPreferredWidth(0);
+            jtableNuevaEntrada.getColumnModel().getColumn(0).setMaxWidth(0);
+            jtableNuevaEntrada.getColumnModel().getColumn(6).setPreferredWidth(15);
+            jtableNuevaEntrada.getColumnModel().getColumn(7).setPreferredWidth(25);
+            jtableNuevaEntrada.getColumnModel().getColumn(8).setPreferredWidth(25);
+            jtableNuevaEntrada.getColumnModel().getColumn(9).setPreferredWidth(30);
         }
 
         jPanel2EntradaNuevo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 125, 900, 230));

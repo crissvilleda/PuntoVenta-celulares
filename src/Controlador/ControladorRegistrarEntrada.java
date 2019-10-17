@@ -85,12 +85,12 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
         Producto  producto = new Producto();
         DefaultTableModel model = (DefaultTableModel)vista.jtableNuevaEntrada.getModel();
         ConsultasProducto consultaP = new ConsultasProducto();
-        String registro [] = new String [10];
+
         
         boolean existe = false;
-        producto.setCodigo(vista.jtxtCodigo.getText());
-        
-        if(consultaP.consultar(producto)){
+        String regProducto [] = new String[6];
+        regProducto[1]= vista.jtxtCodigo.getText();
+        if(consultaP.consultar(regProducto)){
             for(int i = 0; i<model.getRowCount();i++){
                 if(model.getValueAt(i, 1).toString().equals(producto.getCodigo())){
                     String valor = String.valueOf(Integer.valueOf((String)model.getValueAt(i, 6))+1);
@@ -103,7 +103,7 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
                     CantPrecioEnt panel = new CantPrecioEnt();
                     ControladorCantPrecioEnt control = new ControladorCantPrecioEnt(panel);
                     control.inciar();
-                    control.insertarProducto(vista.jtableNuevaEntrada, producto);
+                    control.insertarProducto(vista.jtableNuevaEntrada, regProducto);
                     
                 }catch(Exception e){
                     JOptionPane.showMessageDialog(null,"Error al agregar producto");

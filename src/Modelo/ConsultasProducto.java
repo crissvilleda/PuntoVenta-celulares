@@ -113,22 +113,25 @@ public class ConsultasProducto extends Pool {
     
     
     
-    public boolean consultar(Producto pro){
+    public boolean consultar(String[] registros ){
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
         ResultSet rs = null;
-        String sql ="SELECT * FROM producto WHERE codigo=?";
+        String sql ="SELECT producto.idProducto, producto.codigo, producto.nombre, "
+                + "producto.descripcion, categoria.nombre,marca.nombre FROM producto "
+                + "INNER JOIN categoria ON producto.idCategoria=categoria.idCategoria "
+                + "INNER JOIN marca ON producto.idMarca= marca.idMarca WHERE producto.codigo = ?";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
-            ps.setString(1, pro.getCodigo());
+            ps.setString(1, registros[1]);
             rs =ps.executeQuery();
             if(rs.next()){
-                pro.setIdProducto(rs.getInt("idProducto"));
-                pro.setCodigo(rs.getString("codigo"));
-                pro.setNombre(rs.getString("nombre"));
-                pro.setDescripcion(rs.getString("descripcion"));
-                pro.setIdCategoria(rs.getInt("idCategoria"));
-                pro.setIdMarca(rs.getInt("idMarca"));
+                registros[0]=(rs.getString("producto.idProducto"));
+                registros[1]=(rs.getString("producto.codigo"));
+                registros[2]=(rs.getString("producto.nombre"));
+                registros[3]=(rs.getString("producto.descripcion"));
+                registros[4]=(rs.getString("categoria.nombre"));
+                registros[5]=(rs.getString("marca.nombre"));
                 return true;
             } 
             return false;
@@ -161,19 +164,23 @@ public class ConsultasProducto extends Pool {
         String registros [] = new String [6];
         Connection cn = (Connection)getConnection();
         ResultSet rs = null;
-        String sql ="SELECT * FROM producto WHERE nombre LIKE ? or descripcion LIKE ?";
+        String sql ="SELECT producto.idProducto, producto.codigo, producto.nombre, "
+                + "producto.descripcion, categoria.nombre,marca.nombre FROM producto"
+                + " INNER JOIN categoria ON producto.idCategoria=categoria.idCategoria "
+                + "INNER JOIN marca ON producto.idMarca= marca.idMarca WHERE producto.nombre"
+                + " LIKE ? or producto.descripcion LIKE ?";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
             ps.setString(1,"%"+texto+"%");
             ps.setString(2,"%"+texto+"%");
             rs =ps.executeQuery();
             while(rs.next()){
-                registros [0]=rs.getString("idProducto");
-                registros [1]=rs.getString("codigo");
-                registros [2]=rs.getString("nombre");
-                registros [3]=rs.getString("descripcion");
-                registros [4]=rs.getString("idCategoria");
-                registros [5]=rs.getString("idMarca");
+                registros [0]=rs.getString("producto.idProducto");
+                registros [1]=rs.getString("producto.codigo");
+                registros [2]=rs.getString("producto.nombre");
+                registros [3]=rs.getString("producto.descripcion");
+                registros [4]=rs.getString("categoria.nombre");
+                registros [5]=rs.getString("marca.nombre");
                 model.addRow(registros);
             } 
             tabla.setModel(model);
@@ -205,17 +212,20 @@ public class ConsultasProducto extends Pool {
         String registros [] = new String [6];
         Connection cn = (Connection)getConnection();
         ResultSet rs = null;
-        String sql ="SELECT * FROM producto WHERE idProducto>=1";
+        String sql ="SELECT producto.idProducto, producto.codigo, producto.nombre, "
+                + "producto.descripcion, categoria.nombre,marca.nombre FROM producto "
+                + "INNER JOIN categoria ON producto.idCategoria=categoria.idCategoria "
+                + "INNER JOIN marca ON producto.idMarca= marca.idMarca";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
             rs =ps.executeQuery();
             while(rs.next()){
-                registros [0]=rs.getString("idProducto");
-                registros [1]=rs.getString("codigo");
-                registros [2]=rs.getString("nombre");
-                registros [3]=rs.getString("descripcion");
-                registros [4]=rs.getString("idCategoria");
-                registros [5]=rs.getString("idMarca");
+                registros [0]=rs.getString("producto.idProducto");
+                registros [1]=rs.getString("producto.codigo");
+                registros [2]=rs.getString("producto.nombre");
+                registros [3]=rs.getString("producto.descripcion");
+                registros [4]=rs.getString("categoria.nombre");
+                registros [5]=rs.getString("marca.nombre");
                 model.addRow(registros);
             } 
             tabla.setModel(model);
