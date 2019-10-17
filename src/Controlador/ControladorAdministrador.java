@@ -8,6 +8,7 @@ import AppPackage.AnimationClass;
 import Modelo.Usuario;
 import Vista.Administrador;
 import Vista.Configuracion;
+import Vista.CortedeCaja;
 import Vista.VEntrada;
 import Vista.VInventario;
 import Vista.VProveedor;
@@ -31,13 +32,14 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
     private VEntrada vistaEntrada = new VEntrada();
     private Configuracion vistaConfig = new Configuracion();
     private VInventario vistaInv = new VInventario();
+    private CortedeCaja vistaCorCaj= new CortedeCaja();
     //inicializa en controlador
     public ControladorAdministrador(Administrador vista, Usuario modelo){
         this.vista = vista;
         this.modelo = modelo;
         //lee el evento al hacer clic de cada icono del menu principal
         vista.jlblConfiguracion.addMouseListener(this);
-        vista.jlblCorteCaja.addMouseListener(this);
+        //vista.jlblCorteCaja.addMouseListener(this);
         vista.jlblCorteCaja.addMouseListener(this);
         vista.jlblEntradas.addMouseListener(this);
         vista.jlblFacturas.addMouseListener(this);
@@ -48,7 +50,7 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
         vista.jlblMinimizar.addMouseListener(this);
         vista.btnCerrarSesion.addActionListener(this);
         vista.jlblFacturas.setEnabled(false);
-        vista.jlblCorteCaja.setEnabled(false);
+        //vista.jlblCorteCaja.setEnabled(false);
         vista.jlblReportes.setEnabled(false);
         
     
@@ -98,7 +100,10 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
         }else if(me.getSource()==vista.jlblFacturas){
         
         }else if(me.getSource()==vista.jlblCorteCaja){
-        
+            ControladorCorteCaja controladorCorCaj = new ControladorCorteCaja(vistaCorCaj,modelo);
+            controladorCorCaj.iniciar();
+            vista.dispose();
+            
         }else if(me.getSource()==vista.jlblConfiguracion){
             ControladorConfiguracion controladorC =
                     new ControladorConfiguracion(vistaConfig,modelo);
