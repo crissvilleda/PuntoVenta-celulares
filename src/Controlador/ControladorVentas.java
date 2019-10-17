@@ -18,14 +18,19 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
  * @author criss
  */
-public class ControladorVentas implements ActionListener, MouseListener,KeyListener {
+public class ControladorVentas implements ActionListener, MouseListener,KeyListener,
+        TableModelListener{
     private Ventas vista;
     private Usuario modelo;
     private ConsultasVenta consultaVenta = new ConsultasVenta();
@@ -41,6 +46,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         vista.btnCerrarSesion.addActionListener(this);
         vista.jtxtNit.addKeyListener(this);
         vista.jtxtIngreseCodigo.addKeyListener(this);
+        vista.jtableVentas.getModel().addTableModelListener(this);
         
         consultaVenta.siguenteIdVenta(vista.jlblIdVenta);
         vista.jlblNombreUsuario.setText(modelo.getNombreUsuario());
@@ -49,7 +55,20 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         vista.jlblTotal.setText("00.00");
         vista.jtxtCantidad.setText("1");
     }
+    public void calcularTotal(JLabel total){
+        TableModel model = (TableModel)vista.jtableVentas.getModel();
+        String valor ="0";
+        for(int x=0; x<model.getRowCount();x++){
     
+            try{
+                double v = Double.valueOf((String)model.getValueAt(x, 6));
+                valor = String.valueOf(v + Double.valueOf(valor));
+                
+            }catch(Exception e){}
+        }
+        total.setText(valor);
+        
+    }
     public void iniciar(){
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
@@ -125,6 +144,12 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
             }
         }
     }
+    
+    @Override
+    public void tableChanged(TableModelEvent tme) {
+        
+    }
+    
     @Override
     public void keyTyped(KeyEvent ke) {
         
@@ -146,12 +171,11 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
     public void mouseExited(MouseEvent me) {
     }
 
-
-    
-
     @Override
     public void keyReleased(KeyEvent ke) {
     }
+
+    
     
     
 }
