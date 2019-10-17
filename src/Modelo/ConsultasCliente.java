@@ -122,10 +122,10 @@ public class ConsultasCliente extends Pool {
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
         ResultSet rs = null;
-        String sql ="SELECT * FROM cliente WHERE idCliente=?";
+        String sql ="SELECT * FROM cliente WHERE nit=?";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
-            ps.setInt(1, cli.getIdCliente());
+            ps.setString(1, cli.getNit());
             rs =ps.executeQuery();
             if(rs.next()){
                 cli.setIdCliente(rs.getInt("idCliente"));
@@ -137,9 +137,10 @@ public class ConsultasCliente extends Pool {
                 cli.setDpi(rs.getString("dpi"));
                 cli.setCiudad(rs.getString("ciudad"));
                 cli.setDireccion(rs.getString("direccion"));
+                return true;
              
             } 
-            return true;
+            return false;
             
         }catch (SQLException e){
             System.err.print(e);

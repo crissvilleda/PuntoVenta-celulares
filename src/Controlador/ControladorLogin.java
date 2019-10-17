@@ -9,6 +9,7 @@ import Modelo.ConsultasUsuario;
 import Vista.Login;
 import Modelo.Usuario;
 import Vista.Administrador;
+import Vista.Ventas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -98,6 +99,12 @@ public class ControladorLogin implements ActionListener, KeyListener, MouseListe
                             new ControladorAdministrador(vistaAdmin,modelo);
                     controladorA.iniciar();
                     vista.dispose();
+                }else if(modelo.getTipo().equals("Empleado")){
+                    ControladorVentas ControlVentas = 
+                            new ControladorVentas(new Ventas(),modelo);
+                    ControlVentas.iniciar();
+                    vista.dispose();
+                    
                 }
                 
             }else{
