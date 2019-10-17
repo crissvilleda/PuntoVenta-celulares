@@ -319,7 +319,9 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
     public void keyPressed(KeyEvent ke) {
         if(ke.getSource()==vista.jtxtCodigo){
             if(ke.getKeyCode()==KeyEvent.VK_ENTER){
-                agregarProducto();
+                if(!vista.jtxtCodigo.getText().equals("")){
+                    agregarProducto();
+                }
             }
         }
         
