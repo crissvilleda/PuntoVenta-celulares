@@ -39,6 +39,8 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     vista.jtxtB50.getDocument().addDocumentListener(this);
     
     vista.jlblInicio.addMouseListener(this);
+    vista.jtxtB100.addMouseListener(this);
+    vista.jtxtB50.addMouseListener(this);
     
     vista.addWindowListener(this);
     
@@ -171,6 +173,12 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
             ControladorAdministrador controAdmin= new ControladorAdministrador(vistaAdmin,modelo);
             controAdmin.iniciar();
             vista.dispose();
+        }
+        else if(e.getSource()==vista.jtxtB100){
+            vista.jtxtB100.setText(null);
+        }
+        else if(e.getSource()==vista.jtxtB100){
+            vista.jtxtB50.setText(null);
         }
     }
 
