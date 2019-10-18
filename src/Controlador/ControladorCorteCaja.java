@@ -42,6 +42,9 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     vista.jtxtB100.addMouseListener(this);
     vista.jtxtB50.addMouseListener(this);
     
+    //vista.jtxtB100.setText("0");
+    //vista.jtxtB50.setText("0");
+    
     vista.addWindowListener(this);
     
     
@@ -111,6 +114,7 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     public void calcTotCaj(JLabel total){
         Double valor;
         valor=((Double.parseDouble(vista.jtxtB100.getText()))*100)+((Double.parseDouble(vista.jtxtB50.getText()))*50);
+        vista.jtxtEI.setText(String.valueOf(valor));
     }
     
     @Override
