@@ -112,9 +112,11 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     }
     //Calcular Efectivo Total en caja
     public void calcTotCaj(JLabel total){
+        try{
         Double valor;
         valor=((Double.parseDouble(vista.jtxtB100.getText()))*100)+((Double.parseDouble(vista.jtxtB50.getText()))*50);
-        vista.jtxtEI.setText(String.valueOf(valor));
+        total.setText(String.valueOf(valor));
+        }catch(NumberFormatException e){}
     }
     
     @Override
@@ -161,6 +163,7 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
         else if(e.getDocument()==vista.jtxtB50.getDocument()){
             calcTotCaj(vista.jlblTotal);
         }
+        
     }
     
      @Override
