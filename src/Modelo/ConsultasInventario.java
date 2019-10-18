@@ -24,11 +24,11 @@ public class ConsultasInventario extends Pool{
         ResultSet rs = null;
         boolean existe= false;
         String sql="SELECT * FROM inventario WHERE idProducto = ?";
-        String sql2 ="UPDATE inventario SET nArticulos=?,precioCompra=?,precioVenta?"
-                + "WHERE inventario.idProducto=?";
+        String sql2 ="UPDATE inventario SET nArticulos=?,precioCompra=?,precioVenta=?"
+                + "WHERE idProducto=?";
         String sql3= "INSERT INTO inventario(idProducto,nArticulos, "
                 + "precioCompra, precioVenta) "
-                + "values(?,?,?,?,?)";
+                + "values(?,?,?,?)";
         String regInv[] =new String [4];
         try{
              ps = (PreparedStatement) cn.prepareStatement(sql);
@@ -51,10 +51,10 @@ public class ConsultasInventario extends Pool{
                  ps.execute();
              }else{
                  ps = (PreparedStatement)cn.prepareStatement(sql3);
-                 ps.setInt(0, inventario.getIdProducto());
-                 ps.setInt(1, inventario.getnArticulo());
-                 ps.setDouble(2, inventario.getPrecioCompra());
-                 ps.setDouble(3, inventario.getPrecioVenta());
+                 ps.setInt(1, inventario.getIdProducto());
+                 ps.setInt(2, inventario.getnArticulo());
+                 ps.setDouble(3, inventario.getPrecioCompra());
+                 ps.setDouble(4, inventario.getPrecioVenta());
                  ps.execute();
                  
              }
@@ -83,31 +83,29 @@ public class ConsultasInventario extends Pool{
     public void tablaInventario(JTable tabla){
         DefaultTableModel model = (DefaultTableModel)tabla.getModel();
         PreparedStatement ps = null;
-        String registros [] = new String [10];
+        String registros [] = new String [9];
         Connection cn = (Connection)getConnection();
         ResultSet rs = null;
-        String sql ="SELECT inventario.idInventario,DATE_FORMAT(inventario.fechaLote, '%Y-%m-%d') as fecha"
-                + ",producto.codigo, producto.nombre, "
+        String sql ="SELECT inventario.idInventario,producto.codigo, producto.nombre, "
                 + "producto.descripcion, categoria.nombre, marca.nombre, inventario.nArticulos, "
                 + "inventario.precioCompra, inventario.precioVenta FROM inventario "
                 + "INNER JOIN producto ON inventario.idProducto=producto.idProducto "
                 + "INNER JOIN categoria ON producto.idCategoria=categoria.idCategoria "
                 + "INNER JOIN marca ON producto.idMarca=marca.idMarca ORDER BY "
-                + "inventario.fechaLote DESC ";
+                + "producto.nombre ASC";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
             rs =ps.executeQuery();
             while(rs.next()){
                 registros [0]=rs.getString("idInventario");
-                registros [1]=rs.getString("fecha");
-                registros [2]=rs.getString("codigo");
-                registros [3]=rs.getString("producto.nombre");
-                registros [4]=rs.getString("descripcion");
-                registros [5]=rs.getString("categoria.nombre");
-                registros [6]=rs.getString("marca.nombre");
-                registros [7]=rs.getString("nArticulos");
-                registros [8]=rs.getString("precioCompra");
-                registros [9]=rs.getString("precioVenta");
+                registros [1]=rs.getString("codigo");
+                registros [2]=rs.getString("producto.nombre");
+                registros [3]=rs.getString("descripcion");
+                registros [4]=rs.getString("categoria.nombre");
+                registros [5]=rs.getString("marca.nombre");
+                registros [6]=rs.getString("nArticulos");
+                registros [7]=rs.getString("precioCompra");
+                registros [8]=rs.getString("precioVenta");
                 
                 model.addRow(registros);
              
@@ -137,18 +135,17 @@ public class ConsultasInventario extends Pool{
             
         }
         PreparedStatement ps = null;
-        String registros [] = new String [10];
+        String registros [] = new String [9];
         Connection cn = (Connection)getConnection();
         ResultSet rs = null;
-        String sql ="SELECT inventario.idInventario,DATE_FORMAT(inventario.fechaLote, '%Y-%m-%d') as fecha"
-                + ",producto.codigo, producto.nombre, "
+        String sql ="SELECT inventario.idInventario,producto.codigo, producto.nombre, "
                 + "producto.descripcion, categoria.nombre, marca.nombre, inventario.nArticulos, "
                 + "inventario.precioCompra, inventario.precioVenta FROM inventario "
                 + "INNER JOIN producto ON inventario.idProducto=producto.idProducto "
                 + "INNER JOIN categoria ON producto.idCategoria=categoria.idCategoria "
                 + "INNER JOIN marca ON producto.idMarca=marca.idMarca WHERE "
                 + "producto.nombre LIKE ? OR producto.codigo LIKE ? OR producto.descripcion "
-                + "LIKE ? ORDER BY inventario.fechaLote DESC ";
+                + "LIKE ? ORDER BY producto.nombre ASC ";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
             ps.setString(1,"%"+texto+"%");
@@ -157,15 +154,14 @@ public class ConsultasInventario extends Pool{
             rs =ps.executeQuery();
             while(rs.next()){
                 registros [0]=rs.getString("idInventario");
-                registros [1]=rs.getString("fecha");
-                registros [2]=rs.getString("codigo");
-                registros [3]=rs.getString("producto.nombre");
-                registros [4]=rs.getString("descripcion");
-                registros [5]=rs.getString("categoria.nombre");
-                registros [6]=rs.getString("marca.nombre");
-                registros [7]=rs.getString("nArticulos");
-                registros [8]=rs.getString("precioCompra");
-                registros [9]=rs.getString("precioVenta");
+                registros [1]=rs.getString("codigo");
+                registros [2]=rs.getString("producto.nombre");
+                registros [3]=rs.getString("descripcion");
+                registros [4]=rs.getString("categoria.nombre");
+                registros [5]=rs.getString("marca.nombre");
+                registros [6]=rs.getString("nArticulos");
+                registros [7]=rs.getString("precioCompra");
+                registros [8]=rs.getString("precioVenta");
                 model.addRow(registros);
              
             }tabla.setModel(model);
