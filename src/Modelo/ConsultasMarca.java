@@ -179,9 +179,6 @@ public class ConsultasMarca extends Pool {
                 
             }
         }
-        
-        
-        
-        
+    
     }
 }

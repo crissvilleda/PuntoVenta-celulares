@@ -16,6 +16,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
@@ -36,6 +37,7 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     
     vista.btnGenerar.addActionListener(this);
     
+    vista.jtxtFI.getDocument().addDocumentListener(this);
     vista.jtxtFF.getDocument().addDocumentListener(this);
     vista.jtxtB100.getDocument().addDocumentListener(this);
     vista.jtxtB50.getDocument().addDocumentListener(this);
@@ -62,12 +64,11 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     vista.jtxtM010.addMouseListener(this);
     vista.jtxtM005.addMouseListener(this);
     
-    //Carga la lista de usuarios
-    vista.jcmbUsuario.addItem("");
-    consultaU.listaUsuarios(vista.jcmbUsuario);
-    
     vista.addWindowListener(this);
     
+    //Carga la lista de Usuarios
+    vista.jcmbUsuario.addItem("");
+    consultaU.listUsu(vista.jcmbUsuario);
     
     }
     
@@ -135,7 +136,7 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     
     //Verifica los campos antes de activar el boton Generar
     public void verificarJtxtpG(){
-        if(vista.jtxtNU.getText().length()>4 && vista.jtxtFI.getText().length()>=10 && vista.jtxtFF.getText().length()>=10){
+        if(vista.jtxtFI.getText().length()==10 && vista.jtxtFF.getText().length()==10){
             vista.btnGenerar.setEnabled(true);
             }
         else{
@@ -165,6 +166,8 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
      @Override
     public void insertUpdate(DocumentEvent e) {
         if(e.getDocument()==vista.jtxtFF.getDocument()){
+            verificarJtxtpG();
+        }else if(e.getDocument()==vista.jtxtFI.getDocument()){
             verificarJtxtpG();
         }else if(e.getDocument()==vista.jtxtB100.getDocument()){
             calcTotCaj(vista.jlblTotal);
@@ -197,6 +200,8 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     public void removeUpdate(DocumentEvent e) {
         if(e.getDocument()==vista.jtxtFF.getDocument()){
             verificarJtxtpG();
+        }else if(e.getDocument()==vista.jtxtFI.getDocument()){
+            verificarJtxtpG();
         }else if(e.getDocument()==vista.jtxtB100.getDocument()){
             calcTotCaj(vista.jlblTotal);
         }else if(e.getDocument()==vista.jtxtB50.getDocument()){
@@ -225,6 +230,8 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     @Override
     public void changedUpdate(DocumentEvent e) {
         if(e.getDocument()==vista.jtxtFF.getDocument()){
+            verificarJtxtpG();
+        }else if(e.getDocument()==vista.jtxtFI.getDocument()){
             verificarJtxtpG();
         }else if(e.getDocument()==vista.jtxtB100.getDocument()){
             calcTotCaj(vista.jlblTotal);
@@ -255,8 +262,12 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
      @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnGenerar){
-            activarP2();
+            if(vista.jcmbUsuario.getModel().getSelectedItem().equals("")){
+                JOptionPane.showMessageDialog(null,"Selecione un Usuario para continuar");
+            }else{
+             activarP2();
             vista.jtxtB100.requestFocus();
+            }
         }
     }
     

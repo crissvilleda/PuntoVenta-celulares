@@ -37,7 +37,6 @@ public class CortedeCaja extends javax.swing.JFrame {
         jlblNombreUsuario = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jlblNU = new javax.swing.JLabel();
-        jtxtNU = new javax.swing.JTextField();
         jlblFI = new javax.swing.JLabel();
         jtxtFI = new javax.swing.JTextField();
         jtxtFF = new javax.swing.JTextField();
@@ -135,24 +134,14 @@ public class CortedeCaja extends javax.swing.JFrame {
         jlblNU.setBackground(new java.awt.Color(255, 255, 255));
         jlblNU.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jlblNU.setForeground(new java.awt.Color(225, 99, 71));
-        jlblNU.setText("Ingrese usuario");
+        jlblNU.setText("Seleccione usuario");
         jPanel1CortCaj.add(jlblNU, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, -1, -1));
-
-        jtxtNU.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jtxtNU.setForeground(new java.awt.Color(103, 103, 103));
-        jtxtNU.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jtxtNU.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtNUActionPerformed(evt);
-            }
-        });
-        jPanel1CortCaj.add(jtxtNU, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 140, 120, 20));
 
         jlblFI.setBackground(new java.awt.Color(255, 255, 255));
         jlblFI.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jlblFI.setForeground(new java.awt.Color(225, 99, 71));
         jlblFI.setText("Fecha Inicial");
-        jPanel1CortCaj.add(jlblFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 120, -1, -1));
+        jPanel1CortCaj.add(jlblFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(507, 120, -1, -1));
 
         jtxtFI.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtFI.setForeground(new java.awt.Color(103, 103, 103));
@@ -162,7 +151,7 @@ public class CortedeCaja extends javax.swing.JFrame {
                 jtxtFIActionPerformed(evt);
             }
         });
-        jPanel1CortCaj.add(jtxtFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 140, 85, 20));
+        jPanel1CortCaj.add(jtxtFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 85, 20));
 
         jtxtFF.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtFF.setForeground(new java.awt.Color(103, 103, 103));
@@ -172,13 +161,13 @@ public class CortedeCaja extends javax.swing.JFrame {
                 jtxtFFActionPerformed(evt);
             }
         });
-        jPanel1CortCaj.add(jtxtFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 140, 85, 20));
+        jPanel1CortCaj.add(jtxtFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 140, 85, 20));
 
         jlblFF.setBackground(new java.awt.Color(255, 255, 255));
         jlblFF.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jlblFF.setForeground(new java.awt.Color(225, 99, 71));
         jlblFF.setText("Fecha Final");
-        jPanel1CortCaj.add(jlblFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 120, -1, -1));
+        jPanel1CortCaj.add(jlblFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(668, 120, -1, -1));
 
         btnGenerar.setBackground(new java.awt.Color(255, 255, 255));
         btnGenerar.setForeground(new java.awt.Color(255, 255, 255));
@@ -194,21 +183,21 @@ public class CortedeCaja extends javax.swing.JFrame {
                 btnGenerarActionPerformed(evt);
             }
         });
-        jPanel1CortCaj.add(btnGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 135, 75, 25));
+        jPanel1CortCaj.add(btnGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 140, 75, 25));
 
         jlblDMAFI.setBackground(new java.awt.Color(255, 255, 255));
         jlblDMAFI.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jlblDMAFI.setForeground(new java.awt.Color(153, 153, 153));
         jlblDMAFI.setText("DD/MM/AAAA");
-        jPanel1CortCaj.add(jlblDMAFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 80, -1));
+        jPanel1CortCaj.add(jlblDMAFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 160, 80, -1));
 
         jlblDMAFF.setBackground(new java.awt.Color(255, 255, 255));
         jlblDMAFF.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jlblDMAFF.setForeground(new java.awt.Color(153, 153, 153));
         jlblDMAFF.setText("DD/MM/AAAA");
-        jPanel1CortCaj.add(jlblDMAFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 157, 70, -1));
+        jPanel1CortCaj.add(jlblDMAFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(668, 160, 70, -1));
 
-        jPanel1CortCaj.add(jcmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 100, -1));
+        jPanel1CortCaj.add(jcmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 180, -1));
 
         getContentPane().add(jPanel1CortCaj, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 180));
 
@@ -475,7 +464,7 @@ public class CortedeCaja extends javax.swing.JFrame {
         jlblDMAFI2.setText("Por favor Verifique todos los campos");
         jPanel2CortCaj.add(jlblDMAFI2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, 220, -1));
 
-        getContentPane().add(jPanel2CortCaj, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, 320));
+        getContentPane().add(jPanel2CortCaj, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, 320));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -491,10 +480,6 @@ public class CortedeCaja extends javax.swing.JFrame {
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
 
     }//GEN-LAST:event_btnGenerarActionPerformed
-
-    private void jtxtNUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtNUActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtNUActionPerformed
 
     private void jtxtFIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtFIActionPerformed
         // TODO add your handling code here:
@@ -674,7 +659,6 @@ public class CortedeCaja extends javax.swing.JFrame {
     public javax.swing.JTextField jtxtM025;
     public javax.swing.JTextField jtxtM050;
     public javax.swing.JTextField jtxtM1;
-    public javax.swing.JTextField jtxtNU;
     public javax.swing.JTextField jtxtTV;
     // End of variables declaration//GEN-END:variables
 }
