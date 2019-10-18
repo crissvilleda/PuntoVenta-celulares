@@ -199,7 +199,6 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
 
                 //***********Datos Inventario*************
                 inventario.setIdProducto(Integer.parseInt((String)model.getValueAt(i, 0)));
-                inventario.setFechaLote(sqlTimestamp);
                 inventario.setnArticulo(Integer.parseInt((String)model.getValueAt(i, 6)));
                 inventario.setPrecioCompra(Double.parseDouble((String)model.getValueAt(i, 7)));
                 inventario.setPrecioVenta(Double.parseDouble((String)model.getValueAt(i, 8)));

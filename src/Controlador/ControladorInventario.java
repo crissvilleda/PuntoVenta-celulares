@@ -55,21 +55,21 @@ public class ControladorInventario implements MouseListener, DocumentListener{
     @Override
     public void insertUpdate(DocumentEvent de) {
         if(de.getDocument()==vista.jtxtBuscar.getDocument()){
-            consultaInv.consultar(vista.jtableInventario, vista.jtxtBuscar.getText());
+            consultaInv.buscar(vista.jtableInventario, vista.jtxtBuscar.getText());
         }
     }
 
     @Override
     public void removeUpdate(DocumentEvent de) {
         if(de.getDocument()==vista.jtxtBuscar.getDocument()){
-            consultaInv.consultar(vista.jtableInventario, vista.jtxtBuscar.getText());
+            consultaInv.buscar(vista.jtableInventario, vista.jtxtBuscar.getText());
         }
     }
 
     @Override
     public void changedUpdate(DocumentEvent de) {
         if(de.getDocument()==vista.jtxtBuscar.getDocument()){
-            consultaInv.consultar(vista.jtableInventario, vista.jtxtBuscar.getText());
+            consultaInv.buscar(vista.jtableInventario, vista.jtxtBuscar.getText());
         }
     }
     

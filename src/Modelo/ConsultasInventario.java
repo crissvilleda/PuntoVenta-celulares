@@ -21,18 +21,45 @@ public class ConsultasInventario extends Pool{
     public boolean registrar(Inventario inventario){
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
-        String sql = "INSERT INTO inventario(idProducto,fechaLote,nArticulos, "
+        ResultSet rs = null;
+        boolean existe= false;
+        String sql="SELECT * FROM inventario WHERE idProducto = ?";
+        String sql2 ="UPDATE inventario SET nArticulos=?,precioCompra=?,precioVenta?"
+                + "WHERE inventario.idProducto=?";
+        String sql3= "INSERT INTO inventario(idProducto,nArticulos, "
                 + "precioCompra, precioVenta) "
                 + "values(?,?,?,?,?)";
-        
+        String regInv[] =new String [4];
         try{
              ps = (PreparedStatement) cn.prepareStatement(sql);
              ps.setInt(1, inventario.getIdProducto());
-             ps.setTimestamp(2, inventario.getFechaLote());
-             ps.setInt(3, inventario.getnArticulo());
-             ps.setDouble(4, inventario.getPrecioCompra());
-             ps.setDouble(5, inventario.getPrecioVenta());
-             ps.execute();
+             rs = ps.executeQuery();
+             while(rs.next()){
+                regInv[0]=rs.getString("idProducto");
+                regInv[1]=rs.getString("nArticulos");
+                regInv[2]=rs.getString("precioCompra");
+                regInv[3]=rs.getString("precioVenta");
+                existe= true;
+                 
+             }
+             if(existe){
+                 ps = (PreparedStatement) cn.prepareStatement(sql2);
+                 ps.setInt(1,Integer.parseInt(regInv[1])+inventario.getnArticulo());
+                 ps.setDouble(2,(Double.parseDouble(regInv[2])+inventario.getPrecioCompra())/2);
+                 ps.setDouble(3, inventario.getPrecioVenta());
+                 ps.setInt(4, inventario.getIdProducto());
+                 ps.execute();
+             }else{
+                 ps = (PreparedStatement)cn.prepareStatement(sql3);
+                 ps.setInt(0, inventario.getIdProducto());
+                 ps.setInt(1, inventario.getnArticulo());
+                 ps.setDouble(2, inventario.getPrecioCompra());
+                 ps.setDouble(3, inventario.getPrecioVenta());
+                 ps.execute();
+                 
+             }
+             
+             
              return true;
              
         }catch(SQLException e){
@@ -52,7 +79,7 @@ public class ConsultasInventario extends Pool{
         
     }
     
-    
+   
     public void tablaInventario(JTable tabla){
         DefaultTableModel model = (DefaultTableModel)tabla.getModel();
         PreparedStatement ps = null;
@@ -101,7 +128,7 @@ public class ConsultasInventario extends Pool{
         }
     }
     
-    public void consultar(JTable tabla,String texto){
+    public void buscar(JTable tabla,String texto){
         DefaultTableModel model = (DefaultTableModel)tabla.getModel();
         //Limpiar tabla
         int a = model.getRowCount()-1;
