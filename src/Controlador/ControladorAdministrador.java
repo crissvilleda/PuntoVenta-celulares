@@ -9,6 +9,7 @@ import Modelo.Usuario;
 import Vista.Administrador;
 import Vista.Configuracion;
 import Vista.CortedeCaja;
+import Vista.Login;
 import Vista.VEntrada;
 import Vista.VInventario;
 import Vista.VProveedor;
@@ -26,14 +27,14 @@ import javax.swing.JOptionPane;
 public class ControladorAdministrador implements ActionListener, MouseListener {
     private Administrador vista;
     private Usuario modelo;
-    
     private VUsuario vistaUsuario = new VUsuario();
     private VProveedor vistaProveedor = new VProveedor();
     private VEntrada vistaEntrada = new VEntrada();
     private Configuracion vistaConfig = new Configuracion();
     private VInventario vistaInv = new VInventario();
     private CortedeCaja vistaCorCaj= new CortedeCaja();
-    //inicializa en controlador
+    
+//inicializa en controlador
     public ControladorAdministrador(Administrador vista, Usuario modelo){
         this.vista = vista;
         this.modelo = modelo;
@@ -59,11 +60,7 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
     public void actionPerformed(ActionEvent ae) {
         //evento para el boton cerrar
         if(ae.getSource()==vista.btnCerrarSesion){
-            int dialog =JOptionPane.YES_NO_OPTION;
-            int result=JOptionPane.showConfirmDialog(null, "Desea cerrar el programa?","Exit",dialog);
-            if (result==0){
-                System.exit(0);
-            }
+            ControladorLogin controlLigin = new ControladorLogin(new Login());
         }
     }
     

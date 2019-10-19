@@ -12,6 +12,7 @@ import Modelo.ConsultasVenta;
 import Modelo.Producto;
 import Modelo.Usuario;
 import Vista.Administrador;
+import Vista.Login;
 import Vista.Ventas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,7 +39,6 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
     private Usuario modelo;
     private ConsultasVenta consultaVenta = new ConsultasVenta();
     private ConsultasCliente consultaCliente = new ConsultasCliente();
-    private Administrador vistaAdmin = new Administrador();
     //registra si el jtable esta activo
     boolean active = false;
 
@@ -158,9 +158,8 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
             vista.btnEliminarCarrito.setEnabled(false);
             
         }else if(ae.getSource()==vista.btnCerrarSesion){
-            ControladorAdministrador controlAdmin = 
-                    new ControladorAdministrador(vistaAdmin,modelo);
-            controlAdmin.iniciar();
+            ControladorLogin controlLogin = new ControladorLogin(new Login());
+            controlLogin.iniciar();
             vista.dispose();
         }
     }

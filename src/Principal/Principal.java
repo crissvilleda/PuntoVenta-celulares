@@ -20,8 +20,7 @@ public class Principal {
      */
     public static void main(String[] args) {
         Login vista = new Login();
-        Usuario modelo = new Usuario();
-        ControladorLogin controlador = new ControladorLogin(vista,modelo);
+        ControladorLogin controlador = new ControladorLogin(vista);
         
         controlador.iniciar();
     }

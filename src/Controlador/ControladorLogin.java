@@ -24,14 +24,12 @@ import javax.swing.JOptionPane;
  */
 public class ControladorLogin implements ActionListener, KeyListener, MouseListener {
     private Login vista;
-    private Usuario modelo;
     private Administrador vistaAdmin = new Administrador();
     private ConsultasUsuario consulta = new ConsultasUsuario();
 
     //inicializa en controlador
-    public ControladorLogin(Login vista, Usuario modelo){
+    public ControladorLogin(Login vista){
         this.vista = vista;
-        this.modelo = modelo;
         //lee el evento del boton
         vista.jPassword.addKeyListener(this);
         vista.jtxtUsuario.addKeyListener(this);
@@ -85,7 +83,7 @@ public class ControladorLogin implements ActionListener, KeyListener, MouseListe
     }
     //funcion para iniciar seccion
     public void session(){
-        
+        Usuario modelo = new Usuario();
         modelo.setNombreUsuario(vista.jtxtUsuario.getText());
         modelo.setContraseña(String.valueOf(vista.jPassword.getPassword()));
   
