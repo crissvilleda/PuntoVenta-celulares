@@ -87,8 +87,9 @@ public class ListaInventario extends javax.swing.JFrame {
         jtableListaInventario.setPreferredSize(new java.awt.Dimension(300, 200));
         jScrollPane1.setViewportView(jtableListaInventario);
         if (jtableListaInventario.getColumnModel().getColumnCount() > 0) {
-            jtableListaInventario.getColumnModel().getColumn(0).setMinWidth(50);
-            jtableListaInventario.getColumnModel().getColumn(0).setMaxWidth(60);
+            jtableListaInventario.getColumnModel().getColumn(0).setMinWidth(0);
+            jtableListaInventario.getColumnModel().getColumn(0).setPreferredWidth(0);
+            jtableListaInventario.getColumnModel().getColumn(0).setMaxWidth(0);
             jtableListaInventario.getColumnModel().getColumn(1).setMinWidth(100);
             jtableListaInventario.getColumnModel().getColumn(1).setMaxWidth(110);
             jtableListaInventario.getColumnModel().getColumn(5).setMinWidth(100);

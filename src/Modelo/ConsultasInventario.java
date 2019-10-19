@@ -181,4 +181,110 @@ public class ConsultasInventario extends Pool{
         
     }
     
+    
+    public void buscarProductoInv(JTable tabla,String texto){
+        DefaultTableModel model = (DefaultTableModel)tabla.getModel();
+        //Limpiar tabla
+        int a = model.getRowCount()-1;
+        for(int i=a;i>=0;i--){
+            model.removeRow(model.getRowCount()-1);
+            
+        }
+        PreparedStatement ps = null;
+        String registros [] = new String [8];
+        Connection cn = (Connection)getConnection();
+        ResultSet rs = null;
+        String sql ="SELECT producto.idProducto, producto.codigo, producto.nombre, "
+                + "producto.descripcion, categoria.nombre, marca.nombre,inventario.nArticulos, "
+                + "inventario.precioVenta FROM producto INNER JOIN inventario ON "
+                + "inventario.idProducto= producto.idProducto INNER JOIN categoria ON "
+                + "categoria.idCategoria=producto.idCategoria INNER JOIN marca on "
+                + "marca.idMarca= producto.idMarca  WHERE inventario.nArticulos > 0 "
+                + "AND (producto.codigo LIKE ? OR producto.nombre LIKE ? OR "
+                + "producto.descripcion LIKE ?) "
+                + "ORDER BY producto.nombre  ASC";
+        try{
+            ps = (PreparedStatement)cn.prepareStatement(sql);
+            ps.setString(1,"%"+texto+"%");
+            ps.setString(2,"%"+texto+"%");
+            ps.setString(3,"%"+texto+"%");
+            rs =ps.executeQuery();
+            while(rs.next()){
+                registros [0]=rs.getString("producto.idProducto");
+                registros [1]=rs.getString("producto.codigo");
+                registros [2]=rs.getString("producto.nombre");
+                registros [3]=rs.getString("producto.descripcion");
+                registros [4]=rs.getString("categoria.nombre");
+                registros [5]=rs.getString("marca.nombre");
+                registros [6]=rs.getString("inventario.nArticulos");
+                registros [7]=rs.getString("inventario.precioVenta");
+                model.addRow(registros);
+            } 
+            tabla.setModel(model);
+            
+        }catch (SQLException e){
+            System.err.print(e);
+        }finally{
+            if(cn!=null){
+                try{
+                    cn.close();
+                }catch(SQLException e){
+                    System.err.print(e);
+                }
+                
+            }
+        }
+        
+    }
+    
+    public void llenarTablaInv(JTable tabla){
+        DefaultTableModel model = (DefaultTableModel)tabla.getModel();
+        //Limpiar tabla
+        int a = model.getRowCount()-1;
+        for(int i=a;i>=0;i--){
+            model.removeRow(model.getRowCount()-1);
+            
+        }
+        PreparedStatement ps = null;
+        String registros [] = new String [8];
+        Connection cn = (Connection)getConnection();
+        ResultSet rs = null;
+        String sql ="SELECT producto.idProducto, producto.codigo, producto.nombre, "
+                + "producto.descripcion, categoria.nombre, marca.nombre,inventario.nArticulos, "
+                + "inventario.precioVenta FROM producto INNER JOIN inventario ON "
+                + "inventario.idProducto= producto.idProducto INNER JOIN categoria ON "
+                + "categoria.idCategoria=producto.idCategoria INNER JOIN marca on "
+                + "marca.idMarca= producto.idMarca  WHERE inventario.nArticulos> 0 "
+                + "ORDER BY producto.nombre  ASC";
+        try{
+            ps = (PreparedStatement)cn.prepareStatement(sql);
+            rs =ps.executeQuery();
+            while(rs.next()){
+                registros [0]=rs.getString("producto.idProducto");
+                registros [1]=rs.getString("producto.codigo");
+                registros [2]=rs.getString("producto.nombre");
+                registros [3]=rs.getString("producto.descripcion");
+                registros [4]=rs.getString("categoria.nombre");
+                registros [5]=rs.getString("marca.nombre");
+                registros [6]=rs.getString("inventario.nArticulos");
+                registros [7]=rs.getString("inventario.precioVenta");
+                model.addRow(registros);
+            } 
+            tabla.setModel(model);
+            
+        }catch (SQLException e){
+            System.err.print(e);
+        }finally{
+            if(cn!=null){
+                try{
+                    cn.close();
+                }catch(SQLException e){
+                    System.err.print(e);
+                }
+                
+            }
+        }
+        
+    }
+    
 }
