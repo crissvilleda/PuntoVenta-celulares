@@ -27,17 +27,17 @@ public class Ventas extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         //Fecha del Sistema
-        Date sistFecha = new Date();
+        /*Date sistFecha = new Date();
         SimpleDateFormat formato=new SimpleDateFormat("dd-MMM-YYYY");
         jlblFechaSistema.setText(formato.format(sistFecha));
         
         //Hora del Sistema;
         Timer tiempo = new Timer(100,new Ventas.jlblHora());
-        tiempo.start();
+        tiempo.start();*/
         
     }
 
-    class jlblHora implements ActionListener{
+    /*class jlblHora implements ActionListener{
         public void actionPerformed(ActionEvent e){
             Date sistHora = new Date();
             String pmAm="hh:mm:ss a";
@@ -46,7 +46,7 @@ public class Ventas extends javax.swing.JFrame {
             jlblHoraSistema.setText(String.format(format.format(sistHora),hoy));
             
         }
-    }
+    }*/
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -270,6 +270,7 @@ public class Ventas extends javax.swing.JFrame {
         jpanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 950, -1));
 
         jlblMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Menu_32px_1.png"))); // NOI18N
+        jlblMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jlblMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jlblMenuMouseClicked(evt);
@@ -644,17 +645,17 @@ public class Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarCarritoActionPerformed
 
     private void jlblMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblMenuMouseClicked
-        AnimationClass cerrar= new AnimationClass();
-        cerrar.jButtonXRight(-40, 10, 10, 5, btnCerrarSesion);
+            AnimationClass cerrar= new AnimationClass();
+            cerrar.jButtonXRight(-40, 10, 10, 5, btnCerrarSesion);
 
-        AnimationClass calculadora= new AnimationClass();
-        calculadora.jLabelXRight(-40, 10, 10, 5, jlblCalculadora);
-        //<------
-        AnimationClass cerrarr= new AnimationClass();
-        cerrarr.jButtonXLeft(10, -40, 10, 5, btnCerrarSesion);
+             AnimationClass calculadora= new AnimationClass();
+            calculadora.jLabelXRight(-40, 10, 10, 5, jlblCalculadora);
+            //<------
+            AnimationClass cerrarr= new AnimationClass();
+            cerrarr.jButtonXLeft(10, -40, 10, 5, btnCerrarSesion);
 
-        AnimationClass calculadoraa= new AnimationClass();
-        calculadoraa.jLabelXLeft(10, -40, 10, 5, jlblCalculadora);
+            AnimationClass calculadoraa= new AnimationClass();
+            calculadoraa.jLabelXLeft(10, -40, 10, 5, jlblCalculadora);
     }//GEN-LAST:event_jlblMenuMouseClicked
 
     private void jlblCalculadoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblCalculadoraMouseClicked
