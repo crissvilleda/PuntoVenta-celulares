@@ -33,6 +33,8 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
     private Configuracion vistaConfig = new Configuracion();
     private VInventario vistaInv = new VInventario();
     private CortedeCaja vistaCorCaj= new CortedeCaja();
+    private Login vistaLogin = new Login();
+    
     
 //inicializa en controlador
     public ControladorAdministrador(Administrador vista, Usuario modelo){
@@ -60,7 +62,9 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
     public void actionPerformed(ActionEvent ae) {
         //evento para el boton cerrar
         if(ae.getSource()==vista.btnCerrarSesion){
-            ControladorLogin controlLigin = new ControladorLogin(new Login());
+            ControladorLogin controlLogin = new ControladorLogin(vistaLogin);
+            controlLogin.iniciar();
+            vista.dispose();
         }
     }
     

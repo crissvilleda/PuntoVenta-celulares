@@ -39,6 +39,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
     private Usuario modelo;
     private ConsultasVenta consultaVenta = new ConsultasVenta();
     private ConsultasCliente consultaCliente = new ConsultasCliente();
+    private Login login = new Login();
     //registra si el jtable esta activo
     boolean active = false;
 
@@ -158,7 +159,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
             vista.btnEliminarCarrito.setEnabled(false);
             
         }else if(ae.getSource()==vista.btnCerrarSesion){
-            ControladorLogin controlLogin = new ControladorLogin(new Login());
+            ControladorLogin controlLogin = new ControladorLogin(login);
             controlLogin.iniciar();
             vista.dispose();
         }
