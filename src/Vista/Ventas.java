@@ -27,26 +27,26 @@ public class Ventas extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         //Fecha del Sistema
-        /*Date sistFecha = new Date();
+        Date sistFecha = new Date();
         SimpleDateFormat formato=new SimpleDateFormat("dd-MMM-YYYY");
         jlblFechaSistema.setText(formato.format(sistFecha));
         
         //Hora del Sistema;
         Timer tiempo = new Timer(100,new Ventas.jlblHora());
-        tiempo.start();*/
+        tiempo.start();
         
     }
 
-    /*class jlblHora implements ActionListener{
+    class jlblHora implements ActionListener{
         public void actionPerformed(ActionEvent e){
             Date sistHora = new Date();
-            String pmAm="hh:mm:ss a";
+            String pmAm="hh:mm a";
             SimpleDateFormat format = new SimpleDateFormat(pmAm);
             Calendar hoy=Calendar.getInstance();
             jlblHoraSistema.setText(String.format(format.format(sistHora),hoy));
             
         }
-    }*/
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
