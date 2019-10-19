@@ -57,14 +57,14 @@ public class ListaProducto extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Codigo", "Nombre", "Descripcion", "Categoria", "Marca", "Precio"
+                "Id", "Codigo", "Nombre", "Descripcion", "Categoria", "Marca", "Existencia", "Precio"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -79,14 +79,15 @@ public class ListaProducto extends javax.swing.JFrame {
         jtableListaInventario.setPreferredSize(new java.awt.Dimension(300, 200));
         jScrollPane1.setViewportView(jtableListaInventario);
         if (jtableListaInventario.getColumnModel().getColumnCount() > 0) {
-            jtableListaInventario.getColumnModel().getColumn(0).setMinWidth(50);
-            jtableListaInventario.getColumnModel().getColumn(0).setMaxWidth(60);
+            jtableListaInventario.getColumnModel().getColumn(0).setMinWidth(0);
+            jtableListaInventario.getColumnModel().getColumn(0).setPreferredWidth(0);
+            jtableListaInventario.getColumnModel().getColumn(0).setMaxWidth(0);
             jtableListaInventario.getColumnModel().getColumn(1).setMinWidth(100);
             jtableListaInventario.getColumnModel().getColumn(1).setMaxWidth(110);
             jtableListaInventario.getColumnModel().getColumn(5).setMinWidth(100);
             jtableListaInventario.getColumnModel().getColumn(5).setMaxWidth(110);
-            jtableListaInventario.getColumnModel().getColumn(6).setMinWidth(60);
-            jtableListaInventario.getColumnModel().getColumn(6).setMaxWidth(70);
+            jtableListaInventario.getColumnModel().getColumn(7).setMinWidth(60);
+            jtableListaInventario.getColumnModel().getColumn(7).setMaxWidth(70);
         }
 
         jPanelListaInventario.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 760, 230));
