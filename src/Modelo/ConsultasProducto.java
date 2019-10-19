@@ -252,9 +252,9 @@ public boolean verificarExistencia(String[] regPro){
     Connection cn = (Connection)getConnection();
     ResultSet rs = null;
     String sql = "SELECT producto.idProducto, producto.nombre, producto.descripcion, "
-            + "inventario.nArticulos,inventario.precioVenta, inventario.fechaLote"
+            + "inventario.nArticulos,inventario.precioVenta "
             + " FROM producto INNER JOIN inventario ON producto.idProducto=inventario.idProducto "
-            + "WHERE producto.codigo=? ORDER BY inventario.fechaLote DESC ";
+            + "WHERE producto.codigo=? ";
     try{
         ps = (PreparedStatement)cn.prepareStatement(sql);
         ps.setString(1, regPro[1]);
@@ -265,11 +265,12 @@ public boolean verificarExistencia(String[] regPro){
                 regPro[2]=rs.getString("producto.nombre");
                 regPro[3]=rs.getString("producto.descripcion");
                 regPro[5]=rs.getString("inventario.precioVenta");
-                regPro[6]=String.valueOf(Integer.parseInt(regPro[4])*Integer.parseInt(regPro[5]));
+                
                 return true;
             }else{
                 return false;
             }
+          
         }
         return false;
     }catch(Exception e){
