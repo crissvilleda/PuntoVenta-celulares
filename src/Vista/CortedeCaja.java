@@ -142,13 +142,13 @@ public class CortedeCaja extends javax.swing.JFrame {
         jlblFI.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jlblFI.setForeground(new java.awt.Color(225, 99, 71));
         jlblFI.setText("Fecha Inicial");
-        jPanel1CortCaj.add(jlblFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, -1, -1));
+        jPanel1CortCaj.add(jlblFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, -1, -1));
 
         jlblFF.setBackground(new java.awt.Color(255, 255, 255));
         jlblFF.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jlblFF.setForeground(new java.awt.Color(225, 99, 71));
         jlblFF.setText("Fecha Final");
-        jPanel1CortCaj.add(jlblFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, -1, -1));
+        jPanel1CortCaj.add(jlblFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 110, -1, -1));
 
         btnGenerar.setBackground(new java.awt.Color(255, 255, 255));
         btnGenerar.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,31 +164,31 @@ public class CortedeCaja extends javax.swing.JFrame {
                 btnGenerarActionPerformed(evt);
             }
         });
-        jPanel1CortCaj.add(btnGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 140, 75, 25));
+        jPanel1CortCaj.add(btnGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 130, 75, 25));
 
         jlblDMAFI.setBackground(new java.awt.Color(255, 255, 255));
         jlblDMAFI.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jlblDMAFI.setForeground(new java.awt.Color(153, 153, 153));
         jlblDMAFI.setText("DD/MM/AAAA");
-        jPanel1CortCaj.add(jlblDMAFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 80, -1));
+        jPanel1CortCaj.add(jlblDMAFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 80, -1));
 
         jlblDMAFF.setBackground(new java.awt.Color(255, 255, 255));
         jlblDMAFF.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jlblDMAFF.setForeground(new java.awt.Color(153, 153, 153));
         jlblDMAFF.setText("DD/MM/AAAA");
-        jPanel1CortCaj.add(jlblDMAFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 70, -1));
+        jPanel1CortCaj.add(jlblDMAFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, 70, -1));
 
         jPanel1CortCaj.add(jcmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 180, -1));
 
         dcFI.setBackground(new java.awt.Color(36, 33, 33));
         dcFI.setForeground(new java.awt.Color(207, 207, 207));
         dcFI.setFont(new java.awt.Font("Verdana", 1, 12));
-        jPanel1CortCaj.add(dcFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 120, -1));
+        jPanel1CortCaj.add(dcFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 120, -1));
 
         dcFF.setBackground(new java.awt.Color(36, 33, 33));
         dcFF.setForeground(new java.awt.Color(207, 207, 207));
         dcFF.setFont(new java.awt.Font("Verdana", 1, 12));
-        jPanel1CortCaj.add(dcFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, 100, -1));
+        jPanel1CortCaj.add(dcFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, 120, -1));
 
         getContentPane().add(jPanel1CortCaj, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 180));
 
