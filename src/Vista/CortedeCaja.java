@@ -44,8 +44,6 @@ public class CortedeCaja extends javax.swing.JFrame {
         jlblDMAFI = new javax.swing.JLabel();
         jlblDMAFF = new javax.swing.JLabel();
         jcmbUsuario = new javax.swing.JComboBox<>();
-        dcFI = new com.toedter.calendar.JDateChooser();
-        dcFF = new com.toedter.calendar.JDateChooser();
         jPanel2CortCaj = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -179,16 +177,6 @@ public class CortedeCaja extends javax.swing.JFrame {
         jPanel1CortCaj.add(jlblDMAFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 70, -1));
 
         jPanel1CortCaj.add(jcmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 180, -1));
-
-        dcFI.setBackground(new java.awt.Color(36, 33, 33));
-        dcFI.setForeground(new java.awt.Color(207, 207, 207));
-        dcFI.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jPanel1CortCaj.add(dcFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 120, -1));
-
-        dcFF.setBackground(new java.awt.Color(36, 33, 33));
-        dcFF.setForeground(new java.awt.Color(207, 207, 207));
-        dcFF.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jPanel1CortCaj.add(dcFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, 100, -1));
 
         getContentPane().add(jPanel1CortCaj, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 180));
 
@@ -593,8 +581,6 @@ public class CortedeCaja extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnGenerar;
     public javax.swing.JButton btnGuarCort;
-    public com.toedter.calendar.JDateChooser dcFF;
-    public com.toedter.calendar.JDateChooser dcFI;
     public javax.swing.JPanel jPanel1CortCaj;
     public javax.swing.JPanel jPanel2CortCaj;
     private javax.swing.JSeparator jSeparator1;

@@ -159,6 +159,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
             vista.btnEliminarCarrito.setEnabled(false);
             
         }else if(ae.getSource()==vista.btnCerrarSesion){
+            
             ControladorLogin controlLogin = new ControladorLogin(login);
             controlLogin.iniciar();
             vista.dispose();
