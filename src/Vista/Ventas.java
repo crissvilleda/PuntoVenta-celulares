@@ -5,7 +5,6 @@
  */
 package Vista;
 
-import AppPackage.AnimationClass;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -40,7 +39,7 @@ public class Ventas extends javax.swing.JFrame {
     class jlblHora implements ActionListener{
         public void actionPerformed(ActionEvent e){
             Date sistHora = new Date();
-            String pmAm="hh:mm a";
+            String pmAm="hh:mm:ss a";
             SimpleDateFormat format = new SimpleDateFormat(pmAm);
             Calendar hoy=Calendar.getInstance();
             jlblHoraSistema.setText(String.format(format.format(sistHora),hoy));
