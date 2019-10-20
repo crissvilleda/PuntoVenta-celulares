@@ -50,13 +50,11 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         this.vista.btnAgregarCarrito.addActionListener(this);
         this.vista.btnEliminarCarrito.addActionListener(this);
         this.vista.btnRealizar.addActionListener(this);
-        this.vista.btnCerrarSesion1.addActionListener(this);
         this.vista.jtxtNit.addKeyListener(this);
         this.vista.jtxtIngreseCodigo.addKeyListener(this);
         this.vista.jtableVentas.getModel().addTableModelListener(this);
         this.vista.jtxtImporte.getDocument().addDocumentListener(this);
         this.vista.jtableVentas.addMouseListener(this);
-        this.vista.btnCerrarSesion1.addActionListener(this);
         this.vista.lblSalir.addMouseListener(this);
         
         consultaVenta.siguenteIdVenta(vista.jlblIdVenta);
@@ -158,12 +156,6 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
             vista.jtableVentas.clearSelection();
             
             vista.btnEliminarCarrito.setEnabled(false);
-            
-        }else if(ae.getSource()==vista.btnCerrarSesion1){
-            
-            ControladorLogin controlLogin = new ControladorLogin(vistaLogin);
-            controlLogin.iniciar();
-            vista.dispose();
             
         }
     }
