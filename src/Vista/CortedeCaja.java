@@ -136,7 +136,7 @@ public class CortedeCaja extends javax.swing.JFrame {
         jlblNU.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jlblNU.setForeground(new java.awt.Color(225, 99, 71));
         jlblNU.setText("Seleccione usuario");
-        jPanel1CortCaj.add(jlblNU, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, -1, -1));
+        jPanel1CortCaj.add(jlblNU, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
 
         jlblFI.setBackground(new java.awt.Color(255, 255, 255));
         jlblFI.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
@@ -178,7 +178,7 @@ public class CortedeCaja extends javax.swing.JFrame {
         jlblDMAFF.setText("DD/MM/AAAA");
         jPanel1CortCaj.add(jlblDMAFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, 70, -1));
 
-        jPanel1CortCaj.add(jcmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 180, -1));
+        jPanel1CortCaj.add(jcmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 180, -1));
 
         dcFI.setBackground(new java.awt.Color(36, 33, 33));
         dcFI.setForeground(new java.awt.Color(207, 207, 207));
