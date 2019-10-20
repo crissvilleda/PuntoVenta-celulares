@@ -39,7 +39,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
     private Usuario modelo;
     private ConsultasVenta consultaVenta = new ConsultasVenta();
     private ConsultasCliente consultaCliente = new ConsultasCliente();
-    private Login login = new Login();
+    private Login vistalogin = new Login();
     //registra si el jtable esta activo
     boolean active = false;
 
@@ -68,7 +68,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         vista.btnRealizar.setEnabled(false);
         
     }
-    public void agregarProducto(){
+    private void agregarProducto(){
         ConsultasProducto cp = new ConsultasProducto();
         String regProducto [] = new String[7];
         DefaultTableModel model = (DefaultTableModel)vista.jtableVentas.getModel();
@@ -107,7 +107,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         vista.jtxtIngreseCodigo.setText("");
         vista.jtxtCantidad.setText("1");
     }
-    public static TableModel calcularSubTotal(TableModel datos){
+    private static TableModel calcularSubTotal(TableModel datos){
         for (int x =0; x<datos.getRowCount();x++){
             String valor = null;
             try{
@@ -119,7 +119,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         }
         return datos;
     }
-    public void calcularTotal(JLabel total){
+    private void calcularTotal(JLabel total){
         TableModel model = (TableModel)vista.jtableVentas.getModel();
         String valor ="0";
         for(int x=0; x<model.getRowCount();x++){
@@ -160,9 +160,11 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
             
         }else if(ae.getSource()==vista.btnCerrarSesion){
             
-            ControladorLogin controlLogin = new ControladorLogin(login);
+            ControladorLogin controlLogin = new ControladorLogin(vistalogin);
+          
             controlLogin.iniciar();
             vista.dispose();
+            
         }
     }
 

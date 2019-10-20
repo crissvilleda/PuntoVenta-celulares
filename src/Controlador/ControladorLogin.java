@@ -26,10 +26,10 @@ public class ControladorLogin implements ActionListener, KeyListener, MouseListe
     private Login vista;
     private Administrador vistaAdmin = new Administrador();
     private ConsultasUsuario consulta = new ConsultasUsuario();
-
+    private Ventas vistaVentas = new Ventas();
     //inicializa en controlador
-    public ControladorLogin(Login vista){
-        this.vista = vista;
+    public ControladorLogin(Login vis){
+        this.vista = vis;
         //lee el evento del boton
         vista.jPassword.addKeyListener(this);
         vista.jtxtUsuario.addKeyListener(this);
@@ -82,36 +82,42 @@ public class ControladorLogin implements ActionListener, KeyListener, MouseListe
         }
     }
     //funcion para iniciar seccion
-    public void session(){
-        Usuario modelo = new Usuario();
-        modelo.setNombreUsuario(vista.jtxtUsuario.getText());
-        modelo.setContraseña(String.valueOf(vista.jPassword.getPassword()));
-  
-            //verifica existe el usuario
-            if(consulta.iniciarSesion(modelo)){
-                //ingreso exitoso       
-                JOptionPane.showMessageDialog(null,"Ingreso Exitoso");
-                if(modelo.getTipo().equals("Admin")){
-                    
-                    ControladorAdministrador controladorA = 
-                            new ControladorAdministrador(vistaAdmin,modelo);
-                    controladorA.iniciar();
-                    vista.dispose();
-                }else if(modelo.getTipo().equals("Empleado")){
-                    ControladorVentas ControlVentas = 
-                            new ControladorVentas(new Ventas(),modelo);
-                    ControlVentas.iniciar();
-                    vista.dispose();
-                    
+    private void session(){
+        try{
+
+            Usuario modelo = new Usuario();
+            modelo.setNombreUsuario(vista.jtxtUsuario.getText());
+            modelo.setContraseña(String.valueOf(vista.jPassword.getPassword()));
+
+                //verifica existe el usuario
+                if(consulta.iniciarSesion(modelo)){
+                    //ingreso exitoso       
+                    JOptionPane.showMessageDialog(null,"Ingreso Exitoso");
+                    if(modelo.getTipo().equals("Admin")){
+
+                        ControladorAdministrador controladorA = 
+                                new ControladorAdministrador(vistaAdmin,modelo);
+                        vista.dispose();
+                        controladorA.iniciar();
+                        
+                    }else if(modelo.getTipo().equals("Empleado")){
+                        ControladorVentas ControlVentas = 
+                                new ControladorVentas(vistaVentas,modelo);
+                        
+                        ControlVentas.iniciar();
+                        vista.dispose();
+                        
+
+                    }
+
+                }else{
+                    //usuario no existe
+                    JOptionPane.showMessageDialog(null,"Nombre de usuario o contraseña");
+                    vista.jtxtUsuario.setText("");
+                    vista.jPassword.setText("");
+                    vista.jtxtUsuario.requestFocus();
                 }
-                
-            }else{
-                //usuario no existe
-                JOptionPane.showMessageDialog(null,"Nombre de usuario o contraseña");
-                vista.jtxtUsuario.setText("");
-                vista.jPassword.setText("");
-                vista.jtxtUsuario.requestFocus();
-            }            
+        }catch(Exception e){}
         
     }
     public void iniciar(){
