@@ -44,6 +44,8 @@ public class CortedeCaja extends javax.swing.JFrame {
         jlblDMAFI = new javax.swing.JLabel();
         jlblDMAFF = new javax.swing.JLabel();
         jcmbUsuario = new javax.swing.JComboBox<>();
+        dcFI = new com.toedter.calendar.JDateChooser();
+        dcFF = new com.toedter.calendar.JDateChooser();
         jPanel2CortCaj = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -180,12 +182,12 @@ public class CortedeCaja extends javax.swing.JFrame {
 
         dcFI.setBackground(new java.awt.Color(36, 33, 33));
         dcFI.setForeground(new java.awt.Color(207, 207, 207));
-        dcFI.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        dcFI.setFont(new java.awt.Font("Verdana", 1, 12));
         jPanel1CortCaj.add(dcFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 120, -1));
 
         dcFF.setBackground(new java.awt.Color(36, 33, 33));
         dcFF.setForeground(new java.awt.Color(207, 207, 207));
-        dcFF.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        dcFF.setFont(new java.awt.Font("Verdana", 1, 12));
         jPanel1CortCaj.add(dcFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, 100, -1));
 
         getContentPane().add(jPanel1CortCaj, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 180));
@@ -217,7 +219,6 @@ public class CortedeCaja extends javax.swing.JFrame {
         jPanel2CortCaj.add(jlblEfecCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 130, 20));
 
         jlblEI.setBackground(new java.awt.Color(255, 255, 255));
-        jlblEI.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jlblEI.setForeground(new java.awt.Color(225, 99, 71));
         jlblEI.setText("Efectivo Inicial");
         jPanel2CortCaj.add(jlblEI, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 73, -1, -1));
@@ -591,6 +592,8 @@ public class CortedeCaja extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnGenerar;
     public javax.swing.JButton btnGuarCort;
+    public com.toedter.calendar.JDateChooser dcFF;
+    public com.toedter.calendar.JDateChooser dcFI;
     public javax.swing.JPanel jPanel1CortCaj;
     public javax.swing.JPanel jPanel2CortCaj;
     private javax.swing.JSeparator jSeparator1;
