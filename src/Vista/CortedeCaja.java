@@ -178,6 +178,16 @@ public class CortedeCaja extends javax.swing.JFrame {
 
         jPanel1CortCaj.add(jcmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 180, -1));
 
+        dcFI.setBackground(new java.awt.Color(36, 33, 33));
+        dcFI.setForeground(new java.awt.Color(207, 207, 207));
+        dcFI.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPanel1CortCaj.add(dcFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 120, -1));
+
+        dcFF.setBackground(new java.awt.Color(36, 33, 33));
+        dcFF.setForeground(new java.awt.Color(207, 207, 207));
+        dcFF.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPanel1CortCaj.add(dcFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, 100, -1));
+
         getContentPane().add(jPanel1CortCaj, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 180));
 
         jPanel2CortCaj.setBackground(new java.awt.Color(255, 255, 255));
