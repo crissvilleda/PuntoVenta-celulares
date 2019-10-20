@@ -39,7 +39,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
     private Usuario modelo;
     private ConsultasVenta consultaVenta = new ConsultasVenta();
     private ConsultasCliente consultaCliente = new ConsultasCliente();
-    private Login vistalogin = new Login();
+    private Login vistaLogin = new Login();
     //registra si el jtable esta activo
     boolean active = false;
 
@@ -47,25 +47,26 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         this.vista = vista;
         this.modelo = modelo;
         
-        vista.btnAgregarCarrito.addActionListener(this);
-        vista.btnEliminarCarrito.addActionListener(this);
-        vista.btnRealizar.addActionListener(this);
-        vista.btnCerrarSesion.addActionListener(this);
-        vista.jtxtNit.addKeyListener(this);
-        vista.jtxtIngreseCodigo.addKeyListener(this);
-        vista.jtableVentas.getModel().addTableModelListener(this);
-        vista.jtxtImporte.getDocument().addDocumentListener(this);
-        vista.jtableVentas.addMouseListener(this);
-        vista.btnCerrarSesion.addActionListener(this);
+        this.vista.btnAgregarCarrito.addActionListener(this);
+        this.vista.btnEliminarCarrito.addActionListener(this);
+        this.vista.btnRealizar.addActionListener(this);
+        this.vista.btnCerrarSesion1.addActionListener(this);
+        this.vista.jtxtNit.addKeyListener(this);
+        this.vista.jtxtIngreseCodigo.addKeyListener(this);
+        this.vista.jtableVentas.getModel().addTableModelListener(this);
+        this.vista.jtxtImporte.getDocument().addDocumentListener(this);
+        this.vista.jtableVentas.addMouseListener(this);
+        this.vista.btnCerrarSesion1.addActionListener(this);
+        this.vista.lblSalir.addMouseListener(this);
         
         consultaVenta.siguenteIdVenta(vista.jlblIdVenta);
-        vista.jlblNombreUsuario.setText(modelo.getNombreUsuario());
-        vista.jlblArtsVendidos.setText("0");
-        vista.jlblCambioVenta.setText("00.00");
-        vista.jlblTotal.setText("00.00");
-        vista.jtxtCantidad.setText("1");
-        vista.btnEliminarCarrito.setEnabled(false);
-        vista.btnRealizar.setEnabled(false);
+        this.vista.jlblNombreUsuario.setText(modelo.getNombreUsuario());
+        this.vista.jlblArtsVendidos.setText("0");
+        this.vista.jlblCambioVenta.setText("00.00");
+        this.vista.jlblTotal.setText("00.00");
+        this.vista.jtxtCantidad.setText("1");
+        this.vista.btnEliminarCarrito.setEnabled(false);
+        this.vista.btnRealizar.setEnabled(false);
         
     }
     private void agregarProducto(){
@@ -158,10 +159,9 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
             
             vista.btnEliminarCarrito.setEnabled(false);
             
-        }else if(ae.getSource()==vista.btnCerrarSesion){
+        }else if(ae.getSource()==vista.btnCerrarSesion1){
             
-            ControladorLogin controlLogin = new ControladorLogin(vistalogin);
-          
+            ControladorLogin controlLogin = new ControladorLogin(vistaLogin);
             controlLogin.iniciar();
             vista.dispose();
             
@@ -175,7 +175,12 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
                vista.btnEliminarCarrito.setEnabled(true);
                       
            }
-        }
+        }else if(me.getSource()==vista.lblSalir){
+                ControladorLogin controlLogin = new ControladorLogin(vistaLogin);
+                controlLogin.iniciar();
+                vista.dispose();
+
+           }
     }
     
     @Override

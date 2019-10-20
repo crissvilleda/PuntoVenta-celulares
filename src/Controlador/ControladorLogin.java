@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
  */
 public class ControladorLogin implements ActionListener, KeyListener, MouseListener {
     private Login vista;
+    private Usuario modelo = new Usuario();
     private Administrador vistaAdmin = new Administrador();
     private ConsultasUsuario consulta = new ConsultasUsuario();
     private Ventas vistaVentas = new Ventas();
@@ -36,6 +37,7 @@ public class ControladorLogin implements ActionListener, KeyListener, MouseListe
         vista.btnIniciarSesion.addActionListener(this);
         vista.jlblCerrar.addMouseListener(this);
         vista.jblbMinimizar.addMouseListener(this);
+      
                 
     }
     
@@ -84,13 +86,14 @@ public class ControladorLogin implements ActionListener, KeyListener, MouseListe
     //funcion para iniciar seccion
     private void session(){
         try{
-
-            Usuario modelo = new Usuario();
-            modelo.setNombreUsuario(vista.jtxtUsuario.getText());
-            modelo.setContraseña(String.valueOf(vista.jPassword.getPassword()));
+            
+                Usuario modelo = new Usuario();
+                modelo.setNombreUsuario(vista.jtxtUsuario.getText());
+                modelo.setContraseña(String.valueOf(vista.jPassword.getPassword()));
 
                 //verifica existe el usuario
                 if(consulta.iniciarSesion(modelo)){
+                
                     //ingreso exitoso       
                     JOptionPane.showMessageDialog(null,"Ingreso Exitoso");
                     if(modelo.getTipo().equals("Admin")){
@@ -99,16 +102,16 @@ public class ControladorLogin implements ActionListener, KeyListener, MouseListe
                                 new ControladorAdministrador(vistaAdmin,modelo);
                         vista.dispose();
                         controladorA.iniciar();
-                        
+
                     }else if(modelo.getTipo().equals("Empleado")){
                         ControladorVentas ControlVentas = 
                                 new ControladorVentas(vistaVentas,modelo);
-                        
+
                         ControlVentas.iniciar();
                         vista.dispose();
                         
 
-                    }
+                    }else{}
 
                 }else{
                     //usuario no existe
@@ -117,6 +120,7 @@ public class ControladorLogin implements ActionListener, KeyListener, MouseListe
                     vista.jPassword.setText("");
                     vista.jtxtUsuario.requestFocus();
                 }
+            
         }catch(Exception e){}
         
     }
