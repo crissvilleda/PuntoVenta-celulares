@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Vista;
+import java.util.Calendar;
 
 /**
  *
@@ -38,13 +39,13 @@ public class CortedeCaja extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jlblNU = new javax.swing.JLabel();
         jlblFI = new javax.swing.JLabel();
-        jtxtFI = new javax.swing.JTextField();
-        jtxtFF = new javax.swing.JTextField();
         jlblFF = new javax.swing.JLabel();
         btnGenerar = new javax.swing.JButton();
         jlblDMAFI = new javax.swing.JLabel();
         jlblDMAFF = new javax.swing.JLabel();
         jcmbUsuario = new javax.swing.JComboBox<>();
+        dcFI = new com.toedter.calendar.JDateChooser();
+        dcFF = new com.toedter.calendar.JDateChooser();
         jPanel2CortCaj = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -141,33 +142,13 @@ public class CortedeCaja extends javax.swing.JFrame {
         jlblFI.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jlblFI.setForeground(new java.awt.Color(225, 99, 71));
         jlblFI.setText("Fecha Inicial");
-        jPanel1CortCaj.add(jlblFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(507, 120, -1, -1));
-
-        jtxtFI.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jtxtFI.setForeground(new java.awt.Color(103, 103, 103));
-        jtxtFI.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jtxtFI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtFIActionPerformed(evt);
-            }
-        });
-        jPanel1CortCaj.add(jtxtFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 85, 20));
-
-        jtxtFF.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jtxtFF.setForeground(new java.awt.Color(103, 103, 103));
-        jtxtFF.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jtxtFF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtFFActionPerformed(evt);
-            }
-        });
-        jPanel1CortCaj.add(jtxtFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 140, 85, 20));
+        jPanel1CortCaj.add(jlblFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, -1, -1));
 
         jlblFF.setBackground(new java.awt.Color(255, 255, 255));
         jlblFF.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jlblFF.setForeground(new java.awt.Color(225, 99, 71));
         jlblFF.setText("Fecha Final");
-        jPanel1CortCaj.add(jlblFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(668, 120, -1, -1));
+        jPanel1CortCaj.add(jlblFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, -1, -1));
 
         btnGenerar.setBackground(new java.awt.Color(255, 255, 255));
         btnGenerar.setForeground(new java.awt.Color(255, 255, 255));
@@ -189,15 +170,25 @@ public class CortedeCaja extends javax.swing.JFrame {
         jlblDMAFI.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jlblDMAFI.setForeground(new java.awt.Color(153, 153, 153));
         jlblDMAFI.setText("DD/MM/AAAA");
-        jPanel1CortCaj.add(jlblDMAFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 160, 80, -1));
+        jPanel1CortCaj.add(jlblDMAFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 80, -1));
 
         jlblDMAFF.setBackground(new java.awt.Color(255, 255, 255));
         jlblDMAFF.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jlblDMAFF.setForeground(new java.awt.Color(153, 153, 153));
         jlblDMAFF.setText("DD/MM/AAAA");
-        jPanel1CortCaj.add(jlblDMAFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(668, 160, 70, -1));
+        jPanel1CortCaj.add(jlblDMAFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 70, -1));
 
         jPanel1CortCaj.add(jcmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 180, -1));
+
+        dcFI.setBackground(new java.awt.Color(36, 33, 33));
+        dcFI.setForeground(new java.awt.Color(207, 207, 207));
+        dcFI.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPanel1CortCaj.add(dcFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 120, -1));
+
+        dcFF.setBackground(new java.awt.Color(36, 33, 33));
+        dcFF.setForeground(new java.awt.Color(207, 207, 207));
+        dcFF.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPanel1CortCaj.add(dcFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, 100, -1));
 
         getContentPane().add(jPanel1CortCaj, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 180));
 
@@ -481,22 +472,6 @@ public class CortedeCaja extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnGenerarActionPerformed
 
-    private void jtxtFIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtFIActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtFIActionPerformed
-
-    private void jtxtFFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtFFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtFFActionPerformed
-
-    private void jtxtEIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtEIActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtEIActionPerformed
-
-    private void jtxtTVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtTVActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtTVActionPerformed
-
     private void jtxtB100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtB100ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtB100ActionPerformed
@@ -540,6 +515,14 @@ public class CortedeCaja extends javax.swing.JFrame {
     private void jtxtM005ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtM005ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtM005ActionPerformed
+
+    private void jtxtTVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtTVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtTVActionPerformed
+
+    private void jtxtEIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtEIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtEIActionPerformed
 
     /**
      * @param args the command line arguments
@@ -610,6 +593,8 @@ public class CortedeCaja extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnGenerar;
     public javax.swing.JButton btnGuarCort;
+    public com.toedter.calendar.JDateChooser dcFF;
+    public com.toedter.calendar.JDateChooser dcFI;
     public javax.swing.JPanel jPanel1CortCaj;
     public javax.swing.JPanel jPanel2CortCaj;
     private javax.swing.JSeparator jSeparator1;
@@ -652,8 +637,6 @@ public class CortedeCaja extends javax.swing.JFrame {
     public javax.swing.JTextField jtxtB5;
     public javax.swing.JTextField jtxtB50;
     public javax.swing.JTextField jtxtEI;
-    public javax.swing.JTextField jtxtFF;
-    public javax.swing.JTextField jtxtFI;
     public javax.swing.JTextField jtxtM005;
     public javax.swing.JTextField jtxtM010;
     public javax.swing.JTextField jtxtM025;

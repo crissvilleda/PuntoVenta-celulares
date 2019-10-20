@@ -37,8 +37,8 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     
     vista.btnGenerar.addActionListener(this);
     
-    vista.jtxtFI.getDocument().addDocumentListener(this);
-    vista.jtxtFF.getDocument().addDocumentListener(this);
+    /*vista.jtxtFI.getDocument().addDocumentListener(this);
+    vista.jtxtFF.getDocument().addDocumentListener(this);*/
     vista.jtxtB100.getDocument().addDocumentListener(this);
     vista.jtxtB50.getDocument().addDocumentListener(this);
     vista.jtxtB20.getDocument().addDocumentListener(this);
@@ -95,8 +95,6 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
         vista.jtxtM025.setEditable(false);
         vista.jtxtM010.setEditable(false);
         vista.jtxtM005.setEditable(false);
-        vista.jtxtEI.setEditable(false);
-        vista.jtxtTV.setEditable(false);
         vista.btnGuarCort.setEnabled(false);
         vista.btnGenerar.setEnabled(false);
         }
@@ -118,8 +116,6 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
         vista.jtxtM025.setEditable(true);
         vista.jtxtM010.setEditable(true);
         vista.jtxtM005.setEditable(true);
-        vista.jtxtEI.setEditable(true);
-        vista.jtxtTV.setEditable(true);
         vista.btnGenerar.setEnabled(true);
         vista.jtxtB100.setText("0");
         vista.jtxtB50.setText("0");
@@ -136,12 +132,12 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     
     //Verifica los campos antes de activar el boton Generar
     public void verificarJtxtpG(){
-        if(vista.jtxtFI.getText().length()==10 && vista.jtxtFF.getText().length()==10){
+        /*if(vista.jtxtFI.getText().length()==10 && vista.jtxtFF.getText().length()==10){
             vista.btnGenerar.setEnabled(true);
             }
         else{
             vista.btnGenerar.setEnabled(false);
-        }
+        }*/
     }
     //Calcular Efectivo Total en caja
     public void calcTotCaj(JLabel total){
@@ -165,11 +161,11 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     }
      @Override
     public void insertUpdate(DocumentEvent e) {
-        if(e.getDocument()==vista.jtxtFF.getDocument()){
+        /*if(e.getDocument()==vista.jtxtFF.getDocument()){
             verificarJtxtpG();
         }else if(e.getDocument()==vista.jtxtFI.getDocument()){
             verificarJtxtpG();
-        }else if(e.getDocument()==vista.jtxtB100.getDocument()){
+        }else */if(e.getDocument()==vista.jtxtB100.getDocument()){
             calcTotCaj(vista.jlblTotal);
         }else if(e.getDocument()==vista.jtxtB50.getDocument()){
             calcTotCaj(vista.jlblTotal);
@@ -198,11 +194,11 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
 
     @Override
     public void removeUpdate(DocumentEvent e) {
-        if(e.getDocument()==vista.jtxtFF.getDocument()){
+        /*if(e.getDocument()==vista.jtxtFF.getDocument()){
             verificarJtxtpG();
         }else if(e.getDocument()==vista.jtxtFI.getDocument()){
             verificarJtxtpG();
-        }else if(e.getDocument()==vista.jtxtB100.getDocument()){
+        }else*/ if(e.getDocument()==vista.jtxtB100.getDocument()){
             calcTotCaj(vista.jlblTotal);
         }else if(e.getDocument()==vista.jtxtB50.getDocument()){
             calcTotCaj(vista.jlblTotal);
@@ -229,11 +225,11 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
 
     @Override
     public void changedUpdate(DocumentEvent e) {
-        if(e.getDocument()==vista.jtxtFF.getDocument()){
+        /*if(e.getDocument()==vista.jtxtFF.getDocument()){
             verificarJtxtpG();
         }else if(e.getDocument()==vista.jtxtFI.getDocument()){
             verificarJtxtpG();
-        }else if(e.getDocument()==vista.jtxtB100.getDocument()){
+        }else*/ if(e.getDocument()==vista.jtxtB100.getDocument()){
             calcTotCaj(vista.jlblTotal);
         }else if(e.getDocument()==vista.jtxtB50.getDocument()){
             calcTotCaj(vista.jlblTotal);
