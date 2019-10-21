@@ -403,7 +403,7 @@ public class Ventas extends javax.swing.JFrame {
         lblSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cerrarSesion.png"))); // NOI18N
         lblSalir.setText("Cerrar Session");
         lblSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jpanel4.add(lblSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 120, 30));
+        jpanel4.add(lblSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 130, 30));
 
         getContentPane().add(jpanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 0, 250, 275));
 

@@ -452,7 +452,7 @@ public class CortedeCaja extends javax.swing.JFrame {
         jlblDMAFI2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jlblDMAFI2.setForeground(new java.awt.Color(102, 103, 103));
         jlblDMAFI2.setText("Por favor Verifique todos los campos");
-        jPanel2CortCaj.add(jlblDMAFI2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, 220, -1));
+        jPanel2CortCaj.add(jlblDMAFI2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, 220, -1));
 
         getContentPane().add(jPanel2CortCaj, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, 320));
 
