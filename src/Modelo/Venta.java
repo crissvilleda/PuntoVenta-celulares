@@ -5,7 +5,7 @@
  */
 package Modelo;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  *
@@ -13,29 +13,32 @@ import java.sql.Date;
  */
 public class Venta {
     private int idVenta;
-    private Date fecha;
     private int idUsuario;
     private int idCliente;
+    private Timestamp fecha;
     private int nArticulo;
-    private double total;
+    private double totalCompra;
+    private double totalVenta;
     
     
     public Venta(){}
-   
+
+    public Venta(int idVenta, int idUsuario, int idCliente, Timestamp fecha, int nArticulo, double totaCompra, double totalVenta) {
+        this.idVenta = idVenta;
+        this.idUsuario = idUsuario;
+        this.idCliente = idCliente;
+        this.fecha = fecha;
+        this.nArticulo = nArticulo;
+        this.totalCompra = totaCompra;
+        this.totalVenta = totalVenta;
+    }
+
     public int getIdVenta() {
         return idVenta;
     }
 
     public void setIdVenta(int idVenta) {
         this.idVenta = idVenta;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
     }
 
     public int getIdUsuario() {
@@ -54,13 +57,12 @@ public class Venta {
         this.idCliente = idCliente;
     }
 
-
-    public double getTotal() {
-        return total;
+    public Timestamp getFecha() {
+        return fecha;
     }
 
-    public void setTotal(double total) {
-        this.total = total;
+    public void setFecha(Timestamp fecha) {
+        this.fecha = fecha;
     }
 
     public int getnArticulo() {
@@ -70,6 +72,24 @@ public class Venta {
     public void setnArticulo(int nArticulo) {
         this.nArticulo = nArticulo;
     }
+
+    public double getTotaCompra() {
+        return totalCompra;
+    }
+
+    public void setTotaCompra(double totalCompra) {
+        this.totalCompra = totalCompra;
+    }
+
+    public double getTotalVenta() {
+        return totalVenta;
+    }
+
+    public void setTotalVenta(double totalVenta) {
+        this.totalVenta = totalVenta;
+    }
+   
+    
     
     
 }

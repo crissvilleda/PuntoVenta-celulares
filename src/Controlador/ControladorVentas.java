@@ -6,11 +6,14 @@
 package Controlador;
 
 import Modelo.Cliente;
+import Modelo.ConsultaDetalleVenta;
 import Modelo.ConsultasCliente;
 import Modelo.ConsultasProducto;
 import Modelo.ConsultasVenta;
+import Modelo.DetalleVenta;
 import Modelo.Producto;
 import Modelo.Usuario;
+import Modelo.Venta;
 import Vista.Administrador;
 import Vista.Login;
 import Vista.Ventas;
@@ -20,6 +23,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
@@ -37,6 +42,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         TableModelListener,DocumentListener{
     private Ventas vista;
     private Usuario modelo;
+    private Cliente cliente = new Cliente();
     private ConsultasVenta consultaVenta = new ConsultasVenta();
     private ConsultasCliente consultaCliente = new ConsultasCliente();
     private Login vistaLogin = new Login();
@@ -69,7 +75,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
     }
     private void agregarProducto(){
         ConsultasProducto cp = new ConsultasProducto();
-        String regProducto [] = new String[7];
+        String regProducto [] = new String[8];
         DefaultTableModel model = (DefaultTableModel)vista.jtableVentas.getModel();
         //si el registro ya existe el la tabla
         boolean existe = false;
@@ -110,21 +116,36 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         for (int x =0; x<datos.getRowCount();x++){
             String valor = null;
             try{
-                valor = String.valueOf(Integer.valueOf((String)datos.getValueAt(x, 4)) * 
-                        Double.valueOf((String)datos.getValueAt(x, 5)));
+                valor = String.valueOf(Integer.parseInt((String)datos.getValueAt(x, 4)) * 
+                        Double.parseDouble((String)datos.getValueAt(x, 6)));
             }catch(Exception e){}
-            datos.setValueAt(valor, x, 6);
+            datos.setValueAt(valor, x, 7);
         
         }
         return datos;
     }
+    private void calcularTotalProducto(JLabel total){
+        TableModel model = (TableModel)vista.jtableVentas.getModel();
+        String valor ="0";
+        for(int x=0; x<model.getRowCount();x++){
+    
+            try{
+                int v = Integer.parseInt((String)model.getValueAt(x, 4));
+                valor = String.valueOf(v + Integer.parseInt(valor));
+                
+            }catch(Exception e){}
+        }
+        total.setText(valor);
+        
+    }
+    
     private void calcularTotal(JLabel total){
         TableModel model = (TableModel)vista.jtableVentas.getModel();
         String valor ="0";
         for(int x=0; x<model.getRowCount();x++){
     
             try{
-                double v = Double.valueOf((String)model.getValueAt(x, 6));
+                double v = Double.valueOf((String)model.getValueAt(x, 7));
                 valor = String.valueOf(v + Double.valueOf(valor));
                 
             }catch(Exception e){}
@@ -132,10 +153,47 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         total.setText(valor);
         
     }
+    private Double calcularTotalCompra(){
+        TableModel model = (TableModel)vista.jtableVentas.getModel();
+        Double valor = 0.0;
+        for(int x=0; x<model.getRowCount();x++){
+    
+            try{
+                double v = Double.parseDouble((String)model.getValueAt(x, 4))*
+                        Double.parseDouble((String)model.getValueAt(x, 5));
+                valor = valor + v;
+                
+            }catch(Exception e){}
+        }
+        return valor;
+ 
+        
+    }
     public void iniciar(){
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
         
+    }
+    
+    private void realizarVenta(){
+        /*******Objetos de la venta*******/
+        DefaultTableModel model = (DefaultTableModel)vista.jtableVentas.getModel();
+        Venta venta = new Venta();
+        DetalleVenta detVenta = new DetalleVenta();
+        ConsultasVenta conVenta = new ConsultasVenta();
+        ConsultaDetalleVenta conDetVenta = new ConsultaDetalleVenta();
+        long now = System.currentTimeMillis();
+        Timestamp sqlTimestamp = new Timestamp(now);
+        try{
+            venta.setIdUsuario(modelo.getIdUsuario());
+            venta.setIdCliente(this.cliente.getIdCliente());
+            venta.setFecha(sqlTimestamp);
+            venta.setTotaCompra(now);
+            
+            
+        }catch(Exception e){
+            
+        }
     }
 
     @Override
@@ -179,9 +237,9 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
     public void keyPressed(KeyEvent ke) {
         if(ke.getSource()==vista.jtxtNit){
             if(ke.getKeyCode()==KeyEvent.VK_ENTER){
-                Cliente cliente = new Cliente();
-                cliente.setNit(vista.jtxtNit.getText());
-                if(consultaCliente.consultar(cliente)){
+                
+                this.cliente.setNit(vista.jtxtNit.getText());
+                if(consultaCliente.consultar(this.cliente)){
                     vista.jtxtNombre.setText(cliente.getNombre());
                     vista.jtxtApellido.setText(cliente.getApellido());
                     vista.jtxtNit.setText(cliente.getNit());
@@ -210,16 +268,19 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         if(!active && tme.getType()==TableModelEvent.INSERT){
             active=true;
             calcularSubTotal(vista.jtableVentas.getModel());
+            calcularTotalProducto(vista.jlblArtsVendidos);
             calcularTotal(vista.jlblTotal); 
             active=false;
         }else if(!active && tme.getType()==TableModelEvent.DELETE){
             active=true;
             calcularSubTotal(vista.jtableVentas.getModel());
+            calcularTotalProducto(vista.jlblArtsVendidos);
             calcularTotal(vista.jlblTotal); 
             active=false;
         }else if(!active && tme.getType()==TableModelEvent.UPDATE ){
             active=true;
             calcularSubTotal(vista.jtableVentas.getModel());
+            calcularTotalProducto(vista.jlblArtsVendidos);
             calcularTotal(vista.jlblTotal); 
             active=false;
         }

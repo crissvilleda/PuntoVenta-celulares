@@ -157,7 +157,7 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
     }
     
     public void realizarCompra(){
-       //***********Obejtos de la venta **************
+       //***********Obejtos de la compra **************
         Entrada entrada = new Entrada();
         Proveedor proveedor = new Proveedor();
         Inventario inventario = new Inventario();
@@ -165,7 +165,7 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
         DetalleEntrada detalleEntrada = new DetalleEntrada();
         ConsultasDetalleEntrada consultasDetEntrada = new ConsultasDetalleEntrada();
         try{
-            //***********Datos de venta **************
+            //***********Datos de compra **************
             //obtenemos el id del proveedor, deacuedo al seleccionado en el jcombox
             proveedor.setNombre(vista.jcmbProveedor.getModel().getSelectedItem().toString());
             if(consultaP.getId(proveedor)){

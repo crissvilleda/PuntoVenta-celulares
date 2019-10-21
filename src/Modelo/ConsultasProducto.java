@@ -252,8 +252,8 @@ public boolean verificarExistencia(String[] regPro){
     Connection cn = (Connection)getConnection();
     ResultSet rs = null;
     String sql = "SELECT producto.idProducto, producto.nombre, producto.descripcion, "
-            + "inventario.nArticulos,inventario.precioVenta "
-            + " FROM producto INNER JOIN inventario ON producto.idProducto=inventario.idProducto "
+            + "inventario.nArticulos,inventario.precioCompra,inventario.precioVenta FROM "
+            + "producto INNER JOIN inventario ON producto.idProducto=inventario.idProducto  "
             + "WHERE producto.codigo=? ";
     try{
         ps = (PreparedStatement)cn.prepareStatement(sql);
@@ -264,8 +264,8 @@ public boolean verificarExistencia(String[] regPro){
                 regPro[0]=rs.getString("producto.idProducto");
                 regPro[2]=rs.getString("producto.nombre");
                 regPro[3]=rs.getString("producto.descripcion");
-                regPro[5]=rs.getString("inventario.precioVenta");
-                
+                regPro[5]=rs.getString("inventario.precioCompra");
+                regPro[6]=rs.getString("inventario.precioVenta");
                 return true;
             }else{
                 return false;

@@ -67,14 +67,6 @@ public class Ventas extends javax.swing.JFrame {
         jlblDpi = new javax.swing.JLabel();
         jtxtNit = new javax.swing.JTextField();
         jlblNit = new javax.swing.JLabel();
-        jtxtTelefono = new javax.swing.JTextField();
-        jlblTelefoo = new javax.swing.JLabel();
-        jtxtEmail = new javax.swing.JTextField();
-        jlblEmail = new javax.swing.JLabel();
-        jlblDireccion = new javax.swing.JLabel();
-        jtxtDireccion = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        jtxtCiudad = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jpanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -151,7 +143,7 @@ public class Ventas extends javax.swing.JFrame {
                 jtxtNombreActionPerformed(evt);
             }
         });
-        jpanel1.add(jtxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 120, 20));
+        jpanel1.add(jtxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 260, 20));
 
         jtxtApellido.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtApellido.setForeground(new java.awt.Color(153, 153, 153));
@@ -161,13 +153,13 @@ public class Ventas extends javax.swing.JFrame {
                 jtxtApellidoActionPerformed(evt);
             }
         });
-        jpanel1.add(jtxtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 120, 20));
+        jpanel1.add(jtxtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 260, 20));
 
         jlblApellido.setBackground(new java.awt.Color(255, 255, 255));
         jlblApellido.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jlblApellido.setForeground(new java.awt.Color(225, 99, 71));
         jlblApellido.setText("Apellido:");
-        jpanel1.add(jlblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, -1, -1));
+        jpanel1.add(jlblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         jtxtDpi.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtDpi.setForeground(new java.awt.Color(153, 153, 153));
@@ -177,7 +169,7 @@ public class Ventas extends javax.swing.JFrame {
                 jtxtDpiActionPerformed(evt);
             }
         });
-        jpanel1.add(jtxtDpi, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, 120, 20));
+        jpanel1.add(jtxtDpi, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 140, 120, 20));
 
         jlblDpi.setBackground(new java.awt.Color(255, 255, 255));
         jlblDpi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -193,77 +185,13 @@ public class Ventas extends javax.swing.JFrame {
                 jtxtNitActionPerformed(evt);
             }
         });
-        jpanel1.add(jtxtNit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 140, 120, 20));
+        jpanel1.add(jtxtNit, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 140, 120, 20));
 
         jlblNit.setBackground(new java.awt.Color(255, 255, 255));
         jlblNit.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jlblNit.setForeground(new java.awt.Color(225, 99, 71));
         jlblNit.setText("Nit:");
         jpanel1.add(jlblNit, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 140, -1, -1));
-
-        jtxtTelefono.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jtxtTelefono.setForeground(new java.awt.Color(153, 153, 153));
-        jtxtTelefono.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jtxtTelefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtTelefonoActionPerformed(evt);
-            }
-        });
-        jpanel1.add(jtxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 120, 20));
-
-        jlblTelefoo.setBackground(new java.awt.Color(255, 255, 255));
-        jlblTelefoo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jlblTelefoo.setForeground(new java.awt.Color(225, 99, 71));
-        jlblTelefoo.setText("Telefono:");
-        jpanel1.add(jlblTelefoo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
-
-        jtxtEmail.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jtxtEmail.setForeground(new java.awt.Color(153, 153, 153));
-        jtxtEmail.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jtxtEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtEmailActionPerformed(evt);
-            }
-        });
-        jpanel1.add(jtxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 120, 20));
-
-        jlblEmail.setBackground(new java.awt.Color(255, 255, 255));
-        jlblEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jlblEmail.setForeground(new java.awt.Color(225, 99, 71));
-        jlblEmail.setText("E-mail:");
-        jpanel1.add(jlblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, -1));
-
-        jlblDireccion.setBackground(new java.awt.Color(255, 255, 255));
-        jlblDireccion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jlblDireccion.setForeground(new java.awt.Color(225, 99, 71));
-        jlblDireccion.setText("Direccion:");
-        jpanel1.add(jlblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, -1, -1));
-
-        jtxtDireccion.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jtxtDireccion.setForeground(new java.awt.Color(153, 153, 153));
-        jtxtDireccion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jtxtDireccion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtDireccionActionPerformed(evt);
-            }
-        });
-        jpanel1.add(jtxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 120, 20));
-
-        jLabel13.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(225, 99, 71));
-        jLabel13.setText("Ciudad:");
-        jpanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 180, -1, -1));
-
-        jtxtCiudad.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jtxtCiudad.setForeground(new java.awt.Color(153, 153, 153));
-        jtxtCiudad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jtxtCiudad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtCiudadActionPerformed(evt);
-            }
-        });
-        jpanel1.add(jtxtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 180, 120, 20));
         jpanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 950, -1));
 
         getContentPane().add(jpanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 225));
@@ -277,14 +205,14 @@ public class Ventas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Codigo", "Nombre", "Descripcion", "Cantidad", "PrecioUnitario", "PrecioTotal"
+                "Id", "Codigo", "Nombre", "Descripcion", "Cantidad", "PrecioCompra", "Precio ", "PrecioTotal"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true, true
+                false, false, false, false, false, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -307,10 +235,13 @@ public class Ventas extends javax.swing.JFrame {
             jtableVentas.getColumnModel().getColumn(1).setMaxWidth(0);
             jtableVentas.getColumnModel().getColumn(4).setMinWidth(70);
             jtableVentas.getColumnModel().getColumn(4).setMaxWidth(80);
-            jtableVentas.getColumnModel().getColumn(5).setMinWidth(80);
-            jtableVentas.getColumnModel().getColumn(5).setMaxWidth(90);
+            jtableVentas.getColumnModel().getColumn(5).setMinWidth(0);
+            jtableVentas.getColumnModel().getColumn(5).setPreferredWidth(0);
+            jtableVentas.getColumnModel().getColumn(5).setMaxWidth(0);
             jtableVentas.getColumnModel().getColumn(6).setMinWidth(80);
             jtableVentas.getColumnModel().getColumn(6).setMaxWidth(90);
+            jtableVentas.getColumnModel().getColumn(7).setMinWidth(80);
+            jtableVentas.getColumnModel().getColumn(7).setMaxWidth(90);
         }
 
         jpanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 850, 300));
@@ -570,22 +501,6 @@ public class Ventas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtNitActionPerformed
 
-    private void jtxtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtTelefonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtTelefonoActionPerformed
-
-    private void jtxtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtEmailActionPerformed
-
-    private void jtxtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtDireccionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtDireccionActionPerformed
-
-    private void jtxtCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtCiudadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtCiudadActionPerformed
-
     private void jtxtIngreseCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtIngreseCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtIngreseCodigoActionPerformed
@@ -663,7 +578,6 @@ public class Ventas extends javax.swing.JFrame {
     public javax.swing.JButton btnEliminarCarrito;
     public javax.swing.JButton btnRealizar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel13;
     public javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
@@ -677,9 +591,7 @@ public class Ventas extends javax.swing.JFrame {
     public javax.swing.JLabel jlblCantidad;
     public javax.swing.JLabel jlblDatosCliente;
     private javax.swing.JLabel jlblDetalleVenta;
-    public javax.swing.JLabel jlblDireccion;
     public javax.swing.JLabel jlblDpi;
-    public javax.swing.JLabel jlblEmail;
     private javax.swing.JLabel jlblFecha;
     public javax.swing.JLabel jlblFechaSistema;
     private javax.swing.JLabel jlblHora;
@@ -694,7 +606,6 @@ public class Ventas extends javax.swing.JFrame {
     public javax.swing.JLabel jlblNombre;
     public javax.swing.JLabel jlblNombreUsuario;
     public javax.swing.JLabel jlblQ;
-    public javax.swing.JLabel jlblTelefoo;
     public javax.swing.JLabel jlblTotal;
     private javax.swing.JLabel jlblTotalVenta;
     public javax.swing.JPanel jpanel1;
@@ -705,15 +616,11 @@ public class Ventas extends javax.swing.JFrame {
     public javax.swing.JTable jtableVentas;
     public javax.swing.JTextField jtxtApellido;
     public javax.swing.JTextField jtxtCantidad;
-    public javax.swing.JTextField jtxtCiudad;
-    public javax.swing.JTextField jtxtDireccion;
     public javax.swing.JTextField jtxtDpi;
-    public javax.swing.JTextField jtxtEmail;
     public javax.swing.JTextField jtxtImporte;
     public javax.swing.JTextField jtxtIngreseCodigo;
     public javax.swing.JTextField jtxtNit;
     public javax.swing.JTextField jtxtNombre;
-    public javax.swing.JTextField jtxtTelefono;
     public javax.swing.JLabel lblSalir;
     // End of variables declaration//GEN-END:variables
 }

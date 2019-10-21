@@ -9,12 +9,14 @@ package Modelo;
  *
  * @author criss
  */
-public class detalleVenta {
+public class DetalleVenta {
     private int idVenta;
     private int idProducto;
+    private double precioCompra;
     private double precioVenta;
     private int nArticulo;
-    private double subtotal;
+    private double subtotalCompra;
+    private double subtotalVenta;
 
     public int getIdVenta() {
         return idVenta;
@@ -30,6 +32,14 @@ public class detalleVenta {
 
     public void setIdProducto(int idProducto) {
         this.idProducto = idProducto;
+    }
+
+    public double getPrecioCompra() {
+        return precioCompra;
+    }
+
+    public void setPrecioCompra(double precioCompra) {
+        this.precioCompra = precioCompra;
     }
 
     public double getPrecioVenta() {
@@ -48,15 +58,22 @@ public class detalleVenta {
         this.nArticulo = nArticulo;
     }
 
-    public double getSubtotal() {
-        return subtotal;
+    public double getSubtotalCompra() {
+        return subtotalCompra;
     }
 
-    public void setSubtotal(double subtotal) {
-        this.subtotal = subtotal;
+    public void setSubtotalCompra(double subtotalCompra) {
+        this.subtotalCompra = subtotalCompra;
     }
-    
-    
+
+    public double getSubtotalVenta() {
+        return subtotalVenta;
+    }
+
+    public void setSubtotalVenta(double subtotalVenta) {
+        this.subtotalVenta = subtotalVenta;
+    }
+
     
     
    
