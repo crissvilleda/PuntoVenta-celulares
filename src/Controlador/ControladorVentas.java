@@ -185,10 +185,19 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         long now = System.currentTimeMillis();
         Timestamp sqlTimestamp = new Timestamp(now);
         try{
+            /******Datos venta*****/
             venta.setIdUsuario(modelo.getIdUsuario());
             venta.setIdCliente(this.cliente.getIdCliente());
             venta.setFecha(sqlTimestamp);
-            venta.setTotaCompra(now);
+            venta.setnArticulo(Integer.parseInt(this.vista.jlblArtsVendidos.getText()));
+            venta.setTotaCompra(calcularTotalCompra());
+            venta.setTotalVenta(Double.parseDouble(this.vista.jlblTotal.getText()));
+            //Se guarda la venta
+            conVenta.registar(venta);
+            
+            
+            
+            
             
             
         }catch(Exception e){
