@@ -72,6 +72,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         this.vista.jtxtCantidad.setText("1");
         this.vista.btnEliminarCarrito.setEnabled(false);
         this.vista.btnRealizar.setEnabled(false);
+        this.vista.btnBuscarProducto.setEnabled(false);
         
     }
     private void agregarProducto(){
