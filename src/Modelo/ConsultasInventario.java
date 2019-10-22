@@ -79,7 +79,35 @@ public class ConsultasInventario extends Pool{
         
     }
     
-   
+    public boolean modificarCanInv(DetalleVenta detVenta){
+        PreparedStatement ps=null;
+        Connection cn = (Connection)getConnection();
+        ResultSet rs = null;
+        String sql1="SELECT inventario.nArticulos FROM inventario WHERE inventario.idProducto=? ";
+        String sql2 ="UPDATE inventario SET inventario.nArticulos=? WHERE "
+                + "inventario.idProducto=?";
+        try{
+            ps = (PreparedStatement)cn.prepareStatement(sql1);
+            ps.setInt(1, detVenta.getIdProducto());
+            rs = ps.executeQuery();
+            int nArticulosInv =0;
+            while(rs.next()){
+                nArticulosInv= rs.getInt("inventario.nArticulos");
+            }
+            ps = null;
+            ps = (PreparedStatement)cn.prepareStatement(sql2);
+            ps.setInt(1,nArticulosInv-detVenta.getnArticulo());
+            ps.setInt(2, detVenta.getIdProducto());
+            ps.execute();
+            return true;
+            
+        }catch(SQLException e){
+            System.err.println(e);
+            return false;
+            
+        }
+        
+    }
     public void tablaInventario(JTable tabla){
         DefaultTableModel model = (DefaultTableModel)tabla.getModel();
         PreparedStatement ps = null;
@@ -243,7 +271,6 @@ public class ConsultasInventario extends Pool{
         int a = model.getRowCount()-1;
         for(int i=a;i>=0;i--){
             model.removeRow(model.getRowCount()-1);
-            
         }
         PreparedStatement ps = null;
         String registros [] = new String [8];

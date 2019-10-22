@@ -8,6 +8,7 @@ package Controlador;
 import Modelo.Cliente;
 import Modelo.ConsultaDetalleVenta;
 import Modelo.ConsultasCliente;
+import Modelo.ConsultasInventario;
 import Modelo.ConsultasProducto;
 import Modelo.ConsultasVenta;
 import Modelo.DetalleVenta;
@@ -175,15 +176,17 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         
     }
     
-    private void realizarVenta(){
+    private boolean realizarVenta(){
         /*******Objetos de la venta*******/
         DefaultTableModel model = (DefaultTableModel)vista.jtableVentas.getModel();
         Venta venta = new Venta();
         DetalleVenta detVenta = new DetalleVenta();
         ConsultasVenta conVenta = new ConsultasVenta();
         ConsultaDetalleVenta conDetVenta = new ConsultaDetalleVenta();
+        ConsultasInventario conInv = new ConsultasInventario();
         long now = System.currentTimeMillis();
         Timestamp sqlTimestamp = new Timestamp(now);
+        //verifica que la venta se alla realizado con exito
         try{
             /******Datos venta*****/
             venta.setIdUsuario(modelo.getIdUsuario());
@@ -194,13 +197,29 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
             venta.setTotalVenta(Double.parseDouble(this.vista.jlblTotal.getText()));
             //Se guarda la venta
             conVenta.registar(venta);
-            
-            
-            
-            
-            
-            
+            /**********Datos Detalle Venta***********/
+            for(int i=0;i<model.getRowCount();i++){
+                detVenta.setIdVenta(Integer.parseInt(this.vista.jlblIdVenta.getText()));
+                detVenta.setIdProducto(Integer.parseInt(model.getValueAt(i, 0).toString()));
+                detVenta.setnArticulo(Integer.parseInt(model.getValueAt(i, 4).toString()));
+                detVenta.setPrecioCompra(Double.parseDouble(model.getValueAt(i, 5).toString()));
+                detVenta.setPrecioVenta(Double.parseDouble(model.getValueAt(i, 6).toString()));
+                detVenta.setSubtotalCompra(Double.parseDouble((String)model.getValueAt(i, 4))*
+                        Double.parseDouble((String)model.getValueAt(i, 5)));
+                detVenta.setSubtotalVenta(Double.parseDouble(model.getValueAt(i, 7).toString()));
+                //se guarda cada detalle de la venta;
+                conDetVenta.registar(detVenta);
+                /****Actualizar los datos en inventario******/
+                conInv.modificarCanInv(detVenta);   
+            }
+        JOptionPane.showMessageDialog(null,"Venta Exitosa\n\nTotal Venta: \n"+venta.getTotalVenta()
+                +"Importe: \n"+this.vista.jtxtImporte.getText()+"Cambio: \n"+
+                this.vista.jlblCambioVenta.getText());
+        return true;
         }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Error al guardar la venta\n"
+                    + "Informe al servicio tecnico de inmediato,Gracias");
+            return false;
             
         }
     }
@@ -224,6 +243,29 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
             
             vista.btnEliminarCarrito.setEnabled(false);
             
+        }else if(ae.getSource()==this.vista.btnRealizar){
+            if(realizarVenta()){
+                this.vista.jtxtNombre.setText("");
+                this.vista.jtxtApellido.setText("");
+                this.vista.jtxtDpi.setText("");
+                this.vista.jtxtNit.setText("");
+                this.vista.jtxtImporte.setText("");
+                this.vista.jlblArtsVendidos.setText("0");
+                this.vista.jlblCambioVenta.setText("00.00");
+                this.vista.jlblTotal.setText("00.00");
+                this.vista.jtxtCantidad.setText("1");
+                consultaVenta.siguenteIdVenta(vista.jlblIdVenta);
+                this.vista.btnEliminarCarrito.setEnabled(false);
+                this.vista.btnRealizar.setEnabled(false);
+                //limpio tabla
+                DefaultTableModel model =(DefaultTableModel)this.vista.jtableVentas.getModel();
+                while(model.getRowCount()>0){
+                    model.removeRow(0);
+                }
+                this.vista.jtableVentas.setModel(model);
+                
+            }
+            
         }
     }
 
@@ -235,9 +277,24 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
                       
            }
         }else if(me.getSource()==vista.lblSalir){
+            
+            if(Integer.parseInt(this.vista.jlblArtsVendidos.getText())>0){
+                int op = JOptionPane.showConfirmDialog(null,"Hay productos en la lista"
+                        + " ¿Desea salir?\nperdera la informacion ya ingresada",
+                        "Alerta",JOptionPane.YES_NO_OPTION);
+                if(op==0){
+                    ControladorLogin controlLogin = new ControladorLogin(vistaLogin);
+                    controlLogin.iniciar();
+                    vista.dispose();
+                    
+                }
+
+            }else{
                 ControladorLogin controlLogin = new ControladorLogin(vistaLogin);
                 controlLogin.iniciar();
                 vista.dispose();
+
+            }
 
            }
     }
@@ -307,7 +364,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
                     vista.jlblCambioVenta.setText(String.valueOf(
                         Double.parseDouble(vista.jtxtImporte.getText())-
                                 Double.parseDouble(vista.jlblTotal.getText())));
-                    
+                    this.vista.btnRealizar.setEnabled(true);
                 }else{
                     vista.jlblCambioVenta.setText("00.00");
                 }
@@ -326,6 +383,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
                     vista.jlblCambioVenta.setText(String.valueOf(
                         Double.parseDouble(vista.jtxtImporte.getText())-
                                 Double.parseDouble(vista.jlblTotal.getText())));
+                    this.vista.btnRealizar.setEnabled(true);
                     
                 }else{
                     vista.jlblCambioVenta.setText("00.00");
@@ -345,6 +403,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
                     vista.jlblCambioVenta.setText(String.valueOf(
                         Double.parseDouble(vista.jtxtImporte.getText())-
                                 Double.parseDouble(vista.jlblTotal.getText())));
+                    this.vista.btnRealizar.setEnabled(true);
                     
                 }else{
                     vista.jlblCambioVenta.setText("00.00");

@@ -79,52 +79,52 @@ public class ControladorListaInventario implements KeyListener, MouseListener,
     }
     
     public void agregarProducto(){
-         //obtiene modelo de la tabla Lista Inventario de la vista listaInvetario
-            DefaultTableModel modelLista = 
-                    (DefaultTableModel)vista.jtableListaInventario.getModel();
-            //obtiene modelo de la tabla NuevaEntrada de la vista RegistroEntrada
-            DefaultTableModel model = (DefaultTableModel)tabla.getModel();
-            //obtiene la columnna selecinada
-            int row = vista.jtableListaInventario.getSelectedRow();
-            boolean existe = false;
-            //verifica si el producto selecionado en la tabla listaInventario
-            //ya esta en la tabla NuevaEntrada de la vista RegistroEndrada
-            try{
-                for(int i = 0; i<model.getRowCount();i++){
-                    if(model.getValueAt(i, 1).toString().equals(modelLista.getValueAt(row, 1))){
+        //obtiene modelo de la tabla Lista Inventario de la vista listaInvetario
+        DefaultTableModel modelLista = 
+                (DefaultTableModel)vista.jtableListaInventario.getModel();
+        //obtiene modelo de la tabla NuevaEntrada de la vista RegistroEntrada
+        DefaultTableModel model = (DefaultTableModel)tabla.getModel();
+        //obtiene la columnna selecinada
+        int row = vista.jtableListaInventario.getSelectedRow();
+        boolean existe = false;
+        //verifica si el producto selecionado en la tabla listaInventario
+        //ya esta en la tabla NuevaEntrada de la vista RegistroEndrada
+        try{
+            for(int i = 0; i<model.getRowCount();i++){
+                if(model.getValueAt(i, 1).toString().equals(modelLista.getValueAt(row, 1))){
 
-                        //si existe solo aumenta la cantidad del producto 
-                        String valor = String.valueOf(Integer.valueOf((String)model.getValueAt(i, 6))+
-                                Integer.parseInt(vista.jtxtCantidad.getText()));
-                        model.setValueAt(valor, i, 6);
-                        model.setValueAt(vista.jtxtPC.getText(), i, 7);
-                        model.setValueAt(vista.jtxtPV.getText(),i,8);
-                        model.setValueAt(String.valueOf(Integer.parseInt(vista.jtxtCantidad.getText())
-                            *Double.parseDouble(vista.jtxtPC.getText())), i, 9);
-                        existe=true;
+                    //si existe solo aumenta la cantidad del producto 
+                    String valor = String.valueOf(Integer.valueOf((String)model.getValueAt(i, 6))+
+                            Integer.parseInt(vista.jtxtCantidad.getText()));
+                    model.setValueAt(valor, i, 6);
+                    model.setValueAt(vista.jtxtPC.getText(), i, 7);
+                    model.setValueAt(vista.jtxtPV.getText(),i,8);
+                    model.setValueAt(String.valueOf(Integer.parseInt(vista.jtxtCantidad.getText())
+                        *Double.parseDouble(vista.jtxtPC.getText())), i, 9);
+                    existe=true;
 
-                    }
                 }
-                if(!existe){
-                    //si no existe agrega un nuevo registro en la tabla NuevaEntrada
-                    String registro [] = new String [10];
-                    registro[0] = (String)modelLista.getValueAt(row,0);
-                    registro[1] = (String)modelLista.getValueAt(row,1);
-                    registro[2] = (String)modelLista.getValueAt(row,2);
-                    registro[3] = (String)modelLista.getValueAt(row,3);
-                    registro[4] = (String)modelLista.getValueAt(row,4);
-                    registro[5] = (String)modelLista.getValueAt(row,5);
-                    registro[6] = vista.jtxtCantidad.getText();
-                    registro[7] = vista.jtxtPC.getText();
-                    registro[8] = String.valueOf(Double.parseDouble(vista.jtxtPV.getText()));
-                    registro[9] = String.valueOf(Integer.parseInt(vista.jtxtCantidad.getText())
-                        *Double.parseDouble(vista.jtxtPC.getText()));
-                    model.addRow(registro);
-                }
-            }catch(NumberFormatException e){
-                    JOptionPane.showMessageDialog(null,"Error - Ingrese solo datos numericos");
+            }
+            if(!existe){
+                //si no existe agrega un nuevo registro en la tabla NuevaEntrada
+                String registro [] = new String [10];
+                registro[0] = (String)modelLista.getValueAt(row,0);
+                registro[1] = (String)modelLista.getValueAt(row,1);
+                registro[2] = (String)modelLista.getValueAt(row,2);
+                registro[3] = (String)modelLista.getValueAt(row,3);
+                registro[4] = (String)modelLista.getValueAt(row,4);
+                registro[5] = (String)modelLista.getValueAt(row,5);
+                registro[6] = vista.jtxtCantidad.getText();
+                registro[7] = vista.jtxtPC.getText();
+                registro[8] = String.valueOf(Double.parseDouble(vista.jtxtPV.getText()));
+                registro[9] = String.valueOf(Integer.parseInt(vista.jtxtCantidad.getText())
+                    *Double.parseDouble(vista.jtxtPC.getText()));
+                model.addRow(registro);
+            }
+        }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null,"Error - Ingrese solo datos numericos");
 
-                            }
+                        }
         
         this.tabla.setModel(model);
         vista.dispose();
