@@ -21,17 +21,16 @@ public class ConsultasCorteCaja extends Pool {
         Connection cn = (Connection)getConnection();
         ResultSet rs = null;
         String sql="SELECT sum(venta.totalVenta) as total FROM venta WHERE "
-                + "venta.idUsuario=? AND(DATE_FORMAT(venta.fecha, '%Y-%m-%d')>= ? "
+                + "(DATE_FORMAT(venta.fecha, '%Y-%m-%d')>= ? "
                 + "AND DATE_FORMAT(venta.fecha, '%Y-%m-%d')<=?)";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
-            ps.setInt(1, 0);
-            ps.setString(2, sql);
-            ps.setString(3, sql);
+            ps.setString(1, fechaI);
+            ps.setString(2, fechaF);
             rs= ps.executeQuery();
             
             while(rs.next()){
-                total.setText(rs.getString("total"));
+                total.setText(String.format("%.2f",rs.getDouble("total")));
                 return true;
             
             }

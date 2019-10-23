@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Modelo.ConsultasCorteCaja;
 import Modelo.ConsultasUsuario;
 import Modelo.Usuario;
 import Vista.Administrador;
@@ -31,6 +32,7 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     private Usuario modelo;
     private Administrador vistaAdmin= new Administrador();
     private ConsultasUsuario consultaU= new ConsultasUsuario();
+    private ConsultasCorteCaja conCorte = new ConsultasCorteCaja();
     
     public ControladorCorteCaja(CortedeCaja vista, Usuario modelo){
     this.vista=vista;
@@ -239,12 +241,19 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
             if(vista.jcmbUsuario.getModel().getSelectedItem().equals("")){
                 JOptionPane.showMessageDialog(null,"Selecione un Usuario para continuar");
             }else{
-            int año = vista.dcFF.getCalendar().get(Calendar.YEAR);
-            int mes = vista.dcFF.getCalendar().get(Calendar.MARCH);
-            int dia = vista.dcFF.getCalendar().get(Calendar.DAY_OF_MONTH);
+            activarP2();
+            int añoI = vista.dcFI.getCalendar().get(Calendar.YEAR);
+            int mesI = vista.dcFI.getCalendar().get(Calendar.MONTH)+1;
+            int diaI = vista.dcFI.getCalendar().get(Calendar.DAY_OF_MONTH);
+            int añoF = vista.dcFF.getCalendar().get(Calendar.YEAR);
+            int mesF = vista.dcFF.getCalendar().get(Calendar.MONTH)+1;
+            int diaF = vista.dcFF.getCalendar().get(Calendar.DAY_OF_MONTH);
 
-            String fecha =(año+"-"+mes+"-"+dia);
-            System.out.print(fecha);
+            String fechaI =(añoI+"-"+mesI+"-"+diaI);
+            String fechaF =(añoF+"-"+mesF+"-"+diaF);
+            
+            conCorte.getTotalVenta(fechaI, fechaF,vista.jtxtTV);
+            
             vista.jtxtB100.requestFocus();
             }
         }
