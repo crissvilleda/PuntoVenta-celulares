@@ -17,7 +17,7 @@ import javax.swing.JTextField;
  * @author criss
  */
 public class ConsultasCorteCaja extends Pool {
-    public boolean getTotalVenta(String usuario,String fechaI,String fechaF,JLabel total){
+    public boolean getTotalVenta(String usuario,String fechaI,String fechaF,JTextField total){
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
         ResultSet rs = null;
