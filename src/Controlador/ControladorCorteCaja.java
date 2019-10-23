@@ -238,7 +238,10 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
             if(vista.jcmbUsuario.getModel().getSelectedItem().equals("")){
                 JOptionPane.showMessageDialog(null,"Selecione un Usuario para continuar");
             }else{
-             activarP2();
+            System.out.print(vista.dcFF.getCalendar().toString());
+            
+            System.out.print(vista.dcFI.getCalendar().toString());
+            activarP2();
             vista.jtxtB100.requestFocus();
             }
         }
