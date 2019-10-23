@@ -224,7 +224,7 @@ public class CortedeCaja extends javax.swing.JFrame {
 
         jlblEI.setBackground(new java.awt.Color(255, 255, 255));
         jlblEI.setForeground(new java.awt.Color(225, 99, 71));
-        jlblEI.setText("Total en Caja");
+        jlblEI.setText("Total Ventas");
         jPanel2CortCaj.add(jlblEI, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, -1, -1));
 
         jtxtTV.setEditable(false);
