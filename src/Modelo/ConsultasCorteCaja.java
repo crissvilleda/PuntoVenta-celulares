@@ -15,23 +15,29 @@ import java.sql.SQLException;
  * @author criss
  */
 public class ConsultasCorteCaja extends Pool {
-    public Double getTotalVenta(){
+    public boolean getTotalVenta(){
         Double total = null;
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
         ResultSet rs = null;
+        String sql="";
         try{
+            ps = (PreparedStatement)cn.prepareStatement(sql);
             
-        
-            while(rs.next()){}
+            rs= ps.executeQuery();
+            
+            while(rs.next()){
+                return true;
+            
+            }
+            return false;
             
         }catch(SQLException e){
-                
+            return false;
         }
             
 
-        
-        return total;
+       
     }
     
 }
