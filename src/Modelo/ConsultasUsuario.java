@@ -285,7 +285,7 @@ public class ConsultasUsuario extends Pool{
             ps = (PreparedStatement)cn.prepareStatement(sql);
             rs =ps.executeQuery();
             while(rs.next()){
-                registro =rs.getString("nombre");
+                registro =rs.getString("nombreUsuario");
                 model.addElement(registro);
             }
             cb.setModel(model);

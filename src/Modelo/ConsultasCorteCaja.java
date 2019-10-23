@@ -16,22 +16,29 @@ import javax.swing.JTextField;
  * @author criss
  */
 public class ConsultasCorteCaja extends Pool {
-    public boolean getTotalVenta(String fechaI,String fechaF,JTextField total){
+    public boolean getTotalVenta(String usuario,String fechaI,String fechaF,JTextField total){
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
         ResultSet rs = null;
-        String sql="SELECT sum(venta.totalVenta) as total FROM venta WHERE "
-                + "(DATE_FORMAT(venta.fecha, '%Y-%m-%d')>= ? "
-                + "AND DATE_FORMAT(venta.fecha, '%Y-%m-%d')<=?)";
+        String sql="SELECT sum(venta.totalVenta) as total FROM venta INNER JOIN "
+                + "usuario ON usuario.idUsuario=venta.idUsuario WHERE "
+                + "usuario.nombreUsuario=? AND (DATE_FORMAT(venta.fecha, '%Y-%m-%d')"
+                + ">= ? AND DATE_FORMAT(venta.fecha, '%Y-%m-%d')<=?)";
         try{
             ps = (PreparedStatement)cn.prepareStatement(sql);
-            ps.setString(1, fechaI);
-            ps.setString(2, fechaF);
+            ps.setString(1, usuario);
+            ps.setString(2, fechaI);
+            ps.setString(3, fechaF);
             rs= ps.executeQuery();
             
             while(rs.next()){
-                total.setText(String.format("%.2f",rs.getDouble("total")));
-                return true;
+                if(!(rs.getString("total") == null)){
+                    total.setText(String.format("%.2f",rs.getDouble("total")));
+                    return true;
+                    
+                }else{
+                    return false;
+                }
             
             }
             return false;

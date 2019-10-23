@@ -71,6 +71,7 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     vista.jcmbUsuario.addItem("");
     consultaU.listUsu(vista.jcmbUsuario);
     
+    
     }
     
     public void iniciar(){
@@ -97,6 +98,7 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
         vista.jtxtM010.setEditable(false);
         vista.jtxtM005.setEditable(false);
         vista.btnGuarCort.setEnabled(false);
+        vista.jPanel2CortCaj.setVisible(false);
         //vista.btnGenerar.setEnabled(false);
         }
     //Activa todos los campos del Panel 2
@@ -129,6 +131,7 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
         vista.jtxtM025.setText("0");
         vista.jtxtM010.setText("0");
         vista.jtxtM005.setText("0");
+        vista.jPanel2CortCaj.setVisible(true);
         }
     
     //Calcular Efectivo Total en caja
@@ -241,20 +244,37 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
             if(vista.jcmbUsuario.getModel().getSelectedItem().equals("")){
                 JOptionPane.showMessageDialog(null,"Selecione un Usuario para continuar");
             }else{
-            activarP2();
-            int añoI = vista.dcFI.getCalendar().get(Calendar.YEAR);
-            int mesI = vista.dcFI.getCalendar().get(Calendar.MONTH)+1;
-            int diaI = vista.dcFI.getCalendar().get(Calendar.DAY_OF_MONTH);
-            int añoF = vista.dcFF.getCalendar().get(Calendar.YEAR);
-            int mesF = vista.dcFF.getCalendar().get(Calendar.MONTH)+1;
-            int diaF = vista.dcFF.getCalendar().get(Calendar.DAY_OF_MONTH);
+                try{
+                   
+                    int añoI = vista.dcFI.getCalendar().get(Calendar.YEAR);
+                    int mesI = vista.dcFI.getCalendar().get(Calendar.MONTH)+1;
+                    int diaI = vista.dcFI.getCalendar().get(Calendar.DAY_OF_MONTH);
+                    int añoF = vista.dcFF.getCalendar().get(Calendar.YEAR);
+                    int mesF = vista.dcFF.getCalendar().get(Calendar.MONTH)+1;
+                    int diaF = vista.dcFF.getCalendar().get(Calendar.DAY_OF_MONTH);
 
-            String fechaI =(añoI+"-"+mesI+"-"+diaI);
-            String fechaF =(añoF+"-"+mesF+"-"+diaF);
+                    String fechaI =(añoI+"-"+mesI+"-"+diaI);
+                    String fechaF =(añoF+"-"+mesF+"-"+diaF);
+
+                    String usuario = vista.jcmbUsuario.getItemAt(
+                            vista.jcmbUsuario.getSelectedIndex());
+                    
+                    if(conCorte.getTotalVenta(usuario,fechaI, fechaF,vista.jtxtTV)){
+                        activarP2();
+                        vista.jtxtB100.requestFocus();
+                    }else{
+                        JOptionPane.showMessageDialog(null,"No hay informacion de corte"
+                                + "\ncon los datos ingresados, intente con otros datos");
+                    }
+                  
+                    
+                    
+                }catch(NullPointerException ex){
+                    JOptionPane.showMessageDialog(null,"Seleccione el rango de fecha");
+                    
+                    
+                }
             
-            conCorte.getTotalVenta(fechaI, fechaF,vista.jtxtTV);
-            
-            vista.jtxtB100.requestFocus();
             }
         }
     }
