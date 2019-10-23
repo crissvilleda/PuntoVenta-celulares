@@ -15,6 +15,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.Calendar;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
@@ -238,10 +239,12 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
             if(vista.jcmbUsuario.getModel().getSelectedItem().equals("")){
                 JOptionPane.showMessageDialog(null,"Selecione un Usuario para continuar");
             }else{
-            System.out.print(vista.dcFF.getCalendar().toString());
-            
-            System.out.print(vista.dcFI.getCalendar().toString());
-            activarP2();
+            int año = vista.dcFF.getCalendar().get(Calendar.YEAR);
+            int mes = vista.dcFF.getCalendar().get(Calendar.MARCH);
+            int dia = vista.dcFF.getCalendar().get(Calendar.DAY_OF_MONTH);
+
+            String fecha =(año+"-"+mes+"-"+dia);
+            System.out.print(fecha);
             vista.jtxtB100.requestFocus();
             }
         }
