@@ -53,8 +53,7 @@ public class CortedeCaja extends javax.swing.JFrame {
         jlblEfecCaja = new javax.swing.JLabel();
         jlblEI = new javax.swing.JLabel();
         jtxtEI = new javax.swing.JTextField();
-        jlblTV = new javax.swing.JLabel();
-        jtxtTV = new javax.swing.JTextField();
+        jlblTV2 = new javax.swing.JLabel();
         jlblB100 = new javax.swing.JLabel();
         jtxtB100 = new javax.swing.JTextField();
         jlblB50 = new javax.swing.JLabel();
@@ -77,11 +76,12 @@ public class CortedeCaja extends javax.swing.JFrame {
         jtxtM010 = new javax.swing.JTextField();
         jtxtM005 = new javax.swing.JTextField();
         jlblTotCaj = new javax.swing.JLabel();
-        jlblTotal = new javax.swing.JLabel();
+        jlblTV = new javax.swing.JLabel();
         jlblM005 = new javax.swing.JLabel();
         jlblQ = new javax.swing.JLabel();
         jlblDMAFI1 = new javax.swing.JLabel();
         jlblDMAFI2 = new javax.swing.JLabel();
+        jlblTotal1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -235,21 +235,11 @@ public class CortedeCaja extends javax.swing.JFrame {
         });
         jPanel2CortCaj.add(jtxtEI, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 120, -1));
 
-        jlblTV.setBackground(new java.awt.Color(255, 255, 255));
-        jlblTV.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jlblTV.setForeground(new java.awt.Color(225, 99, 71));
-        jlblTV.setText("Total de Ventas");
-        jPanel2CortCaj.add(jlblTV, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 73, -1, -1));
-
-        jtxtTV.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jtxtTV.setForeground(new java.awt.Color(103, 103, 103));
-        jtxtTV.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jtxtTV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtTVActionPerformed(evt);
-            }
-        });
-        jPanel2CortCaj.add(jtxtTV, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 120, -1));
+        jlblTV2.setBackground(new java.awt.Color(255, 255, 255));
+        jlblTV2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jlblTV2.setForeground(new java.awt.Color(225, 99, 71));
+        jlblTV2.setText("Total de Ventas");
+        jPanel2CortCaj.add(jlblTV2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 73, -1, -1));
 
         jlblB100.setBackground(new java.awt.Color(255, 255, 255));
         jlblB100.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
@@ -427,11 +417,11 @@ public class CortedeCaja extends javax.swing.JFrame {
         jlblTotCaj.setText("Total en Caja");
         jPanel2CortCaj.add(jlblTotCaj, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, -1, -1));
 
-        jlblTotal.setBackground(new java.awt.Color(255, 255, 255));
-        jlblTotal.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jlblTotal.setForeground(new java.awt.Color(103, 103, 103));
-        jlblTotal.setText("000.0");
-        jPanel2CortCaj.add(jlblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 285, 100, -1));
+        jlblTV.setBackground(new java.awt.Color(255, 255, 255));
+        jlblTV.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jlblTV.setForeground(new java.awt.Color(103, 103, 103));
+        jlblTV.setText("000.00");
+        jPanel2CortCaj.add(jlblTV, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 100, -1));
 
         jlblM005.setBackground(new java.awt.Color(255, 255, 255));
         jlblM005.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
@@ -455,6 +445,12 @@ public class CortedeCaja extends javax.swing.JFrame {
         jlblDMAFI2.setForeground(new java.awt.Color(102, 103, 103));
         jlblDMAFI2.setText("Por favor Verifique todos los campos");
         jPanel2CortCaj.add(jlblDMAFI2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, 220, -1));
+
+        jlblTotal1.setBackground(new java.awt.Color(255, 255, 255));
+        jlblTotal1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jlblTotal1.setForeground(new java.awt.Color(103, 103, 103));
+        jlblTotal1.setText("000.0");
+        jPanel2CortCaj.add(jlblTotal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 285, 100, -1));
 
         getContentPane().add(jPanel2CortCaj, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, 320));
 
@@ -516,10 +512,6 @@ public class CortedeCaja extends javax.swing.JFrame {
     private void jtxtM005ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtM005ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtM005ActionPerformed
-
-    private void jtxtTVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtTVActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtTVActionPerformed
 
     private void jtxtEIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtEIActionPerformed
         // TODO add your handling code here:
@@ -629,8 +621,9 @@ public class CortedeCaja extends javax.swing.JFrame {
     public javax.swing.JLabel jlblNombreUsuario;
     public javax.swing.JLabel jlblQ;
     public javax.swing.JLabel jlblTV;
+    public javax.swing.JLabel jlblTV2;
     public javax.swing.JLabel jlblTotCaj;
-    public javax.swing.JLabel jlblTotal;
+    public javax.swing.JLabel jlblTotal1;
     public javax.swing.JTextField jtxtB1;
     public javax.swing.JTextField jtxtB10;
     public javax.swing.JTextField jtxtB100;
@@ -643,6 +636,5 @@ public class CortedeCaja extends javax.swing.JFrame {
     public javax.swing.JTextField jtxtM025;
     public javax.swing.JTextField jtxtM050;
     public javax.swing.JTextField jtxtM1;
-    public javax.swing.JTextField jtxtTV;
     // End of variables declaration//GEN-END:variables
 }

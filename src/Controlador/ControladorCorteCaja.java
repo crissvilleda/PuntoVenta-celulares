@@ -83,9 +83,9 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     public void desactivarP2(){
         vista.jlblTotCaj.setEnabled(false);
         vista.jlblQ.setEnabled(false);
-        vista.jlblTotal.setEnabled(false);
-        vista.jlblEI.setEnabled(false);
         vista.jlblTV.setEnabled(false);
+        vista.jlblEI.setEnabled(false);
+        vista.jlblTV2.setEnabled(false);
         vista.jtxtB100.setEditable(false);
         vista.jtxtB50.setEditable(false);
         vista.jtxtB20.setEditable(false);
@@ -105,9 +105,9 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     public void activarP2(){
         vista.jlblTotCaj.setEnabled(true);
         vista.jlblQ.setEnabled(true);
-        vista.jlblTotal.setEnabled(true);
-        vista.jlblEI.setEnabled(true);
         vista.jlblTV.setEnabled(true);
+        vista.jlblEI.setEnabled(true);
+        vista.jlblTV2.setEnabled(true);
         vista.jtxtB100.setEditable(true);
         vista.jtxtB50.setEditable(true);
         vista.jtxtB20.setEditable(true);
@@ -157,27 +157,27 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
      @Override
     public void insertUpdate(DocumentEvent e) {
         if(e.getDocument()==vista.jtxtB100.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtB50.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtB20.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtB10.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         } else if(e.getDocument()==vista.jtxtB5.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtB1.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtM1.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtM050.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtM025.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtM010.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtM005.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }
         
         
@@ -186,54 +186,54 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
     @Override
     public void removeUpdate(DocumentEvent e) {
         if(e.getDocument()==vista.jtxtB100.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtB50.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtB20.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtB10.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         } else if(e.getDocument()==vista.jtxtB5.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtB1.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtM1.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtM050.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtM025.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtM010.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtM005.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }
     }
 
     @Override
     public void changedUpdate(DocumentEvent e) {
             if(e.getDocument()==vista.jtxtB100.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtB50.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtB20.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtB10.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         } else if(e.getDocument()==vista.jtxtB5.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtB1.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtM1.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtM050.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtM025.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtM010.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }else if(e.getDocument()==vista.jtxtM005.getDocument()){
-            calcTotCaj(vista.jlblTotal);
+            calcTotCaj(vista.jlblTV);
         }
         
     }
@@ -259,7 +259,7 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,Docum
                     String usuario = vista.jcmbUsuario.getItemAt(
                             vista.jcmbUsuario.getSelectedIndex());
                     
-                    if(conCorte.getTotalVenta(usuario,fechaI, fechaF,vista.jtxtTV)){
+                    if(conCorte.getTotalVenta(usuario,fechaI, fechaF,vista.jlblTV)){
                         activarP2();
                         vista.jtxtB100.requestFocus();
                     }else{

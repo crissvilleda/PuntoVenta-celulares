@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
@@ -16,7 +17,7 @@ import javax.swing.JTextField;
  * @author criss
  */
 public class ConsultasCorteCaja extends Pool {
-    public boolean getTotalVenta(String usuario,String fechaI,String fechaF,JTextField total){
+    public boolean getTotalVenta(String usuario,String fechaI,String fechaF,JLabel total){
         PreparedStatement ps = null;
         Connection cn = (Connection)getConnection();
         ResultSet rs = null;
