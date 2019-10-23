@@ -182,11 +182,13 @@ public class CortedeCaja extends javax.swing.JFrame {
 
         dcFI.setBackground(new java.awt.Color(36, 33, 33));
         dcFI.setForeground(new java.awt.Color(207, 207, 207));
+        dcFI.setDateFormatString("dd-MM-yyyy");
         dcFI.setFont(new java.awt.Font("Verdana", 1, 12));
         jPanel1CortCaj.add(dcFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 120, -1));
 
         dcFF.setBackground(new java.awt.Color(36, 33, 33));
         dcFF.setForeground(new java.awt.Color(207, 207, 207));
+        dcFF.setDateFormatString("dd-MM-yyyy");
         dcFF.setFont(new java.awt.Font("Verdana", 1, 12));
         jPanel1CortCaj.add(dcFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, 120, -1));
 
