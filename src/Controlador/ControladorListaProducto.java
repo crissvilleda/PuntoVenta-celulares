@@ -13,6 +13,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
@@ -24,8 +25,9 @@ import javax.swing.table.DefaultTableModel;
 public class ControladorListaProducto implements DocumentListener,MouseListener,
         ActionListener{
     private ListaProducto vista;
-    private JTable tabla;
     private ConsultasInventario conInv = new ConsultasInventario();
+    private JTextField codigo;
+    private JTextField cantidad;
     
     public ControladorListaProducto(ListaProducto vista) {
         this.vista = vista;
@@ -33,42 +35,24 @@ public class ControladorListaProducto implements DocumentListener,MouseListener,
         this.vista.jtxtBuscar.getDocument().addDocumentListener(this);
         this.vista.jlblCerrar.addMouseListener(this);
         this.vista.btnSeleccionar.addActionListener(this);
-        this.vista.btnSeleccionar.setVisible(false);
+        this.vista.btnSeleccionar.setEnabled(false);
+        this.vista.jtableListaInventario.addMouseListener(this);
         conInv.llenarTablaInv(this.vista.jtableListaInventario);
     }
     private void agregarProducto(){
         //obtiene modelo de la tabla Lista Inventario de la vista listaInvetario
         DefaultTableModel modelLista = 
                 (DefaultTableModel)vista.jtableListaInventario.getModel();
-        //obtiene modelo de la tabla Ventas para agregar productos
-        DefaultTableModel model = (DefaultTableModel)tabla.getModel();
         //obtiene la columnna selecinada
         int row = vista.jtableListaInventario.getSelectedRow();
-        boolean existe = false;
-        //verifica si el producto selecionado en la tabla listaInventario
-        //ya esta en la tabla Ventas de la vista Ventas
-        try{
-            for(int i = 0; i<model.getRowCount();i++){
-                if(model.getValueAt(i, 1).toString().equals(modelLista.getValueAt(row, 1))){
-                    String valor = String.valueOf(Integer.valueOf((String)model.getValueAt(i, 4))+1);
-                    model.setValueAt(valor, i, 4);
-                    existe=true;
+        this.codigo.setText(modelLista.getValueAt(row, 1).toString());
+        this.cantidad.requestFocus();
+        this.vista.dispose();
 
-                }
-            }
-            if(!existe){
-                
-                
-            }
-            
-            
-        }catch(Exception e){
-            
-        }
-        
     }
-    public void insertarTabla(JTable tabla){
-        this.tabla=tabla;   
+    public void setTextField(JTextField codigo, JTextField cantidad){
+        this.codigo=codigo;
+        this.cantidad=cantidad;
     }
     public void iniciar(){
         vista.setLocationRelativeTo(null);
@@ -77,38 +61,39 @@ public class ControladorListaProducto implements DocumentListener,MouseListener,
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource()==this.vista.btnSeleccionar){
-            if(vista.jtableListaInventario.getSelectedRow()>=0){
-                agregarProducto();
-                
-            }else{
-                JOptionPane.showMessageDialog(null, "Seleccione un producto");
-            }
-            
+            agregarProducto();
         }
     }
     @Override
     public void insertUpdate(DocumentEvent de) {
         if(de.getDocument()==vista.jtxtBuscar.getDocument()){
-            conInv.buscarProductoInv(vista.jtableListaInventario, vista.jtxtBuscar.getText()); 
+            conInv.buscarProductoInv(vista.jtableListaInventario, vista.jtxtBuscar.getText());
+            this.vista.btnSeleccionar.setEnabled(false);
         }
     }
 
     @Override
     public void removeUpdate(DocumentEvent de) {
         if(de.getDocument()==vista.jtxtBuscar.getDocument()){
-            conInv.buscarProductoInv(vista.jtableListaInventario, vista.jtxtBuscar.getText()); 
+            conInv.buscarProductoInv(vista.jtableListaInventario, vista.jtxtBuscar.getText());
+            this.vista.btnSeleccionar.setEnabled(false);
         }
     }
 
     @Override
     public void changedUpdate(DocumentEvent de) {
         if(de.getDocument()==vista.jtxtBuscar.getDocument()){
-            conInv.buscarProductoInv(vista.jtableListaInventario, vista.jtxtBuscar.getText()); 
+            conInv.buscarProductoInv(vista.jtableListaInventario, vista.jtxtBuscar.getText());
+            this.vista.btnSeleccionar.setEnabled(false);
         }
     }
 
     @Override
     public void mouseClicked(MouseEvent me) {
+        if(me.getSource()==vista.jtableListaInventario){
+            this.vista.btnSeleccionar.setEnabled(true);
+        }
+        
     }
 
     @Override
