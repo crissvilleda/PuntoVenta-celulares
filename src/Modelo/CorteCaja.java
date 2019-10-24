@@ -5,7 +5,7 @@
  */
 package Modelo;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  *
@@ -14,18 +14,18 @@ import java.sql.Date;
 public class CorteCaja {
     private int idCorte;
     private double saldoInicial;
-    private double saldoFinal;
-    private Date fechaCorte;
+    private double totalCorte;
+    private double totalVenta;
+    private double sobrante;
+    private Timestamp fechaCorte;
 
-    public Date getFechaCorte() {
-        return fechaCorte;
+    public double getSobrante() {
+        return sobrante;
     }
 
-    public void setFechaCorte(Date fechaCorte) {
-        this.fechaCorte = fechaCorte;
+    public void setSobrante(double sobrante) {
+        this.sobrante = sobrante;
     }
-    
-   
     
     public int getIdCorte() {
         return idCorte;
@@ -43,12 +43,31 @@ public class CorteCaja {
         this.saldoInicial = saldoInicial;
     }
 
-    public double getSaldoFinal() {
-        return saldoFinal;
+    public double getTotalCorte() {
+        return totalCorte;
     }
 
-    public void setSaldoFinal(double saldoFinal) {
-        this.saldoFinal = saldoFinal;
+    public void setTotalCorte(double totalCorte) {
+        this.totalCorte = totalCorte;
     }
+
+    public double getTotalVenta() {
+        return totalVenta;
+    }
+
+    public void setTotalVenta(double totalVenta) {
+        this.totalVenta = totalVenta;
+    }
+
+    public Timestamp getFechaCorte() {
+        return fechaCorte;
+    }
+
+    public void setFechaCorte(Timestamp fechaCorte) {
+        this.fechaCorte = fechaCorte;
+    }
+
+    
+
   
 }
