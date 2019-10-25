@@ -203,11 +203,14 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
                 String totalVenta = this.vista.jlblTotal.getText();
                 String importe = this.vista.jtxtImporte.getText();
                 String cambio = this.vista.jlblCambioVenta.getText();
+                vista.jtxtNombre.setEditable(true);
+                this.vista.jtxtApellido.setEditable(true);
+                this.vista.jtxtDpi.setEditable(true);
                 this.vista.jtxtNombre.setText("");
                 this.vista.jtxtApellido.setText("");
                 this.vista.jtxtDpi.setText("");
                 this.vista.jtxtNit.setText("");
-                this.vista.jtxtImporte.setText("");
+                this.vista.jtxtImporte.setText("0");
                 this.vista.jlblArtsVendidos.setText("0");
                 this.vista.jlblCambioVenta.setText("00.00");
                 this.vista.jlblTotal.setText("00.00");
