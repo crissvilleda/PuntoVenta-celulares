@@ -237,9 +237,27 @@ public class ControladorRegistrarEntrada implements ActionListener, KeyListener,
             controladorRP.iniciar();
             
         }else if(ae.getSource()==vista.btnAtras){
-            ControladorEntrada controladorE = new ControladorEntrada(vistaEntrada,modelo);
-            controladorE.iniciar();
-            vista.dispose();
+            
+            if(Double.parseDouble(this.vista.jlblTotal.getText())>0){
+                int op = JOptionPane.showConfirmDialog(null,"Hay productos en la lista"
+                        + " ¿Desea salir?\nperdera la informacion ya ingresada",
+                        "Alerta",JOptionPane.YES_NO_OPTION);
+                if(op==0){
+                    ControladorEntrada controladorE = new ControladorEntrada(vistaEntrada,modelo);
+                    controladorE.iniciar();
+                    vista.dispose();
+                    
+                }
+
+            }else{
+                ControladorEntrada controladorE = new ControladorEntrada(vistaEntrada,modelo);
+                controladorE.iniciar();
+                vista.dispose();
+
+            }
+            
+            
+            
             
         }else if(ae.getSource()==vista.btnAgregar){
             agregarProducto();
