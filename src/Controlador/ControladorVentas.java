@@ -178,7 +178,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         vista.setVisible(true);
         
     }
-    private boolean realizarVentaTransaccion(){
+    private void realizarVentaTransaccion(){
         try{
             Venta venta = new Venta();
             long now = System.currentTimeMillis();
@@ -189,73 +189,44 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
             venta.setnArticulo(Integer.parseInt(this.vista.jlblArtsVendidos.getText()));
             venta.setTotaCompra(calcularTotalCompra());
             venta.setTotalVenta(Double.parseDouble(this.vista.jlblTotal.getText()));
-            if(consultaVenta.registrarV(this.vista.jtableVentas,venta)){
+            if(consultaVenta.registrar(this.vista.jtableVentas,venta)){
+                this.vista.jtxtNombre.setText("");
+                this.vista.jtxtApellido.setText("");
+                this.vista.jtxtDpi.setText("");
+                this.vista.jtxtNit.setText("");
+                this.vista.jtxtImporte.setText("");
+                this.vista.jlblArtsVendidos.setText("0");
+                this.vista.jlblCambioVenta.setText("00.00");
+                this.vista.jlblTotal.setText("00.00");
+                this.vista.jtxtCantidad.setText("1");
+                this.cliente = null;
+                consultaVenta.siguenteIdVenta(vista.jlblIdVenta);
+                this.vista.btnEliminarCarrito.setEnabled(false);
+                this.vista.btnRealizar.setEnabled(false);
+                //limpio tabla
+                DefaultTableModel model =(DefaultTableModel)this.vista.jtableVentas.getModel();
+                while(model.getRowCount()>0){
+                    model.removeRow(0);
+                }
+                this.vista.jtableVentas.setModel(model);
+                
                 JOptionPane.showMessageDialog(null,"\nVenta Exitosa\nTotal Venta: "+venta.getTotalVenta()
                 +"\nImporte: "+this.vista.jtxtImporte.getText()+"\nCambio: "+
                 this.vista.jlblCambioVenta.getText());
-                return true;
 
 
             }else{
                 JOptionPane.showMessageDialog(null,"Error al guardar la venta\n"
                 + "Informe al servicio tecnico de inmediato,Gracias");
-                return false;
 
             }
         }catch(SQLException ex){
-            return false;
+            System.err.println(ex);
 
         }
         
     }
     
-    private boolean realizarVenta(){
-        /*******Objetos de la venta*******/
-        DefaultTableModel model = (DefaultTableModel)vista.jtableVentas.getModel();
-        Venta venta = new Venta();
-        DetalleVenta detVenta = new DetalleVenta();
-        ConsultasVenta conVenta = new ConsultasVenta();
-        ConsultaDetalleVenta conDetVenta = new ConsultaDetalleVenta();
-        ConsultasInventario conInv = new ConsultasInventario();
-        long now = System.currentTimeMillis();
-        Timestamp sqlTimestamp = new Timestamp(now);
-        //verifica que la venta se alla realizado con exito
-        try{
-            /******Datos venta*****/
-            venta.setIdUsuario(modelo.getIdUsuario());
-            venta.setIdCliente(this.cliente.getIdCliente());
-            venta.setFecha(sqlTimestamp);
-            venta.setnArticulo(Integer.parseInt(this.vista.jlblArtsVendidos.getText()));
-            venta.setTotaCompra(calcularTotalCompra());
-            venta.setTotalVenta(Double.parseDouble(this.vista.jlblTotal.getText()));
-            //Se guarda la venta
-            conVenta.registar(venta);
-            /**********Datos Detalle Venta***********/
-            for(int i=0;i<model.getRowCount();i++){
-                detVenta.setIdVenta(Integer.parseInt(this.vista.jlblIdVenta.getText()));
-                detVenta.setIdProducto(Integer.parseInt(model.getValueAt(i, 0).toString()));
-                detVenta.setnArticulo(Integer.parseInt(model.getValueAt(i, 4).toString()));
-                detVenta.setPrecioCompra(Double.parseDouble(model.getValueAt(i, 5).toString()));
-                detVenta.setPrecioVenta(Double.parseDouble(model.getValueAt(i, 6).toString()));
-                detVenta.setSubtotalCompra(Double.parseDouble((String)model.getValueAt(i, 4))*
-                        Double.parseDouble((String)model.getValueAt(i, 5)));
-                detVenta.setSubtotalVenta(Double.parseDouble(model.getValueAt(i, 7).toString()));
-                //se guarda cada detalle de la venta;
-                conDetVenta.registar(detVenta);
-                /****Actualizar los datos en inventario******/
-                conInv.modificarCanInv(detVenta);   
-            }
-        JOptionPane.showMessageDialog(null,"\nVenta Exitosa\nTotal Venta: "+venta.getTotalVenta()
-                +"\nImporte: "+this.vista.jtxtImporte.getText()+"\nCambio: "+
-                this.vista.jlblCambioVenta.getText());
-        return true;
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Error al guardar la venta\n"
-                    + "Informe al servicio tecnico de inmediato,Gracias");
-            return false;
-            
-        }
-    }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
@@ -280,28 +251,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
             vista.btnEliminarCarrito.setEnabled(false);
             
         }else if(ae.getSource()==this.vista.btnRealizar){
-            if(realizarVentaTransaccion()){
-                this.vista.jtxtNombre.setText("");
-                this.vista.jtxtApellido.setText("");
-                this.vista.jtxtDpi.setText("");
-                this.vista.jtxtNit.setText("");
-                this.vista.jtxtImporte.setText("");
-                this.vista.jlblArtsVendidos.setText("0");
-                this.vista.jlblCambioVenta.setText("00.00");
-                this.vista.jlblTotal.setText("00.00");
-                this.vista.jtxtCantidad.setText("1");
-                this.cliente = null;
-                consultaVenta.siguenteIdVenta(vista.jlblIdVenta);
-                this.vista.btnEliminarCarrito.setEnabled(false);
-                this.vista.btnRealizar.setEnabled(false);
-                //limpio tabla
-                DefaultTableModel model =(DefaultTableModel)this.vista.jtableVentas.getModel();
-                while(model.getRowCount()>0){
-                    model.removeRow(0);
-                }
-                this.vista.jtableVentas.setModel(model);
-                
-            }
+            realizarVentaTransaccion();
             
         }
     }

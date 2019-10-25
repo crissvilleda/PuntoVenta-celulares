@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ConsultasVenta extends Pool{
     
-    public boolean registrarV(JTable tabla,Venta venta) throws SQLException{
+    public boolean registrar(JTable tabla,Venta venta) throws SQLException{
         DefaultTableModel model = (DefaultTableModel)tabla.getModel();
         PreparedStatement ps = null;
         Connection cn= (Connection)getConnection();
@@ -104,28 +104,7 @@ public class ConsultasVenta extends Pool{
         }
         
     }
-    public boolean registar(Venta venta){
-        PreparedStatement ps = null;
-        Connection cn =(Connection)getConnection();
-        String sql ="INSERT INTO venta(idUsuario,idCliente,fecha,nArticulo,"
-                + "totalCompra,totalVenta) VALUES(?,?,?,?,?,?) ";
-        try{
-            ps = (PreparedStatement)cn.prepareStatement(sql);
-            ps.setInt(1, venta.getIdUsuario());
-            ps.setInt(2, venta.getIdCliente());
-            ps.setTimestamp(3, venta.getFecha());
-            ps.setInt(4, venta.getnArticulo());
-            ps.setDouble(5, venta.getTotaCompra());
-            ps.setDouble(6, venta.getTotalVenta());
-            ps.execute();
-            return true;
-            
-            
-        }catch(SQLException e){
-            return false;
-        }
-        
-    }
+    
     
     public boolean siguenteIdVenta(JLabel label){
         PreparedStatement ps = null;
@@ -145,6 +124,15 @@ public class ConsultasVenta extends Pool{
         }catch(SQLException e){
             System.err.print(e);
             return false;
+        }finally{
+            if(cn!=null){
+                try{
+                    cn.close();
+                }catch(SQLException e){
+                    
+                }
+            }
+            
         }
     }
     
