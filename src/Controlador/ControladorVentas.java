@@ -178,6 +178,36 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         vista.setVisible(true);
         
     }
+    private boolean realizarVentaTransaccion(){
+        try{
+            Venta venta = new Venta();
+            long now = System.currentTimeMillis();
+            Timestamp sqlTimestamp = new Timestamp(now);
+            venta.setIdUsuario(modelo.getIdUsuario());
+            venta.setIdCliente(this.cliente.getIdCliente());
+            venta.setFecha(sqlTimestamp);
+            venta.setnArticulo(Integer.parseInt(this.vista.jlblArtsVendidos.getText()));
+            venta.setTotaCompra(calcularTotalCompra());
+            venta.setTotalVenta(Double.parseDouble(this.vista.jlblTotal.getText()));
+            if(consultaVenta.registrarV(this.vista.jtableVentas,venta)){
+                JOptionPane.showMessageDialog(null,"\nVenta Exitosa\nTotal Venta: "+venta.getTotalVenta()
+                +"\nImporte: "+this.vista.jtxtImporte.getText()+"\nCambio: "+
+                this.vista.jlblCambioVenta.getText());
+                return true;
+
+
+            }else{
+                JOptionPane.showMessageDialog(null,"Error al guardar la venta\n"
+                + "Informe al servicio tecnico de inmediato,Gracias");
+                return false;
+
+            }
+        }catch(SQLException ex){
+            return false;
+
+        }
+        
+    }
     
     private boolean realizarVenta(){
         /*******Objetos de la venta*******/
@@ -250,7 +280,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
             vista.btnEliminarCarrito.setEnabled(false);
             
         }else if(ae.getSource()==this.vista.btnRealizar){
-            if(realizarVenta()){
+            if(realizarVentaTransaccion()){
                 this.vista.jtxtNombre.setText("");
                 this.vista.jtxtApellido.setText("");
                 this.vista.jtxtDpi.setText("");
@@ -260,6 +290,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
                 this.vista.jlblCambioVenta.setText("00.00");
                 this.vista.jlblTotal.setText("00.00");
                 this.vista.jtxtCantidad.setText("1");
+                this.cliente = null;
                 consultaVenta.siguenteIdVenta(vista.jlblIdVenta);
                 this.vista.btnEliminarCarrito.setEnabled(false);
                 this.vista.btnRealizar.setEnabled(false);

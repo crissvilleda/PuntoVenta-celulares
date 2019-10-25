@@ -105,6 +105,14 @@ public class ConsultasInventario extends Pool{
             System.err.println(e);
             return false;
             
+        }finally{
+            if(cn!=null){
+                try{
+                    cn.close();
+                }catch(SQLException e){
+                    System.err.print(e);
+                }
+            }
         }
         
     }
