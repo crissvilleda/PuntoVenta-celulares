@@ -230,9 +230,7 @@ public class Ventas extends javax.swing.JFrame {
             jtableVentas.getColumnModel().getColumn(0).setMinWidth(0);
             jtableVentas.getColumnModel().getColumn(0).setPreferredWidth(0);
             jtableVentas.getColumnModel().getColumn(0).setMaxWidth(0);
-            jtableVentas.getColumnModel().getColumn(1).setMinWidth(0);
-            jtableVentas.getColumnModel().getColumn(1).setPreferredWidth(0);
-            jtableVentas.getColumnModel().getColumn(1).setMaxWidth(0);
+            jtableVentas.getColumnModel().getColumn(1).setPreferredWidth(15);
             jtableVentas.getColumnModel().getColumn(4).setMinWidth(70);
             jtableVentas.getColumnModel().getColumn(4).setMaxWidth(80);
             jtableVentas.getColumnModel().getColumn(5).setMinWidth(0);
