@@ -35,6 +35,16 @@ public class ConsultasEntrada extends Pool {
         }catch(SQLException e){
             System.err.print(e);
             return false;
+        }finally{
+            if(cn!=null){
+                try{
+                    cn.close();
+                }catch(SQLException e){
+                    System.err.print(e);
+                }
+                
+            }
+        
         }
     }
     public boolean registrar(Entrada entrada){
@@ -55,6 +65,16 @@ public class ConsultasEntrada extends Pool {
         }catch(SQLException e){
             System.err.print(e);
             return false;
+        }finally{
+            if(cn!=null){
+                try{
+                    cn.close();
+                }catch(SQLException e){
+                    System.err.print(e);
+                }
+                
+            }
+        
         }
         
     }

@@ -6,16 +6,11 @@
 package Controlador;
 
 import Modelo.Cliente;
-import Modelo.ConsultaDetalleVenta;
 import Modelo.ConsultasCliente;
-import Modelo.ConsultasInventario;
 import Modelo.ConsultasProducto;
 import Modelo.ConsultasVenta;
-import Modelo.DetalleVenta;
-import Modelo.Producto;
 import Modelo.Usuario;
 import Modelo.Venta;
-import Vista.Administrador;
 import Vista.ListaProducto;
 import Vista.Login;
 import Vista.Ventas;

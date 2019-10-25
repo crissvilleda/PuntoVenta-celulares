@@ -116,28 +116,6 @@ public class ConsultasCategoria  extends Pool{
         }catch (SQLException e){
             System.err.print(e);
             return false;
-        }
-        
-    }
-    
-    /*public void tablaCategorias(JTable tabla){
-        DefaultTableModel model = (DefaultTableModel)tabla.getModel();
-        String registros [] = new String [2];
-        PreparedStatement ps = null;
-        Connection cn = (Connection)getConnection();
-        ResultSet rs = null;
-        String sql ="SELECT * FROM categoria";
-        try{
-            ps = (PreparedStatement)cn.prepareStatement(sql);
-            rs =ps.executeQuery();
-            while(rs.next()){
-                registros[0] =rs.getString("idCategoria");
-                registros[1] =rs.getString("nombre");
-                model.addRow(registros);
-            }
-            tabla.setModel(model);
-        }catch (SQLException e){
-            System.err.print(e);
         }finally{
             if(cn!=null){
                 try{
@@ -147,8 +125,10 @@ public class ConsultasCategoria  extends Pool{
                 }
                 
             }
+        
         }
-    }*/
+}    
+   
     public void limpiarTabla(JTable tabla){
         DefaultTableModel model=(DefaultTableModel)tabla.getModel();
         //Limpiar tabla
