@@ -6,21 +6,32 @@
 package Controlador;
 
 import Modelo.ConsultasInventario;
+import Modelo.Pool;
 import Modelo.Usuario;
 import Vista.Administrador;
 import Vista.VInventario;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.view.JasperViewer;
 /**
  *
  * @author criss
  */
-public class ControladorInventario implements MouseListener, DocumentListener{
+public class ControladorInventario extends Pool implements MouseListener, DocumentListener,ActionListener{
     private VInventario vista ;
     private Usuario modelo;
     private ConsultasInventario consultaInv = new ConsultasInventario();
@@ -33,6 +44,11 @@ public class ControladorInventario implements MouseListener, DocumentListener{
         vista.jtxtBuscar.getDocument().addDocumentListener(this);
         consultaInv.tablaInventario(vista.jtableInventario);
         vista.jlblUsuario.setText(modelo.getNombreUsuario());
+        vista.btnImprimirListado.addActionListener(this);
+      
+        
+        
+        
        
         
     }
@@ -72,6 +88,23 @@ public class ControladorInventario implements MouseListener, DocumentListener{
             consultaInv.buscar(vista.jtableInventario, vista.jtxtBuscar.getText());
         }
     }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==vista.btnImprimirListado){
+            Connection cn = (Connection)getConnection();
+            String jasperReport ="C:\\Users\\Orlando\\Documents\\NetBeansProjects\\proyecto2\\src\\Reportes\\RpInventario.jasper";
+            
+            try {
+                
+                JasperPrint print = JasperFillManager.fillReport(jasperReport,null, cn);
+                JasperViewer view = new JasperViewer(print,false);
+                view.setVisible(true);
+            } catch (JRException ex) {
+                System.err.println(ex);
+            }
+        }
+    }
+
     
     
     @Override
@@ -90,6 +123,7 @@ public class ControladorInventario implements MouseListener, DocumentListener{
     public void mouseExited(MouseEvent me) {
     }
 
+    
    
     
 }
