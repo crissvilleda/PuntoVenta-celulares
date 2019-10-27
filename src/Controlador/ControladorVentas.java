@@ -13,6 +13,7 @@ import Modelo.Usuario;
 import Modelo.Venta;
 import Vista.ListaProducto;
 import Vista.Login;
+import Vista.RegistroCliente;
 import Vista.Ventas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -41,11 +42,12 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         TableModelListener,DocumentListener, FocusListener{
     private Ventas vista;
     private Usuario modelo;
-    private Cliente cliente = null;
+    public Cliente cliente = null;
     private ListaProducto vistaListaPro = new ListaProducto();
     private ConsultasVenta consultaVenta = new ConsultasVenta();
     private ConsultasCliente consultaCliente = new ConsultasCliente();
     private Login vistaLogin = new Login();
+    private RegistroCliente vistaCliente = new RegistroCliente();
     //registra si el jtable esta activo
     boolean active = false;
 
@@ -319,15 +321,32 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
                     vista.jtxtApellido.setEditable(false);
                     vista.jtxtDpi.setEditable(false);
                 }else{
-                    JOptionPane.showMessageDialog(null,"CLiente no existe");
-                    vista.jtxtNombre.setText("");
-                    vista.jtxtApellido.setText("");
-                    vista.jtxtNit.setText(cliente.getNit());
-                    vista.jtxtDpi.setText("");
-                    vista.jtxtNombre.setEditable(true);
-                    vista.jtxtApellido.setEditable(true);
-                    vista.jtxtDpi.setEditable(true);
-                    
+                    int op = JOptionPane.showConfirmDialog(null,"Cliente no existe"
+                            + "\n¿Desea registrarlo?","Alerta",JOptionPane.YES_NO_OPTION);
+                    if(op==0){
+                        vista.jtxtNombre.setText("");
+                        vista.jtxtApellido.setText("");
+                        vista.jtxtDpi.setText("");
+                        this.cliente=null;
+                        ControladorRegistrarCliente regCliente = 
+                                new ControladorRegistrarCliente(vistaCliente);
+                        regCliente.setJTxt(vista.jtxtNit, vista.jtxtNombre, 
+                                vista.jtxtApellido, vista.jtxtDpi, vista.jtxtIngreseCodigo);
+                        regCliente.iniciar();
+                        
+                        
+                    }else{
+                        vista.jtxtNombre.setText("");
+                        vista.jtxtApellido.setText("");
+                        vista.jtxtDpi.setText("");
+                        vista.jtxtNit.setText("");
+                        vista.jtxtNombre.setEditable(true);
+                        vista.jtxtApellido.setEditable(true);
+                        vista.jtxtDpi.setEditable(true);
+                        vista.jtxtIngreseCodigo.requestFocus();
+                        
+                    }
+                 
                 }
                 
             }
@@ -400,7 +419,13 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         if(fe.getSource()==this.vista.jtxtNit){
             if(this.vista.jtxtNit.getText().equals("")){
                 this.vista.jtxtNit.setText("C/F");
-                
+                vista.jtxtNombre.setText("");
+                vista.jtxtApellido.setText("");
+                vista.jtxtDpi.setText("");
+                vista.jtxtNombre.setEditable(true);
+                vista.jtxtApellido.setEditable(true);
+                vista.jtxtDpi.setEditable(true);
+
             }
         }else if(fe.getSource()==this.vista.jtxtImporte){
             if(this.vista.jtxtImporte.getText().equals("")){
