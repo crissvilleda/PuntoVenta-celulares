@@ -66,7 +66,6 @@ public class VReportes extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         btnImprimirU5 = new javax.swing.JButton();
-        jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -153,7 +152,7 @@ public class VReportes extends javax.swing.JFrame {
         jPanel1.add(jcmbUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 100, -1));
 
         jLabel16.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/iconoCarrito.png"))); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/iconoVentas.png"))); // NOI18N
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 100, 170, 400));
@@ -298,10 +297,6 @@ public class VReportes extends javax.swing.JFrame {
         btnImprimirU5.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
         jPanel7.add(btnImprimirU5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
-        jLabel19.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/brands2.png"))); // NOI18N
-        jPanel7.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
-
         getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 100, 170, 400));
 
         pack();
@@ -368,7 +363,6 @@ public class VReportes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
