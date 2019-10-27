@@ -66,7 +66,7 @@ public class RegistroCliente extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel1.setText("Registrar/Modificar Cliente");
+        jLabel1.setText("Registrar Cliente");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
         jlblInicio.setBackground(new java.awt.Color(255, 255, 255));
@@ -116,7 +116,7 @@ public class RegistroCliente extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, 75, 25));
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, 75, 25));
 
         jtxtDPI.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtDPI.setForeground(new java.awt.Color(153, 153, 153));
@@ -209,7 +209,7 @@ public class RegistroCliente extends javax.swing.JFrame {
         jlblMensaje.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jlblMensaje.setForeground(new java.awt.Color(103, 103, 103));
         jlblMensaje.setText("*Todos los campos son obligatorios");
-        jPanel1.add(jlblMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, -1, -1));
+        jPanel1.add(jlblMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, -1, -1));
 
         jtxtEmail.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtxtEmail.setForeground(new java.awt.Color(153, 153, 153));
