@@ -5,20 +5,32 @@
  */
 package Controlador;
 
+import Modelo.Pool;
 import Modelo.Usuario;
 import Vista.Administrador;
 import Vista.VReportes;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.sql.Connection;
+import static java.sql.DriverManager.getConnection;
+import static java.sql.DriverManager.getConnection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
  * @author Orlando
  */
 
-public class ControladorVReportes implements MouseListener, WindowListener{
+public class ControladorVReportes extends Pool implements MouseListener, WindowListener, ActionListener{
     private VReportes vista;
     private Usuario modelo;
     private Administrador vistAdmin= new Administrador();
@@ -29,6 +41,13 @@ public class ControladorVReportes implements MouseListener, WindowListener{
         this.modelo = modelo;
         
         vista.jlblInicio.addMouseListener(this);
+        
+        vista.btnImprimirUs.addActionListener(this);
+        vista.btnImprimirPr.addActionListener(this);
+        vista.btnImprimirIn.addActionListener(this);
+        vista.btnImprimirCa.addActionListener(this);
+        vista.btnImprimirMa.addActionListener(this);
+        vista.btnImprimirPro.addActionListener(this);
         
         vista.addWindowListener(this);
     }
@@ -54,6 +73,82 @@ public class ControladorVReportes implements MouseListener, WindowListener{
         }
     }
     
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==vista.btnImprimirUs){
+            Connection cn=(Connection)getConnection();
+            String jasperReport="C:\\Users\\Orlando\\Documents\\NetBeansProjects\\proyecto2\\src\\Reportes\\RpUsuario.jasper";
+            
+            try {
+                JasperPrint print=JasperFillManager.fillReport(jasperReport,null,cn);
+                JasperViewer view = new JasperViewer(print,false);
+                view.setVisible(true);
+            } catch (JRException ex) {
+                Logger.getLogger(ControladorVReportes.class.getName()).log(Level.SEVERE, null, ex);
+            }   
+        }
+        
+        else if(e.getSource()==vista.btnImprimirPr){
+            Connection cn=(Connection)getConnection();
+            String jasperReport="C:\\Users\\Orlando\\Documents\\NetBeansProjects\\proyecto2\\src\\Reportes\\RpProveedorLandscape.jasper";
+            
+            try {
+                JasperPrint print=JasperFillManager.fillReport(jasperReport,null,cn);
+                JasperViewer view = new JasperViewer(print,false);
+                view.setVisible(true);
+            } catch (JRException ex) {
+                Logger.getLogger(ControladorVReportes.class.getName()).log(Level.SEVERE, null, ex);
+            }   
+        }
+        else if(e.getSource()==vista.btnImprimirIn){
+            Connection cn=(Connection)getConnection();
+            String jasperReport="C:\\Users\\Orlando\\Documents\\NetBeansProjects\\proyecto2\\src\\Reportes\\RpInventario.jasper";
+            
+            try {
+                JasperPrint print=JasperFillManager.fillReport(jasperReport,null,cn);
+                JasperViewer view = new JasperViewer(print,false);
+                view.setVisible(true);
+            } catch (JRException ex) {
+                Logger.getLogger(ControladorVReportes.class.getName()).log(Level.SEVERE, null, ex);
+            }   
+        }
+        else if(e.getSource()==vista.btnImprimirCa){
+            Connection cn=(Connection)getConnection();
+            String jasperReport="C:\\Users\\Orlando\\Documents\\NetBeansProjects\\proyecto2\\src\\Reportes\\RpCategorias.jasper";
+            
+            try {
+                JasperPrint print=JasperFillManager.fillReport(jasperReport,null,cn);
+                JasperViewer view = new JasperViewer(print,false);
+                view.setVisible(true);
+            } catch (JRException ex) {
+                Logger.getLogger(ControladorVReportes.class.getName()).log(Level.SEVERE, null, ex);
+            }   
+        }
+        else if(e.getSource()==vista.btnImprimirMa){
+            Connection cn=(Connection)getConnection();
+            String jasperReport="C:\\Users\\Orlando\\Documents\\NetBeansProjects\\proyecto2\\src\\Reportes\\RpMarcas.jasper";
+            
+            try {
+                JasperPrint print=JasperFillManager.fillReport(jasperReport,null,cn);
+                JasperViewer view = new JasperViewer(print,false);
+                view.setVisible(true);
+            } catch (JRException ex) {
+                Logger.getLogger(ControladorVReportes.class.getName()).log(Level.SEVERE, null, ex);
+            }   
+        }
+        else if(e.getSource()==vista.btnImprimirPro){
+            Connection cn=(Connection)getConnection();
+            String jasperReport="C:\\Users\\Orlando\\Documents\\NetBeansProjects\\proyecto2\\src\\Reportes\\RpProductos.jasper";
+            
+            try {
+                JasperPrint print=JasperFillManager.fillReport(jasperReport,null,cn);
+                JasperViewer view = new JasperViewer(print,false);
+                view.setVisible(true);
+            } catch (JRException ex) {
+                Logger.getLogger(ControladorVReportes.class.getName()).log(Level.SEVERE, null, ex);
+            }   
+        }
+    }
 
     
     

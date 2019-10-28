@@ -58,6 +58,8 @@ public class VReportes extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         btnImprimirIn = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
+        btnImprimirPro = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -247,6 +249,22 @@ public class VReportes extends javax.swing.JFrame {
         btnImprimirIn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
         jPanel5.add(btnImprimirIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
+        jLabel24.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel24.setText("Listado de Productos");
+        jPanel5.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+
+        btnImprimirPro.setBackground(new java.awt.Color(255, 255, 255));
+        btnImprimirPro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado1.png"))); // NOI18N
+        btnImprimirPro.setBorder(null);
+        btnImprimirPro.setBorderPainted(false);
+        btnImprimirPro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnImprimirPro.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        btnImprimirPro.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        btnImprimirPro.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        jPanel5.add(btnImprimirPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
+
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 170, 400));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -361,6 +379,7 @@ public class VReportes extends javax.swing.JFrame {
     public javax.swing.JButton btnImprimirIn;
     public javax.swing.JButton btnImprimirMa;
     public javax.swing.JButton btnImprimirPr;
+    public javax.swing.JButton btnImprimirPro;
     public javax.swing.JButton btnImprimirUs;
     public javax.swing.JButton btnImprimirVe;
     private javax.swing.JLabel jLabel1;
@@ -378,6 +397,7 @@ public class VReportes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
