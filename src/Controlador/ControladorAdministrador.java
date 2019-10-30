@@ -13,6 +13,7 @@ import Vista.Login;
 import Vista.VEntrada;
 import Vista.VInventario;
 import Vista.VProveedor;
+import Vista.VReportes;
 import Vista.VUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,6 +34,7 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
     private Configuracion vistaConfig = new Configuracion();
     private VInventario vistaInv = new VInventario();
     private CortedeCaja vistaCorCaj= new CortedeCaja();
+    private VReportes vistaReport = new VReportes();
     private Login vistaLogin = new Login();
     
     
@@ -54,7 +56,7 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
         vista.btnCerrarSesion.addActionListener(this);
         vista.jlblFacturas.setEnabled(false);
         //vista.jlblCorteCaja.setEnabled(false);
-        vista.jlblReportes.setEnabled(false);
+        //vista.jlblReportes.setEnabled(false);
         
     
     }
@@ -97,7 +99,10 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
             vista.dispose();
         
         }else if(me.getSource()==vista.jlblReportes){
-        
+            ControladorVReportes controladorVRep=
+                    new ControladorVReportes(vistaReport,modelo);
+            controladorVRep.iniciar();
+            vista.dispose();
         }else if(me.getSource()==vista.jlblFacturas){
         
         }else if(me.getSource()==vista.jlblCorteCaja){

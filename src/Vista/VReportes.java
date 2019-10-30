@@ -38,34 +38,38 @@ public class VReportes extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        btnImprimirU = new javax.swing.JButton();
+        btnImprimirVe = new javax.swing.JButton();
         jcmbUsuario = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
-        jcmbUsuario1 = new javax.swing.JComboBox<>();
+        jcmbFecha = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        btnImprimirU1 = new javax.swing.JButton();
+        btnImprimirUs = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        btnImprimirU2 = new javax.swing.JButton();
+        btnImprimirPr = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        btnImprimirU3 = new javax.swing.JButton();
+        btnImprimirIn = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
+        btnImprimirPro = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        btnImprimirU4 = new javax.swing.JButton();
+        btnImprimirCa = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        btnImprimirU5 = new javax.swing.JButton();
+        btnImprimirMa = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -113,7 +117,7 @@ public class VReportes extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/NReporte.png"))); // NOI18N
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 2, 96, 96));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 96, 96));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 100));
 
@@ -123,7 +127,7 @@ public class VReportes extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("Ventas");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 40, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -131,15 +135,15 @@ public class VReportes extends javax.swing.JFrame {
         jLabel4.setText("Seleccione Usuario");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
-        btnImprimirU.setBackground(new java.awt.Color(255, 255, 255));
-        btnImprimirU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado1.png"))); // NOI18N
-        btnImprimirU.setBorder(null);
-        btnImprimirU.setBorderPainted(false);
-        btnImprimirU.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnImprimirU.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        btnImprimirU.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        btnImprimirU.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        jPanel1.add(btnImprimirU, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 305, -1, -1));
+        btnImprimirVe.setBackground(new java.awt.Color(255, 255, 255));
+        btnImprimirVe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado1.png"))); // NOI18N
+        btnImprimirVe.setBorder(null);
+        btnImprimirVe.setBorderPainted(false);
+        btnImprimirVe.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnImprimirVe.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        btnImprimirVe.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        btnImprimirVe.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        jPanel1.add(btnImprimirVe, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 305, -1, -1));
 
         jPanel1.add(jcmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 100, -1));
 
@@ -149,10 +153,10 @@ public class VReportes extends javax.swing.JFrame {
         jLabel22.setText("Seleccione Fecha");
         jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
-        jPanel1.add(jcmbUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 100, -1));
+        jPanel1.add(jcmbFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 100, -1));
 
         jLabel16.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/iconoVentas.png"))); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ventas.png"))); // NOI18N
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 100, 170, 400));
@@ -175,15 +179,15 @@ public class VReportes extends javax.swing.JFrame {
         jLabel7.setText("Listado de Usuarios");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
-        btnImprimirU1.setBackground(new java.awt.Color(255, 255, 255));
-        btnImprimirU1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado1.png"))); // NOI18N
-        btnImprimirU1.setBorder(null);
-        btnImprimirU1.setBorderPainted(false);
-        btnImprimirU1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnImprimirU1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        btnImprimirU1.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        btnImprimirU1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        jPanel3.add(btnImprimirU1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+        btnImprimirUs.setBackground(new java.awt.Color(255, 255, 255));
+        btnImprimirUs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado1.png"))); // NOI18N
+        btnImprimirUs.setBorder(null);
+        btnImprimirUs.setBorderPainted(false);
+        btnImprimirUs.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnImprimirUs.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        btnImprimirUs.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        btnImprimirUs.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        jPanel3.add(btnImprimirUs, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 170, 400));
 
@@ -205,15 +209,15 @@ public class VReportes extends javax.swing.JFrame {
         jLabel12.setText("Listado de Proveedores");
         jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 200, -1, -1));
 
-        btnImprimirU2.setBackground(new java.awt.Color(255, 255, 255));
-        btnImprimirU2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado1.png"))); // NOI18N
-        btnImprimirU2.setBorder(null);
-        btnImprimirU2.setBorderPainted(false);
-        btnImprimirU2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnImprimirU2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        btnImprimirU2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        btnImprimirU2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        jPanel4.add(btnImprimirU2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+        btnImprimirPr.setBackground(new java.awt.Color(255, 255, 255));
+        btnImprimirPr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado1.png"))); // NOI18N
+        btnImprimirPr.setBorder(null);
+        btnImprimirPr.setBorderPainted(false);
+        btnImprimirPr.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnImprimirPr.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        btnImprimirPr.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        btnImprimirPr.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        jPanel4.add(btnImprimirPr, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 170, 400));
 
@@ -235,15 +239,31 @@ public class VReportes extends javax.swing.JFrame {
         jLabel15.setText("Listado de Inventario");
         jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
-        btnImprimirU3.setBackground(new java.awt.Color(255, 255, 255));
-        btnImprimirU3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado1.png"))); // NOI18N
-        btnImprimirU3.setBorder(null);
-        btnImprimirU3.setBorderPainted(false);
-        btnImprimirU3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnImprimirU3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        btnImprimirU3.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        btnImprimirU3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        jPanel5.add(btnImprimirU3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+        btnImprimirIn.setBackground(new java.awt.Color(255, 255, 255));
+        btnImprimirIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado1.png"))); // NOI18N
+        btnImprimirIn.setBorder(null);
+        btnImprimirIn.setBorderPainted(false);
+        btnImprimirIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnImprimirIn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        btnImprimirIn.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        btnImprimirIn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        jPanel5.add(btnImprimirIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+
+        jLabel24.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel24.setText("Listado de Productos");
+        jPanel5.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+
+        btnImprimirPro.setBackground(new java.awt.Color(255, 255, 255));
+        btnImprimirPro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado1.png"))); // NOI18N
+        btnImprimirPro.setBorder(null);
+        btnImprimirPro.setBorderPainted(false);
+        btnImprimirPro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnImprimirPro.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        btnImprimirPro.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        btnImprimirPro.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        jPanel5.add(btnImprimirPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 170, 400));
 
@@ -252,8 +272,8 @@ public class VReportes extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel17.setText("Categoria");
-        jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+        jLabel17.setText("Categorias");
+        jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 40, -1, -1));
 
         jLabel18.setBackground(new java.awt.Color(255, 255, 255));
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -261,15 +281,19 @@ public class VReportes extends javax.swing.JFrame {
         jLabel18.setText("Listado de Categorias");
         jPanel6.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
-        btnImprimirU4.setBackground(new java.awt.Color(255, 255, 255));
-        btnImprimirU4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado1.png"))); // NOI18N
-        btnImprimirU4.setBorder(null);
-        btnImprimirU4.setBorderPainted(false);
-        btnImprimirU4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnImprimirU4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        btnImprimirU4.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        btnImprimirU4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        jPanel6.add(btnImprimirU4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+        btnImprimirCa.setBackground(new java.awt.Color(255, 255, 255));
+        btnImprimirCa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado1.png"))); // NOI18N
+        btnImprimirCa.setBorder(null);
+        btnImprimirCa.setBorderPainted(false);
+        btnImprimirCa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnImprimirCa.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        btnImprimirCa.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        btnImprimirCa.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        jPanel6.add(btnImprimirCa, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+
+        jLabel19.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CategoriaN.png"))); // NOI18N
+        jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, 170, 400));
 
@@ -278,8 +302,8 @@ public class VReportes extends javax.swing.JFrame {
 
         jLabel20.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel20.setText("Marca");
-        jPanel7.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+        jLabel20.setText("Marcas");
+        jPanel7.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 40, -1, -1));
 
         jLabel21.setBackground(new java.awt.Color(255, 255, 255));
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -287,15 +311,19 @@ public class VReportes extends javax.swing.JFrame {
         jLabel21.setText("Listado de Marcas");
         jPanel7.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
-        btnImprimirU5.setBackground(new java.awt.Color(255, 255, 255));
-        btnImprimirU5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado1.png"))); // NOI18N
-        btnImprimirU5.setBorder(null);
-        btnImprimirU5.setBorderPainted(false);
-        btnImprimirU5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnImprimirU5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        btnImprimirU5.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        btnImprimirU5.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        jPanel7.add(btnImprimirU5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+        btnImprimirMa.setBackground(new java.awt.Color(255, 255, 255));
+        btnImprimirMa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado1.png"))); // NOI18N
+        btnImprimirMa.setBorder(null);
+        btnImprimirMa.setBorderPainted(false);
+        btnImprimirMa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnImprimirMa.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        btnImprimirMa.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        btnImprimirMa.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
+        jPanel7.add(btnImprimirMa, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+
+        jLabel23.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Marca.png"))); // NOI18N
+        jPanel7.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
         getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 100, 170, 400));
 
@@ -347,12 +375,13 @@ public class VReportes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnImprimirU;
-    public javax.swing.JButton btnImprimirU1;
-    public javax.swing.JButton btnImprimirU2;
-    public javax.swing.JButton btnImprimirU3;
-    public javax.swing.JButton btnImprimirU4;
-    public javax.swing.JButton btnImprimirU5;
+    public javax.swing.JButton btnImprimirCa;
+    public javax.swing.JButton btnImprimirIn;
+    public javax.swing.JButton btnImprimirMa;
+    public javax.swing.JButton btnImprimirPr;
+    public javax.swing.JButton btnImprimirPro;
+    public javax.swing.JButton btnImprimirUs;
+    public javax.swing.JButton btnImprimirVe;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -363,9 +392,12 @@ public class VReportes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -380,8 +412,8 @@ public class VReportes extends javax.swing.JFrame {
     public javax.swing.JPanel jPanel6;
     public javax.swing.JPanel jPanel7;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JComboBox<String> jcmbUsuario;
-    private javax.swing.JComboBox<String> jcmbUsuario1;
+    public javax.swing.JComboBox<String> jcmbFecha;
+    public javax.swing.JComboBox<String> jcmbUsuario;
     public javax.swing.JLabel jlblInicio;
     public javax.swing.JLabel jlblMinimizar;
     public javax.swing.JLabel jlblUsuario;
