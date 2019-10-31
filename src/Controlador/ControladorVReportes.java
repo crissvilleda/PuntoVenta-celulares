@@ -17,10 +17,6 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.nio.file.Paths;
 import java.sql.Connection;
-import static java.sql.DriverManager.getConnection;
-import static java.sql.DriverManager.getConnection;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -103,7 +99,7 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
         }
         else if(e.getSource()==vista.btnImprimirIn){
             Connection cn=(Connection)getConnection();
-            String jasperReport=Paths.get("").toAbsolutePath().toString()+"/src/Reportes/RpInventario.jasper";
+            String jasperReport=Paths.get("").toAbsolutePath().toString()+"/src/Reportes/RprInventario.jasper";
             
             try {
                 JasperPrint print=JasperFillManager.fillReport(jasperReport,null,cn);
