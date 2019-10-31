@@ -103,7 +103,7 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
         }
         else if(e.getSource()==vista.btnImprimirIn){
             Connection cn=(Connection)getConnection();
-            String jasperReport=Paths.get("").toAbsolutePath().toString()+"/src/Reportes/RpInventario.jasper";
+            String jasperReport=Paths.get("").toAbsolutePath().toString()+"/src/Reportes/RprInventario.jasper";
             
             try {
                 JasperPrint print=JasperFillManager.fillReport(jasperReport,null,cn);
@@ -149,6 +149,7 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
                 System.err.print(ex);
             }   
         }
+        
     }
 
     

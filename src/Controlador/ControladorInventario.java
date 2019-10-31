@@ -92,7 +92,7 @@ public class ControladorInventario extends Pool implements MouseListener, Docume
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnImprimirListado){
             Connection cn = (Connection)getConnection();
-            String jasperReport ="C:\\Users\\Orlando\\Documents\\NetBeansProjects\\proyecto2\\src\\Reportes\\RpInventario.jasper";
+            String jasperReport ="C:\\Users\\Orlando\\Documents\\NetBeansProjects\\proyecto2\\src\\Reportes\\RprInventario.jasper";
             
             try {
                 
