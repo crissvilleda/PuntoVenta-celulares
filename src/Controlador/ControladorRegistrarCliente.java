@@ -8,6 +8,7 @@ package Controlador;
 import Modelo.Cliente;
 import Modelo.ConsultasCliente;
 import Vista.RegistroCliente;
+import Vista.Ventas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -26,9 +27,13 @@ public class ControladorRegistrarCliente implements MouseListener,DocumentListen
     private ConsultasCliente conCliente = new ConsultasCliente();
     private JTextField JTextNit;
     private JTextField JTextCodigo;
+    private Cliente cliente;
+    private Ventas vistaVenta;
+   
             
-    public ControladorRegistrarCliente(RegistroCliente regCliente) {
+    public ControladorRegistrarCliente(RegistroCliente regCliente,Ventas vistaVenta) {
         this.vista = regCliente;
+        this.vistaVenta=vistaVenta;
         
         this.vista.jtxtNombre.requestFocus();
         this.vista.btnRegistrar.setEnabled(false);
@@ -39,6 +44,16 @@ public class ControladorRegistrarCliente implements MouseListener,DocumentListen
         this.vista.jtxtNIT.getDocument().addDocumentListener(this);
         this.vista.jlblInicio.addMouseListener(this);
         
+        this.vista.jtxtNIT.setText(this.vistaVenta.jtxtNit.getText());
+        
+        this.vista.jtxtNombre.setText("");
+        this.vista.jtxtApellido.setText("");
+        this.vista.jtxtDPI.setText("");
+        this.vista.jtxtEmail.setText("");
+        this.vista.txtTelefono.setText("");
+        this.vista.jtxtCiudad.setText("");
+        this.vista.jtxtDireccion.setText("");
+        this.vista.btnRegistrar.setEnabled(false);
     }
     
     
@@ -58,18 +73,17 @@ public class ControladorRegistrarCliente implements MouseListener,DocumentListen
                 cli.setCiudad(this.vista.jtxtCiudad.getText());
                 cli.setDireccion(this.vista.jtxtDireccion.getText());
                 if(conCliente.registrar(cli)){
-                    this.vista.jtxtNombre.setText("");
-                    this.vista.jtxtApellido.setText("");
-                    this.vista.jtxtDPI.setText("");
-                    this.vista.jtxtNIT.setText("");
-                    this.vista.jtxtEmail.setText("");
-                    this.vista.txtTelefono.setText("");
-                    this.vista.jtxtCiudad.setText("");
-                    this.vista.jtxtDireccion.setText("");
-                    this.vista.btnRegistrar.setVisible(false);
+                    this.vistaVenta.jtxtNombre.setText(cli.getNombre());
+                    this.vistaVenta.jtxtApellido.setText(cli.getApellido());
+                    this.vistaVenta.jtxtDpi.setText(cli.getDpi());
+                    this.vistaVenta.jtxtNit.setText(cli.getNit());
+                    this.vistaVenta.jtxtIdCliente.setText(String.valueOf(cli.getIdCliente()));
+                    this.vistaVenta.jtxtNit.requestFocus();
+                    this.vistaVenta.jtxtNombre.setEditable(false);
+                    this.vistaVenta.jtxtApellido.setEditable(false);
+                    this.vistaVenta.jtxtDpi.setEditable(false);
                     this.vista.dispose();
-                    this.JTextNit.setText(cli.getNit());
-                    this.JTextCodigo.requestFocus();
+                    
                 }else{
                     JOptionPane.showMessageDialog(null,"Error al registar al cliente");
                 }
@@ -92,10 +106,11 @@ public class ControladorRegistrarCliente implements MouseListener,DocumentListen
         }
         
     }
-    public void setJTxt(JTextField txtNit,JTextField txtCod){
-        this.JTextNit = txtNit;
-        this.JTextCodigo=txtCod;
+    /*public void setJTxt(Ventas venta){
+       this.vistaVenta=venta;
+       vista
     }
+*/
     public void iniciar(){
         this.vista.setLocationRelativeTo(null);
         this.vista.setVisible(true);

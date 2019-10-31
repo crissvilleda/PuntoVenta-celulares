@@ -68,6 +68,7 @@ public class Ventas extends javax.swing.JFrame {
         jtxtNit = new javax.swing.JTextField();
         jlblNit = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jtxtIdCliente = new javax.swing.JTextField();
         jpanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtableVentas = new javax.swing.JTable();
@@ -193,6 +194,10 @@ public class Ventas extends javax.swing.JFrame {
         jlblNit.setText("Nit:");
         jpanel1.add(jlblNit, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 140, -1, -1));
         jpanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 950, -1));
+
+        jtxtIdCliente.setEditable(false);
+        jtxtIdCliente.setFocusable(false);
+        jpanel1.add(jtxtIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 40, 20));
 
         getContentPane().add(jpanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 225));
 
@@ -615,6 +620,7 @@ public class Ventas extends javax.swing.JFrame {
     public javax.swing.JTextField jtxtApellido;
     public javax.swing.JTextField jtxtCantidad;
     public javax.swing.JTextField jtxtDpi;
+    public javax.swing.JTextField jtxtIdCliente;
     public javax.swing.JTextField jtxtImporte;
     public javax.swing.JTextField jtxtIngreseCodigo;
     public javax.swing.JTextField jtxtNit;

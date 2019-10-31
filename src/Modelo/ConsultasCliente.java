@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -19,22 +20,29 @@ public class ConsultasCliente extends Pool {
     public boolean registrar(Cliente cli){
         
         PreparedStatement ps = null;
+        ResultSet rs = null;
         Connection cn = (Connection)getConnection();
         String sql = "INSERT INTO cliente(nombre,apellido,email,telefono,nit,"
                 + "dpi,ciudad,direccion) values(?,?,?,?,?,?,?,?)";
         
         try{
-             ps = (PreparedStatement) cn.prepareStatement(sql);
-             ps.setString(1, cli.getNombre());
-             ps.setString(2, cli.getApellido());
-             ps.setString(3, cli.getEmail());
-             ps.setString(4, cli.getTelefono());
-             ps.setString(5, cli.getNit());
-             ps.setString(6, cli.getDpi());
-             ps.setString(7, cli.getCiudad());
-             ps.setString(8, cli.getDireccion());
-             ps.execute();
-             return true;
+            ps = (PreparedStatement) cn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, cli.getNombre());
+            ps.setString(2, cli.getApellido());
+            ps.setString(3, cli.getEmail());
+            ps.setString(4, cli.getTelefono());
+            ps.setString(5, cli.getNit());
+            ps.setString(6, cli.getDpi());
+            ps.setString(7, cli.getCiudad());
+            ps.setString(8, cli.getDireccion());
+            ps.execute();
+            rs = ps.getGeneratedKeys();
+            if(rs.next()){
+                cli.setIdCliente(rs.getInt(1));
+                
+            }
+             
+            return true;
              
         }catch(SQLException e){
             System.err.print(e);

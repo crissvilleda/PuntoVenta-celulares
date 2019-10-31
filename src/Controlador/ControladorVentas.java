@@ -40,11 +40,10 @@ import javax.swing.table.TableModel;
  *
  * @author criss
  */
-public class ControladorVentas implements WindowListener, ActionListener, MouseListener,KeyListener,
+public class ControladorVentas implements ActionListener, MouseListener,KeyListener,
         TableModelListener,DocumentListener, FocusListener{
     private Ventas vista;
     private Usuario modelo;
-    public Cliente cliente = null;
     private ListaProducto vistaListaPro = new ListaProducto();
     private ConsultasVenta consultaVenta = new ConsultasVenta();
     private ConsultasCliente consultaCliente = new ConsultasCliente();
@@ -69,8 +68,11 @@ public class ControladorVentas implements WindowListener, ActionListener, MouseL
         this.vista.btnBuscarProducto.addActionListener(this);
         this.vista.jtxtNit.addFocusListener(this);
         this.vista.jtxtImporte.addFocusListener(this);
+        this.vista.addFocusListener(this);
+        
         consultaVenta.siguenteIdVenta(vista.jlblIdVenta);
         this.vista.jlblNombreUsuario.setText(modelo.getNombreUsuario());
+        this.vista.jtxtIdCliente.setText("1");
         this.vista.jlblArtsVendidos.setText("0");
         this.vista.jlblCambioVenta.setText("00.00");
         this.vista.jlblTotal.setText("00.00");
@@ -191,13 +193,8 @@ public class ControladorVentas implements WindowListener, ActionListener, MouseL
         try{
             Venta venta = new Venta();
             long now = System.currentTimeMillis();
-            Timestamp sqlTimestamp = new Timestamp(now);
-            
-            if(this.cliente == null){
-                venta.setIdCliente(1);
-            }else{
-                venta.setIdCliente(this.cliente.getIdCliente());
-            }
+            Timestamp sqlTimestamp = new Timestamp(now);  
+            venta.setIdCliente(Integer.parseInt(vista.jtxtIdCliente.getText()));
             venta.setIdUsuario(modelo.getIdUsuario());
             venta.setFecha(sqlTimestamp);
             venta.setnArticulo(Integer.parseInt(this.vista.jlblArtsVendidos.getText()));
@@ -220,7 +217,6 @@ public class ControladorVentas implements WindowListener, ActionListener, MouseL
                 this.vista.jlblTotal.setText("00.00");
                 this.vista.jtxtCantidad.setText("1");
                 this.vista.jtxtNit.setText("C/F");
-                this.cliente = null;
                 consultaVenta.siguenteIdVenta(vista.jlblIdVenta);
                 this.vista.btnEliminarCarrito.setEnabled(false);
                 this.vista.btnRealizar.setEnabled(false);
@@ -310,10 +306,10 @@ public class ControladorVentas implements WindowListener, ActionListener, MouseL
     public void keyPressed(KeyEvent ke) {
         if(ke.getSource()==vista.jtxtNit){
             if(ke.getKeyCode()==KeyEvent.VK_ENTER){
-                Cliente cli = new Cliente();
-                cli.setNit(vista.jtxtNit.getText());
-                if(consultaCliente.consultar(cli)){
-                    this.cliente=cli;
+                Cliente cliente = new Cliente();
+                cliente.setNit(vista.jtxtNit.getText());
+                if(consultaCliente.consultar(cliente)){
+                    vista.jtxtIdCliente.setText(String.valueOf(cliente.getIdCliente()));
                     vista.jtxtNombre.setText(cliente.getNombre());
                     vista.jtxtApellido.setText(cliente.getApellido());
                     vista.jtxtNit.setText(cliente.getNit());
@@ -329,10 +325,9 @@ public class ControladorVentas implements WindowListener, ActionListener, MouseL
                         vista.jtxtNombre.setText("");
                         vista.jtxtApellido.setText("");
                         vista.jtxtDpi.setText("");
-                        this.cliente=null;
+                        vista.jtxtIdCliente.setText("1");
                         ControladorRegistrarCliente regCliente = 
-                                new ControladorRegistrarCliente(vistaCliente);
-                        regCliente.setJTxt(vista.jtxtNit, vista.jtxtIngreseCodigo);
+                                new ControladorRegistrarCliente(vistaCliente,this.vista);
                         regCliente.iniciar();
                         
                         
@@ -340,7 +335,7 @@ public class ControladorVentas implements WindowListener, ActionListener, MouseL
                         vista.jtxtNombre.setText("");
                         vista.jtxtApellido.setText("");
                         vista.jtxtDpi.setText("");
-                        vista.jtxtNit.setText("");
+                        vista.jtxtNit.setText("C/F");
                         vista.jtxtNombre.setEditable(true);
                         vista.jtxtApellido.setEditable(true);
                         vista.jtxtDpi.setEditable(true);
@@ -408,7 +403,10 @@ public class ControladorVentas implements WindowListener, ActionListener, MouseL
     @Override
     public void focusGained(FocusEvent fe) {
         if(fe.getSource()==this.vista.jtxtNit){
-            this.vista.jtxtNit.setText("");
+            if(this.vista.jtxtNit.getText().endsWith("C/F")){
+                this.vista.jtxtNit.setText(""); 
+            }
+           
         }else if(fe.getSource()==this.vista.jtxtImporte){
             this.vista.jtxtImporte.setText("");
             
@@ -418,7 +416,9 @@ public class ControladorVentas implements WindowListener, ActionListener, MouseL
     @Override
     public void focusLost(FocusEvent fe) {
         if(fe.getSource()==this.vista.jtxtNit){
-            if(this.vista.jtxtNit.getText().equals("")){
+            if(this.vista.jtxtNit.getText().equals("")||
+                    Integer.parseInt(this.vista.jtxtIdCliente.getText())==1){
+                this.vista.jtxtIdCliente.setText("1");
                 this.vista.jtxtNit.setText("C/F");
                 vista.jtxtNombre.setText("");
                 vista.jtxtApellido.setText("");
@@ -432,17 +432,6 @@ public class ControladorVentas implements WindowListener, ActionListener, MouseL
             if(this.vista.jtxtImporte.getText().equals("")){
                 this.vista.jtxtImporte.setText("0");
             }
-        }
-    }
-    @Override
-    public void windowActivated(WindowEvent we) {
-        if(!vista.jtxtNit.getText().equals("")){
-            Cliente cli = new Cliente();
-            cli.setNit(vista.jtxtNit.getText());
-            if(consultaCliente.consultar(cli)){
-                this.cliente=cli;
-            }
-            
         }
     }
 
@@ -472,29 +461,7 @@ public class ControladorVentas implements WindowListener, ActionListener, MouseL
     public void keyReleased(KeyEvent ke) {
     }
 
-    @Override
-    public void windowOpened(WindowEvent we) {
-    }
-
-    @Override
-    public void windowClosing(WindowEvent we) {
-    }
-
-    @Override
-    public void windowClosed(WindowEvent we) {
-    }
-
-    @Override
-    public void windowIconified(WindowEvent we) {
-    }
-
-    @Override
-    public void windowDeiconified(WindowEvent we) {
-    }
-
-    @Override
-    public void windowDeactivated(WindowEvent we) {
-    }
+    
 
     
     

@@ -86,40 +86,40 @@ public class ControladorLogin implements ActionListener, KeyListener, MouseListe
     //funcion para iniciar seccion
     private void session(){
         try{
-            
+
             Usuario modelo = new Usuario();
-                modelo.setNombreUsuario(vista.jtxtUsuario.getText());
-                modelo.setContraseña(String.valueOf(vista.jPassword.getPassword()));
+            modelo.setNombreUsuario(vista.jtxtUsuario.getText());
+            modelo.setContraseña(String.valueOf(vista.jPassword.getPassword()));
 
-                //verifica existe el usuario
-                if(consulta.iniciarSesion(modelo)){
-                
-                    //ingreso exitoso       
-                    JOptionPane.showMessageDialog(null,"Ingreso Exitoso");
-                    if(modelo.getTipo().equals("Admin")){
+            //verifica existe el usuario
+            if(consulta.iniciarSesion(modelo)){
 
-                        ControladorAdministrador controladorA = 
-                                new ControladorAdministrador(vistaAdmin,modelo);
-                        vista.dispose();
-                        controladorA.iniciar();
+                //ingreso exitoso       
+                JOptionPane.showMessageDialog(null,"Ingreso Exitoso");
+                if(modelo.getTipo().equals("Admin")){
 
-                    }else if(modelo.getTipo().equals("Empleado")){
-                        ControladorVentas ControlVentas = 
-                                new ControladorVentas(vistaVentas,modelo);
+                    ControladorAdministrador controladorA = 
+                            new ControladorAdministrador(vistaAdmin,modelo);
+                    vista.dispose();
+                    controladorA.iniciar();
 
-                        ControlVentas.iniciar();
-                        vista.dispose();
-                        
+                }else if(modelo.getTipo().equals("Empleado")){
+                    ControladorVentas ControlVentas = 
+                            new ControladorVentas(vistaVentas,modelo);
 
-                    }else{}
+                    ControlVentas.iniciar();
+                    vista.dispose();
 
-                }else{
-                    //usuario no existe
-                    JOptionPane.showMessageDialog(null,"Nombre de usuario o contraseña");
-                    vista.jtxtUsuario.setText("");
-                    vista.jPassword.setText("");
-                    vista.jtxtUsuario.requestFocus();
-                }
+
+                }else{}
+
+            }else{
+                //usuario no existe
+                JOptionPane.showMessageDialog(null,"Nombre de usuario o contraseña");
+                vista.jtxtUsuario.setText("");
+                vista.jPassword.setText("");
+                vista.jtxtUsuario.requestFocus();
+            }
             
         }catch(Exception e){}
         
