@@ -25,9 +25,6 @@ public class ControladorRegistrarCliente implements MouseListener,DocumentListen
     private RegistroCliente vista;
     private ConsultasCliente conCliente = new ConsultasCliente();
     private JTextField JTextNit;
-    private JTextField JTextNombre;
-    private JTextField JTextApellidos;
-    private JTextField JTextDpi;
     private JTextField JTextCodigo;
             
     public ControladorRegistrarCliente(RegistroCliente regCliente) {
@@ -72,9 +69,6 @@ public class ControladorRegistrarCliente implements MouseListener,DocumentListen
                     this.vista.btnRegistrar.setVisible(false);
                     this.vista.dispose();
                     this.JTextNit.setText(cli.getNit());
-                    this.JTextNombre.setText(cli.getNombre());
-                    this.JTextApellidos.setText(cli.getApellido());
-                    this.JTextDpi.setText(cli.getDpi());
                     this.JTextCodigo.requestFocus();
                 }else{
                     JOptionPane.showMessageDialog(null,"Error al registar al cliente");
@@ -98,14 +92,9 @@ public class ControladorRegistrarCliente implements MouseListener,DocumentListen
         }
         
     }
-    public void setJTxt(JTextField txtNit,JTextField txtNom,JTextField txtApe,
-            JTextField txtDpi,JTextField txtCod){
+    public void setJTxt(JTextField txtNit,JTextField txtCod){
         this.JTextNit = txtNit;
-        this.JTextNombre=txtNom;
-        this.JTextApellidos=txtApe;
-        this.JTextDpi=txtDpi;
         this.JTextCodigo=txtCod;
-        this.vista.jtxtNIT.setText(this.JTextNit.getText());
     }
     public void iniciar(){
         this.vista.setLocationRelativeTo(null);

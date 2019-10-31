@@ -332,8 +332,7 @@ public class ControladorVentas implements WindowListener, ActionListener, MouseL
                         this.cliente=null;
                         ControladorRegistrarCliente regCliente = 
                                 new ControladorRegistrarCliente(vistaCliente);
-                        regCliente.setJTxt(vista.jtxtNit, vista.jtxtNombre, 
-                                vista.jtxtApellido, vista.jtxtDpi, vista.jtxtIngreseCodigo);
+                        regCliente.setJTxt(vista.jtxtNit, vista.jtxtIngreseCodigo);
                         regCliente.iniciar();
                         
                         
