@@ -15,6 +15,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import static java.sql.DriverManager.getConnection;
 import static java.sql.DriverManager.getConnection;
@@ -77,75 +78,75 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnImprimirUs){
             Connection cn=(Connection)getConnection();
-            String jasperReport="C:\\Users\\Orlando\\Documents\\NetBeansProjects\\proyecto2\\src\\Reportes\\RpUsuario.jasper";
+            String jasperReport=Paths.get("").toAbsolutePath().toString()+"/src/Reportes/RpUsuario.jasper";
             
             try {
                 JasperPrint print=JasperFillManager.fillReport(jasperReport,null,cn);
                 JasperViewer view = new JasperViewer(print,false);
                 view.setVisible(true);
             } catch (JRException ex) {
-                Logger.getLogger(ControladorVReportes.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.print(ex);
             }   
         }
         
         else if(e.getSource()==vista.btnImprimirPr){
             Connection cn=(Connection)getConnection();
-            String jasperReport="C:\\Users\\Orlando\\Documents\\NetBeansProjects\\proyecto2\\src\\Reportes\\RpProveedorLandscape.jasper";
+            String jasperReport=Paths.get("").toAbsolutePath().toString()+"/src/Reportes/RpProveedorLandscape.jasper";
             
             try {
                 JasperPrint print=JasperFillManager.fillReport(jasperReport,null,cn);
                 JasperViewer view = new JasperViewer(print,false);
                 view.setVisible(true);
             } catch (JRException ex) {
-                Logger.getLogger(ControladorVReportes.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.print(ex);
             }   
         }
         else if(e.getSource()==vista.btnImprimirIn){
             Connection cn=(Connection)getConnection();
-            String jasperReport="C:\\Users\\Orlando\\Documents\\NetBeansProjects\\proyecto2\\src\\Reportes\\RpInventario.jasper";
+            String jasperReport=Paths.get("").toAbsolutePath().toString()+"/src/Reportes/RpInventario.jasper";
             
             try {
                 JasperPrint print=JasperFillManager.fillReport(jasperReport,null,cn);
                 JasperViewer view = new JasperViewer(print,false);
                 view.setVisible(true);
             } catch (JRException ex) {
-                Logger.getLogger(ControladorVReportes.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.print(ex);
             }   
         }
         else if(e.getSource()==vista.btnImprimirCa){
             Connection cn=(Connection)getConnection();
-            String jasperReport="C:\\Users\\Orlando\\Documents\\NetBeansProjects\\proyecto2\\src\\Reportes\\RpCategorias.jasper";
+            String jasperReport=Paths.get("").toAbsolutePath().toString()+"/src/Reportes/RpCategorias.jasper";
             
             try {
                 JasperPrint print=JasperFillManager.fillReport(jasperReport,null,cn);
                 JasperViewer view = new JasperViewer(print,false);
                 view.setVisible(true);
             } catch (JRException ex) {
-                Logger.getLogger(ControladorVReportes.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.print(ex);
             }   
         }
         else if(e.getSource()==vista.btnImprimirMa){
             Connection cn=(Connection)getConnection();
-            String jasperReport="C:\\Users\\Orlando\\Documents\\NetBeansProjects\\proyecto2\\src\\Reportes\\RpMarcas.jasper";
+            String jasperReport="Paths.get(\"\").toAbsolutePath().toString()+\"/src/Reportes/RpMarcas.jasper";
             
             try {
                 JasperPrint print=JasperFillManager.fillReport(jasperReport,null,cn);
                 JasperViewer view = new JasperViewer(print,false);
                 view.setVisible(true);
             } catch (JRException ex) {
-                Logger.getLogger(ControladorVReportes.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.print(ex);
             }   
         }
         else if(e.getSource()==vista.btnImprimirPro){
             Connection cn=(Connection)getConnection();
-            String jasperReport="C:\\Users\\Orlando\\Documents\\NetBeansProjects\\proyecto2\\src\\Reportes\\RpProductos.jasper";
+            String jasperReport=Paths.get("").toAbsolutePath().toString()+"/src/Reportes/RpProductos.jasper";
             
             try {
                 JasperPrint print=JasperFillManager.fillReport(jasperReport,null,cn);
                 JasperViewer view = new JasperViewer(print,false);
                 view.setVisible(true);
             } catch (JRException ex) {
-                Logger.getLogger(ControladorVReportes.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.print(ex);
             }   
         }
     }

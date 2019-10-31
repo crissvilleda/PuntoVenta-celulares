@@ -9,6 +9,7 @@ import Modelo.ConsultasUsuario;
 import Controlador.ControladorLogin;
 import Modelo.Usuario;
 import Vista.Login;
+import java.nio.file.Paths;
 
 /**
  *
@@ -22,6 +23,8 @@ public class Principal {
     public static void main(String[] args) {
         Login vista = new Login();
         ControladorLogin controlador = new ControladorLogin(vista);
+
+        
         
         controlador.iniciar();
     }
