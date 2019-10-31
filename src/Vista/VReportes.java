@@ -41,8 +41,10 @@ public class VReportes extends javax.swing.JFrame {
         btnImprimirVe = new javax.swing.JButton();
         jcmbUsuario = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
-        jcmbFecha = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
+        dcFI = new com.toedter.calendar.JDateChooser();
+        jLabel25 = new javax.swing.JLabel();
+        dcFF = new com.toedter.calendar.JDateChooser();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -143,21 +145,37 @@ public class VReportes extends javax.swing.JFrame {
         btnImprimirVe.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
         btnImprimirVe.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
         btnImprimirVe.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ImprimirListado.png"))); // NOI18N
-        jPanel1.add(btnImprimirVe, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 305, -1, -1));
+        jPanel1.add(btnImprimirVe, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 355, -1, -1));
 
         jPanel1.add(jcmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 100, -1));
 
         jLabel22.setBackground(new java.awt.Color(255, 255, 255));
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel22.setText("Seleccione Fecha");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
-
-        jPanel1.add(jcmbFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 100, -1));
+        jLabel22.setText("Fecha Inicial");
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
         jLabel16.setBackground(new java.awt.Color(255, 255, 255));
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ventas.png"))); // NOI18N
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+
+        dcFI.setBackground(new java.awt.Color(36, 33, 33));
+        dcFI.setForeground(new java.awt.Color(207, 207, 207));
+        dcFI.setDateFormatString("dd-MM-yyyy");
+        dcFI.setFont(new java.awt.Font("Verdana", 1, 12));
+        jPanel1.add(dcFI, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 270, 150, -1));
+
+        jLabel25.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel25.setText("Fecha Final");
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
+
+        dcFF.setBackground(new java.awt.Color(36, 33, 33));
+        dcFF.setForeground(new java.awt.Color(207, 207, 207));
+        dcFF.setDateFormatString("dd-MM-yyyy");
+        dcFF.setFont(new java.awt.Font("Verdana", 1, 12));
+        jPanel1.add(dcFF, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 320, 150, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 100, 170, 400));
 
@@ -382,6 +400,8 @@ public class VReportes extends javax.swing.JFrame {
     public javax.swing.JButton btnImprimirPro;
     public javax.swing.JButton btnImprimirUs;
     public javax.swing.JButton btnImprimirVe;
+    public com.toedter.calendar.JDateChooser dcFF;
+    public com.toedter.calendar.JDateChooser dcFI;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -398,6 +418,7 @@ public class VReportes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -412,7 +433,6 @@ public class VReportes extends javax.swing.JFrame {
     public javax.swing.JPanel jPanel6;
     public javax.swing.JPanel jPanel7;
     private javax.swing.JSeparator jSeparator1;
-    public javax.swing.JComboBox<String> jcmbFecha;
     public javax.swing.JComboBox<String> jcmbUsuario;
     public javax.swing.JLabel jlblInicio;
     public javax.swing.JLabel jlblMinimizar;
