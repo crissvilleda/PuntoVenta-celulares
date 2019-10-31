@@ -23,6 +23,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import javax.swing.JLabel;
@@ -38,7 +40,7 @@ import javax.swing.table.TableModel;
  *
  * @author criss
  */
-public class ControladorVentas implements ActionListener, MouseListener,KeyListener,
+public class ControladorVentas implements WindowListener, ActionListener, MouseListener,KeyListener,
         TableModelListener,DocumentListener, FocusListener{
     private Ventas vista;
     private Usuario modelo;
@@ -433,6 +435,18 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
             }
         }
     }
+    @Override
+    public void windowActivated(WindowEvent we) {
+        if(!vista.jtxtNit.getText().equals("")){
+            Cliente cli = new Cliente();
+            cli.setNit(vista.jtxtNit.getText());
+            if(consultaCliente.consultar(cli)){
+                this.cliente=cli;
+            }
+            
+        }
+    }
+
     
     @Override
     public void keyTyped(KeyEvent ke) {
@@ -457,6 +471,30 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
 
     @Override
     public void keyReleased(KeyEvent ke) {
+    }
+
+    @Override
+    public void windowOpened(WindowEvent we) {
+    }
+
+    @Override
+    public void windowClosing(WindowEvent we) {
+    }
+
+    @Override
+    public void windowClosed(WindowEvent we) {
+    }
+
+    @Override
+    public void windowIconified(WindowEvent we) {
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent we) {
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent we) {
     }
 
     
