@@ -145,6 +145,7 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
                 System.err.print(ex);
             }   
         }
+        
     }
 
     
