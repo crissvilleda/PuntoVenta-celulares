@@ -45,19 +45,16 @@ public class ConsultasVenta extends Pool{
             ps.setDouble(6, venta.getTotalVenta());
             ps.executeUpdate();
             
-            int idVenta = 0; 
             rs = ps.getGeneratedKeys();
             if(rs.next()){
-                idVenta = rs.getInt(1); 
-                
+                venta.setIdVenta(rs.getInt(1));    
             }
-            
             ps = null;
             rs = null;
             for(int i = 0; i< model.getRowCount();i++){
                 //********detalle venta*******//
                 ps = (PreparedStatement)cn.prepareStatement(sqlDetVenta);
-                ps.setInt(1, idVenta);
+                ps.setInt(1, venta.getIdVenta());
                 ps.setInt(2, Integer.parseInt(model.getValueAt(i, 0).toString()));
                 ps.setDouble(3, Double.parseDouble(model.getValueAt(i, 5).toString()));
                 ps.setDouble(4, Double.parseDouble(model.getValueAt(i, 6).toString()));

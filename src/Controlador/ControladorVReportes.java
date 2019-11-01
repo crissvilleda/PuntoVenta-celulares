@@ -18,6 +18,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.nio.file.Paths;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -90,6 +91,15 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
             } catch (JRException ex) {
                 JOptionPane.showMessageDialog(null,"Error: "+ ex);
                 System.err.print(ex);
+            }finally{
+                if(cn!=null){
+                    try{
+                        cn.close();
+                    }catch(SQLException ex){
+                        System.err.println(ex);
+                    }
+                
+                }
             }   
         }
         
@@ -104,7 +114,16 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
             } catch (JRException ex) {
                 JOptionPane.showMessageDialog(null,"Error: "+ ex);
                 System.err.print(ex);
-            }   
+            }finally{
+                if(cn!=null){
+                    try{
+                        cn.close();
+                    }catch(SQLException ex){
+                        System.err.println(ex);
+                    }
+                
+                }
+            }    
         }
         else if(e.getSource()==vista.btnImprimirIn){
             Connection cn=(Connection)getConnection();
@@ -117,7 +136,16 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
             } catch (JRException ex) {
                 JOptionPane.showMessageDialog(null,"Error: "+ ex);
                 System.err.print(ex);
-            }   
+            }finally{
+                if(cn!=null){
+                    try{
+                        cn.close();
+                    }catch(SQLException ex){
+                        System.err.println(ex);
+                    }
+                
+                }
+            }    
         }
         else if(e.getSource()==vista.btnImprimirCa){
             Connection cn=(Connection)getConnection();
@@ -130,7 +158,16 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
             } catch (JRException ex) {
                 JOptionPane.showMessageDialog(null,"Error: "+ ex);
                 System.err.print(ex);
-            }   
+            }finally{
+                if(cn!=null){
+                    try{
+                        cn.close();
+                    }catch(SQLException ex){
+                        System.err.println(ex);
+                    }
+                
+                }
+            }    
         }
         else if(e.getSource()==vista.btnImprimirMa){
             Connection cn=(Connection)getConnection();
@@ -143,7 +180,16 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
             } catch (JRException ex) {
                 JOptionPane.showMessageDialog(null,"Error: "+ ex);
                 System.err.print(ex);
-            }   
+            }finally{
+                if(cn!=null){
+                    try{
+                        cn.close();
+                    }catch(SQLException ex){
+                        System.err.println(ex);
+                    }
+                
+                }
+            }    
         }
         else if(e.getSource()==vista.btnImprimirPro){
             Connection cn=(Connection)getConnection();
@@ -156,7 +202,16 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
             } catch (JRException ex) {
                 JOptionPane.showMessageDialog(null,"Error: "+ ex);
                 System.err.print(ex);
-            }   
+            }finally{
+                if(cn!=null){
+                    try{
+                        cn.close();
+                    }catch(SQLException ex){
+                        System.err.println(ex);
+                    }
+                
+                }
+            }    
         }else if(e.getSource()==vista.btnImprimirVe){
             if(!vista.jcmbUsuario.getModel().getSelectedItem().toString().equals("")){
                 Connection cn = (Connection)getConnection();
@@ -196,7 +251,16 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
                     System.err.println(exe);
                     
                     
-                }
+                }finally{
+                    if(cn!=null){
+                        try{
+                            cn.close();
+                        }catch(SQLException ex){
+                            System.err.println(ex);
+                        }
+
+                    }
+                } 
             
         }else{
                 JOptionPane.showMessageDialog(null,"Selecione un usuario porfavor");

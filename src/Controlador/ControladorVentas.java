@@ -9,6 +9,7 @@ import Modelo.Cliente;
 import Modelo.ConsultasCliente;
 import Modelo.ConsultasProducto;
 import Modelo.ConsultasVenta;
+import Modelo.Pool;
 import Modelo.Usuario;
 import Modelo.Venta;
 import Vista.ListaProducto;
@@ -25,8 +26,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.nio.file.Paths;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
@@ -35,12 +40,16 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
  * @author criss
  */
-public class ControladorVentas implements ActionListener, MouseListener,KeyListener,
+public class ControladorVentas extends Pool implements ActionListener, MouseListener,KeyListener,
         TableModelListener,DocumentListener, FocusListener{
     private Ventas vista;
     private Usuario modelo;
@@ -190,6 +199,7 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
         
     }
     private void realizarVentaTransaccion(){
+        Connection cn = (Connection)getConnection();
         try{
             Venta venta = new Venta();
             long now = System.currentTimeMillis();
@@ -229,6 +239,23 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
                 
                 JOptionPane.showMessageDialog(null,"\nVenta Exitosa\nTotal Venta: "+totalVenta
                 +"\nImporte: "+importe+"\nCambio: "+cambio);
+                
+                //Imprimir factura
+                
+                Map<String,Object> params = new HashMap<>();
+                String jasperReport = Paths.get("").toAbsolutePath().toString()+""
+                        + "/src/Reportes/RprFactura.jasper";
+                params.put("idVenta", venta.getIdVenta());
+                params.put("importe", importe);
+                params.put("cambio",cambio);
+                
+                
+                //generar y mostrar factura
+                JasperPrint print = JasperFillManager.fillReport(jasperReport, null, cn);
+                JasperViewer view = new JasperViewer(print,false);
+                //view.setVisible(true);
+                
+                        
 
 
             }else{
@@ -237,8 +264,22 @@ public class ControladorVentas implements ActionListener, MouseListener,KeyListe
 
             }
         }catch(SQLException ex){
-            System.err.println(ex);
+            JOptionPane.showMessageDialog(null,"Error: "+ ex);
+                System.err.print(ex);
 
+        }catch(JRException exr){
+            JOptionPane.showMessageDialog(null,"Error al imprimir factura: "+ exr);
+                System.err.print(exr);
+            
+        }finally{
+            if(cn!=null){
+                try{
+                    cn.close();
+                }catch(SQLException e){
+                    System.err.println(e);
+                }
+                
+            }
         }
         
     }
