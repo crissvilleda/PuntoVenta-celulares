@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Modelo.ConsultasUsuario;
 import Modelo.Pool;
 import Modelo.Usuario;
 import Vista.Administrador;
@@ -17,6 +18,10 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.nio.file.Paths;
 import java.sql.Connection;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -31,7 +36,7 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
     private VReportes vista;
     private Usuario modelo;
     private Administrador vistAdmin= new Administrador();
-    
+    private ConsultasUsuario conUsuarios= new ConsultasUsuario();
     //Constructor
     public ControladorVReportes(VReportes vista, Usuario modelo) {
         this.vista = vista;
@@ -45,7 +50,9 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
         vista.btnImprimirCa.addActionListener(this);
         vista.btnImprimirMa.addActionListener(this);
         vista.btnImprimirPro.addActionListener(this);
-        
+        vista.btnImprimirVe.addActionListener(this);
+        vista.jcmbUsuario.addItem("");
+        conUsuarios.listUsu(vista.jcmbUsuario);
         vista.addWindowListener(this);
     }
 
@@ -81,6 +88,7 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
                 JasperViewer view = new JasperViewer(print,false);
                 view.setVisible(true);
             } catch (JRException ex) {
+                JOptionPane.showMessageDialog(null,"Error: "+ ex);
                 System.err.print(ex);
             }   
         }
@@ -94,6 +102,7 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
                 JasperViewer view = new JasperViewer(print,false);
                 view.setVisible(true);
             } catch (JRException ex) {
+                JOptionPane.showMessageDialog(null,"Error: "+ ex);
                 System.err.print(ex);
             }   
         }
@@ -106,6 +115,7 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
                 JasperViewer view = new JasperViewer(print,false);
                 view.setVisible(true);
             } catch (JRException ex) {
+                JOptionPane.showMessageDialog(null,"Error: "+ ex);
                 System.err.print(ex);
             }   
         }
@@ -118,6 +128,7 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
                 JasperViewer view = new JasperViewer(print,false);
                 view.setVisible(true);
             } catch (JRException ex) {
+                JOptionPane.showMessageDialog(null,"Error: "+ ex);
                 System.err.print(ex);
             }   
         }
@@ -130,6 +141,7 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
                 JasperViewer view = new JasperViewer(print,false);
                 view.setVisible(true);
             } catch (JRException ex) {
+                JOptionPane.showMessageDialog(null,"Error: "+ ex);
                 System.err.print(ex);
             }   
         }
@@ -142,8 +154,54 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
                 JasperViewer view = new JasperViewer(print,false);
                 view.setVisible(true);
             } catch (JRException ex) {
+                JOptionPane.showMessageDialog(null,"Error: "+ ex);
                 System.err.print(ex);
             }   
+        }else if(e.getSource()==vista.btnImprimirVe){
+            if(!vista.jcmbUsuario.getModel().getSelectedItem().toString().equals("")){
+                Connection cn = (Connection)getConnection();
+                String jasperReport =Paths.get("").toAbsolutePath().toString()+"/src"
+                        + "/Reportes/RprVentas.jasper";
+                try{
+
+                    String usuario = vista.jcmbUsuario.getItemAt(vista.jcmbUsuario.getSelectedIndex());
+                    int añoI = vista.dcFI.getCalendar().get(Calendar.YEAR);
+                    int mesI = vista.dcFI.getCalendar().get(Calendar.MONTH)+1;
+                    int diaI = vista.dcFI.getCalendar().get(Calendar.DAY_OF_MONTH);
+                    int añoF = vista.dcFF.getCalendar().get(Calendar.YEAR);
+                    int mesF = vista.dcFF.getCalendar().get(Calendar.MONTH)+1;
+                    int diaF = vista.dcFF.getCalendar().get(Calendar.DAY_OF_MONTH);
+
+                    String fechaI =(añoI+"-"+mesI+"-"+diaI);
+                    String fechaF =(añoF+"-"+mesF+"-"+diaF);
+
+
+                    Map<String,Object> params = new HashMap<>();
+                    params.put("usuario",usuario);
+                    params.put("fechaInicial",fechaI);
+                    params.put("fechaFinal", fechaF);
+
+                    JasperPrint print =JasperFillManager.fillReport(jasperReport,params, cn);
+                    JasperViewer view = new JasperViewer(print,false);
+                    view.setVisible(true);
+
+                }catch(JRException ex){
+                    JOptionPane.showMessageDialog(null,"Error: "+ ex);
+                    System.err.println(ex);
+                }catch(NullPointerException exs){
+                    JOptionPane.showMessageDialog(null,"Seleccione el rango de fecha");
+                    System.err.println(exs);
+                }catch(Exception exe){
+                    JOptionPane.showMessageDialog(null,"Error: "+ exe);
+                    System.err.println(exe);
+                    
+                    
+                }
+            
+        }else{
+                JOptionPane.showMessageDialog(null,"Selecione un usuario porfavor");
+                
+            }
         }
         
     }

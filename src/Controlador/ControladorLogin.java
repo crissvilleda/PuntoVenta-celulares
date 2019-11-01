@@ -86,7 +86,6 @@ public class ControladorLogin implements ActionListener, KeyListener, MouseListe
     //funcion para iniciar seccion
     private void session(){
         try{
-
             Usuario modelo = new Usuario();
             modelo.setNombreUsuario(vista.jtxtUsuario.getText());
             modelo.setContraseña(String.valueOf(vista.jPassword.getPassword()));
