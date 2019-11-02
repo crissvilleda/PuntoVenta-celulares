@@ -16,6 +16,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
@@ -92,7 +93,7 @@ public class ControladorInventario extends Pool implements MouseListener, Docume
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnImprimirListado){
             Connection cn = (Connection)getConnection();
-            String jasperReport ="C:\\Users\\Orlando\\Documents\\NetBeansProjects\\proyecto2\\src\\Reportes\\RprInventario.jasper";
+            String jasperReport =Paths.get("").toAbsolutePath().toString()+"/src/Reportes/RprInventario.jasper";
             
             try {
                 

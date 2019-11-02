@@ -90,7 +90,7 @@ public class Administrador extends javax.swing.JFrame {
                 jlblFacturasMouseExited(evt);
             }
         });
-        jPanelAdministrador.add(jlblFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 150, 100));
+        jPanelAdministrador.add(jlblFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 150, 100));
 
         jlblCorteCaja.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlblCorteCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CorteCaja.png"))); // NOI18N
@@ -135,7 +135,7 @@ public class Administrador extends javax.swing.JFrame {
                 jlblReportesMouseExited(evt);
             }
         });
-        jPanelAdministrador.add(jlblReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 150, 100));
+        jPanelAdministrador.add(jlblReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 150, 100));
 
         jlblProveedores.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlblProveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8_Handshake_96px.png"))); // NOI18N
@@ -214,13 +214,13 @@ public class Administrador extends javax.swing.JFrame {
         btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/iconoReportes.png"))); // NOI18N
         btnReportes.setBorder(null);
         btnReportes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelAdministrador.add(btnReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, -1, -1));
+        jPanelAdministrador.add(btnReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, -1, -1));
 
         btnFacturas.setBackground(new java.awt.Color(255, 255, 255));
         btnFacturas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/iconoFacturas.png"))); // NOI18N
         btnFacturas.setBorder(null);
         btnFacturas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelAdministrador.add(btnFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, -1, -1));
+        jPanelAdministrador.add(btnFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, -1, -1));
 
         btnCorteCaja.setBackground(new java.awt.Color(255, 255, 255));
         btnCorteCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/iconoCorteCaja.png"))); // NOI18N

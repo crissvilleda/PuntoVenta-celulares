@@ -44,7 +44,6 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
         this.modelo = modelo;
         //lee el evento al hacer clic de cada icono del menu principal
         vista.jlblConfiguracion.addMouseListener(this);
-        //vista.jlblCorteCaja.addMouseListener(this);
         vista.jlblCorteCaja.addMouseListener(this);
         vista.jlblEntradas.addMouseListener(this);
         vista.jlblFacturas.addMouseListener(this);
@@ -55,8 +54,9 @@ public class ControladorAdministrador implements ActionListener, MouseListener {
         vista.jlblMinimizar.addMouseListener(this);
         vista.btnCerrarSesion.addActionListener(this);
         vista.jlblFacturas.setEnabled(false);
-        //vista.jlblCorteCaja.setEnabled(false);
-        //vista.jlblReportes.setEnabled(false);
+        vista.jlblFacturas.setVisible(false);
+        vista.btnFacturas.setVisible(false);
+        
         
     
     }
