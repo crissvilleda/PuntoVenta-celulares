@@ -26,7 +26,7 @@ public class Login extends javax.swing.JFrame {
         holders();
     }
     public Image getIconImage(){
-        Image retValue=Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Image/icono.png"));
+        Image retValue=Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Image/LoginFormu.png"));
         return retValue;
     }
     

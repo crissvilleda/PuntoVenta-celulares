@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author criss
@@ -18,7 +21,10 @@ public class CantPrecioEnt extends javax.swing.JFrame {
         initComponents();
          this.setLocationRelativeTo(null);
     }
-
+public Image getIconImage(){
+        Image retValue=Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Image/LogFormu.png"));
+        return retValue;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,9 +46,9 @@ public class CantPrecioEnt extends javax.swing.JFrame {
         btnSeleccionar = new javax.swing.JButton();
         jlblCerrar2 = new javax.swing.JLabel();
 
-        setUndecorated(true);
-        setResizable(false);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(103, 103, 103)));

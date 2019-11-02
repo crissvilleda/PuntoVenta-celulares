@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package Vista;
+
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Orlando
@@ -16,6 +20,10 @@ public class VUsuario extends javax.swing.JFrame {
     public VUsuario() {
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+    public Image getIconImage(){
+        Image retValue=Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Image/LogFormu.png"));
+        return retValue;
     }
 
     /**
@@ -48,6 +56,7 @@ public class VUsuario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setIconImage(getIconImage());
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

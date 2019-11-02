@@ -6,6 +6,8 @@
 package Vista;
 
 import AppPackage.AnimationClass;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 /**
  *
@@ -19,6 +21,10 @@ public class Administrador extends javax.swing.JFrame {
     public Administrador() {
         initComponents();
          this.setLocationRelativeTo(null);
+    }
+     public Image getIconImage(){
+        Image retValue=Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Image/LogFormu.png"));
+        return retValue;
     }
 
     /**
@@ -54,6 +60,7 @@ public class Administrador extends javax.swing.JFrame {
         btnConfiguracion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

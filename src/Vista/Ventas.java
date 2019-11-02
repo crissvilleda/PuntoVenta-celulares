@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -24,6 +26,7 @@ public class Ventas extends javax.swing.JFrame {
     public Ventas() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
         
         //Fecha del Sistema
         Date sistFecha = new Date();
@@ -45,6 +48,10 @@ public class Ventas extends javax.swing.JFrame {
             jlblHoraSistema.setText(String.format(format.format(sistHora),hoy));
             
         }
+    }
+    public Image getIconImage(){
+        Image retValue=Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Image/LogFormu.png"));
+        return retValue;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -107,6 +114,7 @@ public class Ventas extends javax.swing.JFrame {
         jlblCambioVenta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

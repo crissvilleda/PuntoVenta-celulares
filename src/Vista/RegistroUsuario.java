@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Orlando
@@ -18,6 +21,10 @@ public class RegistroUsuario extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.btnRegistrar.setEnabled(false);
+    }
+    public Image getIconImage(){
+        Image retValue=Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Image/LogFormu.png"));
+        return retValue;
     }
 
     /**
@@ -56,6 +63,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jlblMensaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

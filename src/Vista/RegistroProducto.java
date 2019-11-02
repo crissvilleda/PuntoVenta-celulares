@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Orlando
@@ -17,6 +20,10 @@ public class RegistroProducto extends javax.swing.JFrame {
     public RegistroProducto() {
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+    public Image getIconImage(){
+        Image retValue=Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Image/LogFormu.png"));
+        return retValue;
     }
 
     /**
@@ -46,6 +53,7 @@ public class RegistroProducto extends javax.swing.JFrame {
         jcmbMarca = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

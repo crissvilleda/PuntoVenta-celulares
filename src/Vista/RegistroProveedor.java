@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Orlando
@@ -17,6 +20,10 @@ public class RegistroProveedor extends javax.swing.JFrame {
     public RegistroProveedor() {
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+    public Image getIconImage(){
+        Image retValue=Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Image/LogFormu.png"));
+        return retValue;
     }
 
     /**
@@ -52,8 +59,8 @@ public class RegistroProveedor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setIconImage(getIconImage());
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(400, 500));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
