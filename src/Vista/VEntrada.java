@@ -128,8 +128,8 @@ public class VEntrada extends javax.swing.JFrame {
             jtableEntrada.getColumnModel().getColumn(0).setPreferredWidth(10);
             jtableEntrada.getColumnModel().getColumn(3).setMinWidth(160);
             jtableEntrada.getColumnModel().getColumn(3).setMaxWidth(170);
-            jtableEntrada.getColumnModel().getColumn(5).setMinWidth(50);
-            jtableEntrada.getColumnModel().getColumn(5).setMaxWidth(60);
+            jtableEntrada.getColumnModel().getColumn(5).setMinWidth(0);
+            jtableEntrada.getColumnModel().getColumn(5).setMaxWidth(0);
         }
 
         jPanel2Entrada.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 760, 230));

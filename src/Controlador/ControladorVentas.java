@@ -91,6 +91,7 @@ public class ControladorVentas extends Pool implements ActionListener, MouseList
         this.vista.btnRealizar.setEnabled(false);
         this.vista.jtxtNit.setText("C/F");
         this.vista.jtxtNit.requestFocus();
+        this.vista.jtxtIdCliente.setVisible(false);
         
     }
     private void agregarProducto(){
@@ -211,9 +212,9 @@ public class ControladorVentas extends Pool implements ActionListener, MouseList
             venta.setTotaCompra(calcularTotalCompra());
             venta.setTotalVenta(Double.parseDouble(this.vista.jlblTotal.getText()));
             if(consultaVenta.registrar(this.vista.jtableVentas,venta)){
-                String totalVenta = this.vista.jlblTotal.getText();
-                String importe = this.vista.jtxtImporte.getText();
-                String cambio = this.vista.jlblCambioVenta.getText();
+                String totalVenta = String.format("%.2f", Double.parseDouble(this.vista.jlblTotal.getText()));
+                String importe = String.format("%.2f", Double.parseDouble(this.vista.jtxtImporte.getText()));
+                String cambio = String.format("%.2f",Double.parseDouble(this.vista.jlblCambioVenta.getText()));
                 vista.jtxtNombre.setEditable(true);
                 this.vista.jtxtApellido.setEditable(true);
                 this.vista.jtxtDpi.setEditable(true);
@@ -226,6 +227,7 @@ public class ControladorVentas extends Pool implements ActionListener, MouseList
                 this.vista.jlblCambioVenta.setText("00.00");
                 this.vista.jlblTotal.setText("00.00");
                 this.vista.jtxtCantidad.setText("1");
+                this.vista.jtxtIdCliente.setText("1");
                 this.vista.jtxtNit.setText("C/F");
                 consultaVenta.siguenteIdVenta(vista.jlblIdVenta);
                 this.vista.btnEliminarCarrito.setEnabled(false);
@@ -244,16 +246,16 @@ public class ControladorVentas extends Pool implements ActionListener, MouseList
                 
                 Map<String,Object> params = new HashMap<>();
                 String jasperReport = Paths.get("").toAbsolutePath().toString()+""
-                        + "/src/Reportes/RprFactura.jasper";
+                        + "/src/Reportes/RpFactura.jasper";
                 params.put("idVenta", venta.getIdVenta());
                 params.put("importe", importe);
                 params.put("cambio",cambio);
                 
                 
                 //generar y mostrar factura
-                JasperPrint print = JasperFillManager.fillReport(jasperReport, null, cn);
+                JasperPrint print = JasperFillManager.fillReport(jasperReport, params, cn);
                 JasperViewer view = new JasperViewer(print,false);
-                //view.setVisible(true);
+                view.setVisible(true);
                 
                         
 
