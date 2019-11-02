@@ -20,6 +20,8 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -162,21 +164,17 @@ public class ControladorCorteCaja implements MouseListener, WindowListener,
             }else{
                 try{
                    
-                    int añoI = vista.dcFI.getCalendar().get(Calendar.YEAR);
-                    int mesI = vista.dcFI.getCalendar().get(Calendar.MONTH)+1;
-                    int diaI = vista.dcFI.getCalendar().get(Calendar.DAY_OF_MONTH);
-                    int añoF = vista.dcFF.getCalendar().get(Calendar.YEAR);
-                    int mesF = vista.dcFF.getCalendar().get(Calendar.MONTH)+1;
-                    int diaF = vista.dcFF.getCalendar().get(Calendar.DAY_OF_MONTH);
 
-                    String fechaI =(añoI+"-"+mesI+"-"+diaI);
-                    String fechaF =(añoF+"-"+mesF+"-"+diaF);
+                    java.sql.Date fechaI = new java.sql.Date(vista.dcFI.getDate().getTime());
+                    java.sql.Date fechaF = new java.sql.Date(vista.dcFF.getDate().getTime());
+                    
+                    DateFormat df = new SimpleDateFormat("YYYY-MM-dd");
 
                     String usuario = vista.jcmbUsuario.getItemAt(
                             vista.jcmbUsuario.getSelectedIndex());
                     String total = null;
                     
-                    if(conCorte.getTotalVenta(usuario,fechaI, fechaF,vista.jtxtTV)){
+                    if(conCorte.getTotalVenta(usuario,df.format(fechaI),df.format(fechaF),vista.jtxtTV)){
                         vista.jPanel2CortCaj.setVisible(true);
                         vista.jtxtEI.requestFocus();
                         

@@ -18,7 +18,12 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.nio.file.Paths;
 import java.sql.Connection;
+import java.util.Date;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -220,21 +225,15 @@ public class ControladorVReportes extends Pool implements MouseListener, WindowL
                 try{
 
                     String usuario = vista.jcmbUsuario.getItemAt(vista.jcmbUsuario.getSelectedIndex());
-                    int añoI = vista.dcFI.getCalendar().get(Calendar.YEAR);
-                    int mesI = vista.dcFI.getCalendar().get(Calendar.MONTH)+1;
-                    int diaI = vista.dcFI.getCalendar().get(Calendar.DAY_OF_MONTH);
-                    int añoF = vista.dcFF.getCalendar().get(Calendar.YEAR);
-                    int mesF = vista.dcFF.getCalendar().get(Calendar.MONTH)+1;
-                    int diaF = vista.dcFF.getCalendar().get(Calendar.DAY_OF_MONTH);
-
-                    String fechaI =(añoI+"-"+mesI+"-"+diaI);
-                    String fechaF =(añoF+"-"+mesF+"-"+diaF);
-
+                                            
+                    java.sql.Date fechaI = new java.sql.Date(vista.dcFI.getDate().getTime());
+                    java.sql.Date fechaF = new java.sql.Date(vista.dcFF.getDate().getTime());   
+                    DateFormat df = new SimpleDateFormat("YYYY-MM-dd");
 
                     Map<String,Object> params = new HashMap<>();
                     params.put("usuario",usuario);
-                    params.put("fechaInicial",fechaI);
-                    params.put("fechaFinal", fechaF);
+                    params.put("fechaInicial",df.format(fechaI));
+                    params.put("fechaFinal", df.format(fechaF));
 
                     JasperPrint print =JasperFillManager.fillReport(jasperReport,params, cn);
                     JasperViewer view = new JasperViewer(print,false);
